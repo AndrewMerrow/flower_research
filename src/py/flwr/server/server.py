@@ -85,7 +85,8 @@ class Server:
         """Run federated averaging for a number of rounds."""
         history = History()
 
-        print("RUNNING NEW VERSION")
+        #print("RUNNING NEW VERSION")
+        log(INFO, "RUNNING NEW VERSION")
 
         # Initialize parameters
         log(INFO, "Initializing global parameters")
