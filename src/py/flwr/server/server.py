@@ -123,6 +123,7 @@ class Server:
                     test_params = parameters_to_ndarrays(self.parameters) + parameters_to_ndarrays(parameters_prime)
                     print(np.array_equal(test_params, parameters_to_ndarrays(self.parameters)))
                     self.parameters = ndarrays_to_parameters(test_params)
+                    print(np.array_equal(test_params, parameters_to_ndarrays(self.parameters)))
                 history.add_metrics_distributed_fit(
                     server_round=current_round, metrics=fit_metrics
                 )
