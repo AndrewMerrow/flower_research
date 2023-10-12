@@ -86,7 +86,7 @@ class CifarClient(fl.client.NumPyClient):
         #plt.show()
 
         #training
-        parameters_old = utils.get_model_params(model).detach()
+        parameters_old = utils.get_model_params(model)
         #test_params = parameters_old - parameters_old
         
         #parameters_old = parameters_to_ndarrays(utils.get_model_params(model))
