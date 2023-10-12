@@ -30,6 +30,8 @@ from flwr.common import (
     Parameters,
     ReconnectIns,
     Scalar,
+    parameters_to_ndarrays, 
+    ndarrays_to_parameters
 )
 from flwr.common.logger import log
 from flwr.common.typing import GetParametersIns
@@ -116,7 +118,8 @@ class Server:
             if res_fit is not None:
                 parameters_prime, fit_metrics, _ = res_fit  # fit_metrics_aggregated
                 if parameters_prime:
-                    self.parameters = self.parameters + parameters_prime
+                    test_params = parameters_to_ndarrays(self.parameters) + parameters_to_ndarrays(parameters_prime)
+                    self.parameters = test_params
                 history.add_metrics_distributed_fit(
                     server_round=current_round, metrics=fit_metrics
                 )
