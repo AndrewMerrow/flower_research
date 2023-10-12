@@ -158,7 +158,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #print(f"Round {server_round} poison accuracy aggregated from client fit results: {aggregated_poison_accuracy}")
 
         # Return aggregated model paramters and other metrics (i.e., aggregated accuracy)
-        return aggregated_parameters, {"accuracy": aggregated_accuracy}
+        return weights_prime, {"accuracy": aggregated_accuracy}
     
     def aggregate_evaluate(
         self,
