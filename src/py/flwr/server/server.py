@@ -119,7 +119,7 @@ class Server:
                 parameters_prime, fit_metrics, _ = res_fit  # fit_metrics_aggregated
                 if parameters_prime:
                     test_params = parameters_to_ndarrays(self.parameters) + parameters_to_ndarrays(parameters_prime)
-                    self.parameters = test_params
+                    self.parameters = ndarrays_to_parameters(test_params)
                 history.add_metrics_distributed_fit(
                     server_round=current_round, metrics=fit_metrics
                 )
