@@ -40,6 +40,8 @@ from flwr.server.client_proxy import ClientProxy
 from flwr.server.history import History
 from flwr.server.strategy import FedAvg, Strategy
 
+import numpy as np
+
 FitResultsAndFailures = Tuple[
     List[Tuple[ClientProxy, FitRes]],
     List[Union[Tuple[ClientProxy, FitRes], BaseException]],
@@ -119,6 +121,7 @@ class Server:
                 parameters_prime, fit_metrics, _ = res_fit  # fit_metrics_aggregated
                 if parameters_prime:
                     test_params = parameters_to_ndarrays(self.parameters) + parameters_to_ndarrays(parameters_prime)
+                    print(np.array_equal(test_params, parameters_to_ndarrays(self.parameters)))
                     self.parameters = ndarrays_to_parameters(test_params)
                 history.add_metrics_distributed_fit(
                     server_round=current_round, metrics=fit_metrics
