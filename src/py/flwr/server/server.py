@@ -121,9 +121,11 @@ class Server:
                 parameters_prime, fit_metrics, _ = res_fit  # fit_metrics_aggregated
                 if parameters_prime:
                     test_params = parameters_to_ndarrays(self.parameters) + parameters_to_ndarrays(parameters_prime)
-                    print(np.array_equal(test_params, parameters_to_ndarrays(self.parameters)))
+                    print("Before update")
+                    for val1, val2 in zip(test_params, parameters_to_ndarrays(self.parameters)):
+                        print(np.array_equal(val1, val2))
                     self.parameters = ndarrays_to_parameters(test_params)
-                    print(np.array_equal(test_params, parameters_to_ndarrays(self.parameters)))
+                    print("After update")
                     for val1, val2 in zip(test_params, parameters_to_ndarrays(self.parameters)):
                         print(np.array_equal(val1, val2))
                 history.add_metrics_distributed_fit(
