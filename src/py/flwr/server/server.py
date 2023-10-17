@@ -129,11 +129,13 @@ class Server:
                         #print("\n")
                         #print(val2)
                         print(np.array_equal(val1, val2))
-                    test_params = parameters_to_ndarrays(test_params) + parameters_to_ndarrays(parameters_prime)
+                    #test_params = parameters_to_ndarrays(test_params) + parameters_to_ndarrays(parameters_prime)
+                    test_params = np.add(parameters_to_ndarrays(test_params), parameters_to_ndarrays(parameters_prime))
+                    print("After update")
                     for val1, val2 in zip(test_params, parameters_to_ndarrays(self.parameters)):
                         print(np.array_equal(val1, val2))
                     self.parameters = ndarrays_to_parameters(test_params)
-                    print("After update")
+                    
                     
                 history.add_metrics_distributed_fit(
                     server_round=current_round, metrics=fit_metrics
