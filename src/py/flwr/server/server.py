@@ -121,7 +121,7 @@ class Server:
                 parameters_prime, fit_metrics, _ = res_fit  # fit_metrics_aggregated
                 if parameters_prime:
                     print("Param truncate check")
-                    print(parameters_prime)
+                    print(parameters_to_ndarrays(parameters_prime))
                     test_params = parameters_to_ndarrays(self.parameters) + parameters_to_ndarrays(parameters_prime)
                     print(np.array_equal(test_params, parameters_to_ndarrays(self.parameters)))
                     self.parameters = ndarrays_to_parameters(test_params)
