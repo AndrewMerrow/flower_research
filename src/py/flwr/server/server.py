@@ -120,19 +120,21 @@ class Server:
             if res_fit is not None:
                 parameters_prime, fit_metrics, _ = res_fit  # fit_metrics_aggregated
                 if parameters_prime:
-                    print("Prime test:")
-                    print(parameters_to_ndarrays(parameters_prime))
-                    test_params = parameters_to_ndarrays(self.parameters) + parameters_to_ndarrays(parameters_prime)
+                    #print("Prime test:")
+                    #print(parameters_to_ndarrays(parameters_prime))
+                    test_params = self.parameters
                     print("Before update")
-                    for val1, val2 in zip(test_params, parameters_to_ndarrays(self.parameters)):
+                    for val1, val2 in zip(parameters_to_ndarrays(test_params), parameters_to_ndarrays(self.parameters)):
                         #print(val1)
                         #print("\n")
                         #print(val2)
                         print(np.array_equal(val1, val2))
-                    self.parameters = ndarrays_to_parameters(test_params)
-                    print("After update")
+                    test_params = parameters_to_ndarrays(test_params) + parameters_to_ndarrays(parameters_prime)
                     for val1, val2 in zip(test_params, parameters_to_ndarrays(self.parameters)):
                         print(np.array_equal(val1, val2))
+                    self.parameters = ndarrays_to_parameters(test_params)
+                    print("After update")
+                    
                 history.add_metrics_distributed_fit(
                     server_round=current_round, metrics=fit_metrics
                 )
