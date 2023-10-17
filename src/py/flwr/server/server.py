@@ -124,8 +124,8 @@ class Server:
                     print(np.array_equal(test_params, parameters_to_ndarrays(self.parameters)))
                     self.parameters = ndarrays_to_parameters(test_params)
                     print(np.array_equal(test_params, parameters_to_ndarrays(self.parameters)))
-                    print("Param truncate check")
-                    print(parameters_to_ndarrays(self.parameters))
+                    for val1, val2 in zip(ndarrays_to_parameters(test_params), self.parameters):
+                        print(np.array_equal(val1, val2))
                 history.add_metrics_distributed_fit(
                     server_round=current_round, metrics=fit_metrics
                 )
