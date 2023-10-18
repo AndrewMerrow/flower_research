@@ -61,7 +61,7 @@ class CifarClient(fl.client.NumPyClient):
 
         idxs = (self.testset.targets == 5).nonzero().flatten().tolist()
         trainLoader = DataLoader(trainset, batch_size=batch_size, shuffle=True)
-        valLoader = DataLoader(valset, batch_size=batch_size)
+        valLoader = DataLoader(valset, batch_size=batch_size, shuffle=False)
         
         #create a copy to be poisoned and another copy as a control 
         poisoned_val_set = utils.DatasetSplit(copy.deepcopy(self.trainset), idxs)
