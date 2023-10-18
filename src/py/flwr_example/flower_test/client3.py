@@ -213,7 +213,7 @@ def main() -> None:
         client_dry_run(device)
     else:
         # Load a subset of CIFAR-10 to simulate the local data partition
-        trainset, testset = utils.load_partition(args.partition)
+        trainset, testset = utils.load_partition(2)
 
         if args.toy:
             trainset = torch.utils.data.Subset(trainset, range(10))
