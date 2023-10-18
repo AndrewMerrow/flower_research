@@ -213,6 +213,7 @@ def main() -> None:
         client_dry_run(device)
     else:
         # Load a subset of CIFAR-10 to simulate the local data partition
+        print("Using partition {}".format(args.partition))
         trainset, testset = utils.load_partition(args.partition)
 
         if args.toy:
