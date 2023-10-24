@@ -214,7 +214,8 @@ def main() -> None:
     else:
         # Load a subset of CIFAR-10 to simulate the local data partition
         print("Using partition {}".format(args.partition))
-        trainset, testset = utils.load_partition(args.partition)
+        #trainset, testset = utils.load_partition(args.partition)
+        trainset, testset = utils.load_data()
         user_groups = utils.distribute_data(trainset)
         print(str(user_groups))
 
