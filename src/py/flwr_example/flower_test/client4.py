@@ -219,7 +219,7 @@ def main() -> None:
         trainset, testset, num_examples = utils.load_data()
         user_groups = utils.distribute_data(trainset)
         #print(str(user_groups))
-        trainset = utils.DatasetSplit(trainset, user_groups[random.randint(0, 40)])
+        trainset = utils.DatasetSplit(trainset, user_groups[random.randint(0, 39)])
 
         if args.toy:
             trainset = torch.utils.data.Subset(trainset, range(10))
