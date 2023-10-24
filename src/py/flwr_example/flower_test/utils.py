@@ -7,6 +7,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import cv2
 import random
+from collections import defaultdict
 import numpy as np
 from math import floor
 import matplotlib.pyplot as plt
@@ -97,6 +98,41 @@ class DatasetSplit(Dataset):
         inp, target = self.dataset[self.idxs[item]]
         return inp, target
 
+def distribute_data(dataset, n_classes=10, class_per_agent=10):
+    #if args.num_agents == 1:
+    #    return {0:range(len(dataset))}
+    
+    def chunker_list(seq, size):
+        return [seq[i::size] for i in range(size)]
+    
+    # sort labels
+    labels_sorted = dataset.targets.sort()
+    # create a list of pairs (index, label), i.e., at index we have an instance of  label
+    class_by_labels = list(zip(labels_sorted.values.tolist(), labels_sorted.indices.tolist()))
+    # convert list to a dictionary, e.g., at labels_dict[0], we have indexes for class 0
+    labels_dict = defaultdict(list)
+    for k, v in class_by_labels:
+        labels_dict[k].append(v)
+        
+    # split indexes to shards
+    shard_size = len(dataset) // (40 * class_per_agent)
+    slice_size = (len(dataset) // n_classes) // shard_size    
+    for k, v in labels_dict.items():
+        labels_dict[k] = chunker_list(v, slice_size)
+           
+    # distribute shards to users
+    dict_users = defaultdict(list)
+    for user_idx in range(40):
+        class_ctr = 0
+        for j in range(0, n_classes):
+            if class_ctr == class_per_agent:
+                    break
+            elif len(labels_dict[j]) > 0:
+                dict_users[user_idx] += labels_dict[j][0]
+                del labels_dict[j%n_classes][0]
+                class_ctr+=1
+
+    return dict_users
 
 def poison_dataset(dataset, data_idxs=None, poison_all=False, agent_idx=-1):
     all_idxs = (dataset.targets == 5).nonzero().flatten().tolist()
@@ -336,12 +372,6 @@ def get_loss_and_accuracy(model, criterion, data_loader, steps: int = None, devi
     print("\tAccuracy: " + str(accuracy))
     print("\tPer class accuracy: " + str(per_class_accuracy))
     return avg_loss, accuracy, per_class_accuracy
-
-
-def replace_classifying_layer(efficientnet_model, num_classes: int = 10):
-    """Replaces the final layer of the classifier."""
-    num_features = efficientnet_model.classifier.fc.in_features
-    efficientnet_model.classifier.fc = torch.nn.Linear(num_features, num_classes)
 
 
 

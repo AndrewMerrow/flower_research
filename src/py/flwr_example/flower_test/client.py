@@ -215,6 +215,8 @@ def main() -> None:
         # Load a subset of CIFAR-10 to simulate the local data partition
         print("Using partition {}".format(args.partition))
         trainset, testset = utils.load_partition(args.partition)
+        user_groups = utils.distribute_data(trainset)
+        print(str(user_groups))
 
         if args.toy:
             trainset = torch.utils.data.Subset(trainset, range(10))
