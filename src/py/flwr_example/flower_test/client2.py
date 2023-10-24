@@ -9,6 +9,7 @@ import argparse
 from collections import OrderedDict
 import warnings
 import copy
+import random
 import matplotlib.pyplot as plt
 
 warnings.filterwarnings("ignore")
@@ -214,7 +215,11 @@ def main() -> None:
     else:
         # Load a subset of CIFAR-10 to simulate the local data partition
         print("Using partition {}".format(args.partition))
-        trainset, testset = utils.load_partition(args.partition)
+        #trainset, testset = utils.load_partition(args.partition)
+        trainset, testset, num_examples = utils.load_data()
+        user_groups = utils.distribute_data(trainset)
+        #print(str(user_groups))
+        trainset = utils.DatasetSplit(trainset, user_groups[random.randint(0, 40)])
 
         if args.toy:
             trainset = torch.utils.data.Subset(trainset, range(10))

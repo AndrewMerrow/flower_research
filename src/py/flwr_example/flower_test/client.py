@@ -218,7 +218,7 @@ def main() -> None:
         #trainset, testset = utils.load_partition(args.partition)
         trainset, testset, num_examples = utils.load_data()
         user_groups = utils.distribute_data(trainset)
-        print(str(user_groups))
+        #print(str(user_groups))
         trainset = utils.DatasetSplit(trainset, user_groups[random.randint(0, 40)])
 
         if args.toy:
