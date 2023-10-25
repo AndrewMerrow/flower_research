@@ -65,7 +65,7 @@ class CifarClient(fl.client.NumPyClient):
         valLoader = DataLoader(valset, batch_size=batch_size, shuffle=False)
         
         #create a copy to be poisoned and another copy as a control 
-        poisoned_val_set = utils.DatasetSplit(copy.deepcopy(self.trainset), idxs)
+        poisoned_val_set = utils.DatasetSplit(copy.deepcopy(self.testset), idxs)
         #clean_val_set = utils.DatasetSplit(copy.deepcopy(self.testset), idxs)
 
         utils.poison_dataset(poisoned_val_set.dataset, idxs, poison_all=True)
@@ -214,7 +214,7 @@ def main() -> None:
         client_dry_run(device)
     else:
         # Load a subset of CIFAR-10 to simulate the local data partition
-        print("Using partition {}".format(args.partition))
+        #print("Using partition {}".format(args.partition))
         #trainset, testset = utils.load_partition(args.partition)
         trainset, testset, num_examples = utils.load_data()
 
