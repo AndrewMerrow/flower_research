@@ -65,14 +65,14 @@ class CifarClient(fl.client.NumPyClient):
         valLoader = DataLoader(valset, batch_size=batch_size, shuffle=False)
         
         #create a copy to be poisoned and another copy as a control 
-        #poisoned_val_set = utils.DatasetSplit(copy.deepcopy(self.trainset), idxs)
+        poisoned_val_set = utils.DatasetSplit(copy.deepcopy(self.trainset), idxs)
         #clean_val_set = utils.DatasetSplit(copy.deepcopy(self.testset), idxs)
 
-        #utils.poison_dataset(poisoned_val_set.dataset, idxs, poison_all=True)
+        utils.poison_dataset(poisoned_val_set.dataset, poisoned_val_set.idxs, poison_all=True)
         #print(poisoned_val_set.dataset.data.shape)
 
-        #poisoned_val_loader = DataLoader(poisoned_val_set, batch_size=256, shuffle=False, pin_memory=False)
-        poisoned_val_loader = DataLoader(valset, batch_size=256, shuffle=False, pin_memory=False)
+        poisoned_val_loader = DataLoader(poisoned_val_set, batch_size=256, shuffle=False, pin_memory=False)
+        #poisoned_val_loader = DataLoader(valset, batch_size=256, shuffle=False, pin_memory=False)
         #test images for visualization to confirm poisoning was successful 
         #test_poison = poisoned_val_set.dataset.data[49988]
         #test_clean = clean_val_set.dataset.data[3000]

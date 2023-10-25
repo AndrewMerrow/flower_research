@@ -306,8 +306,8 @@ def train(net, trainloader, valloader, poinsonedloader, epochs, device: str = "c
     train_loss, train_acc, train_per_class = test(net, trainloader, None, device)
     print("val eval")
     val_loss, val_acc, val_per_class = test(net, valloader, None, device)
-    #print("poison eval")
-    #poison_loss, poison_acc, poison_per_class = test(net, poinsonedloader, None, device)
+    print("poison eval")
+    poison_loss, poison_acc, poison_per_class = test(net, poinsonedloader, None, device)
     #val_loss, val_acc = test(net, trainloader)
 
     #print("Length of trainset: " + str(len(trainloader.dataset)))
@@ -321,8 +321,8 @@ def train(net, trainloader, valloader, poinsonedloader, epochs, device: str = "c
         "val_loss": val_loss,
         "val_accuracy": val_acc,
         #"val_accuracy_per_class": val_per_class,
-        #"poison_loss": poison_loss,
-        #"poison_accuracy": poison_acc,
+        "poison_loss": poison_loss,
+        "poison_accuracy": poison_acc,
         #"poison_accuracy_per_class": poison_per_class,
     }
     return results
