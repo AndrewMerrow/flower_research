@@ -148,14 +148,14 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         # Weigh accuracy of each client by number of examples used
         accuracies = [r.metrics["train_accuracy"] * r.num_examples for _, r in results]
         examples = [r.num_examples for _, r in results]
-        #poisonAccuracies = [r.metrics["poison_accuracy"] * r.num_examples for _, r in results]
+        poisonAccuracies = [r.metrics["poison_accuracy"] * r.num_examples for _, r in results]
 
         # Aggregate and print custom metric
         aggregated_accuracy = sum(accuracies) / sum(examples)
         print(f"Round {server_round} accuracy aggregated from client fit results: {aggregated_accuracy}")
 
-        #aggregated_poison_accuracy = sum(poisonAccuracies) / sum(examples)
-        #print(f"Round {server_round} poison accuracy aggregated from client fit results: {aggregated_poison_accuracy}")
+        aggregated_poison_accuracy = sum(poisonAccuracies) / sum(examples)
+        print(f"Round {server_round} poison accuracy aggregated from client fit results: {aggregated_poison_accuracy}")
 
         # Return aggregated model paramters and other metrics (i.e., aggregated accuracy)
         return ndarrays_to_parameters(weights_prime), {"accuracy": aggregated_accuracy}
@@ -180,18 +180,18 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         # Weigh accuracy of each client by number of examples used
         accuracies = [r.metrics["accuracy"] * r.num_examples for _, r in results]
         examples = [r.num_examples for _, r in results]
-        poisonAccuracies = [r.metrics["poison_accuracy"] * r.num_examples for _, r in results]
+        #poisonAccuracies = [r.metrics["poison_accuracy"] * r.num_examples for _, r in results]
 
         # Aggregate and print custom metric
         aggregated_accuracy = sum(accuracies) / sum(examples)
         print(f"Round {server_round} accuracy aggregated from client eval results: {aggregated_accuracy}")
 
-        aggregated_poison_accuracy = sum(poisonAccuracies) / sum(examples)
-        print(f"Round {server_round} poison accuracy aggregated from client fit results: {aggregated_poison_accuracy}")
+        #aggregated_poison_accuracy = sum(poisonAccuracies) / sum(examples)
+        #print(f"Round {server_round} poison accuracy aggregated from client fit results: {aggregated_poison_accuracy}")
 
         # Return aggregated loss and metrics (i.e., aggregated accuracy)
         #print("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
-        return aggregated_loss, {"accuracy": aggregated_accuracy, "poison_accuracy": aggregated_poison_accuracy}
+        return aggregated_loss, {"accuracy": aggregated_accuracy}
 
 def main():
     """Load model for
