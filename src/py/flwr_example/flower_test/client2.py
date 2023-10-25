@@ -60,19 +60,19 @@ class CifarClient(fl.client.NumPyClient):
         #)
         trainset = self.trainset
 
-        #idxs = (self.testset.targets == 5).nonzero().flatten().tolist()
+        idxs = (self.testset.targets == 5).nonzero().flatten().tolist()
         trainLoader = DataLoader(trainset, batch_size=batch_size, shuffle=True)
         valLoader = DataLoader(valset, batch_size=batch_size, shuffle=False)
         
         #create a copy to be poisoned and another copy as a control 
-        #poisoned_val_set = utils.DatasetSplit(copy.deepcopy(self.trainset), idxs)
+        poisoned_val_set = utils.DatasetSplit(copy.deepcopy(self.testset), idxs)
         #clean_val_set = utils.DatasetSplit(copy.deepcopy(self.testset), idxs)
 
-        #utils.poison_dataset(poisoned_val_set.dataset, idxs, poison_all=True)
+        utils.poison_dataset(poisoned_val_set.dataset, idxs, poison_all=True)
         #print(poisoned_val_set.dataset.data.shape)
 
-        #poisoned_val_loader = DataLoader(poisoned_val_set, batch_size=256, shuffle=False, pin_memory=False)
-        poisoned_val_loader = DataLoader(valset, batch_size=256, shuffle=False, pin_memory=False)
+        poisoned_val_loader = DataLoader(poisoned_val_set, batch_size=256, shuffle=False, pin_memory=False)
+        #poisoned_val_loader = DataLoader(valset, batch_size=256, shuffle=False, pin_memory=False)
         #test images for visualization to confirm poisoning was successful 
         #test_poison = poisoned_val_set.dataset.data[49988]
         #test_clean = clean_val_set.dataset.data[3000]
@@ -214,9 +214,15 @@ def main() -> None:
         client_dry_run(device)
     else:
         # Load a subset of CIFAR-10 to simulate the local data partition
-        print("Using partition {}".format(args.partition))
+        #print("Using partition {}".format(args.partition))
         #trainset, testset = utils.load_partition(args.partition)
         trainset, testset, num_examples = utils.load_data()
+
+        if args.poison:
+            print("poisoning the data")
+            idxs = (trainset.targets == 5).nonzero().flatten().tolist()
+            utils.poison_dataset(trainset, idxs, poison_all=True)
+
         user_groups = utils.distribute_data(trainset)
         #print(str(user_groups))
         trainset = utils.DatasetSplit(trainset, user_groups[random.randint(0, 39)])
@@ -225,10 +231,10 @@ def main() -> None:
             trainset = torch.utils.data.Subset(trainset, range(10))
             testset = torch.utils.data.Subset(testset, range(10))
 
-        if args.poison:
-            print("poisoning the data")
-            idxs = (trainset.targets == 5).nonzero().flatten().tolist()
-            utils.poison_dataset(trainset, idxs, poison_all=True)
+        #if args.poison:
+        #    print("poisoning the data")
+        #    idxs = (trainset.targets == 5).nonzero().flatten().tolist()
+        #    utils.poison_dataset(trainset, idxs, poison_all=True)
 
         # Start Flower client
         client = CifarClient(trainset, testset, device)
