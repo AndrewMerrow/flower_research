@@ -217,6 +217,12 @@ def main() -> None:
         print("Using partition {}".format(args.partition))
         #trainset, testset = utils.load_partition(args.partition)
         trainset, testset, num_examples = utils.load_data()
+
+        if args.poison:
+            print("poisoning the data")
+            idxs = (trainset.targets == 5).nonzero().flatten().tolist()
+            utils.poison_dataset(trainset, idxs, poison_all=True)
+
         user_groups = utils.distribute_data(trainset)
         #print(str(user_groups))
         trainset = utils.DatasetSplit(trainset, user_groups[random.randint(0, 39)])
@@ -225,10 +231,10 @@ def main() -> None:
             trainset = torch.utils.data.Subset(trainset, range(10))
             testset = torch.utils.data.Subset(testset, range(10))
 
-        if args.poison:
-            print("poisoning the data")
-            idxs = (trainset.targets == 5).nonzero().flatten().tolist()
-            utils.poison_dataset(trainset, idxs, poison_all=True)
+        #if args.poison:
+        #    print("poisoning the data")
+        #    idxs = (trainset.targets == 5).nonzero().flatten().tolist()
+        #    utils.poison_dataset(trainset, idxs, poison_all=True)
 
         # Start Flower client
         client = CifarClient(trainset, testset, device)
