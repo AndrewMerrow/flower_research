@@ -180,18 +180,18 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         # Weigh accuracy of each client by number of examples used
         accuracies = [r.metrics["accuracy"] * r.num_examples for _, r in results]
         examples = [r.num_examples for _, r in results]
-        #poisonAccuracies = [r.metrics["poison_accuracy"] * r.num_examples for _, r in results]
+        poisonAccuracies = [r.metrics["poison_accuracy"] * r.num_examples for _, r in results]
 
         # Aggregate and print custom metric
         aggregated_accuracy = sum(accuracies) / sum(examples)
         print(f"Round {server_round} accuracy aggregated from client eval results: {aggregated_accuracy}")
 
-        #aggregated_poison_accuracy = sum(poisonAccuracies) / sum(examples)
-        #print(f"Round {server_round} poison accuracy aggregated from client fit results: {aggregated_poison_accuracy}")
+        aggregated_poison_accuracy = sum(poisonAccuracies) / sum(examples)
+        print(f"Round {server_round} poison accuracy aggregated from client fit results: {aggregated_poison_accuracy}")
 
         # Return aggregated loss and metrics (i.e., aggregated accuracy)
         #print("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
-        return aggregated_loss, {"accuracy": aggregated_accuracy}
+        return aggregated_loss, {"accuracy": aggregated_accuracy, "poison_accuracy": aggregated_poison_accuracy}
 
 def main():
     """Load model for
@@ -220,9 +220,9 @@ def main():
     # Create strategy
     #strategy = fl.server.strategy.FedAvg(
     strategy = AggregateCustomMetricStrategy(
-        min_fit_clients=40,
-        min_evaluate_clients=40,
-        min_available_clients=40,
+        min_fit_clients=10,
+        min_evaluate_clients=10,
+        min_available_clients=10,
         evaluate_fn=get_evaluate_fn(model, args.toy),
         on_fit_config_fn=fit_config,
         on_evaluate_config_fn=evaluate_config,
