@@ -8,7 +8,7 @@ python -c "from torchvision.datasets import CIFAR10; CIFAR10('./dataset', downlo
 
 for i in `seq 0 9`; do
     echo "Starting client $i"
-    python client.py --clientID $i &
+    python client.py --clientID $i --data "cifar10" &
 done
 
 

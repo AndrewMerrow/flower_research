@@ -46,20 +46,21 @@ class Net(nn.Module):
         return x
 
 
-def load_data():
-    """Load CIFAR-10 (training and test set)."""
-    transform_train = transforms.Compose([
-            transforms.ToTensor(),
-            transforms.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.2023, 0.1994, 0.2010)),
-        ])
-    transform_test = transforms.Compose([
-            transforms.ToTensor(),
-            transforms.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.2023, 0.1994, 0.2010)),
-        ])
+def load_data(data):
+    if(data == "cifar10"):
+        """Load CIFAR-10 (training and test set)."""
+        transform_train = transforms.Compose([
+                transforms.ToTensor(),
+                transforms.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.2023, 0.1994, 0.2010)),
+            ])
+        transform_test = transforms.Compose([
+                transforms.ToTensor(),
+                transforms.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.2023, 0.1994, 0.2010)),
+            ])
 
-    trainset = CIFAR10("./dataset", train=True, download=True, transform=transform_train)
-    testset = CIFAR10("./dataset", train=False, download=True, transform=transform_test)
-    trainset.targets, testset.targets = torch.LongTensor(trainset.targets), torch.LongTensor(testset.targets)
+        trainset = CIFAR10("./dataset", train=True, download=True, transform=transform_train)
+        testset = CIFAR10("./dataset", train=False, download=True, transform=transform_test)
+        trainset.targets, testset.targets = torch.LongTensor(trainset.targets), torch.LongTensor(testset.targets)
 
     num_examples = {"trainset": len(trainset), "testset": len(testset)}
     return trainset, testset, num_examples

@@ -211,6 +211,13 @@ def main() -> None:
         required=False,
         help="Used so each client knows which data slice to use"
     )
+    parser.add_argument(
+        "--data",
+        type=str,
+        default="cifar10",
+        required=False,
+        help="Used to select the dataset to train on"
+    )
 
     args = parser.parse_args()
 
