@@ -234,7 +234,7 @@ def main() -> None:
 
         user_groups = utils.distribute_data(trainset)
         #print(str(user_groups))
-        trainset = utils.DatasetSplit(trainset, user_groups[random.randint(0, 39)])
+        trainset = utils.DatasetSplit(trainset, user_groups[args.clientID])
 
         if args.toy:
             trainset = torch.utils.data.Subset(trainset, range(10))

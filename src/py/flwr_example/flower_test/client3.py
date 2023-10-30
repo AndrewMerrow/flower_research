@@ -215,7 +215,7 @@ def main() -> None:
     args = parser.parse_args()
 
     device = torch.device(
-        "cuda:2" if torch.cuda.is_available() and args.use_cuda else "cpu"
+        "cuda:3" if torch.cuda.is_available() and args.use_cuda else "cpu"
     )
 
     if args.dry:
@@ -234,7 +234,7 @@ def main() -> None:
 
         user_groups = utils.distribute_data(trainset)
         #print(str(user_groups))
-        trainset = utils.DatasetSplit(trainset, user_groups[random.randint(0, 39)])
+        trainset = utils.DatasetSplit(trainset, user_groups[args.clientID])
 
         if args.toy:
             trainset = torch.utils.data.Subset(trainset, range(10))

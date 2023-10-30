@@ -8,7 +8,7 @@ python -c "from torchvision.datasets import CIFAR10; CIFAR10('./dataset', downlo
 
 for i in `seq 0 9`; do
     echo "Starting client $i"
-    python client4.py --partition $i &
+    python client4.py --clientID $(($i+30)) &
 done
 
 # Enable CTRL+C to stop all background processes
