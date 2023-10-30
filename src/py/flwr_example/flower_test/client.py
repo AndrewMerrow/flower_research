@@ -33,7 +33,10 @@ class CifarClient(fl.client.NumPyClient):
         given."""
         #print("Params: " + str(parameters))
         #model = utils.load_efficientnet(classes=10)
-        model = utils.Net()
+        if(selectedDataset == 'cifar10'):
+            model = utils.Net()
+        else:
+            model = utils.CNN_MNIST()
         params_dict = zip(model.state_dict().keys(), parameters)
         state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
         model.load_state_dict(state_dict, strict=False)
@@ -228,6 +231,8 @@ def main() -> None:
     if args.dry:
         client_dry_run(device)
     else:
+        global selectedDataset
+        selectedDataset = args.data
         # Load a subset of CIFAR-10 to simulate the local data partition
         #print("Using partition {}".format(args.partition))
         print("Client ID {}".format(args.clientID))

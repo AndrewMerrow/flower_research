@@ -220,7 +220,10 @@ def main():
     args = parser.parse_args()
 
     #model = utils.load_efficientnet(classes=10)
-    model = utils.Net()
+    if(args.data == "cifar10"):
+        model = utils.Net()
+    else:
+        model = utils.CNN_MNIST()
 
     model_parameters = [val.cpu().numpy() for _, val in model.state_dict().items()]
 
