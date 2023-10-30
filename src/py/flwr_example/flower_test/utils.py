@@ -1,6 +1,7 @@
 import torch
 import torchvision.transforms as transforms
 from torchvision.datasets import CIFAR10
+from torchvision import datasets, transforms
 from torch.utils.data import Dataset
 from torch.cuda.amp import autocast
 import torch.nn as nn
@@ -61,6 +62,11 @@ def load_data(data):
         trainset = CIFAR10("./dataset", train=True, download=True, transform=transform_train)
         testset = CIFAR10("./dataset", train=False, download=True, transform=transform_test)
         trainset.targets, testset.targets = torch.LongTensor(trainset.targets), torch.LongTensor(testset.targets)
+
+    elif(data == "fmnist"):
+        transform =  transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean=[0.2860], std=[0.3530])])
+        train_dataset = datasets.FashionMNIST("./dataset", train=True, download=True, transform=transform)
+        test_dataset = datasets.FashionMNIST("./dataset", train=False, download=True, transform=transform)
 
     num_examples = {"trainset": len(trainset), "testset": len(testset)}
     return trainset, testset, num_examples
