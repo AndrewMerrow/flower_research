@@ -232,7 +232,7 @@ def main() -> None:
         #print("Using partition {}".format(args.partition))
         print("Client ID {}".format(args.clientID))
         #trainset, testset = utils.load_partition(args.partition)
-        trainset, testset, num_examples = utils.load_data()
+        trainset, testset, num_examples = utils.load_data(args.data)
 
         if args.poison:
             print("poisoning the data")
