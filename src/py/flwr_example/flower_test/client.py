@@ -71,7 +71,7 @@ class CifarClient(fl.client.NumPyClient):
         poisoned_val_set = utils.DatasetSplit(copy.deepcopy(self.testset), idxs)
         #clean_val_set = utils.DatasetSplit(copy.deepcopy(self.testset), idxs)
 
-        utils.poison_dataset(poisoned_val_set.dataset, idxs, poison_all=True)
+        utils.poison_dataset(poisoned_val_set.dataset, selectedDataset, idxs, poison_all=True)
         #print(poisoned_val_set.dataset.data.shape)
 
         poisoned_val_loader = DataLoader(poisoned_val_set, batch_size=256, shuffle=False, pin_memory=False)

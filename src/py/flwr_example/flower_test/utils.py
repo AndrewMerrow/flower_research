@@ -163,7 +163,8 @@ def distribute_data(dataset, n_classes=10, class_per_agent=10):
 
     return dict_users
 
-def poison_dataset(dataset, data_idxs=None, poison_all=False, agent_idx=-1):
+def poison_dataset(dataset, selectedDataset, data_idxs=None, poison_all=False, agent_idx=-1):
+    #target of 5 is hard coded for now
     all_idxs = (dataset.targets == 5).nonzero().flatten().tolist()
     if data_idxs != None:
         all_idxs = list(set(all_idxs).intersection(data_idxs))
@@ -174,21 +175,22 @@ def poison_dataset(dataset, data_idxs=None, poison_all=False, agent_idx=-1):
     poison_idxs = random.sample(all_idxs, floor(poison_frac*len(all_idxs)))
     #print("Poisoning {} images".format(len(poison_idxs)))
     for idx in poison_idxs:
-        #if args.data == 'fedemnist':
-        #    clean_img = dataset.inputs[idx]
-        #else:
-        clean_img = dataset.data[idx]
+        if selectedDataset == 'fedemnist':
+            clean_img = dataset.inputs[idx]
+        else:
+            clean_img = dataset.data[idx]
         #print("pre: " + str(clean_img.shape))
         #test_image = clean_img.transpose(2,1,0)
         #print("post: " + str(test_image.shape))
         #plt.imshow(clean_img)
         #plt.title("test")
         #print(clean_img)
-        bd_img = add_pattern_bd(clean_img, 'cifar10', pattern_type='plus', agent_idx=agent_idx)
-        #if args.data == 'fedemnist':
-        #     dataset.inputs[idx] = torch.tensor(bd_img)
-        #else:
-        dataset.data[idx] = torch.tensor(bd_img)
+        #Plus pattern is hard coded for now
+        bd_img = add_pattern_bd(clean_img, selectedDataset, pattern_type='plus', agent_idx=agent_idx)
+        if selectedDataset == 'fedemnist':
+            dataset.inputs[idx] = torch.tensor(bd_img)
+        else:
+            dataset.data[idx] = torch.tensor(bd_img)
         
         dataset.targets[idx] = 7
     return
