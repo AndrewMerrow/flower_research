@@ -203,6 +203,14 @@ def main() -> None:
         required=False,
         help="Set to true to make the client poison their train data"
     )
+    parser.add_argument(
+        "--clientID",
+        type=int,
+        default=0,
+        choices=range(0,39),
+        required=False,
+        help="Used so each client knows which data slice to use"
+    )
 
     args = parser.parse_args()
 
@@ -215,6 +223,7 @@ def main() -> None:
     else:
         # Load a subset of CIFAR-10 to simulate the local data partition
         #print("Using partition {}".format(args.partition))
+        print("Client ID {}".format(args.clientID))
         #trainset, testset = utils.load_partition(args.partition)
         trainset, testset, num_examples = utils.load_data()
 
