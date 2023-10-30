@@ -43,11 +43,11 @@ def evaluate_config(server_round: int):
     return {"val_steps": val_steps}
 
 
-def get_evaluate_fn(model: torch.nn.Module, toy: bool):
+def get_evaluate_fn(model: torch.nn.Module, toy: bool, data):
     """Return an evaluation function for server-side evaluation."""
 
     # Load data and model here to avoid the overhead of doing it in `evaluate` itself
-    trainset, _, _ = utils.load_data()
+    trainset, _, _ = utils.load_data(data)
 
     n_train = len(trainset)
     if toy:
@@ -209,6 +209,13 @@ def main():
         help="Set to true to use only 10 datasamples for validation. \
             Useful for testing purposes. Default: False",
     )
+    parser.add_argument(
+        "--data",
+        type=str,
+        default="cifar10",
+        required=False,
+        help="Used to select the dataset to train on"
+    )
 
     args = parser.parse_args()
 
@@ -223,7 +230,7 @@ def main():
         min_fit_clients=10,
         min_evaluate_clients=10,
         min_available_clients=10,
-        evaluate_fn=get_evaluate_fn(model, args.toy),
+        evaluate_fn=get_evaluate_fn(model, args.toy, args.data),
         on_fit_config_fn=fit_config,
         on_evaluate_config_fn=evaluate_config,
         server_learning_rate = 1.0,
