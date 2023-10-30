@@ -65,8 +65,8 @@ def load_data(data):
 
     elif(data == "fmnist"):
         transform =  transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean=[0.2860], std=[0.3530])])
-        train_dataset = datasets.FashionMNIST("./dataset", train=True, download=True, transform=transform)
-        test_dataset = datasets.FashionMNIST("./dataset", train=False, download=True, transform=transform)
+        trainset = datasets.FashionMNIST("./dataset", train=True, download=True, transform=transform)
+        testset = datasets.FashionMNIST("./dataset", train=False, download=True, transform=transform)
 
     num_examples = {"trainset": len(trainset), "testset": len(testset)}
     return trainset, testset, num_examples
