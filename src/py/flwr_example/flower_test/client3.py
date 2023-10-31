@@ -33,7 +33,10 @@ class CifarClient(fl.client.NumPyClient):
         given."""
         #print("Params: " + str(parameters))
         #model = utils.load_efficientnet(classes=10)
-        model = utils.Net()
+        if(selectedDataset == 'cifar10'):
+            model = utils.Net()
+        else:
+            model = utils.CNN_MNIST()
         params_dict = zip(model.state_dict().keys(), parameters)
         state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
         model.load_state_dict(state_dict, strict=False)
@@ -68,7 +71,7 @@ class CifarClient(fl.client.NumPyClient):
         poisoned_val_set = utils.DatasetSplit(copy.deepcopy(self.testset), idxs)
         #clean_val_set = utils.DatasetSplit(copy.deepcopy(self.testset), idxs)
 
-        utils.poison_dataset(poisoned_val_set.dataset, idxs, poison_all=True)
+        utils.poison_dataset(poisoned_val_set.dataset, selectedDataset, idxs, poison_all=True)
         #print(poisoned_val_set.dataset.data.shape)
 
         poisoned_val_loader = DataLoader(poisoned_val_set, batch_size=256, shuffle=False, pin_memory=False)
@@ -211,21 +214,30 @@ def main() -> None:
         required=False,
         help="Used so each client knows which data slice to use"
     )
+    parser.add_argument(
+        "--data",
+        type=str,
+        default="cifar10",
+        required=False,
+        help="Used to select the dataset to train on"
+    )
 
     args = parser.parse_args()
 
     device = torch.device(
-        "cuda:3" if torch.cuda.is_available() and args.use_cuda else "cpu"
+        "cuda:2" if torch.cuda.is_available() and args.use_cuda else "cpu"
     )
 
     if args.dry:
         client_dry_run(device)
     else:
+        global selectedDataset
+        selectedDataset = args.data
         # Load a subset of CIFAR-10 to simulate the local data partition
         #print("Using partition {}".format(args.partition))
         print("Client ID {}".format(args.clientID))
         #trainset, testset = utils.load_partition(args.partition)
-        trainset, testset, num_examples = utils.load_data()
+        trainset, testset, num_examples = utils.load_data(args.data)
 
         if args.poison:
             print("poisoning the data")
