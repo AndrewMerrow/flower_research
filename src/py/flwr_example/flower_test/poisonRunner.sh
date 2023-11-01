@@ -9,7 +9,7 @@ python client.py --poison POISON --clientID 0 --data fmnist
 
 for i in `seq 1 9`; do
     echo "Starting client $i"
-    python client.py --partition $i &
+    python client.py --clientID $i --data "fmnist" &
 done
 
 # Enable CTRL+C to stop all background processes
