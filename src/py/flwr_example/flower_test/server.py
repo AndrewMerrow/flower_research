@@ -230,9 +230,9 @@ def main():
     # Create strategy
     #strategy = fl.server.strategy.FedAvg(
     strategy = AggregateCustomMetricStrategy(
-        min_fit_clients=10,
-        min_evaluate_clients=10,
-        min_available_clients=10,
+        min_fit_clients=40,
+        min_evaluate_clients=40,
+        min_available_clients=40,
         evaluate_fn=get_evaluate_fn(model, args.toy, args.data),
         on_fit_config_fn=fit_config,
         on_evaluate_config_fn=evaluate_config,
