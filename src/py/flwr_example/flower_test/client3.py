@@ -242,7 +242,7 @@ def main() -> None:
         if args.poison:
             print("poisoning the data")
             idxs = (trainset.targets == 5).nonzero().flatten().tolist()
-            utils.poison_dataset(trainset, idxs, poison_all=True)
+            utils.poison_dataset(trainset, selectedDataset, idxs, poison_all=True)
 
         user_groups = utils.distribute_data(trainset)
         #print(str(user_groups))
