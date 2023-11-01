@@ -9,7 +9,7 @@ python client.py --poison POISON --clientID 0 --data cifar10 &
 
 for i in `seq 1 9`; do
     echo "Starting client $i"
-    python client.py --clientID $i --data "fmnist" &
+    python client.py --clientID $i --data "cifar10" &
 done
 
 # Enable CTRL+C to stop all background processes
