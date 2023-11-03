@@ -32,7 +32,6 @@ class CifarClient(fl.client.NumPyClient):
         """Loads a CNN model and replaces it parameters with the ones
         given."""
         #print("Params: " + str(parameters))
-        #model = utils.load_efficientnet(classes=10)
         if(selectedDataset == 'cifar10'):
             model = utils.Net()
         else:
@@ -109,6 +108,7 @@ class CifarClient(fl.client.NumPyClient):
         #test_params = parameters_prime - parameters_old
         #test_params = parameters_prime - parameters_old
         test_params = []
+        #TODO: try using numpy subtract
         for param1, param2 in zip(parameters_prime, parameters_old):
             test_params.append(param1 - param2)
         #print("Update test")
@@ -231,31 +231,29 @@ def main() -> None:
     if args.dry:
         client_dry_run(device)
     else:
+        #global variable used to keep track of what dataset the experiment is using
         global selectedDataset
         selectedDataset = args.data
-        # Load a subset of CIFAR-10 to simulate the local data partition
-        #print("Using partition {}".format(args.partition))
+        
         print("Client ID {}".format(args.clientID))
         #trainset, testset = utils.load_partition(args.partition)
         trainset, testset, num_examples = utils.load_data(args.data)
 
+        #Poison the data if the poison option is selected
         if args.poison:
             print("poisoning the data")
             idxs = (trainset.targets == 5).nonzero().flatten().tolist()
             utils.poison_dataset(trainset, selectedDataset, idxs, poison_all=True)
 
+        #split the dataset into slices and store the slices in user_groups
         user_groups = utils.distribute_data(trainset)
         #print(str(user_groups))
+        #Use the client's ID to select which slice of the data to use
         trainset = utils.DatasetSplit(trainset, user_groups[args.clientID])
 
         if args.toy:
             trainset = torch.utils.data.Subset(trainset, range(10))
             testset = torch.utils.data.Subset(testset, range(10))
-
-        #if args.poison:
-        #    print("poisoning the data")
-        #    idxs = (trainset.targets == 5).nonzero().flatten().tolist()
-        #    utils.poison_dataset(trainset, idxs, poison_all=True)
 
         # Start Flower client
         client = CifarClient(trainset, testset, device)
