@@ -10,6 +10,7 @@ from collections import OrderedDict
 import warnings
 import copy
 import random
+import numpy as np
 import matplotlib.pyplot as plt
 
 warnings.filterwarnings("ignore")
@@ -111,6 +112,8 @@ class CifarClient(fl.client.NumPyClient):
         #TODO: try using numpy subtract
         for param1, param2 in zip(parameters_prime, parameters_old):
             test_params.append(param1 - param2)
+        #test_params = np.subtract(parameters_prime, parameters_old)
+
         #print("Update test")
         #print(torch.count_nonzero(test_params))
         #print(test_params)
