@@ -12,6 +12,7 @@ import copy
 import random
 import numpy as np
 import matplotlib.pyplot as plt
+from pytorch_lightning import seed_everything
 
 warnings.filterwarnings("ignore")
 
@@ -234,6 +235,8 @@ def main() -> None:
     if args.dry:
         client_dry_run(device)
     else:
+        #Seed everything test to try enabling reproducability 
+        #seed_everything(42)
         #global variable used to keep track of what dataset the experiment is using
         global selectedDataset
         selectedDataset = args.data
