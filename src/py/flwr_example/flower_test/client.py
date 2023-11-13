@@ -258,7 +258,7 @@ def main() -> None:
         if args.poison:
             print("poisoning the data")
             idxs = (trainset.targets == 5).nonzero().flatten().tolist()
-            utils.poison_dataset(trainset, selectedDataset, idxs, poison_all=True)
+            utils.poison_dataset(trainset.dataset, selectedDataset, idxs, poison_all=True)
 
         if args.toy:
             trainset = torch.utils.data.Subset(trainset, range(10))
