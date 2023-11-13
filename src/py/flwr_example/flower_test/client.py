@@ -238,6 +238,7 @@ def main() -> None:
         #Seed everything test to try enabling reproducability 
         #seed_everything(42)
         #global variable used to keep track of what dataset the experiment is using
+        seed_everything(42)
         global selectedDataset
         selectedDataset = args.data
         

@@ -10,7 +10,9 @@ from collections import OrderedDict
 import warnings
 import copy
 import random
+import numpy as np
 import matplotlib.pyplot as plt
+from pytorch_lightning import seed_everything
 
 warnings.filterwarnings("ignore")
 
@@ -111,6 +113,8 @@ class CifarClient(fl.client.NumPyClient):
         #TODO: try using numpy subtract
         for param1, param2 in zip(parameters_prime, parameters_old):
             test_params.append(param1 - param2)
+        #test_params = np.subtract(parameters_prime, parameters_old)
+
         #print("Update test")
         #print(torch.count_nonzero(test_params))
         #print(test_params)
@@ -231,7 +235,10 @@ def main() -> None:
     if args.dry:
         client_dry_run(device)
     else:
+        #Seed everything test to try enabling reproducability 
+        #seed_everything(42)
         #global variable used to keep track of what dataset the experiment is using
+        seed_everything(42)
         global selectedDataset
         selectedDataset = args.data
         
