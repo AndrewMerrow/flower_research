@@ -163,7 +163,7 @@ def distribute_data(dataset, n_classes=10, class_per_agent=10):
 
     return dict_users
 
-def poison_dataset(dataset, selectedDataset, data_idxs=None, poison_all=False, agent_idx=-1):
+def poison_dataset(dataset, selectedDataset, data_idxs=None, agent_idx=-1, poison_all=False):
     #target of 5 is hard coded for now
     print("POISONING {}".format(selectedDataset))
     all_idxs = (dataset.targets == 5).nonzero().flatten().tolist()
@@ -220,25 +220,26 @@ def add_pattern_bd(x, dataset='cifar10', pattern_type='square', agent_idx=-1):
                         x[start_idx+size//2, i][d] = 0
             else:# DBA attack
                 #upper part of vertical
-                if agent_idx % 4 == 0:
+                print("RUNNING DISTRIBUTED ATTACK")
+                if agent_idx == 0:
                     for d in range(0, 3):
                         for i in range(start_idx, start_idx+(size//2)+1):
                             x[i, start_idx][d] = 0
 
                 #lower part of vertical
-                elif agent_idx % 4 == 1:
+                elif agent_idx == 1:
                     for d in range(0, 3):
                         for i in range(start_idx+(size//2)+1, start_idx+size+1):
                             x[i, start_idx][d] = 0
 
                 #left-part of horizontal
-                elif agent_idx % 4 == 2:
+                elif agent_idx == 2:
                     for d in range(0, 3):
                         for i in range(start_idx-size//2, start_idx+size//4 + 1):
                             x[start_idx+size//2, i][d] = 0
 
                 #right-part of horizontal
-                elif agent_idx % 4 == 3:
+                elif agent_idx == 3:
                     for d in range(0, 3):
                         for i in range(start_idx-size//4+1, start_idx+size//2 + 1):
                             x[start_idx+size//2, i][d] = 0
