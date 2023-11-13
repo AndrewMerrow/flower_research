@@ -220,7 +220,6 @@ def add_pattern_bd(x, dataset='cifar10', pattern_type='square', agent_idx=-1):
                         x[start_idx+size//2, i][d] = 0
             else:# DBA attack
                 #upper part of vertical
-                print("RUNNING DISTRIBUTED ATTACK")
                 if agent_idx == 0:
                     for d in range(0, 3):
                         for i in range(start_idx, start_idx+(size//2)+1):
