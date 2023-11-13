@@ -165,7 +165,7 @@ def distribute_data(dataset, n_classes=10, class_per_agent=10):
 
 def poison_dataset(dataset, selectedDataset, data_idxs=None, agent_idx=-1, poison_all=False):
     #target of 5 is hard coded for now
-    print("POISONING {}".format(selectedDataset))
+    #print("POISONING {}".format(selectedDataset))
     all_idxs = (dataset.targets == 5).nonzero().flatten().tolist()
     if data_idxs != None:
         all_idxs = list(set(all_idxs).intersection(data_idxs))
