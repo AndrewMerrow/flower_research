@@ -248,17 +248,17 @@ def main() -> None:
         #trainset, testset = utils.load_partition(args.partition)
         trainset, testset, num_examples = utils.load_data(args.data)
 
-        #Poison the data if the poison option is selected
-        if args.poison:
-            print("poisoning the data")
-            idxs = (trainset.targets == 5).nonzero().flatten().tolist()
-            utils.poison_dataset(trainset, selectedDataset, idxs, poison_all=True)
-
         #split the dataset into slices and store the slices in user_groups
         user_groups = utils.distribute_data(trainset)
         #print(str(user_groups))
         #Use the client's ID to select which slice of the data to use
         trainset = utils.DatasetSplit(trainset, user_groups[args.clientID])
+
+        #Poison the data if the poison option is selected
+        if args.poison:
+            print("poisoning the data")
+            idxs = (trainset.targets == 5).nonzero().flatten().tolist()
+            utils.poison_dataset(trainset, selectedDataset, idxs, poison_all=True)
 
         if args.toy:
             trainset = torch.utils.data.Subset(trainset, range(10))

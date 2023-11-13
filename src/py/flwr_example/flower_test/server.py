@@ -7,6 +7,7 @@ from flwr.common import Metrics, Scalar, EvaluateRes, FitRes, parameters_to_ndar
 from flwr.server.client_proxy import ClientProxy
 
 import numpy as np
+import copy
 
 import flwr as fl
 import torch
@@ -47,17 +48,24 @@ def get_evaluate_fn(model: torch.nn.Module, toy: bool, data):
     """Return an evaluation function for server-side evaluation."""
 
     # Load data and model here to avoid the overhead of doing it in `evaluate` itself
-    trainset, _, _ = utils.load_data(data)
+    trainset, testset, _ = utils.load_data(data)
 
     n_train = len(trainset)
     if toy:
         # use only 10 samples as validation set
         valset = torch.utils.data.Subset(trainset, range(n_train - 10, n_train))
+        idxs = (testset.targets == 5).nonzero().flatten().tolist()
+        poisoned_valset = utils.DatasetSplit(copy.deepcopy(testset), idxs)
+        utils.poison_dataset(poisoned_valset.dataset, "cifar10", idxs, poison_all=True)
     else:
         # Use the last 5k training examples as a validation set
-        valset = torch.utils.data.Subset(trainset, range(n_train - 5000, n_train))
+        #valset = torch.utils.data.Subset(trainset, range(n_train - 5000, n_train))
+        idxs = (testset.targets == 5).nonzero().flatten().tolist()
+        poisoned_valset = utils.DatasetSplit(copy.deepcopy(testset), idxs)
+        utils.poison_dataset(poisoned_valset.dataset, "cifar10", idxs, poison_all=True)
 
-    valLoader = DataLoader(valset, batch_size=256)
+    valLoader = DataLoader(testset, batch_size=256, shuffle=False)
+    poisoned_val_loader = DataLoader(poisoned_valset, 256, shuffle=False)
 
     # The `evaluate` function will be called after every round
     def evaluate(
@@ -71,9 +79,10 @@ def get_evaluate_fn(model: torch.nn.Module, toy: bool, data):
         model.load_state_dict(state_dict, strict=False)
 
         loss, accuracy, per_class_accuracy = utils.test(model, valLoader)
+        poison_loss, poison_accuracy, poison_per_class_accuracy = utils.test(model, poisoned_val_loader)
         if(loss == "nan"):
             print("LOSS IS NAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN")
-        return loss, {"accuracy": accuracy, "per_class_accuracy": per_class_accuracy}
+        return loss, {"accuracy": accuracy, "per_class_accuracy": per_class_accuracy, "poison_accuracy": poison_accuracy}
 
     return evaluate
 
@@ -228,11 +237,12 @@ def main():
     model_parameters = [val.cpu().numpy() for _, val in model.state_dict().items()]
 
     # Create strategy
+    num_agents = 10
     #strategy = fl.server.strategy.FedAvg(
     strategy = AggregateCustomMetricStrategy(
-        min_fit_clients=40,
-        min_evaluate_clients=40,
-        min_available_clients=40,
+        min_fit_clients=num_agents,
+        min_evaluate_clients=num_agents,
+        min_available_clients=num_agents,
         evaluate_fn=get_evaluate_fn(model, args.toy, args.data),
         on_fit_config_fn=fit_config,
         on_evaluate_config_fn=evaluate_config,
