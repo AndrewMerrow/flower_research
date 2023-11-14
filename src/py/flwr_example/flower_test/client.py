@@ -257,8 +257,8 @@ def main() -> None:
         #Poison the data if the poison option is selected
         if args.poison:
             print("poisoning the data")
-            idxs = (trainset.targets == 5).nonzero().flatten().tolist()
-            utils.poison_dataset(trainset.dataset, selectedDataset, idxs, poison_all=True)
+            #idxs = (trainset.targets == 5).nonzero().flatten().tolist()
+            utils.poison_dataset(trainset.dataset, selectedDataset, user_groups[args.clientID], agent_idx=args.clientID)
 
         if args.toy:
             trainset = torch.utils.data.Subset(trainset, range(10))

@@ -400,6 +400,7 @@ def get_loss_and_accuracy(model, criterion, data_loader, steps: int = None, devi
             #    break
             for t, p in zip(labels.view(-1), pred_labels.view(-1)):
                 confusion_matrix[t.long(), p.long()] += 1
+                
     per_class_accuracy = confusion_matrix.diag() / confusion_matrix.sum(1)
     accuracy = correctly_labeled_samples / len(data_loader.dataset)
     avg_loss = total_loss / len(data_loader.dataset)
