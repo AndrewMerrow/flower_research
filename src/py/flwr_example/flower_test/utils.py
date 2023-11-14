@@ -382,7 +382,10 @@ def get_loss_and_accuracy(model, criterion, data_loader, steps: int = None, devi
             outputs = model(images)
           
             #loss += criterion(outputs, labels).item()
+            eps = 1e-6
             avg_minibatch_loss = criterion(outputs, labels)
+            if(avg_minibatch_loss.isnan()):
+                avg_minibatch_loss = eps
             total_loss += avg_minibatch_loss.item()*outputs.shape[0]
 
             #_, predicted = torch.max(outputs.data, 1)
