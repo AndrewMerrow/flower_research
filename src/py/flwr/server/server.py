@@ -126,7 +126,7 @@ class Server:
                     #n_params = len(parameters_to_vector(self.parameters))
                     lr_vector = torch.Tensor([server_lr]*n_params)
                     print("NUMBER OF PRIME PARAMETERS")
-                    print(len(parameters_prime))
+                    print(len(parameters_to_ndarrays(parameters_prime)))
                     #print("Prime test:")
                     #print(parameters_to_ndarrays(parameters_prime))
                     test_params = self.parameters
