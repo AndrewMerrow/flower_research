@@ -143,6 +143,10 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #print(lr_vector.shape)
         #print(lr_vector)
         print(weights_prime)
+        total_data = 0
+        for layer in weights_prime:
+            total_data += len(layer)
+        print("TOTAL DATA: " + str(total_data))
         #test1 = lr_vector*weights_prime
         #test2 = cur_global_params + test1
 
