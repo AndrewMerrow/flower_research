@@ -127,11 +127,13 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples)
             for _, fit_res in results
         ]
-        #interpretation of the aggregate.py code
+        #interpretation of the aggregate.py flower code
         num_examples_total = sum([num_examples for _, num_examples in weights_results])
         weighted_weights = [
         [layer * num_examples for layer in weights] for weights, num_examples in weights_results
         ]
+        print("WEIGHTED WEIGHTS")
+        print(weighted_weights)
         #compute average weights of each layer
         weights_prime: NDArrays = [
         reduce(np.add, layer_updates) / num_examples_total
