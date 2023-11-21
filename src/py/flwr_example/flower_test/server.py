@@ -147,7 +147,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         for layer in weights_prime:
             total_data += len(layer)
         print("TOTAL DATA: " + str(total_data))
-        #test1 = lr_vector*weights_prime
+        test1 = lr_vector * torch.from_numpy(weights_prime)
         #test2 = cur_global_params + test1
 
         #metric stuff
