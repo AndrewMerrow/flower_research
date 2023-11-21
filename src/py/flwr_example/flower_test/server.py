@@ -120,7 +120,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         _, clientExample = results[0]
         #n_params = len(parameters_to_ndarrays(clientExample.parameters))
         n_params = 537610
-        lr_vector = torch.Tensor([self.server_learning_rate]*n_params)
+        #lr_vector = torch.Tensor([self.server_learning_rate]*n_params)
+        lr_vector = np.array([self.server_learning_rate]*n_params)
         # Convert results (creates tuples of the client updates and their number of training examples for weighting purposes)
         weights_results = [
             (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples)
