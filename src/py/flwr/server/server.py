@@ -14,7 +14,7 @@
 # ==============================================================================
 """Flower server."""
 
-
+import torch
 import concurrent.futures
 import timeit
 from logging import DEBUG, INFO
@@ -120,6 +120,9 @@ class Server:
             if res_fit is not None:
                 parameters_prime, fit_metrics, _ = res_fit  # fit_metrics_aggregated
                 if parameters_prime:
+                    n_params = len(parameters_to_ndarrays(self.parameters))
+                    lr_vector = torch.Tensor([self.server_learning_rate]*n_params)
+
                     #print("Prime test:")
                     #print(parameters_to_ndarrays(parameters_prime))
                     test_params = self.parameters
@@ -130,7 +133,7 @@ class Server:
                         #print(val2)
                     #    print(np.array_equal(val1, val2))
                     #test_params = parameters_to_ndarrays(test_params) + parameters_to_ndarrays(parameters_prime)
-                    test_params = np.add(parameters_to_ndarrays(test_params), parameters_to_ndarrays(parameters_prime))
+                    test_params = np.add(parameters_to_ndarrays(test_params), parameters_to_ndarrays(parameters_prime)*lr_vector)
                     #print("After update")
                     #for val1, val2 in zip(test_params, parameters_to_ndarrays(self.parameters)):
                     #    print(np.array_equal(val1, val2))
