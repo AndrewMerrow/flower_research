@@ -15,6 +15,7 @@
 """Flower server."""
 
 import torch
+from torch.nn.utils import vector_to_parameters, parameters_to_vector
 import concurrent.futures
 import timeit
 from logging import DEBUG, INFO
@@ -134,7 +135,7 @@ class Server:
                         #print(val2)
                     #    print(np.array_equal(val1, val2))
                     #test_params = parameters_to_ndarrays(test_params) + parameters_to_ndarrays(parameters_prime)
-                    test_params = np.add(parameters_to_ndarrays(test_params), parameters_to_ndarrays(parameters_prime)*lr_vector).float()
+                    test_params = np.add(parameters_to_vector(test_params), parameters_to_vector(parameters_prime)*lr_vector).float()
                     #print("After update")
                     #for val1, val2 in zip(test_params, parameters_to_ndarrays(self.parameters)):
                     #    print(np.array_equal(val1, val2))
