@@ -125,7 +125,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         # Convert results (creates tuples of the client updates and their number of training examples for weighting purposes)
         for _, fit_res in results:
             print("FIT RES")
-            print(fit_res)
+            print(len(fit_res.parameters))
         weights_results = [
             (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples)
             for _, fit_res in results
