@@ -121,7 +121,7 @@ class Server:
                 parameters_prime, fit_metrics, _ = res_fit  # fit_metrics_aggregated
                 if parameters_prime:
                     n_params = len(parameters_to_ndarrays(self.parameters))
-                    lr_vector = torch.Tensor([self.server_learning_rate]*n_params)
+                    lr_vector = torch.Tensor([1.0]*n_params)
 
                     #print("Prime test:")
                     #print(parameters_to_ndarrays(parameters_prime))
