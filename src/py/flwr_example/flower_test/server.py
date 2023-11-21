@@ -134,6 +134,9 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         ]
         print("WEIGHTED WEIGHTS")
         print(len(weighted_weights))
+        total_data = 0
+        for layer in weighted_weights:
+            total_data += len(layer)
         #compute average weights of each layer
         weights_prime: NDArrays = [
         reduce(np.add, layer_updates) / num_examples_total
@@ -144,7 +147,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         params_old = self.initial_parameters
         #print(lr_vector.shape)
         #print(lr_vector)
-        print(weights_prime)
+        #print(weights_prime)
         total_data = 0
         for layer in weights_prime:
             total_data += len(layer)
