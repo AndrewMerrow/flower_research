@@ -133,7 +133,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         [layer * num_examples for layer in weights] for weights, num_examples in weights_results
         ]
         print("WEIGHTED WEIGHTS")
-        print(weighted_weights)
+        print(len(weighted_weights))
         #compute average weights of each layer
         weights_prime: NDArrays = [
         reduce(np.add, layer_updates) / num_examples_total
