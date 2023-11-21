@@ -118,8 +118,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
 
         #new custom aggregation (delta value implementation)
         _, clientExample = results[0]
-        n_params = len(parameters_to_ndarrays(clientExample.parameters))
-        #print(n_params)
+        #n_params = len(parameters_to_ndarrays(clientExample.parameters))
+        n_params = 537610
         lr_vector = torch.Tensor([self.server_learning_rate]*n_params)
         # Convert results (creates tuples of the client updates and their number of training examples for weighting purposes)
         weights_results = [
@@ -142,17 +142,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #print(lr_vector.shape)
         #print(lr_vector)
         #print(weights_prime)
-        #test1 = lr_vector*weights_prime
+        test1 = lr_vector*weights_prime
         #test2 = cur_global_params + test1
-        new_global_params = (cur_global_params + weights_prime)
-        new_global_params = ndarrays_to_parameters(new_global_params)
-        self.initial_parameters = new_global_params
-        params_new = self.initial_parameters
-
-        #if(params_old == params_old):
-        #    print("The params have NOT changed")
-        #else:
-        #    print("The params CHANGED")
 
         #metric stuff
         # Weigh accuracy of each client by number of examples used
