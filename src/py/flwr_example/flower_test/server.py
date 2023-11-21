@@ -123,6 +123,9 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #lr_vector = torch.Tensor([self.server_learning_rate]*n_params)
         lr_vector = np.array([self.server_learning_rate]*n_params)
         # Convert results (creates tuples of the client updates and their number of training examples for weighting purposes)
+        for _, fit_res in results:
+            print("FIT RES")
+            print(fit_res)
         weights_results = [
             (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples)
             for _, fit_res in results
@@ -132,11 +135,11 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         weighted_weights = [
         [layer * num_examples for layer in weights] for weights, num_examples in weights_results
         ]
-        print("WEIGHTED WEIGHTS")
-        print(len(weighted_weights))
-        total_data = 0
-        for layer in weighted_weights:
-            total_data += len(layer)
+        #print("WEIGHTED WEIGHTS")
+        #print(len(weighted_weights))
+        #total_data = 0
+        #for layer in weighted_weights:
+        #    total_data += len(layer)
         #compute average weights of each layer
         weights_prime: NDArrays = [
         reduce(np.add, layer_updates) / num_examples_total
