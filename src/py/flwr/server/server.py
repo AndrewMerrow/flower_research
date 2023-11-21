@@ -16,7 +16,7 @@
 
 import torch
 from torch.nn.utils import vector_to_parameters, parameters_to_vector
-import Testutils
+import testutils
 import concurrent.futures
 import timeit
 from logging import DEBUG, INFO
@@ -123,7 +123,7 @@ class Server:
                 parameters_prime, fit_metrics, _ = res_fit  # fit_metrics_aggregated
                 if parameters_prime:
                     server_lr = 1.0
-                    testModel = Testutils.Net()
+                    testModel = testutils.Net()
                     n_params = len(parameters_to_ndarrays(testModel.parameters))
                     #n_params = len(parameters_to_vector(self.parameters))
                     lr_vector = torch.Tensor([server_lr]*n_params)
