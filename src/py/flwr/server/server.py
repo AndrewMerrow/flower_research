@@ -123,6 +123,7 @@ class Server:
                 if parameters_prime:
                     server_lr = 1.0
                     n_params = len(parameters_to_ndarrays(self.parameters))
+                    n_params = len(parameters_to_vector(self.parameters))
                     lr_vector = torch.Tensor([server_lr]*n_params)
 
                     #print("Prime test:")
