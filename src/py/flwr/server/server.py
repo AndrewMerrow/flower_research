@@ -16,7 +16,6 @@
 
 import torch
 from torch.nn.utils import vector_to_parameters, parameters_to_vector
-import testutils
 import concurrent.futures
 import timeit
 from logging import DEBUG, INFO
