@@ -142,8 +142,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         params_old = self.initial_parameters
         #print(lr_vector.shape)
         #print(lr_vector)
-        #print(weights_prime)
-        test1 = lr_vector*weights_prime
+        print(weights_prime)
+        #test1 = lr_vector*weights_prime
         #test2 = cur_global_params + test1
 
         #metric stuff
