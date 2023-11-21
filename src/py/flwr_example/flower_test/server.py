@@ -3,6 +3,7 @@ from functools import reduce
 from collections import OrderedDict
 import argparse
 from torch.utils.data import DataLoader
+from torch.nn.utils import parameters_to_vector, vector_to_parameters
 from flwr.common import Metrics, Scalar, EvaluateRes, FitRes, parameters_to_ndarrays, ndarrays_to_parameters, NDArray, NDArrays
 from flwr.server.client_proxy import ClientProxy
 
@@ -233,6 +234,8 @@ def main():
         model = utils.Net()
     else:
         model = utils.CNN_MNIST()
+
+    print("NUMBER OF PARAMETERS: " + len(parameters_to_vector(model.parameters())))
 
     model_parameters = [val.cpu().numpy() for _, val in model.state_dict().items()]
 

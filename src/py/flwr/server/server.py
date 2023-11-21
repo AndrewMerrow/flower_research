@@ -139,8 +139,8 @@ class Server:
                     #    print(np.array_equal(val1, val2))
                     #test_params = parameters_to_ndarrays(test_params) + parameters_to_ndarrays(parameters_prime)
                     print(lr_vector)
-                    param_test = parameters_to_ndarrays(parameters_prime)*lr_vector
-                    test_params = np.add(parameters_to_ndarrays(test_params), parameters_to_ndarrays(parameters_prime)*lr_vector).float()
+                    #param_test = parameters_to_ndarrays(parameters_prime)*lr_vector
+                    test_params = np.add(parameters_to_ndarrays(test_params), parameters_to_ndarrays(parameters_prime))
                     #print("After update")
                     #for val1, val2 in zip(test_params, parameters_to_ndarrays(self.parameters)):
                     #    print(np.array_equal(val1, val2))
