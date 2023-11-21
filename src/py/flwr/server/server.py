@@ -122,8 +122,7 @@ class Server:
                 parameters_prime, fit_metrics, _ = res_fit  # fit_metrics_aggregated
                 if parameters_prime:
                     server_lr = 1.0
-                    testModel = testutils.Net()
-                    n_params = len(parameters_to_ndarrays(testModel.parameters))
+                    n_params = 537610
                     #n_params = len(parameters_to_vector(self.parameters))
                     lr_vector = torch.Tensor([server_lr]*n_params)
 
