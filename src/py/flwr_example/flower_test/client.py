@@ -95,9 +95,9 @@ class CifarClient(fl.client.NumPyClient):
         #test_params = parameters_old - parameters_old
         
         #parameters_old = parameters_to_ndarrays(utils.get_model_params(model))
-        #parameters_old = parameters_to_vector(model.parameters()).detach()
-        #print("Old paramters")
-        #print(parameters_old)
+        parameters_test = parameters_to_vector(model.parameters()).detach()
+        print("Old paramters")
+        print(parameters_old)
         results = utils.train(model, trainLoader, valLoader, poisoned_val_loader, epochs, self.device)
         parameters_prime = utils.get_model_params(model)
         #print("Prime type:")
