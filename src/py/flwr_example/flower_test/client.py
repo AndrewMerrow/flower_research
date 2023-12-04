@@ -100,7 +100,7 @@ class CifarClient(fl.client.NumPyClient):
         #print(parameters_test)
         print(len(parameters_test))
         results = utils.train(model, trainLoader, valLoader, poisoned_val_loader, epochs, self.device)
-        parameters_prime = utils.get_model_params(model)
+        parameters_prime = parameters_to_vector(utils.get_model_params(model)).detach()
         #print("Prime type:")
         #print(type(parameters_prime))
         #print(parameters_prime)
