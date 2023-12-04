@@ -135,7 +135,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #print(len(weights_results))
         print(len(weights_results[10][0]))
         total = 0
-        for item in weights_results[10][0]:
+        for item in weights_results[0][0]:
             #print(item)
             total += len(item)
             print(len(item))
