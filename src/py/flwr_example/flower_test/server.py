@@ -133,9 +133,10 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         print("WEIGHT TEST")
         #print(weights_results[1])
         print(len(weights_results))
+        print(weights_results[10][0])
         total = 0
-        for item in weights_results[10]:
-            print(item)
+        #for item in weights_results[10]:
+            #print(item)
             #print(len(item))
         
         #interpretation of the aggregate.py flower code
