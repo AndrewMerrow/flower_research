@@ -97,7 +97,7 @@ class CifarClient(fl.client.NumPyClient):
         #parameters_old = parameters_to_ndarrays(utils.get_model_params(model))
         parameters_test = parameters_to_vector(model.parameters()).detach()
         print("Old paramters")
-        #print(parameters_test)
+        print(parameters_test)
         print(len(parameters_test))
         results = utils.train(model, trainLoader, valLoader, poisoned_val_loader, epochs, self.device)
         parameters_prime = utils.get_model_params(model)
@@ -110,6 +110,7 @@ class CifarClient(fl.client.NumPyClient):
 
         vectorTest = np.subtract(parameters_new, parameters_test)
         print(vectorTest)
+        print(len(vectorTest))
         #test_params = parameters_prime - parameters_old
         #test_params = parameters_prime - parameters_old
         test_params = []
