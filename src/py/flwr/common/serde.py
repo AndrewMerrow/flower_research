@@ -280,11 +280,11 @@ def fit_res_to_proto(res: typing.FitRes) -> ClientMessage.FitRes:
     status_msg = status_to_proto(res.status)
     if res.status.code == typing.Code.FIT_NOT_IMPLEMENTED:
         return ClientMessage.FitRes(status=status_msg)
-    #parameters_proto = parameters_to_proto(res.parameters)
+    parameters_proto = parameters_to_proto(res.parameters)
     metrics_msg = None if res.metrics is None else metrics_to_proto(res.metrics)
     return ClientMessage.FitRes(
         status=status_msg,
-        parameters=res.parameters, #used to be parameters_proto
+        parameters=parameters_proto, #used to be parameters_proto
         num_examples=res.num_examples,
         metrics=metrics_msg,
     )
