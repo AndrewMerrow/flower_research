@@ -111,7 +111,7 @@ class CifarClient(fl.client.NumPyClient):
         vectorTest = np.subtract(parameters_new, parameters_test)
         print(vectorTest)
         print(len(vectorTest))
-        print(type(vectorTest))
+        print(type(vectorTest.numpy()))
         #test_params = parameters_prime - parameters_old
         #test_params = parameters_prime - parameters_old
         test_params = []
