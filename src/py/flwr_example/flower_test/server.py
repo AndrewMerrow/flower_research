@@ -131,7 +131,10 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             for _, fit_res in results
         ]
         print("WEIGHT TEST")
-        print(weights_results[1])
+        #print(weights_results[1])
+        print(len(weights_results[1]))
+        total = 0
+        
         #interpretation of the aggregate.py flower code
         num_examples_total = sum([num_examples for _, num_examples in weights_results])
         weighted_weights = [
