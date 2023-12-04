@@ -137,7 +137,9 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         total = 0
         for item in weights_results[10][0]:
             #print(item)
+            total += len(item)
             print(len(item))
+        print("Total: " + str(total))
         
         #interpretation of the aggregate.py flower code
         num_examples_total = sum([num_examples for _, num_examples in weights_results])
