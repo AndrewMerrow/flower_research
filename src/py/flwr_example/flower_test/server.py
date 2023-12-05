@@ -130,10 +130,10 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples)
             for _, fit_res in results
         ]
-        print("WEIGHT TEST")
+        #print("WEIGHT TEST")
         #print(weights_results[1])
         #print(len(weights_results))
-        print(len(weights_results[0][0]))
+        #print(len(weights_results[0][0]))
 
         #testing to see if I can get the params from the model in the format I want 
         model = utils.Net()
@@ -143,13 +143,14 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         UTD_test = parameters_to_vector(model.parameters()).detach()
         print("UTD test")
         print(UTD_test)
+        print(len(UTD_test))
         
-        total = 0
-        for item in weights_results[0][0]:
-            #print(item)
-            total += len(item)
-            print(len(item))
-        print("Total: " + str(total))
+        #total = 0
+        #for item in weights_results[0][0]:
+        #    #print(item)
+        #    total += len(item)
+        #    print(len(item))
+        #print("Total: " + str(total))
         
         #interpretation of the aggregate.py flower code
         num_examples_total = sum([num_examples for _, num_examples in weights_results])
@@ -172,10 +173,10 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #print(lr_vector.shape)
         #print(lr_vector)
         #print(weights_prime)
-        total_data = 0
-        for layer in weights_prime:
-            total_data += len(layer)
-        print("TOTAL DATA: " + str(total_data))
+        #total_data = 0
+        #for layer in weights_prime:
+        #    total_data += len(layer)
+        #print("TOTAL DATA: " + str(total_data))
         #test1 = lr_vector * torch.from_numpy(parameters_to_ndarrays(ndarrays_to_parameters(weights_prime)))
         #test2 = cur_global_params + test1
 
