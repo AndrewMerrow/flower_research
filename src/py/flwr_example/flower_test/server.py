@@ -150,7 +150,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         for _, r in results:
             #print("THE CLIENTS ID IS: ")
             #print(r.metrics["clientID"])
-            print(r.parameters)
+            #print(r.parameters)
             model = utils.Net()
             params_dict = zip(model.state_dict().keys(), parameters_to_ndarrays(r.parameters))
             state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
@@ -281,7 +281,7 @@ def main():
     model_parameters = [val.cpu().numpy() for _, val in model.state_dict().items()]
 
     # Create strategy
-    num_agents = 1
+    num_agents = 2
     #strategy = fl.server.strategy.FedAvg(
     strategy = AggregateCustomMetricStrategy(
         min_fit_clients=num_agents,
