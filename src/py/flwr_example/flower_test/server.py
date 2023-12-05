@@ -150,13 +150,14 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         for _, r in results:
             #print("THE CLIENTS ID IS: ")
             #print(r.metrics["clientID"])
-            print(r)
             model = utils.Net()
-            params_dict = zip(model.state_dict().keys(), weights_results[0][0])
+            params_dict = zip(model.state_dict().keys(), r.parameters)
             state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
             model.load_state_dict(state_dict, strict=False)
             UTD_test = parameters_to_vector(model.parameters()).detach()
             update_dict[r.metrics["clientID"]] = UTD_test
+        print("UPDATE DICT")
+        print(update_dict)
         
         #total = 0
         #for item in weights_results[0][0]:
