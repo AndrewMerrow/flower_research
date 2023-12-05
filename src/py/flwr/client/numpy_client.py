@@ -235,10 +235,10 @@ def _fit(self: Client, ins: FitIns) -> FitRes:
 
     # Return FitRes
     parameters_prime, num_examples, metrics = results
-    #parameters_prime_proto = ndarrays_to_parameters(parameters_prime)
+    parameters_prime_proto = ndarrays_to_parameters(parameters_prime)
     return FitRes(
         status=Status(code=Code.OK, message="Success"),
-        parameters=parameters_prime,
+        parameters=parameters_prime_proto,
         num_examples=num_examples,
         metrics=metrics,
     )
