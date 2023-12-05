@@ -233,8 +233,8 @@ def compute_robustLR(agent_updates_dict):
         agent_updates_sign = [torch.sign(update) for update in agent_updates_dict.values()]  
         sm_of_signs = torch.abs(sum(agent_updates_sign))
         
-        sm_of_signs[sm_of_signs < 8] = -self.server_lr
-        sm_of_signs[sm_of_signs >= 8] = self.server_lr                                            
+        sm_of_signs[sm_of_signs < 8] = -1
+        sm_of_signs[sm_of_signs >= 8] = 1                                           
         return sm_of_signs
 
 def main():
