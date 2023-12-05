@@ -153,6 +153,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         lr_vector = compute_robustLR(update_dict)
         print("LR vector")
         print(lr_vector)
+        print(len(lr_vector))
         
         #interpretation of the aggregate.py flower code
         num_examples_total = sum([num_examples for _, num_examples in weights_results])
