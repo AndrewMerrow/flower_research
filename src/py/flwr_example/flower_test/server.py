@@ -152,7 +152,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             #print(r.metrics["clientID"])
             print(r.parameters)
             model = utils.Net()
-            params_dict = zip(model.state_dict().keys(), r.parameters)
+            params_dict = zip(model.state_dict().keys(), parameters_to_ndarrays(r.parameters))
             state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
             model.load_state_dict(state_dict, strict=False)
             UTD_test = parameters_to_vector(model.parameters()).detach()
