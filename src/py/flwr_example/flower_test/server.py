@@ -175,6 +175,16 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         for layer_updates in zip(*weighted_weights)
         ]
 
+        #Multiply LR vector with the prime weights
+        model = utils.Net()
+        params_dict = zip(model.state_dict().keys(), weights_prime)
+        state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
+        model.load_state_dict(state_dict, strict=False)
+        primeParams = parameters_to_vector(model.parameters()).detach()
+        finalParams = primeParams * lr_vector
+        print("FINAL PARAMS")
+        print(finalParams)
+
         cur_global_params = parameters_to_ndarrays(self.initial_parameters)
         params_old = self.initial_parameters
         #print(lr_vector.shape)
