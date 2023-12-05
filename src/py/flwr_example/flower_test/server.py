@@ -167,7 +167,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         reduce(np.add, layer_updates) / num_examples_total
         for layer_updates in zip(*weighted_weights)
         ]
-        
+
         cur_global_params = parameters_to_ndarrays(self.initial_parameters)
         params_old = self.initial_parameters
         #print(lr_vector.shape)
@@ -274,7 +274,7 @@ def main():
     model_parameters = [val.cpu().numpy() for _, val in model.state_dict().items()]
 
     # Create strategy
-    num_agents = 2
+    num_agents = 1
     #strategy = fl.server.strategy.FedAvg(
     strategy = AggregateCustomMetricStrategy(
         min_fit_clients=num_agents,
