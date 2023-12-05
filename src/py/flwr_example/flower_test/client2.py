@@ -95,18 +95,31 @@ class CifarClient(fl.client.NumPyClient):
         #test_params = parameters_old - parameters_old
         
         #parameters_old = parameters_to_ndarrays(utils.get_model_params(model))
-        #parameters_old = parameters_to_vector(model.parameters()).detach()
-        #print("Old paramters")
-        #print(parameters_old)
+        
+        #This is the format we want
+        parameters_test = parameters_to_vector(model.parameters()).detach()
+        print("Old paramters")
+        print(parameters_test)
+        print(len(parameters_test))
+
         results = utils.train(model, trainLoader, valLoader, poisoned_val_loader, epochs, self.device)
         parameters_prime = utils.get_model_params(model)
+        
         #print("Prime type:")
         #print(type(parameters_prime))
         #print(parameters_prime)
-        #parameters_new = model.parameters()
+        
+        parameters_new = parameters_to_vector(model.parameters()).detach()
+        
         #print("new parameters")
         #print(parameters_prime)
 
+        #This is the format from UTD, but flwr won't let me return it
+        vectorTest = np.subtract(parameters_new, parameters_test)
+        print(vectorTest)
+        print(len(vectorTest))
+        #print(type(vectorTest.numpy()))
+        
         #test_params = parameters_prime - parameters_old
         #test_params = parameters_prime - parameters_old
         test_params = []
@@ -126,8 +139,11 @@ class CifarClient(fl.client.NumPyClient):
         #print(type(test_params))
         #test_params = parameters_to_ndarrays(test_params)
 
+        #add the ID of the client to be sent back to the server
+        results["clientID"] = clientID
 
         return test_params, num_examples_train, results
+        #return [vectorTest.numpy()], num_examples_train, results
 
     def evaluate(self, parameters, config):
         """Evaluate parameters on the locally held test set."""
@@ -257,8 +273,8 @@ def main() -> None:
         #Poison the data if the poison option is selected
         if args.poison:
             print("poisoning the data")
-            idxs = (trainset.targets == 5).nonzero().flatten().tolist()
-            utils.poison_dataset(trainset.dataset, selectedDataset, idxs, poison_all=True)
+            #idxs = (trainset.targets == 5).nonzero().flatten().tolist()
+            utils.poison_dataset(trainset.dataset, selectedDataset, user_groups[args.clientID], agent_idx=args.clientID)
 
         if args.toy:
             trainset = torch.utils.data.Subset(trainset, range(10))
