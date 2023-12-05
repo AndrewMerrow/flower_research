@@ -144,6 +144,11 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         print("UTD test")
         print(UTD_test)
         print(len(UTD_test))
+
+        #client ID test
+        for _, r in results:
+            print("THE CLIENTS ID IS: ")
+            print(r.metrics["clientID"])
         
         #total = 0
         #for item in weights_results[0][0]:

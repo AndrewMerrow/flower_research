@@ -139,6 +139,8 @@ class CifarClient(fl.client.NumPyClient):
         #print(type(test_params))
         #test_params = parameters_to_ndarrays(test_params)
 
+        #add the ID of the client to be sent back to the server
+        results["clientID"] = clientID
 
         return test_params, num_examples_train, results
         #return [vectorTest.numpy()], num_examples_train, results
