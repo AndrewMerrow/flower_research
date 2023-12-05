@@ -133,7 +133,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         print("WEIGHT TEST")
         #print(weights_results[1])
         #print(len(weights_results))
-        print(len(weights_results[10][0]))
+        print(len(weights_results[0][0]))
 
         #testing to see if I can get the params from the model in the format I want 
         model = utils.Net()
