@@ -87,15 +87,6 @@ def get_evaluate_fn(model: torch.nn.Module, toy: bool, data):
 
     return evaluate
 
-#def weighted_average(metrics: List[Tuple[int, Metrics]]) -> Metrics:
-    # Multiply accuracy of each client by number of examples used
-#    accuracies = [num_examples * m["accuracy"] for num_examples, m in metrics]
-#    examples = [num_examples for num_examples, _ in metrics]
-
-    # Aggregate and return custom metric (weighted average)
-#    print("Evaluated accuracy: " + str(sum(accuracies) / sum(examples)))
-#    return {"accuracy": sum(accuracies) / sum(examples)}
-
 class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
     def aggregate_fit(
         self,
@@ -136,17 +127,17 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #print(len(weights_results[0][0]))
 
         #testing to see if I can get the params from the model in the format I want 
-        model = utils.Net()
-        params_dict = zip(model.state_dict().keys(), weights_results[0][0])
-        state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
-        model.load_state_dict(state_dict, strict=False)
-        UTD_test = parameters_to_vector(model.parameters()).detach()
-        print("UTD test")
-        print(UTD_test)
-        print(len(UTD_test))
+        #model = utils.Net()
+        #params_dict = zip(model.state_dict().keys(), weights_results[0][0])
+        #state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
+        #model.load_state_dict(state_dict, strict=False)
+        #UTD_test = parameters_to_vector(model.parameters()).detach()
+        #print("UTD test")
+        #print(UTD_test)
+        #print(len(UTD_test))
 
         update_dict = {}
-        #client ID test
+        #Construct the UTD update dict 
         for _, r in results:
             #print("THE CLIENTS ID IS: ")
             #print(r.metrics["clientID"])
@@ -159,13 +150,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             update_dict[r.metrics["clientID"]] = UTD_test
         print("UPDATE DICT")
         print(update_dict)
-        
-        #total = 0
-        #for item in weights_results[0][0]:
-        #    #print(item)
-        #    total += len(item)
-        #    print(len(item))
-        #print("Total: " + str(total))
+        lr_vector = compute_robustLR(update_dict)
         
         #interpretation of the aggregate.py flower code
         num_examples_total = sum([num_examples for _, num_examples in weights_results])
@@ -182,7 +167,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         reduce(np.add, layer_updates) / num_examples_total
         for layer_updates in zip(*weighted_weights)
         ]
-
+        
         cur_global_params = parameters_to_ndarrays(self.initial_parameters)
         params_old = self.initial_parameters
         #print(lr_vector.shape)
@@ -243,6 +228,14 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         # Return aggregated loss and metrics (i.e., aggregated accuracy)
         #print("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
         return aggregated_loss, {"accuracy": aggregated_accuracy}
+
+def compute_robustLR(self, agent_updates_dict):
+        agent_updates_sign = [torch.sign(update) for update in agent_updates_dict.values()]  
+        sm_of_signs = torch.abs(sum(agent_updates_sign))
+        
+        sm_of_signs[sm_of_signs < 8] = -self.server_lr
+        sm_of_signs[sm_of_signs >= 8] = self.server_lr                                            
+        return sm_of_signs
 
 def main():
     """Load model for
