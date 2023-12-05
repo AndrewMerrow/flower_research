@@ -154,6 +154,10 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         print("LR vector")
         print(lr_vector)
         print(len(lr_vector))
+
+        vectorTest = lr_vector * update_dict[1]
+        print("LR vector multiplication test")
+        print(vectorTest)
         
         #interpretation of the aggregate.py flower code
         num_examples_total = sum([num_examples for _, num_examples in weights_results])
