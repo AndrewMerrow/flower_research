@@ -132,8 +132,8 @@ class CifarClient(fl.client.NumPyClient):
         #test_params = parameters_to_ndarrays(test_params)
 
 
-        #return test_params, num_examples_train, results
-        return [vectorTest.numpy()], num_examples_train, results
+        return test_params, num_examples_train, results
+        #return [vectorTest.numpy()], num_examples_train, results
 
     def evaluate(self, parameters, config):
         """Evaluate parameters on the locally held test set."""

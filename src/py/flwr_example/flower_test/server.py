@@ -134,6 +134,16 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #print(weights_results[1])
         #print(len(weights_results))
         print(len(weights_results[10][0]))
+
+        #testing to see if I can get the params from the model in the format I want 
+        model = utils.Net()
+        params_dict = zip(model.state_dict().keys(), weights_results[0][0])
+        state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
+        model.load_state_dict(state_dict, strict=False)
+        UTD_test = parameters_to_vector(model.parameters()).detach()
+        print("UTD test")
+        print(UTD_test)
+        
         total = 0
         for item in weights_results[0][0]:
             #print(item)
@@ -268,6 +278,7 @@ def main():
         server_momentum = 0,
     #    evaluate_metrics_aggregation_fn=weighted_average,
         initial_parameters=fl.common.ndarrays_to_parameters(model_parameters),
+        
     )
 
     # Start Flower server for four rounds of federated learning
