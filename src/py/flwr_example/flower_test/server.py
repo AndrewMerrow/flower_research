@@ -184,6 +184,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         finalParams = primeParams * lr_vector
         print("FINAL PARAMS")
         print(finalParams)
+        vector_to_parameters(finalParams, model.parameters())
+        weights_prime = utils.get_model_params(model)
 
         cur_global_params = parameters_to_ndarrays(self.initial_parameters)
         params_old = self.initial_parameters
@@ -291,7 +293,7 @@ def main():
     model_parameters = [val.cpu().numpy() for _, val in model.state_dict().items()]
 
     # Create strategy
-    num_agents = 1
+    num_agents = 2
     #strategy = fl.server.strategy.FedAvg(
     strategy = AggregateCustomMetricStrategy(
         min_fit_clients=num_agents,
