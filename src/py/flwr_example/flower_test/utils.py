@@ -68,6 +68,32 @@ class Net(nn.Module):
         x = self.fc3(x)
         return x
 
+class H5Dataset(Dataset):
+    def __init__(self, dataset, client_id):
+        self.targets = torch.LongTensor(dataset[client_id]['label'])
+        self.inputs = torch.Tensor(dataset[client_id]['pixels'])
+        shape = self.inputs.shape
+        self.inputs = self.inputs.view(shape[0], 1, shape[1], shape[2])
+        
+    def classes(self):
+        return torch.unique(self.targets)
+    
+    def __add__(self, other): 
+        self.targets = torch.cat( (self.targets, other.targets), 0)
+        self.inputs = torch.cat( (self.inputs, other.inputs), 0)
+        return self
+    
+    def to(self, device):
+        self.targets = self.targets.to(device)
+        self.inputs = self.inputs.to(device)
+        
+        
+    def __len__(self):
+        return self.targets.shape[0]
+
+    def __getitem__(self, item):
+        inp, target = self.inputs[item], self.targets[item]
+        return inp, target
 
 def load_data(data):
     if(data == "cifar10"):
