@@ -117,8 +117,8 @@ def load_data(data):
         testset = datasets.FashionMNIST("./dataset", train=False, download=True, transform=transform)
 
     elif(data == "fedemnist"):
-        train_dir = './dataset/fed_emnist_all_trainset.pt'
-        test_dir = './dataset/fed_emnist_all_valset.pt'
+        train_dir = './dataset/Fed_EMNIST/fed_emnist_all_trainset.pt'
+        test_dir = './dataset/Fed_EMNIST/fed_emnist_all_valset.pt'
         trainset = torch.load(train_dir)
         testset = torch.load(test_dir)
 
