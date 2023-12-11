@@ -139,7 +139,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #print(len(UTD_test))
 
         update_dict = {}
-        #Construct the UTD update dict 
+        #Construct the UTD update dict for detection purposes
         for _, r in results:
             #print("THE CLIENTS ID IS: ")
             #print(r.metrics["clientID"])
@@ -151,16 +151,16 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             model.load_state_dict(state_dict, strict=False)
             UTD_test = parameters_to_vector(model.parameters()).detach()
             update_dict[r.metrics["clientID"]] = UTD_test
-        print("UPDATE DICT")
-        print(update_dict)
-        lr_vector = compute_robustLR(update_dict)
-        print("LR vector")
-        print(lr_vector)
-        print(len(lr_vector))
+        #print("UPDATE DICT")
+        #print(update_dict)
+        #lr_vector = compute_robustLR(update_dict)
+        #print("LR vector")
+        #print(lr_vector)
+        #print(len(lr_vector))
 
-        vectorTest = lr_vector * update_dict[1]
-        print("LR vector multiplication test")
-        print(vectorTest)
+        #vectorTest = lr_vector * update_dict[1]
+        #print("LR vector multiplication test")
+        #print(vectorTest)
         
         #interpretation of the aggregate.py flower code
         num_examples_total = sum([num_examples for _, num_examples in weights_results])
@@ -178,17 +178,17 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         for layer_updates in zip(*weighted_weights)
         ]
 
-        #Multiply LR vector with the prime weights
+        #Multiply LR vector with the prime weights (do the final detection step)
         model = utils.Net()
         params_dict = zip(model.state_dict().keys(), weights_prime)
         state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
         model.load_state_dict(state_dict, strict=False)
         primeParams = parameters_to_vector(model.parameters()).detach()
         finalParams = primeParams * lr_vector
-        print("FINAL PARAMS")
-        print(finalParams)
+        #print("FINAL PARAMS")
+        #print(finalParams)
         vector_to_parameters(finalParams, model.parameters())
-        weights_prime = utils.get_model_params(model)
+        #weights_prime = utils.get_model_params(model)
 
         cur_global_params = parameters_to_ndarrays(self.initial_parameters)
         params_old = self.initial_parameters
