@@ -13,6 +13,7 @@ import random
 import numpy as np
 import matplotlib.pyplot as plt
 from pytorch_lightning import seed_everything
+from utils import H5Dataset
 
 warnings.filterwarnings("ignore")
 
@@ -268,7 +269,7 @@ def main() -> None:
         if(args.data != "fedemnist"):
             user_groups = utils.distribute_data(trainset)
         #print(str(user_groups))
-        
+
         #Use the client's ID to select which slice of the data to use
         if(args.data != "fedemnist"):
             trainset = utils.DatasetSplit(trainset, user_groups[args.clientID])

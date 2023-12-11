@@ -6,6 +6,7 @@ from torch.utils.data import DataLoader
 from torch.nn.utils import parameters_to_vector, vector_to_parameters
 from flwr.common import Metrics, Scalar, EvaluateRes, FitRes, parameters_to_ndarrays, ndarrays_to_parameters, NDArray, NDArrays
 from flwr.server.client_proxy import ClientProxy
+from utils import H5Dataset
 
 import numpy as np
 import copy
