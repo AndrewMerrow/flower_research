@@ -179,7 +179,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         ]
 
         #Multiply LR vector with the prime weights (do the final detection step)
-        model = utils.Net()
+        #model = utils.Net()
+        model = utils.CNN_MNIST()
         params_dict = zip(model.state_dict().keys(), weights_prime)
         state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
         model.load_state_dict(state_dict, strict=False)
