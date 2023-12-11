@@ -111,7 +111,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #new custom aggregation (delta value implementation)
         _, clientExample = results[0]
         #n_params = len(parameters_to_ndarrays(clientExample.parameters))
-        n_params = 537610
+        #n_params = 537610
+        n_params = 1199882
         #lr_vector = torch.Tensor([self.server_learning_rate]*n_params)
         lr_vector = np.array([self.server_learning_rate]*n_params)
         # Convert results (creates tuples of the client updates and their number of training examples for weighting purposes)
