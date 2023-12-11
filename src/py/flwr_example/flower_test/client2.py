@@ -13,6 +13,7 @@ import random
 import numpy as np
 import matplotlib.pyplot as plt
 from pytorch_lightning import seed_everything
+from utils import H5Dataset
 
 warnings.filterwarnings("ignore")
 
@@ -265,10 +266,16 @@ def main() -> None:
         trainset, testset, num_examples = utils.load_data(args.data)
 
         #split the dataset into slices and store the slices in user_groups
-        user_groups = utils.distribute_data(trainset)
+        if(args.data != "fedemnist"):
+            user_groups = utils.distribute_data(trainset)
         #print(str(user_groups))
+
         #Use the client's ID to select which slice of the data to use
-        trainset = utils.DatasetSplit(trainset, user_groups[args.clientID])
+        if(args.data != "fedemnist"):
+            trainset = utils.DatasetSplit(trainset, user_groups[args.clientID])
+        #fedemnist is handled differently
+        else:
+            trainset = torch.load(f'./dataset/Fed_EMNIST/user_trainsets/user_trainsets/user_{clientID}_trainset.pt')
 
         #Poison the data if the poison option is selected
         if args.poison:
