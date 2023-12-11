@@ -275,7 +275,7 @@ def main() -> None:
             trainset = utils.DatasetSplit(trainset, user_groups[args.clientID])
         #fedemnist is handled differently
         else:
-            trainset = torch.load(f'../data/Fed_EMNIST/user_trainsets/user_{id}_trainset.pt')
+            trainset = torch.load(f'../data/Fed_EMNIST/user_trainsets/user_trainsets/user_{clientID}_trainset.pt')
 
         #Poison the data if the poison option is selected
         if args.poison:
