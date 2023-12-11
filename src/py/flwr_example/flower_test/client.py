@@ -231,7 +231,7 @@ def main() -> None:
         "--clientID",
         type=int,
         default=0,
-        choices=range(0,40),
+        choices=range(0,3383),
         required=False,
         help="Used so each client knows which data slice to use"
     )
