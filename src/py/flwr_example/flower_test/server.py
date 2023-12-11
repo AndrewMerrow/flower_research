@@ -28,9 +28,9 @@ def fit_config(server_round: int):
     local epoch, increase to two local epochs afterwards.
     """
     config = {
-        "batch_size": 256,
+        "batch_size": 64,
         "current_round": server_round,
-        "local_epochs": 2, #if server_round < 2 else 2,
+        "local_epochs": 10, #if server_round < 2 else 2,
     }
     return config
 
@@ -297,11 +297,13 @@ def main():
     model_parameters = [val.cpu().numpy() for _, val in model.state_dict().items()]
 
     # Create strategy
-    num_agents = 10
+    num_agents = 3383
     #strategy = fl.server.strategy.FedAvg(
     strategy = AggregateCustomMetricStrategy(
-        min_fit_clients=num_agents,
-        min_evaluate_clients=num_agents,
+        #min_fit_clients=num_agents,
+        #min_evaluate_clients=num_agents,
+        fraction_fit=.01,
+        fraction_evaluate=.01,
         min_available_clients=num_agents,
         evaluate_fn=get_evaluate_fn(model, args.toy, args.data),
         on_fit_config_fn=fit_config,
@@ -316,7 +318,7 @@ def main():
     # Start Flower server for four rounds of federated learning
     fl.server.start_server(
         server_address="10.100.116.10:8080",
-        config=fl.server.ServerConfig(num_rounds=200),
+        config=fl.server.ServerConfig(num_rounds=500),
         strategy=strategy,
     )
 
