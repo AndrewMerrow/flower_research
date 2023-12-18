@@ -58,6 +58,10 @@ class CifarClient(fl.client.NumPyClient):
 
         n_valset = int(len(self.trainset) * self.validation_split)
 
+        if(selectedDataset == "fedemnist"):
+            print("Using {} as my ID".format(config["id_list"][clientID]))
+            #self.trainset = torch.load(f'./dataset/Fed_EMNIST/user_trainsets/user_trainsets/user_{config["id_list"][clientID]}_trainset.pt')
+
         #valset = torch.utils.data.Subset(self.trainset, range(0, n_valset))
         valset = self.testset
         #trainset = torch.utils.data.Subset(

@@ -28,7 +28,8 @@ def fit_config(server_round: int):
     local epoch, increase to two local epochs afterwards.
     """
     id_list = np.random.choice(3383, math.floor(3383*.01), replace=False)
-    
+    print("ID list:")
+    print(id_list)
     config = {
         "batch_size": 64,
         "current_round": server_round,
@@ -300,7 +301,7 @@ def main():
     model_parameters = [val.cpu().numpy() for _, val in model.state_dict().items()]
 
     # Create strategy
-    num_agents = 10
+    num_agents = 1
     #strategy = fl.server.strategy.FedAvg(
     strategy = AggregateCustomMetricStrategy(
         #min_fit_clients=num_agents,
