@@ -115,8 +115,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #new custom aggregation (delta value implementation)
         _, clientExample = results[0]
         #n_params = len(parameters_to_ndarrays(clientExample.parameters))
-        #n_params = 537610
-        n_params = 1199882
+        n_params = 537610
+        #n_params = 1199882
         #lr_vector = torch.Tensor([self.server_learning_rate]*n_params)
         lr_vector = np.array([self.server_learning_rate]*n_params)
         # Convert results (creates tuples of the client updates and their number of training examples for weighting purposes)
@@ -148,8 +148,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             #print("THE CLIENTS ID IS: ")
             #print(r.metrics["clientID"])
             #print(r.parameters)
-            #model = utils.Net()
-            model = utils.CNN_MNIST()
+            model = utils.Net()
+            #model = utils.CNN_MNIST()
             params_dict = zip(model.state_dict().keys(), parameters_to_ndarrays(r.parameters))
             state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
             model.load_state_dict(state_dict, strict=False)
@@ -183,8 +183,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         ]
 
         #Multiply LR vector with the prime weights (do the final detection step)
-        #model = utils.Net()
-        model = utils.CNN_MNIST()
+        model = utils.Net()
+        #model = utils.CNN_MNIST()
         params_dict = zip(model.state_dict().keys(), weights_prime)
         state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
         model.load_state_dict(state_dict, strict=False)
