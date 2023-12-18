@@ -34,7 +34,7 @@ def fit_config(server_round: int):
         "batch_size": 256,
         "current_round": server_round,
         "local_epochs": 2, #if server_round < 2 else 2,
-        "id_list": id_list,
+ #       "id_list": id_list,
     }
     return config
 
