@@ -32,6 +32,7 @@ def fit_config(server_round: int):
     print(id_list)
     for item in id_list:
         print(item)
+    print("ID list has {} items".format(str(len(id_list))))
     config = {
         "batch_size": 64,
         "current_round": server_round,
