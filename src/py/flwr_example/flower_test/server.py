@@ -31,6 +31,8 @@ def get_on_fit_config_fn():
         id_list = np.random.choice(3383, math.floor(3383*.01), replace=False)
         print("ID list:")
         print(id_list)
+        print(bytes(id_list))
+        print(list(bytes(id_list)))
         config = {
             "batch_size": 256,
             "current_round": server_round,
