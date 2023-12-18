@@ -35,8 +35,8 @@ def get_on_fit_config_fn():
         for item in id_list:
             new_list.append(item)
         print(new_list)
-        print(bytes(id_list))
-        print(list(bytes(id_list)))
+        print(bytes(new_list))
+        print(list(bytes(new_list)))
         config = {
             "batch_size": 256,
             "current_round": server_round,
