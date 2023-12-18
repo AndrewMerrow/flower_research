@@ -35,13 +35,11 @@ def get_on_fit_config_fn():
         for item in id_list:
             new_list += " " + str(item)
         print(new_list)
-        print(bytes(new_list))
-        print(list(bytes(new_list)))
         config = {
             "batch_size": 256,
             "current_round": server_round,
             "local_epochs": 2, #if server_round < 2 else 2,
-            "id_list": bytes(id_list),
+            "id_list": new_list,
         }
         return config
     
