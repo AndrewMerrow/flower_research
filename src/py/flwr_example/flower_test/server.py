@@ -304,8 +304,8 @@ def main():
     num_agents = 1
     #strategy = fl.server.strategy.FedAvg(
     strategy = AggregateCustomMetricStrategy(
-        #min_fit_clients=num_agents,
-        #min_evaluate_clients=num_agents,
+        min_fit_clients=num_agents,
+        min_evaluate_clients=num_agents,
         fraction_fit=.01,
         fraction_evaluate=.01,
         min_available_clients=num_agents,
