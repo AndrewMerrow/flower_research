@@ -31,10 +31,10 @@ def fit_config(server_round: int):
     print("ID list:")
     print(id_list)
     config = {
-        "batch_size": 64,
+        "batch_size": 256,
         "current_round": server_round,
-        "local_epochs": 10, #if server_round < 2 else 2,
-        "id_list": id_list
+        "local_epochs": 2, #if server_round < 2 else 2,
+        "id_list": id_list,
     }
     return config
 
@@ -301,7 +301,7 @@ def main():
     model_parameters = [val.cpu().numpy() for _, val in model.state_dict().items()]
 
     # Create strategy
-    num_agents = 10
+    num_agents = 40
     #strategy = fl.server.strategy.FedAvg(
     strategy = AggregateCustomMetricStrategy(
         min_fit_clients=num_agents,
@@ -322,7 +322,7 @@ def main():
     # Start Flower server for four rounds of federated learning
     fl.server.start_server(
         server_address="10.100.116.10:8080",
-        config=fl.server.ServerConfig(num_rounds=500),
+        config=fl.server.ServerConfig(num_rounds=200),
         strategy=strategy,
     )
 
