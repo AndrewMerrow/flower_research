@@ -31,6 +31,10 @@ def get_on_fit_config_fn():
         id_list = np.random.choice(3383, math.floor(3383*.01), replace=False)
         print("ID list:")
         print(id_list)
+        new_list = []
+        for item in id_list:
+            new_list.append(item)
+        print(new_list)
         print(bytes(id_list))
         print(list(bytes(id_list)))
         config = {
