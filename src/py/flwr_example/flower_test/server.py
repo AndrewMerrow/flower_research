@@ -35,7 +35,7 @@ def get_on_fit_config_fn():
             "batch_size": 256,
             "current_round": server_round,
             "local_epochs": 2, #if server_round < 2 else 2,
-            "id_list": id_list,
+            "id_list": bytes(id_list),
         }
         return config
     
