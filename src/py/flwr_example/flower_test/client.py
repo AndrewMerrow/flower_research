@@ -61,7 +61,7 @@ class CifarClient(fl.client.NumPyClient):
         print("The selected dataset is {}".format(selectedDataset))
         print(config['id_list'])
         id_list = config['id_list']
-        id_list.split(" ")
+        id_list = id_list.split(" ")
         print(id_list)
         if(selectedDataset == "fedemnist"):
             print("Using {} as my ID".format(config["id_list"][clientID]))
