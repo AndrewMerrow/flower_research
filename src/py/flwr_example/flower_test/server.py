@@ -15,7 +15,7 @@ import flwr as fl
 import torch
 
 import utils
-
+import math
 import warnings
 
 warnings.filterwarnings("ignore")
@@ -27,6 +27,9 @@ def fit_config(server_round: int):
     Keep batch size fixed at 32, perform two rounds of training with one
     local epoch, increase to two local epochs afterwards.
     """
+    id_list = np.random.choice(3383, math.floor(3383*.001), replace=False)
+    print("ID LIST")
+    print(id_list)
     config = {
         "batch_size": 64,
         "current_round": server_round,
@@ -297,7 +300,7 @@ def main():
     model_parameters = [val.cpu().numpy() for _, val in model.state_dict().items()]
 
     # Create strategy
-    num_agents = 3383
+    num_agents = 10
     #strategy = fl.server.strategy.FedAvg(
     strategy = AggregateCustomMetricStrategy(
         #min_fit_clients=num_agents,

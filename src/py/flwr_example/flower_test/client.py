@@ -99,9 +99,9 @@ class CifarClient(fl.client.NumPyClient):
         
         #This is the format we want
         parameters_test = parameters_to_vector(model.parameters()).detach()
-        print("Old paramters")
-        print(parameters_test)
-        print(len(parameters_test))
+        #print("Old paramters")
+        #print(parameters_test)
+        #print(len(parameters_test))
 
         results = utils.train(model, trainLoader, valLoader, poisoned_val_loader, epochs, self.device)
         parameters_prime = utils.get_model_params(model)
