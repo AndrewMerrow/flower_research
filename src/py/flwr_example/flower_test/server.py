@@ -20,23 +20,26 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
+def get_on_fit_config_fn():
 
-def fit_config(server_round: int):
-    """Return training configuration dict for each round.
+    def fit_config(server_round: int):
+        """Return training configuration dict for each round.
 
-    Keep batch size fixed at 32, perform two rounds of training with one
-    local epoch, increase to two local epochs afterwards.
-    """
-    id_list = np.random.choice(3383, math.floor(3383*.01), replace=False)
-    print("ID list:")
-    print(id_list)
-    config = {
-        "batch_size": 256,
-        "current_round": server_round,
-        "local_epochs": 2, #if server_round < 2 else 2,
- #       "id_list": id_list,
-    }
-    return config
+        Keep batch size fixed at 32, perform two rounds of training with one
+        local epoch, increase to two local epochs afterwards.
+        """
+        id_list = np.random.choice(3383, math.floor(3383*.01), replace=False)
+        print("ID list:")
+        print(id_list)
+        config = {
+            "batch_size": 256,
+            "current_round": server_round,
+            "local_epochs": 2, #if server_round < 2 else 2,
+            "id_list": id_list,
+        }
+        return config
+    
+    return fit_config
 
 
 def evaluate_config(server_round: int):
@@ -311,7 +314,7 @@ def main():
         min_available_clients=num_agents,
         evaluate_fn=get_evaluate_fn(model, args.toy, args.data),
         on_fit_config_fn=fit_config,
-        on_evaluate_config_fn=evaluate_config,
+        on_evaluate_config_fn=get_on_fit_config_fn(), #evaluate_config,
         server_learning_rate = 1.0,
         server_momentum = 0,
     #    evaluate_metrics_aggregation_fn=weighted_average,
