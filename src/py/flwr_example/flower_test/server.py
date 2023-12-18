@@ -28,15 +28,12 @@ def fit_config(server_round: int):
     local epoch, increase to two local epochs afterwards.
     """
     id_list = np.random.choice(3383, math.floor(3383*.01), replace=False)
-    print("ID LIST")
-    print(id_list)
-    for item in id_list:
-        print(item)
-    print("ID list has {} items".format(str(len(id_list))))
+    
     config = {
         "batch_size": 64,
         "current_round": server_round,
         "local_epochs": 10, #if server_round < 2 else 2,
+        "id_list": id_list
     }
     return config
 
