@@ -58,6 +58,15 @@ class CifarClient(fl.client.NumPyClient):
 
         n_valset = int(len(self.trainset) * self.validation_split)
 
+        #print("The selected dataset is {}".format(selectedDataset))
+        if(selectedDataset == "fedemnist"):
+            id_list = config['id_list']
+            id_list = id_list.split(" ")
+            id_list = id_list[1:]
+            print(id_list)
+            print("Using {} as my ID".format(id_list[clientID]))
+            self.trainset = torch.load(f'./dataset/Fed_EMNIST/user_trainsets/user_trainsets/user_{id_list[clientID]}_trainset.pt')
+
         #valset = torch.utils.data.Subset(self.trainset, range(0, n_valset))
         valset = self.testset
         #trainset = torch.utils.data.Subset(
@@ -99,9 +108,9 @@ class CifarClient(fl.client.NumPyClient):
         
         #This is the format we want
         parameters_test = parameters_to_vector(model.parameters()).detach()
-        print("Old paramters")
-        print(parameters_test)
-        print(len(parameters_test))
+        #print("Old paramters")
+        #print(parameters_test)
+        #print(len(parameters_test))
 
         results = utils.train(model, trainLoader, valLoader, poisoned_val_loader, epochs, self.device)
         parameters_prime = utils.get_model_params(model)
