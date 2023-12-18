@@ -27,9 +27,11 @@ def fit_config(server_round: int):
     Keep batch size fixed at 32, perform two rounds of training with one
     local epoch, increase to two local epochs afterwards.
     """
-    id_list = np.random.choice(3383, math.floor(3383*.001), replace=False)
+    id_list = np.random.choice(3383, math.floor(3383*.01), replace=False)
     print("ID LIST")
     print(id_list)
+    for item in id_list:
+        print(item)
     config = {
         "batch_size": 64,
         "current_round": server_round,
