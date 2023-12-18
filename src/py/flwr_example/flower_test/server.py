@@ -31,14 +31,15 @@ def get_on_fit_config_fn():
         id_list = np.random.choice(3383, math.floor(3383*.01), replace=False)
         print("ID list:")
         print(id_list)
+        #The ID list has to be converted to a string because Flower won't except a list as a config option
         new_list = ""
         for item in id_list:
             new_list += " " + str(item)
-        print(new_list)
+        #print(new_list)
         config = {
-            "batch_size": 256,
+            "batch_size": 64,
             "current_round": server_round,
-            "local_epochs": 2, #if server_round < 2 else 2,
+            "local_epochs": 10, #if server_round < 2 else 2,
             "id_list": new_list,
         }
         return config
@@ -122,8 +123,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #new custom aggregation (delta value implementation)
         _, clientExample = results[0]
         #n_params = len(parameters_to_ndarrays(clientExample.parameters))
-        n_params = 537610
-        #n_params = 1199882
+        #n_params = 537610
+        n_params = 1199882
         #lr_vector = torch.Tensor([self.server_learning_rate]*n_params)
         lr_vector = np.array([self.server_learning_rate]*n_params)
         # Convert results (creates tuples of the client updates and their number of training examples for weighting purposes)
@@ -155,8 +156,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             #print("THE CLIENTS ID IS: ")
             #print(r.metrics["clientID"])
             #print(r.parameters)
-            model = utils.Net()
-            #model = utils.CNN_MNIST()
+            #model = utils.Net()
+            model = utils.CNN_MNIST()
             params_dict = zip(model.state_dict().keys(), parameters_to_ndarrays(r.parameters))
             state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
             model.load_state_dict(state_dict, strict=False)
@@ -190,8 +191,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         ]
 
         #Multiply LR vector with the prime weights (do the final detection step)
-        model = utils.Net()
-        #model = utils.CNN_MNIST()
+        #model = utils.Net()
+        model = utils.CNN_MNIST()
         params_dict = zip(model.state_dict().keys(), weights_prime)
         state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
         model.load_state_dict(state_dict, strict=False)
@@ -308,7 +309,7 @@ def main():
     model_parameters = [val.cpu().numpy() for _, val in model.state_dict().items()]
 
     # Create strategy
-    num_agents = 40
+    num_agents = 33
     #strategy = fl.server.strategy.FedAvg(
     strategy = AggregateCustomMetricStrategy(
         min_fit_clients=num_agents,
@@ -329,7 +330,7 @@ def main():
     # Start Flower server for four rounds of federated learning
     fl.server.start_server(
         server_address="10.100.116.10:8080",
-        config=fl.server.ServerConfig(num_rounds=200),
+        config=fl.server.ServerConfig(num_rounds=500),
         strategy=strategy,
     )
 
