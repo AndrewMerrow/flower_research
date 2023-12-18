@@ -60,6 +60,9 @@ class CifarClient(fl.client.NumPyClient):
 
         print("The selected dataset is {}".format(selectedDataset))
         print(config['id_list'])
+        id_list = config['id_list']
+        id_list.split(" ")
+        print(id_list)
         if(selectedDataset == "fedemnist"):
             print("Using {} as my ID".format(config["id_list"][clientID]))
             #self.trainset = torch.load(f'./dataset/Fed_EMNIST/user_trainsets/user_trainsets/user_{config["id_list"][clientID]}_trainset.pt')
