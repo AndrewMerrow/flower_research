@@ -28,18 +28,22 @@ def get_on_fit_config_fn():
         Keep batch size fixed at 32, perform two rounds of training with one
         local epoch, increase to two local epochs afterwards.
         """
-        id_list = np.random.choice(3383, math.floor(3383*.01), replace=False)
-        print("ID list:")
-        print(id_list)
-        #The ID list has to be converted to a string because Flower won't except a list as a config option
-        new_list = ""
-        for item in id_list:
-            new_list += " " + str(item)
+        if selectedDataset == "fedemnist":
+            id_list = np.random.choice(3383, math.floor(3383*.01), replace=False)
+            print("ID list:")
+            print(id_list)
+            #The ID list has to be converted to a string because Flower won't except a list as a config option
+            new_list = ""
+            for item in id_list:
+                new_list += " " + str(item)
+        #new_list is used by the clients to select a dataslice during fedemnist test...it is not needed for cifar 
+        else:
+            new_list == ""
         #print(new_list)
         config = {
-            "batch_size": 64,
+            "batch_size": 64 if selectedDataset == "fedemnist" else 256,
             "current_round": server_round,
-            "local_epochs": 10, #if server_round < 2 else 2,
+            "local_epochs": 10 if selectedDataset == "fedemnist" else 2,
             "id_list": new_list,
         }
         return config
@@ -123,8 +127,14 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #new custom aggregation (delta value implementation)
         _, clientExample = results[0]
         #n_params = len(parameters_to_ndarrays(clientExample.parameters))
-        #n_params = 537610
-        n_params = 1199882
+
+        #number of cifar model parameters
+        if selectedDataset == "cifar10":
+            n_params = 537610
+        #number of fedemnist model parameters 
+        else:
+            n_params = 1199882
+
         #lr_vector = torch.Tensor([self.server_learning_rate]*n_params)
         lr_vector = np.array([self.server_learning_rate]*n_params)
         # Convert results (creates tuples of the client updates and their number of training examples for weighting purposes)
@@ -156,16 +166,28 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             #print("THE CLIENTS ID IS: ")
             #print(r.metrics["clientID"])
             #print(r.parameters)
-            #model = utils.Net()
-            model = utils.CNN_MNIST()
+
+            #select the correct model for the selected dataset
+            if selectedDataset == "cifar10":
+                model = utils.Net()
+            else:
+                model = utils.CNN_MNIST()
+
             params_dict = zip(model.state_dict().keys(), parameters_to_ndarrays(r.parameters))
             state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
             model.load_state_dict(state_dict, strict=False)
             UTD_test = parameters_to_vector(model.parameters()).detach()
             update_dict[r.metrics["clientID"]] = UTD_test
+
+        #Checking if the update dict is being created correctly 
         #print("UPDATE DICT")
         #print(update_dict)
-        #lr_vector = compute_robustLR(update_dict)
+            
+        #This line runs the detection code...without this line, the LR vector won't do anything
+        if detect:
+            lr_vector = compute_robustLR(update_dict)
+        
+        #Testing to see if the LR vector is being created correctly 
         #print("LR vector")
         #print(lr_vector)
         #print(len(lr_vector))
@@ -191,8 +213,11 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         ]
 
         #Multiply LR vector with the prime weights (do the final detection step)
-        #model = utils.Net()
-        model = utils.CNN_MNIST()
+        if selectedDataset == "cifar10":
+            model = utils.Net()
+        else:
+            model = utils.CNN_MNIST()
+
         params_dict = zip(model.state_dict().keys(), weights_prime)
         state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
         model.load_state_dict(state_dict, strict=False)
@@ -295,10 +320,21 @@ def main():
         required=False,
         help="Used to select the dataset to train on"
     )
+    parser.add_argument(
+        "--detect",
+        type=bool,
+        default=False,
+        required=False,
+        help="Toggle to enable or disable poisoning detection/mitigation"
+    )
 
     args = parser.parse_args()
 
-    #model = utils.load_efficientnet(classes=10)
+    global selectedDataset 
+    global detect
+    detect = args.detect
+    selectedDataset = args.data
+    
     if(args.data == "cifar10"):
         model = utils.Net()
     else:
@@ -309,7 +345,7 @@ def main():
     model_parameters = [val.cpu().numpy() for _, val in model.state_dict().items()]
 
     # Create strategy
-    num_agents = 33
+    num_agents = 33 if selectedDataset == "fedemnist" else 40
     #strategy = fl.server.strategy.FedAvg(
     strategy = AggregateCustomMetricStrategy(
         min_fit_clients=num_agents,
