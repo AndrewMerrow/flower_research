@@ -28,6 +28,7 @@ def get_on_fit_config_fn():
         Keep batch size fixed at 32, perform two rounds of training with one
         local epoch, increase to two local epochs afterwards.
         """
+        new_list = ""
         if selectedDataset == "fedemnist":
             id_list = np.random.choice(3383, math.floor(3383*.01), replace=False)
             print("ID list:")
