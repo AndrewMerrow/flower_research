@@ -126,8 +126,8 @@ class CifarClient(fl.client.NumPyClient):
 
         #This is the format from UTD, but flwr won't let me return it
         vectorTest = np.subtract(parameters_new, parameters_test)
-        print(vectorTest)
-        print(len(vectorTest))
+        #print(vectorTest)
+        #print(len(vectorTest))
         #print(type(vectorTest.numpy()))
         
         #test_params = parameters_prime - parameters_old
