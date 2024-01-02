@@ -66,6 +66,9 @@ class CifarClient(fl.client.NumPyClient):
             print(id_list)
             print("Using {} as my ID".format(id_list[clientID]))
             self.trainset = torch.load(f'./dataset/Fed_EMNIST/user_trainsets/user_trainsets/user_{id_list[clientID]}_trainset.pt')
+            if(id_list[clientID] < 338):
+                print("POISONING MY DATA")
+                utils.poison_dataset(self.trainset, selectedDataset, None, id_list[clientID])
 
         #valset = torch.utils.data.Subset(self.trainset, range(0, n_valset))
         valset = self.testset
