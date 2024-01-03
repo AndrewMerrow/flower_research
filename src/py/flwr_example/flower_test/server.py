@@ -186,6 +186,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             
         #This line runs the detection code...without this line, the LR vector won't do anything
         if detect:
+            print("RUNNING DETECTION")
             lr_vector = compute_robustLR(update_dict)
         
         #Testing to see if the LR vector is being created correctly 
