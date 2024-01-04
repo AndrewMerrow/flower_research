@@ -118,7 +118,7 @@ def call(algo, reduced_df, K, filter_clients=None, offset=0.5, topK=0.5):
 
   return client_list[indices]
 
-def detect_malicious(root_dir, dataset, K, model):
+def detect_malicious(selectedDataset, dataset, K, model):
   # Calculate minimum and maximum values for each column
   min_values = dataset.min()
   max_values = dataset.max()
@@ -130,11 +130,11 @@ def detect_malicious(root_dir, dataset, K, model):
   reduced_df.index = client_list
   print (f'all client list: {client_list}')
 
-  if 'Table3' in root_dir:
+  if selectedDataset == "fmnist":
     malicious_id = 1
-  elif 'Table4' in root_dir:
+  elif selectedDataset == "fedemnist":
     malicious_id = 338
-  elif 'Table5' in root_dir:
+  elif selectedDataset == "cifar10":
     malicious_id = 4
 
   malicious_list = np.array([c for c in client_list if int(c) < malicious_id])
