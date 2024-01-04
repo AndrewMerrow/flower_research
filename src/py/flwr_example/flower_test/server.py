@@ -83,8 +83,12 @@ def get_evaluate_fn(model: torch.nn.Module, toy: bool, data):
         poisoned_valset = utils.DatasetSplit(copy.deepcopy(testset), idxs)
         #utils.poison_dataset(poisoned_valset.dataset, "cifar10", idxs, poison_all=True)
 
-    valLoader = DataLoader(testset, batch_size=256, shuffle=False)
-    poisoned_val_loader = DataLoader(poisoned_valset, 256, shuffle=False)
+    if(selectedDataset == "cifar10"):
+        valLoader = DataLoader(testset, batch_size=256, shuffle=False)
+        poisoned_val_loader = DataLoader(poisoned_valset, 256, shuffle=False)
+    else:
+        valLoader = DataLoader(testset, batch_size=64, shuffle=False)
+        poisoned_val_loader = DataLoader(poisoned_valset, 64, shuffle=False)
 
     # The `evaluate` function will be called after every round
     def evaluate(
@@ -227,14 +231,14 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         model.load_state_dict(state_dict, strict=False)
         primeParams = parameters_to_vector(model.parameters()).detach()
         finalParams = primeParams * lr_vector
-        #print("FINAL PARAMS")
-        #print(finalParams)
+        print("FINAL PARAMS")
+        print(finalParams)
         vector_to_parameters(finalParams, model.parameters())
-        #print("WEIGHT PRIME")
+        print("WEIGHT PRIME")
         #print(weights_prime)
         weights_prime = utils.get_model_params(model)
-        #print("AFTER DETECTION")
-        #print(weights_prime)
+        print("AFTER DETECTION")
+        print(weights_prime)
 
         cur_global_params = parameters_to_ndarrays(self.initial_parameters)
         params_old = self.initial_parameters
