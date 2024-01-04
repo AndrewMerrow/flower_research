@@ -125,7 +125,7 @@ def detect_malicious(selectedDataset, dataset, K, model):
   # Create a new dataframe with min and max values
   reduced_df = pd.DataFrame({'min': min_values, 'max': max_values})
   #print (reduced_df)
-
+  print(reduced_df.index.values)
   client_list = np.array(formatit(reduced_df.index.values))
   reduced_df.index = client_list
   print (f'all client list: {client_list}')

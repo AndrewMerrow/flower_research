@@ -193,7 +193,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             
         #convert data into a dataframe for our detection code
         df = pd.DataFrame(update_dict)
-        print(df)
+        #print(df)
         K = len(df.columns)
         detection_slice = df.tail(10).reset_index(drop=True)
         print(detection_slice)
