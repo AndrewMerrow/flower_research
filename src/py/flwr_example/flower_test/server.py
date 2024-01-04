@@ -189,9 +189,9 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #print(update_dict)
             
         #convert data into a dataframe for our detection code
-        for key, value in update_dict:
+        for key in update_dict.keys():
             print(key)
-            print(value)
+            print(update_dict[key])
         
         #print("LR vector before detect check")
         print(lr_vector)
