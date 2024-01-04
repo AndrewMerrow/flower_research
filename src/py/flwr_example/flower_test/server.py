@@ -183,15 +183,17 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #Checking if the update dict is being created correctly 
         #print("UPDATE DICT")
         #print(update_dict)
-            
+        
+        print("LR vector before detect check")
+        print(lr_vector)
         #This line runs the detection code...without this line, the LR vector won't do anything
         if detect:
             print("RUNNING DETECTION")
             lr_vector = compute_robustLR(update_dict)
         
         #Testing to see if the LR vector is being created correctly 
-        #print("LR vector")
-        #print(lr_vector)
+        print("LR vector AFTER detect check")
+        print(lr_vector)
         #print(len(lr_vector))
 
         #vectorTest = lr_vector * update_dict[1]
@@ -347,7 +349,7 @@ def main():
     model_parameters = [val.cpu().numpy() for _, val in model.state_dict().items()]
 
     # Create strategy
-    num_agents = 33 if selectedDataset == "fedemnist" else 40
+    num_agents = 10 if selectedDataset == "fedemnist" else 40
     #strategy = fl.server.strategy.FedAvg(
     strategy = AggregateCustomMetricStrategy(
         min_fit_clients=num_agents,
