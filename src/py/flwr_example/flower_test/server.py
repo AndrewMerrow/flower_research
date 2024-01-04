@@ -187,6 +187,11 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #Checking if the update dict is being created correctly 
         #print("UPDATE DICT")
         #print(update_dict)
+            
+        #convert data into a dataframe for our detection code
+        for key, value in update_dict:
+            print(key)
+            print(value)
         
         #print("LR vector before detect check")
         print(lr_vector)
@@ -231,14 +236,14 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         model.load_state_dict(state_dict, strict=False)
         primeParams = parameters_to_vector(model.parameters()).detach()
         finalParams = primeParams * lr_vector
-        print("FINAL PARAMS")
-        print(finalParams)
+        #print("FINAL PARAMS")
+        #print(finalParams)
         vector_to_parameters(finalParams, model.parameters())
-        print("WEIGHT PRIME")
+        #print("WEIGHT PRIME")
         #print(weights_prime)
         weights_prime = utils.get_model_params(model)
-        print("AFTER DETECTION")
-        print(weights_prime)
+        #print("AFTER DETECTION")
+        #print(weights_prime)
 
         cur_global_params = parameters_to_ndarrays(self.initial_parameters)
         params_old = self.initial_parameters
