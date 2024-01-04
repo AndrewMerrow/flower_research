@@ -185,7 +185,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #print(update_dict)
         
         #print("LR vector before detect check")
-        #print(lr_vector)
+        print(lr_vector)
         #This line runs the detection code...without this line, the LR vector won't do anything
         if detect:
             print("RUNNING DETECTION")
@@ -193,8 +193,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         
         #Testing to see if the LR vector is being created correctly 
         #print("LR vector AFTER detect check")
-        #print(lr_vector)
-        #print(len(lr_vector))
+        print(lr_vector)
+        print(len(lr_vector))
 
         #vectorTest = lr_vector * update_dict[1]
         #print("LR vector multiplication test")
