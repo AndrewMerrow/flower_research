@@ -181,8 +181,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             update_dict[r.metrics["clientID"]] = UTD_test
 
         #Checking if the update dict is being created correctly 
-        #print("UPDATE DICT")
-        #print(update_dict)
+        print("UPDATE DICT")
+        print(update_dict)
         
         print("LR vector before detect check")
         print(lr_vector)
