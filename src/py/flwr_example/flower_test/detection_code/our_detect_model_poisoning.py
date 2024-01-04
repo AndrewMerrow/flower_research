@@ -215,4 +215,5 @@ if __name__ == "__main__":
     K = len(dataset.columns)
     print ('---------------------RND1_'+str(r)+'--------------------')
     dataslice = dataset.tail(10).reset_index(drop=True)
+    print(dataslice)
     detect_malicious(root_dir, dataslice, K, model)
