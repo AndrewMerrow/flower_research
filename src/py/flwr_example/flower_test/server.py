@@ -19,6 +19,8 @@ import utils
 import math
 import warnings
 
+import our_detect_model_poisoning
+
 warnings.filterwarnings("ignore")
 
 def get_on_fit_config_fn():
@@ -192,11 +194,11 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #convert data into a dataframe for our detection code
         df = pd.DataFrame(update_dict)
         print(df)
-        for key in update_dict.keys():
-            print(key)
-            print(update_dict[key])
-            #col_name = "Client " + str(key)
-            #df = pd.DataFrame(update_dict)
+        K = len(df.columns)
+        detection_slice = df.tail(10).reset_index(drop=True)
+        print(detection_slice)
+        #our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, "lof")
+        
         
         #print("LR vector before detect check")
         print(lr_vector)
