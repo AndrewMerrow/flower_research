@@ -2,6 +2,7 @@ from typing import Dict, List, Tuple, Optional, Union
 from functools import reduce
 from collections import OrderedDict
 import argparse
+import pandas as pd
 from torch.utils.data import DataLoader
 from torch.nn.utils import parameters_to_vector, vector_to_parameters
 from flwr.common import Metrics, Scalar, EvaluateRes, FitRes, parameters_to_ndarrays, ndarrays_to_parameters, NDArray, NDArrays
@@ -189,9 +190,13 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #print(update_dict)
             
         #convert data into a dataframe for our detection code
+        df = pd.DataFrame(update_dict)
+        print(df)
         for key in update_dict.keys():
             print(key)
             print(update_dict[key])
+            #col_name = "Client " + str(key)
+            #df = pd.DataFrame(update_dict)
         
         #print("LR vector before detect check")
         print(lr_vector)
