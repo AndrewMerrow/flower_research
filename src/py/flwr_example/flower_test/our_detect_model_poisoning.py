@@ -127,7 +127,7 @@ def detect_malicious(selectedDataset, dataset, K, model):
   # Create a new dataframe with min and max values
   reduced_df = pd.DataFrame({'min': min_values, 'max': max_values})
   #print (reduced_df)
-  print(reduced_df.index.values)
+  #print(reduced_df.index.values)
 
   #I don't think I need formatit to run cause my column names are just the ID numbers
   client_list = np.array(formatit(reduced_df.index.values))

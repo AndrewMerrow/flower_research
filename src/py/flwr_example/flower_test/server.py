@@ -197,9 +197,10 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         K = len(df.columns)
         detection_slice = df.tail(10).reset_index(drop=True)
         for column in detection_slice.columns:
-            print(column)
+            #print(column)
             detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
-        print(detection_slice)
+        #print(detection_slice)
+        #call our detection code
         our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, "lof")
         
         
