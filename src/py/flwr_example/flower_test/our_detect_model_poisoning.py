@@ -212,6 +212,7 @@ if __name__ == "__main__":
   for r in [5,6,45]:
     print ("\n" + root_dir + '/' + 'RND1_' + str(r))
     dataset = read_files(root_dir + '/' + 'RND1_' + str(r))
+    print(dataset)
     K = len(dataset.columns)
     print ('---------------------RND1_'+str(r)+'--------------------')
     dataslice = dataset.tail(10).reset_index(drop=True)
