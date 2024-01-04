@@ -205,7 +205,7 @@ if __name__ == "__main__":
 
   table = sys.argv[1]
   model = sys.argv[2]
-  root_dir = "./static_data/" + table
+  root_dir = "./detection_code/static_data/" + table
   #root_dir = "../data/Round1_only_67clients/" + table
 
   #for r in range(1,51):
