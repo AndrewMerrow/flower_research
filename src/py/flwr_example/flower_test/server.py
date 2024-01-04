@@ -230,7 +230,11 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #print("FINAL PARAMS")
         #print(finalParams)
         vector_to_parameters(finalParams, model.parameters())
+        print("WEIGHT PRIME")
+        print(weights_prime)
         weights_prime = utils.get_model_params(model)
+        print("AFTER DETECTION")
+        print(weights_prime)
 
         cur_global_params = parameters_to_ndarrays(self.initial_parameters)
         params_old = self.initial_parameters
