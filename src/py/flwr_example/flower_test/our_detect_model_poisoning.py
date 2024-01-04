@@ -58,7 +58,9 @@ def call(algo, reduced_df, K, filter_clients=None, offset=0.5, topK=0.5):
   if filter_clients is not None:
     reduced_df = reduced_df.loc[filter_clients]
 
-  client_list = np.array(formatit(reduced_df.index.values))
+  #I don't think I need formatit cause my column names are just the client ID values
+  #client_list = np.array(formatit(reduced_df.index.values))
+  client_list = np.array(reduced_df.index.values)
 
   if algo == 'kmeans_clustering':
     clustering = KMeans(n_clusters=2).fit(reduced_df)
@@ -126,6 +128,8 @@ def detect_malicious(selectedDataset, dataset, K, model):
   reduced_df = pd.DataFrame({'min': min_values, 'max': max_values})
   #print (reduced_df)
   print(reduced_df.index.values)
+
+  #I don't think I need formatit to run cause my column names are just the ID numbers
   #client_list = np.array(formatit(reduced_df.index.values))
   client_list = np.array(reduced_df.index.values)
   reduced_df.index = client_list
