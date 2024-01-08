@@ -136,14 +136,12 @@ def detect_malicious(selectedDataset, dataset, K, model):
   client_list = np.array(formatit(reduced_df.index.values))
   #client_list = np.array(reduced_df.index.values)
   reduced_df.index = client_list
+
+  #client_list stores IDs as strings, so we cast them to ints so we can easily
+  #sort them for printing
   intList = []
-  #for value in client_list:
-    #print(type(value))
-    #intList.append(int(value))
   intList = list(map(int, client_list))
-  print(intList)
-  print(type(intList))
-  print(intList.sort())
+
   print (f'all client list: {sorted(intList)}')
 
   if selectedDataset == "fmnist":
@@ -154,22 +152,27 @@ def detect_malicious(selectedDataset, dataset, K, model):
     malicious_id = 4
 
   malicious_list = np.array([c for c in client_list if int(c) < malicious_id])
-  print (f'malicious client_list: {malicious_list}')
+  malicious_int_list = list(map(int, malicious_list))
+  print (f'malicious client_list: {sorted(malicious_int_list)}')
   #  color = ['red' if client in malicious_list else 'blue' for client in reduced_df.index]
   #  fig, ax = plt.subplots(figsize=(4,3))
   #  reduced_df.plot.scatter(x='min',y='max',c=color,ax=ax)
 
   if model == 'kmeans':
     predicted_malicious = call('kmeans_clustering', reduced_df, K)
+    predicted_int_malicious = list(map(int, predicted_malicious))
     predicted_benign = np.setdiff1d(client_list, predicted_malicious)
-    print (f'Predicted malicious: {predicted_malicious}')
-    print (f'Predicted benign: {predicted_benign}')
+    predicted_int_benign = list(map(int, predicted_benign))
+    print (f'Predicted malicious: {sorted(predicted_int_malicious)}')
+    print (f'Predicted benign: {sorted(predicted_int_benign)}')
     evaluate(client_list, malicious_list, predicted_malicious)
   elif model == 'lof':
     predicted_malicious = call('Local_Outlier_Factor', reduced_df, K, None, 0.1)
+    predicted_int_malicious = list(map(int, predicted_malicious))
     predicted_benign = np.setdiff1d(client_list, predicted_malicious)
-    print (f'Predicted malicious: {predicted_malicious}')
-    print (f'Predicted benign: {predicted_benign}')
+    predicted_int_benign = list(map(int, predicted_benign))
+    print (f'Predicted malicious: {sorted(predicted_int_malicious)}')
+    print (f'Predicted benign: {sorted(predicted_int_benign)}')
     evaluate(client_list, malicious_list, predicted_malicious)
   elif model == 'lof_topk':
     predicted_malicious, topKclients, topKlof = call('Local_Outlier_Factor_topK', reduced_df, K, None, 0.1, 0.5)
