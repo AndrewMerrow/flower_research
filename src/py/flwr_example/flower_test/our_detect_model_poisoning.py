@@ -29,6 +29,9 @@ def read_files(root_dir):
 def formatit(client_list):
   return [c.split('_')[1] if '_' in c else c for c in client_list]
 
+def sortIDs(ID):
+  return int(ID)
+
 def evaluate(client_list, malicious_list, predicted_list):
   all_clients = formatit(client_list)
   y_true = [1 if all_clients[i] in malicious_list else 0 for i in range(len(all_clients))]
@@ -133,7 +136,7 @@ def detect_malicious(selectedDataset, dataset, K, model):
   client_list = np.array(formatit(reduced_df.index.values))
   #client_list = np.array(reduced_df.index.values)
   reduced_df.index = client_list
-  print (f'all client list: {client_list.sort()}')
+  print (f'all client list: {client_list.sort(key=sortIDs)}')
 
   if selectedDataset == "fmnist":
     malicious_id = 1
