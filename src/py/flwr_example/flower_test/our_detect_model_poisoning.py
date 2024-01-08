@@ -171,7 +171,7 @@ def detect_malicious(selectedDataset, dataset, K, model):
     predicted_int_malicious = list(map(int, predicted_malicious))
     predicted_benign = np.setdiff1d(client_list, predicted_malicious)
     predicted_int_benign = list(map(int, predicted_benign))
-    print (f'Predicted malicious:    {sorted(predicted_int_malicious)}')
+    print (f'Predicted malicious:   {sorted(predicted_int_malicious)}')
     print (f'Predicted benign: {sorted(predicted_int_benign)}')
     evaluate(client_list, malicious_list, predicted_malicious)
   elif model == 'lof_topk':
