@@ -143,7 +143,7 @@ def detect_malicious(selectedDataset, dataset, K, model):
   print(intList)
   print(type(intList))
   print(intList.sort())
-  print (f'all client list: {sorted(client_list)}')
+  print (f'all client list: {sorted(intList)}')
 
   if selectedDataset == "fmnist":
     malicious_id = 1
