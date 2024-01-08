@@ -138,6 +138,7 @@ def detect_malicious(selectedDataset, dataset, K, model):
   reduced_df.index = client_list
   intList = []
   for value in client_list:
+    print(type(value))
     intList.append(int(value))
   print (f'all client list: {intList.sort()}')
 
