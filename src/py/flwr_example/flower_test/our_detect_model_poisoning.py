@@ -184,8 +184,8 @@ def detect_malicious(selectedDataset, dataset, K, model):
       else:
         true_negatives.append(value)
 
-    print(f'True positives: {sorted(true_positives)}')
-    print(f'False negatives: {sorted(false_negatives)}')
+    print(f'true positives list:   {sorted(true_positives)}')
+    print(f'false negatives list:  {sorted(false_negatives)}')
     print (f'Predicted malicious:   {sorted(predicted_int_malicious)}')
     print (f'Predicted benign: {sorted(predicted_int_benign)}')
     evaluate(client_list, malicious_list, predicted_malicious)
