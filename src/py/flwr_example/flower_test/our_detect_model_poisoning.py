@@ -29,9 +29,6 @@ def read_files(root_dir):
 def formatit(client_list):
   return [c.split('_')[1] if '_' in c else c for c in client_list]
 
-def sortIDs(ID):
-  return int(ID)
-
 def evaluate(client_list, malicious_list, predicted_list):
   all_clients = formatit(client_list)
   y_true = [1 if all_clients[i] in malicious_list else 0 for i in range(len(all_clients))]
@@ -169,8 +166,26 @@ def detect_malicious(selectedDataset, dataset, K, model):
   elif model == 'lof':
     predicted_malicious = call('Local_Outlier_Factor', reduced_df, K, None, 0.1)
     predicted_int_malicious = list(map(int, predicted_malicious))
+    true_positives = []
+    false_positives = []
+    for value in predicted_int_malicious:
+      if(value < malicious_id):
+        true_positives.append(value)
+      else:
+        false_positives.append(value)
+
     predicted_benign = np.setdiff1d(client_list, predicted_malicious)
     predicted_int_benign = list(map(int, predicted_benign))
+    true_negatives = []
+    false_negatives = []
+    for value in predicted_int_benign:
+      if(value < malicious_id):
+        false_negatives.append(value)
+      else:
+        true_negatives.append(value)
+
+    print(f'True positives: {sorted(true_positives)}')
+    print(f'False negatives: {sorted(false_negatives)}')
     print (f'Predicted malicious:   {sorted(predicted_int_malicious)}')
     print (f'Predicted benign: {sorted(predicted_int_benign)}')
     evaluate(client_list, malicious_list, predicted_malicious)
