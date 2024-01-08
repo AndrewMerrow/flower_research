@@ -133,7 +133,7 @@ def detect_malicious(selectedDataset, dataset, K, model):
   client_list = np.array(formatit(reduced_df.index.values))
   #client_list = np.array(reduced_df.index.values)
   reduced_df.index = client_list
-  print (f'all client list: {client_list}')
+  print (f'all client list: {client_list.sort()}')
 
   if selectedDataset == "fmnist":
     malicious_id = 1
