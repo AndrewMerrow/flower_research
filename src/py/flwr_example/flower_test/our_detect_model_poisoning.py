@@ -91,7 +91,7 @@ def call(algo, reduced_df, K, filter_clients=None, offset=0.5, topK=0.5):
     lof = np.array(-1 * clf.negative_outlier_factor_)
     #print (f'outlier factor: {lof}')
     indices = np.argwhere(lof-offset > 1).flatten()
-    print (f'Lof predicted clients: {formatit(client_list[indices])}')
+    #print (f'Lof predicted clients: {formatit(client_list[indices])}')
   elif algo == 'Local_Outlier_Factor_topK':
     clf = LocalOutlierFactor(n_neighbors=math.ceil(K/2))
     clf.fit_predict(reduced_df)
@@ -171,7 +171,7 @@ def detect_malicious(selectedDataset, dataset, K, model):
     predicted_int_malicious = list(map(int, predicted_malicious))
     predicted_benign = np.setdiff1d(client_list, predicted_malicious)
     predicted_int_benign = list(map(int, predicted_benign))
-    print (f'Predicted malicious: {sorted(predicted_int_malicious)}')
+    print (f'Predicted malicious:    {sorted(predicted_int_malicious)}')
     print (f'Predicted benign: {sorted(predicted_int_benign)}')
     evaluate(client_list, malicious_list, predicted_malicious)
   elif model == 'lof_topk':
