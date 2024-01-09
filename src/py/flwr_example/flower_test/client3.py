@@ -128,7 +128,10 @@ class CifarClient(fl.client.NumPyClient):
         #print(parameters_prime)
 
         #This is the format from UTD, but flwr won't let me return it
+        #Is there a floating point error here? 
         vectorTest = np.subtract(parameters_new, parameters_test)
+        vector_to_parameters(vectorTest, model.parameters())
+        finalParams = utils.get_model_params(model)
         #print(vectorTest)
         #print(len(vectorTest))
         #print(type(vectorTest.numpy()))
@@ -155,8 +158,8 @@ class CifarClient(fl.client.NumPyClient):
         #add the ID of the client to be sent back to the server
         results["clientID"] = clientID
 
-        return test_params, num_examples_train, results
-        #return [vectorTest.numpy()], num_examples_train, results
+        #return test_params, num_examples_train, results
+        return finalParams, num_examples_train, results
 
     def evaluate(self, parameters, config):
         """Evaluate parameters on the locally held test set."""
