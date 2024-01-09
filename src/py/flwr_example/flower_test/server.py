@@ -84,7 +84,7 @@ def get_evaluate_fn(model: torch.nn.Module, toy: bool, data):
         #valset = torch.utils.data.Subset(trainset, range(n_train - 5000, n_train))
         idxs = (testset.targets == 5).nonzero().flatten().tolist()
         poisoned_valset = utils.DatasetSplit(copy.deepcopy(testset), idxs)
-        #utils.poison_dataset(poisoned_valset.dataset, "cifar10", idxs, poison_all=True)
+        utils.poison_dataset(poisoned_valset.dataset, "cifar10", idxs, poison_all=True)
 
     if(selectedDataset == "cifar10"):
         valLoader = DataLoader(testset, batch_size=256, shuffle=False)
