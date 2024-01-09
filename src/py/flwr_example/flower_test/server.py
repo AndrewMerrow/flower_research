@@ -204,7 +204,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
         #print(detection_slice)
         #call our detection code
-        our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, "lof")
+        #our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, "lof")
         
         
         #print("LR vector before detect check")
