@@ -87,7 +87,10 @@ def get_evaluate_fn(model: torch.nn.Module, toy: bool, data):
             poisoned_valset = utils.DatasetSplit(copy.deepcopy(testset), idxs)
             utils.poison_dataset(poisoned_valset.dataset, "cifar10", idxs, poison_all=True)
         elif(selectedDataset == "fedemnist"):
-            utils.poison_dataset(testset, selectedDataset, None, -1)
+            #poisoned_valset = copy.deepcopy(testset)
+            idxs = (testset.targets == 5).nonzero().flatten().tolist()
+            poisoned_valset = utils.DatasetSplit(copy.deepcopy(testset), idxs)
+            utils.poison_dataset(poisoned_valset.dataset, selectedDataset, idxs, poison_all=True)
 
     if(selectedDataset == "cifar10"):
         valLoader = DataLoader(testset, batch_size=256, shuffle=False)
