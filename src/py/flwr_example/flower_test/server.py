@@ -140,6 +140,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
 
         #new custom aggregation (delta value implementation)
         _, clientExample = results[0]
+        print("Client example test")
+        print(clientExample)
         #n_params = len(parameters_to_ndarrays(clientExample.parameters))
 
         #number of cifar model parameters
