@@ -214,7 +214,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             print("The predicted malicious clients")
             print(predicted_malicious)
             for proxy, client in results:
-                if(client.metrics["clientID" in predicted_malicious]):
+                if(client.metrics["clientID"] in predicted_malicious):
                     results.remove((proxy, client))  
                     print("Removing client {}".format(str(client.metrics["clientID"])))
         
