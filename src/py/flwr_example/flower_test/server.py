@@ -142,9 +142,6 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         _, clientExample = results[0]
         print("Client example metrics")
         print(clientExample.metrics)
-        
-        
-        #n_params = len(parameters_to_ndarrays(clientExample.parameters))
 
         #number of cifar model parameters
         if selectedDataset == "cifar10":
@@ -203,6 +200,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             
         #convert data into a dataframe for our detection code
         if(ourDetect):
+            print("RUNNING OUR DETECTION")
             df = pd.DataFrame(update_dict)
             #print(df)
             K = len(df.columns)
@@ -215,13 +213,17 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             predicted_malicious = our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, "kmeans")
             print("The predicted malicious clients")
             print(predicted_malicious)
+            for proxy, client in results:
+                if(client.metrics["clientID" in predicted_malicious]):
+                    results.remove((proxy, client))  
+                    print("Removing client {}".format(str(client.metrics["clientID"])))
         
         
         #print("LR vector before detect check")
         print(lr_vector)
         #This line runs the detection code...without this line, the LR vector won't do anything
         if UTDDetect:
-            print("RUNNING DETECTION")
+            print("RUNNING UTD DETECTION")
             lr_vector = compute_robustLR(update_dict)
         
         #Testing to see if the LR vector is being created correctly 
@@ -294,24 +296,25 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         aggregated_poison_accuracy = sum(poisonAccuracies) / sum(examples)
         print(f"Round {server_round} poison accuracy aggregated from client fit results: {aggregated_poison_accuracy}")
 
-        print("Number of client results: {}".format(str(len(results))))
-        keepList = []
-        removeList = []
-        for proxy, clientResult in results:
-            if(clientResult.metrics["clientID"] < 4):
-                print("{} is less than 4, removing".format(str(clientResult.metrics["clientID"])))
-                removeList.append(clientResult.metrics["clientID"])
-                results.remove((proxy, clientResult))
-            else:
-                print("{} is greater than 4, keeping".format(str(clientResult.metrics["clientID"])))
-                keepList.append(clientResult.metrics["clientID"])
-        print("Keep List: {}".format(str(sorted(keepList))))
-        print("Remove List: {}".format(str(sorted(removeList))))
-        print("Number of clients after removing half: {}".format(str(len(results))))
-        remainingClients = []
-        for proxy, client in results:
-            remainingClients.append(client.metrics["clientID"])
-        print("Remaining clients: {}".format(str(sorted(remainingClients))))
+        #Testing to see if I can remove clients from the aggregation process
+        #print("Number of client results: {}".format(str(len(results))))
+        #keepList = []
+        #removeList = []
+        #for proxy, clientResult in results:
+        #    if(clientResult.metrics["clientID"] < 4):
+        #        print("{} is less than 4, removing".format(str(clientResult.metrics["clientID"])))
+        #        removeList.append(clientResult.metrics["clientID"])
+        #       results.remove((proxy, clientResult))
+        #    else:
+        #        print("{} is greater than 4, keeping".format(str(clientResult.metrics["clientID"])))
+        #        keepList.append(clientResult.metrics["clientID"])
+        #print("Keep List: {}".format(str(sorted(keepList))))
+        #print("Remove List: {}".format(str(sorted(removeList))))
+        print("Number of clients after removing some: {}".format(str(len(results))))
+        #remainingClients = []
+        #for proxy, client in results:
+        #    remainingClients.append(client.metrics["clientID"])
+        #print("Remaining clients: {}".format(str(sorted(remainingClients))))
 
         # Return aggregated model paramters and other metrics (i.e., aggregated accuracy)
         return ndarrays_to_parameters(weights_prime), {"accuracy": aggregated_accuracy}
