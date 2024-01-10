@@ -143,6 +143,10 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         print("Client example metrics")
         print(clientExample.metrics)
         print("Number of client results: {}".format(str(len(results))))
+        for proxy, clientResult in results:
+            if(clientResult.metrics["clientID"] > 20):
+                results.remove((proxy, clientResult))
+        print("Number of clients after removing half: {}".format(str(len(results))))
         
         #n_params = len(parameters_to_ndarrays(clientExample.parameters))
 
