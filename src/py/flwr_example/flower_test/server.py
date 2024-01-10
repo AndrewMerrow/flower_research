@@ -116,11 +116,11 @@ def get_evaluate_fn(model: torch.nn.Module, toy: bool, data):
         if(selectedDataset == "cifar10"):
             with open("cifarOutput.txt", "a") as f:
                 print("Round {} accuracy: {}".format(str(server_round), accuracy), file=f)
-                print("Round {} poison accuracy: {}".format(str(server_round), poison_accuracy), file=f)
+                print("Round {} poison accuracy: {}\n".format(str(server_round), poison_accuracy), file=f)
         else:
             with open("fedemnistOutput.txt", "a") as f:
                 print("Round {} accuracy: {}".format(str(server_round), accuracy), file=f)
-                print("Round {} poison accuracy: {}".format(str(server_round), poison_accuracy), file=f)
+                print("Round {} poison accuracy: {}\n".format(str(server_round), poison_accuracy), file=f)
 
         if(loss == "nan"):
             print("LOSS IS NAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN")
@@ -254,11 +254,9 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                     if(selectedDataset == "cifar10"):
                         with open("cifarOutput.txt", "a") as f:
                             print("Removing client {}".format(str(client.metrics["clientID"])), file=f)
-                            print(predicted_malicious, file=f)
                     else:
                         with open("fedemnistOutput.txt", "a") as f:
                             print("Removing client {}".format(str(client.metrics["clientID"])), file=f)
-                            print(predicted_malicious, file=f)
         
         
         #print("LR vector before detect check")
@@ -463,11 +461,11 @@ def main():
     
     if(args.data == "cifar10"):
         model = utils.Net()
-        with open("cifarOutput.txt", "a") as f:
+        with open("cifarOutput.txt", "w") as f:
             print("Running cifar test", file=f)
     else:
         model = utils.CNN_MNIST()
-        with open("fedemnistOutput.txt", "a") as f:
+        with open("fedemnistOutput.txt", "w") as f:
             print("Running fedemnist test", file=f)
 
     print("NUMBER OF PARAMETERS: " + str(len(parameters_to_vector(model.parameters()))))
