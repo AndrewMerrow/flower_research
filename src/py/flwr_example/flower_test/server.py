@@ -112,6 +112,16 @@ def get_evaluate_fn(model: torch.nn.Module, toy: bool, data):
 
         loss, accuracy, per_class_accuracy = utils.test(model, valLoader)
         poison_loss, poison_accuracy, poison_per_class_accuracy = utils.test(model, poisoned_val_loader)
+        
+        if(selectedDataset == "cifar10"):
+            with open("cifarOutput.txt", "a") as f:
+                print("Round {} accuracy: {}".format(str(server_round), accuracy), file=f)
+                print("Round {} poison accuracy: {}".format(str(server_round), poison_accuracy), file=f)
+        else:
+            with open("fedemnistOutput.txt", "a") as f:
+                print("Round {} accuracy: {}".format(str(server_round), accuracy), file=f)
+                print("Round {} poison accuracy: {}".format(str(server_round), poison_accuracy), file=f)
+
         if(loss == "nan"):
             print("LOSS IS NAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN")
         return loss, {"accuracy": accuracy, "per_class_accuracy": per_class_accuracy, "poison_accuracy": poison_accuracy}
@@ -137,6 +147,13 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         aggregated_parameters, aggregated_metrics = super().aggregate_fit(server_round, results, failures)
         #print("Aggregated parameters")
         #print(parameters_to_ndarrays(aggregated_parameters))
+
+        if(selectedDataset == "cifar10"):
+            with open("cifarOutput.txt", "a") as f:
+                print("Server Round {}".format(str(server_round)), file=f)
+        else:
+            with open("fedemnistOutput.txt", "a") as f:
+                print("Server Round {}".format(str(server_round)), file=f)
 
         #new custom aggregation (delta value implementation)
         _, clientExample = results[0]
@@ -200,6 +217,13 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             
         #convert data into a dataframe for our detection code
         if(ourDetect):
+            if(selectedDataset == "cifar10"):
+                with open("cifarOutput.txt", "a") as f:
+                    print("RUNNING OUR DETECTION", file=f)
+            else:
+                with open("fedemnistOutput.txt", "a") as f:
+                    print("RUNNING OUR DETECTION", file=f)
+
             print("RUNNING OUR DETECTION")
             df = pd.DataFrame(update_dict)
             #print(df)
@@ -213,10 +237,28 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             predicted_malicious = our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, "kmeans")
             print("The predicted malicious clients")
             print(predicted_malicious)
+
+            if(selectedDataset == "cifar10"):
+                with open("cifarOutput.txt", "a") as f:
+                    print("The predicted malicious clients", file=f)
+                    print(predicted_malicious, file=f)
+            else:
+                with open("fedemnistOutput.txt", "a") as f:
+                    print("The predicted malicious clients", file=f)
+                    print(predicted_malicious, file=f)
+
             for proxy, client in results:
                 if(client.metrics["clientID"] in predicted_malicious):
                     results.remove((proxy, client))  
                     print("Removing client {}".format(str(client.metrics["clientID"])))
+                    if(selectedDataset == "cifar10"):
+                        with open("cifarOutput.txt", "a") as f:
+                            print("Removing client {}".format(str(client.metrics["clientID"])), file=f)
+                            print(predicted_malicious, file=f)
+                    else:
+                        with open("fedemnistOutput.txt", "a") as f:
+                            print("Removing client {}".format(str(client.metrics["clientID"])), file=f)
+                            print(predicted_malicious, file=f)
         
         
         #print("LR vector before detect check")
@@ -224,6 +266,12 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #This line runs the detection code...without this line, the LR vector won't do anything
         if UTDDetect:
             print("RUNNING UTD DETECTION")
+            if(selectedDataset == "cifar10"):
+                with open("cifarOutput.txt", "a") as f:
+                    print("RUNNING UTD DETECTION", file=f)
+            else:
+                with open("fedemnistOutput.txt", "a") as f:
+                    print("RUNNING UTD DETECTION", file=f)
             lr_vector = compute_robustLR(update_dict)
         
         #Testing to see if the LR vector is being created correctly 
@@ -311,6 +359,12 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #print("Keep List: {}".format(str(sorted(keepList))))
         #print("Remove List: {}".format(str(sorted(removeList))))
         print("Number of clients after removing some: {}".format(str(len(results))))
+        if(selectedDataset == "cifar10"):
+            with open("cifarOutput.txt", "a") as f:
+                print("Number of clients after removing some: {}".format(str(len(results))), file=f)
+        else:
+            with open("fedemnistOutput.txt", "a") as f:
+                print("Number of clients after removing some: {}".format(str(len(results))), file=f)
         #remainingClients = []
         #for proxy, client in results:
         #    remainingClients.append(client.metrics["clientID"])
@@ -409,8 +463,12 @@ def main():
     
     if(args.data == "cifar10"):
         model = utils.Net()
+        with open("cifarOutput.txt", "a") as f:
+            print("Running cifar test", file=f)
     else:
         model = utils.CNN_MNIST()
+        with open("fedemnistOutput.txt", "a") as f:
+            print("Running fedemnist test", file=f)
 
     print("NUMBER OF PARAMETERS: " + str(len(parameters_to_vector(model.parameters()))))
 
