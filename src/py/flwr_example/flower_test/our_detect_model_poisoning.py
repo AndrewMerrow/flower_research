@@ -65,7 +65,7 @@ def call(algo, reduced_df, K, filter_clients=None, offset=0.5, topK=0.5):
   if algo == 'kmeans_clustering':
     clustering = KMeans(n_clusters=2).fit(reduced_df)
     indices = np.argwhere(clustering.labels_ == np.bincount(clustering.labels_).argmin()).flatten()
-    print (f'kmeans_clustering: {formatit(client_list[indices])}')
+    #print (f'kmeans_clustering: {formatit(client_list[indices])}')
   elif algo == 'AgglomerativeClustering':
     clustering = AgglomerativeClustering().fit(reduced_df)
     indices = np.argwhere(clustering.labels_ == np.bincount(clustering.labels_).argmin()).flatten()
