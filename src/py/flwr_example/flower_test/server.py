@@ -198,22 +198,23 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #print(update_dict)
             
         #convert data into a dataframe for our detection code
-        df = pd.DataFrame(update_dict)
-        #print(df)
-        K = len(df.columns)
-        detection_slice = df.tail(10).reset_index(drop=True)
-        for column in detection_slice.columns:
-            #print(column)
-            detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
-        #print(detection_slice)
-        #call our detection code
-        #our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, "lof")
+        if(ourDetect):
+            df = pd.DataFrame(update_dict)
+            #print(df)
+            K = len(df.columns)
+            detection_slice = df.tail(10).reset_index(drop=True)
+            for column in detection_slice.columns:
+                #print(column)
+                detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
+            #print(detection_slice)
+            #call our detection code
+            our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, "kmeans")
         
         
         #print("LR vector before detect check")
         print(lr_vector)
         #This line runs the detection code...without this line, the LR vector won't do anything
-        if detect:
+        if UTDDetect:
             print("RUNNING DETECTION")
             lr_vector = compute_robustLR(update_dict)
         
@@ -356,18 +357,26 @@ def main():
         help="Used to select the dataset to train on"
     )
     parser.add_argument(
-        "--detect",
+        "--UTDDetect",
         type=bool,
         default=False,
         required=False,
-        help="Toggle to enable or disable poisoning detection/mitigation"
+        help="Toggle to enable or disable UTD's poisoning detection/mitigation"
     )
-
+    parser.add_argument(
+        "--ourDetect",
+        type=bool,
+        default=False,
+        required=False,
+        help="Toggle to enable or disable our poisoning detection/mitigation"
+    )
     args = parser.parse_args()
 
     global selectedDataset 
-    global detect
-    detect = args.detect
+    global UTDDetect
+    global ourDetect
+    UTDDetect = args.UTDDetect
+    ourDetect = args.ourDetect
     selectedDataset = args.data
     
     if(args.data == "cifar10"):
