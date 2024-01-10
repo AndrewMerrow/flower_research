@@ -218,7 +218,7 @@ def detect_malicious(selectedDataset, dataset, K, model):
   else:
     print ('invalid model name')
   
-  return predicted_malicious
+  return predicted_int_malicious
 
   '''
   predicted_kmeans = call('kmeans_clustering', reduced_df, K, n)
