@@ -142,8 +142,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         _, clientExample = results[0]
         print("Client example metrics")
         print(clientExample.metrics)
-        print("client example parameters")
-        print(clientExample.parameters)
+        print("Number of client results: {}".format(str(len(results))))
+        
         #n_params = len(parameters_to_ndarrays(clientExample.parameters))
 
         #number of cifar model parameters
