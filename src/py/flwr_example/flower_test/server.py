@@ -142,24 +142,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         _, clientExample = results[0]
         print("Client example metrics")
         print(clientExample.metrics)
-        print("Number of client results: {}".format(str(len(results))))
-        keepList = []
-        removeList = []
-        for proxy, clientResult in results:
-            if(clientResult.metrics["clientID"] > 20):
-                print("{} is greater than 20, removing".format(str(clientResult.metrics["clientID"])))
-                removeList.append(clientResult.metrics["clientID"])
-                results.remove((proxy, clientResult))
-            else:
-                print("{} is less than 20, keeping".format(str(clientResult.metrics["clientID"])))
-                keepList.append(clientResult.metrics["clientID"])
-        print("Keep List: {}".format(str(sorted(keepList))))
-        print("Remove List: {}".format(str(sorted(removeList))))
-        print("Number of clients after removing half: {}".format(str(len(results))))
-        remainingClients = []
-        for proxy, client in results:
-            remainingClients.append(client.metrics["clientID"])
-        print("Remaining clients: {}".format(str(sorted(remainingClients))))
+        
         
         #n_params = len(parameters_to_ndarrays(clientExample.parameters))
 
@@ -310,6 +293,25 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
 
         aggregated_poison_accuracy = sum(poisonAccuracies) / sum(examples)
         print(f"Round {server_round} poison accuracy aggregated from client fit results: {aggregated_poison_accuracy}")
+
+        print("Number of client results: {}".format(str(len(results))))
+        keepList = []
+        removeList = []
+        for proxy, clientResult in results:
+            if(clientResult.metrics["clientID"] > 20):
+                print("{} is greater than 20, removing".format(str(clientResult.metrics["clientID"])))
+                removeList.append(clientResult.metrics["clientID"])
+                results.remove((proxy, clientResult))
+            else:
+                print("{} is less than 20, keeping".format(str(clientResult.metrics["clientID"])))
+                keepList.append(clientResult.metrics["clientID"])
+        print("Keep List: {}".format(str(sorted(keepList))))
+        print("Remove List: {}".format(str(sorted(removeList))))
+        print("Number of clients after removing half: {}".format(str(len(results))))
+        remainingClients = []
+        for proxy, client in results:
+            remainingClients.append(client.metrics["clientID"])
+        print("Remaining clients: {}".format(str(sorted(remainingClients))))
 
         # Return aggregated model paramters and other metrics (i.e., aggregated accuracy)
         return ndarrays_to_parameters(weights_prime), {"accuracy": aggregated_accuracy}
