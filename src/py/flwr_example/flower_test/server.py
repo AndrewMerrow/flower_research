@@ -298,12 +298,12 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         keepList = []
         removeList = []
         for proxy, clientResult in results:
-            if(clientResult.metrics["clientID"] > 20):
-                print("{} is greater than 20, removing".format(str(clientResult.metrics["clientID"])))
+            if(clientResult.metrics["clientID"] < 4):
+                print("{} is less than 4, removing".format(str(clientResult.metrics["clientID"])))
                 removeList.append(clientResult.metrics["clientID"])
                 results.remove((proxy, clientResult))
             else:
-                print("{} is less than 20, keeping".format(str(clientResult.metrics["clientID"])))
+                print("{} is greater than 4, keeping".format(str(clientResult.metrics["clientID"])))
                 keepList.append(clientResult.metrics["clientID"])
         print("Keep List: {}".format(str(sorted(keepList))))
         print("Remove List: {}".format(str(sorted(removeList))))
