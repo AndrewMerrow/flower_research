@@ -259,9 +259,12 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                     else:
                         with open("fedemnistOutput.txt", "a") as f:
                             print("Removing client {}".format(str(client.metrics["clientID"])), file=f)
-            print("Clients in the new results")
+            
+            newClientIDs = []
             for proxy, client in new_results:
-                print(client.metrics["clientID"])
+                newClientIDs.append(client.metrics["clientID"])
+                #print(client.metrics["clientID"])
+            print("Clients in the new results: {}".format(str(sorted(newClientIDs))))
         
         
         #print("LR vector before detect check")
