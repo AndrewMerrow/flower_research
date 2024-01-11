@@ -247,16 +247,21 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                     print("The predicted malicious clients", file=f)
                     print(predicted_malicious, file=f)
 
+            new_results = []
             for proxy, client in results:
-                if(client.metrics["clientID"] in predicted_malicious):
-                    results.remove((proxy, client))  
-                    print("Removing client {}".format(str(client.metrics["clientID"])))
+                if(client.metrics["clientID"] not in predicted_malicious):
+                    #results.remove((proxy, client))
+                    new_results.append((proxy, client))  
+                    print("Keeping client {}".format(str(client.metrics["clientID"])))
                     if(selectedDataset == "cifar10"):
                         with open("cifarOutput.txt", "a") as f:
                             print("Removing client {}".format(str(client.metrics["clientID"])), file=f)
                     else:
                         with open("fedemnistOutput.txt", "a") as f:
                             print("Removing client {}".format(str(client.metrics["clientID"])), file=f)
+            print("Clients in the new results")
+            for proxy, client in new_results:
+                print(client.metrics["clientID"])
         
         
         #print("LR vector before detect check")
