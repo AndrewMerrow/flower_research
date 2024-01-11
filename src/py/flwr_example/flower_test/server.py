@@ -255,16 +255,17 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                     print("Keeping client {}".format(str(client.metrics["clientID"])))
                     if(selectedDataset == "cifar10"):
                         with open("cifarOutput.txt", "a") as f:
-                            print("Removing client {}".format(str(client.metrics["clientID"])), file=f)
+                            print("Keeping client {}".format(str(client.metrics["clientID"])), file=f)
                     else:
                         with open("fedemnistOutput.txt", "a") as f:
-                            print("Removing client {}".format(str(client.metrics["clientID"])), file=f)
+                            print("Keeping client {}".format(str(client.metrics["clientID"])), file=f)
             
             newClientIDs = []
             for proxy, client in new_results:
                 newClientIDs.append(client.metrics["clientID"])
                 #print(client.metrics["clientID"])
             print("Clients in the new results: {}".format(str(sorted(newClientIDs))))
+            results = new_results
         
         
         #print("LR vector before detect check")
