@@ -236,7 +236,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             #call our detection code
             predicted_malicious = our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, "kmeans")
             print("The predicted malicious clients")
-            print(predicted_malicious)
+            print(sorted(predicted_malicious))
 
             if(selectedDataset == "cifar10"):
                 with open("cifarOutput.txt", "a") as f:
