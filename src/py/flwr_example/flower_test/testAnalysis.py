@@ -6,10 +6,12 @@ with open("cifarOutput.txt", "r") as f:
             predicted_malicious.append(line.rstrip('\n'))
 
 #print(predicted_malicious)
-for client in [0,1,2,3]:
+times_flagged = {}
+for client in range(30):
     counter = 0
     for round in predicted_malicious:
         if(" {},".format(client) in round):
             #print(round)
             counter += 1
-    print(counter)
+    times_flagged[client] = counter
+print(times_flagged)
