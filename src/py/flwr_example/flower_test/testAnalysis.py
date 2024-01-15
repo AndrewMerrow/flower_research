@@ -1,7 +1,10 @@
 from prettytable import PrettyTable
 from texttable import Texttable
 
-
+def retrieveAccuracy(table, accuracies):
+    for line in accuracies:
+        accuracy = line.split(": ")[1]
+        print(accuracy)
 
 def countMaliciousFlags(table, predicted_malicious):
     #print(predicted_malicious)
