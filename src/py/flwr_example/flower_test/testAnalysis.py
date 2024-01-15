@@ -23,4 +23,4 @@ for client in range(30):
 #print(times_flagged)
 for key, value in times_flagged.items():
     table.add_row([key, value])
-print(table)
+print(table.draw())
