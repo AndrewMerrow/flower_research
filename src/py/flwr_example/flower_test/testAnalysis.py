@@ -20,16 +20,26 @@ def countMaliciousFlags(predicted_malicious):
     #print(times_flagged)
     for key, value in times_flagged.items():
         table.add_row([key, value[0], value[1]])
-    print(table.draw())
+    #print(table.draw())
+    return(table)
 
 def main():
     predicted_malicious = []
+    accuracies = []
+    poison_accuracies = []
     with open("cifarOutput.txt", "r") as f:
         lines = f.readlines()
         for line in lines:
             if("[" in line):
                 predicted_malicious.append(line.rstrip('\n'))
-    countMaliciousFlags(predicted_malicious)
+            elif("poison" not in line and "accuracy:" in line):
+                accuracies.append(line.rstrip('\n'))
+            elif("poison" in line):
+                poison_accuracies.append(line.rstrip("\n"))
+
+    table = countMaliciousFlags(predicted_malicious)
+    print(table.draw())
+
 
 if __name__ == "__main__":
     main()
