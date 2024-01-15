@@ -1,10 +1,11 @@
 from prettytable import PrettyTable
 from texttable import Texttable
 
-def countMaliciousFlags(predicted_malicious):
+
+
+def countMaliciousFlags(table, predicted_malicious):
     #print(predicted_malicious)
     #table = PrettyTable(['Client', 'Malicious Flags'])
-    table = Texttable()
     table.add_row(["Client", "Malicious Flags", "Benign Flags"])
     times_flagged = {}
     for client in range(30):
@@ -24,6 +25,7 @@ def countMaliciousFlags(predicted_malicious):
     return(table)
 
 def main():
+    table = Texttable()
     predicted_malicious = []
     accuracies = []
     poison_accuracies = []
@@ -37,7 +39,7 @@ def main():
             elif("poison" in line):
                 poison_accuracies.append(line.rstrip("\n"))
 
-    table = countMaliciousFlags(predicted_malicious)
+    table = countMaliciousFlags(table, predicted_malicious)
     print(table.draw())
 
 
