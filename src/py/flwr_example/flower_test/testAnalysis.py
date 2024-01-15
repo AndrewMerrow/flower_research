@@ -5,7 +5,7 @@ def countMaliciousFlags(predicted_malicious):
     #print(predicted_malicious)
     #table = PrettyTable(['Client', 'Malicious Flags'])
     table = Texttable()
-    table.add_rows([["Client", "Malicious Flags", "Benign Flags"]])
+    table.add_row(["Client", "Malicious Flags", "Benign Flags"])
     times_flagged = {}
     for client in range(30):
         mal_counter = 0
