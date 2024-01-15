@@ -17,6 +17,7 @@ for client in range(30):
             #print(round)
             counter += 1
     times_flagged[client] = counter
-print(times_flagged)
+#print(times_flagged)
 for key, value in times_flagged.items():
     table.add_row([key, value])
+print(table)
