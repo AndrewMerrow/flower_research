@@ -2,6 +2,7 @@ from prettytable import PrettyTable
 from texttable import Texttable
 
 def retrieveAccuracy(table, accuracies):
+    table.add_row(["Round", "Accuracy"])
     round = 1
     for line in accuracies:
         accuracy = line.split(": ")[1]
@@ -49,7 +50,8 @@ def main():
 
     table = countMaliciousFlags(table, predicted_malicious)
     print(table.draw())
-    table = retrieveAccuracy(accuracyTable, accuracies)
+    accuracyTable = retrieveAccuracy(accuracyTable, accuracies)
+    print(accuracyTable.draw())
 
 
 if __name__ == "__main__":
