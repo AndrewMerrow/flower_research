@@ -23,6 +23,7 @@ def countMaliciousFlags(predicted_malicious):
     print(table.draw())
 
 def main():
+    print('running main')
     predicted_malicious = []
     with open("cifarOutput.txt", "r") as f:
         lines = f.readlines()
