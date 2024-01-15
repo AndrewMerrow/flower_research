@@ -4,7 +4,7 @@ from texttable import Texttable
 def retrieveAccuracy(table, accuracies):
     for line in accuracies:
         accuracy = line.split(": ")[1]
-        print(accuracy)
+        print(f"{accuracy:.0%}")
     return(table)
 
 def countMaliciousFlags(table, predicted_malicious):
