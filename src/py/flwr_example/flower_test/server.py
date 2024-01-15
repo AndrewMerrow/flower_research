@@ -236,7 +236,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             #call our detection code
             predicted_malicious = our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, "kmeans")
             print("The predicted malicious clients")
-            print(predicted_malicious)
+            print(sorted(predicted_malicious))
 
             if(selectedDataset == "cifar10"):
                 with open("cifarOutput.txt", "a") as f:
@@ -247,16 +247,25 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                     print("The predicted malicious clients", file=f)
                     print(predicted_malicious, file=f)
 
+            new_results = []
             for proxy, client in results:
-                if(client.metrics["clientID"] in predicted_malicious):
-                    results.remove((proxy, client))  
-                    print("Removing client {}".format(str(client.metrics["clientID"])))
+                if(client.metrics["clientID"] not in predicted_malicious):
+                    #results.remove((proxy, client))
+                    new_results.append((proxy, client))  
+                    print("Keeping client {}".format(str(client.metrics["clientID"])))
                     if(selectedDataset == "cifar10"):
                         with open("cifarOutput.txt", "a") as f:
-                            print("Removing client {}".format(str(client.metrics["clientID"])), file=f)
+                            print("Keeping client {}".format(str(client.metrics["clientID"])), file=f)
                     else:
                         with open("fedemnistOutput.txt", "a") as f:
-                            print("Removing client {}".format(str(client.metrics["clientID"])), file=f)
+                            print("Keeping client {}".format(str(client.metrics["clientID"])), file=f)
+            
+            newClientIDs = []
+            for proxy, client in new_results:
+                newClientIDs.append(client.metrics["clientID"])
+                #print(client.metrics["clientID"])
+            print("Clients in the new results: {}".format(str(sorted(newClientIDs))))
+            results = new_results
         
         
         #print("LR vector before detect check")
