@@ -10,6 +10,6 @@ for client in [0,1,2,3]:
     counter = 0
     for round in predicted_malicious:
         if(" {},".format(client) in round):
-            print(round)
+            #print(round)
             counter += 1
     print(counter)
