@@ -2,7 +2,7 @@ from prettytable import PrettyTable
 from texttable import Texttable
 
 def countMaliciousFlags(predicted_malicious):
-    print(predicted_malicious)
+    #print(predicted_malicious)
     #table = PrettyTable(['Client', 'Malicious Flags'])
     table = Texttable()
     table.add_rows([["Client", "Malicious Flags", "Benign Flags"]])
@@ -23,7 +23,6 @@ def countMaliciousFlags(predicted_malicious):
     print(table.draw())
 
 def main():
-    print('running main')
     predicted_malicious = []
     with open("cifarOutput.txt", "r") as f:
         lines = f.readlines()
@@ -31,3 +30,6 @@ def main():
             if("[" in line):
                 predicted_malicious.append(line.rstrip('\n'))
     countMaliciousFlags(predicted_malicious)
+
+if __name__ == "__main__":
+    main()
