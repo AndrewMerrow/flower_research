@@ -5,6 +5,7 @@ def retrieveAccuracy(table, accuracies):
     for line in accuracies:
         accuracy = line.split(": ")[1]
         print(accuracy)
+    return(table)
 
 def countMaliciousFlags(table, predicted_malicious):
     #print(predicted_malicious)
@@ -44,6 +45,7 @@ def main():
 
     table = countMaliciousFlags(table, predicted_malicious)
     print(table.draw())
+    table = retrieveAccuracy(table, accuracies)
 
 
 if __name__ == "__main__":
