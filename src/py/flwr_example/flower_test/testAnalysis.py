@@ -1,3 +1,5 @@
+from prettytable import PrettyTable
+
 predicted_malicious = []
 with open("cifarOutput.txt", "r") as f:
     lines = f.readlines()
@@ -6,6 +8,7 @@ with open("cifarOutput.txt", "r") as f:
             predicted_malicious.append(line.rstrip('\n'))
 
 #print(predicted_malicious)
+table = PrettyTable(['Client', 'Malicious Flags'])
 times_flagged = {}
 for client in range(30):
     counter = 0
@@ -15,3 +18,5 @@ for client in range(30):
             counter += 1
     times_flagged[client] = counter
 print(times_flagged)
+for key, value in times_flagged:
+    table.add_row([key, value])
