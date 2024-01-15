@@ -1,14 +1,18 @@
 from prettytable import PrettyTable
 from texttable import Texttable
 
-def retrieveAccuracy(table, accuracies):
-    table.add_row(["Round", "Accuracy"])
-    round = 1
-    for line in accuracies:
-        accuracy = line.split(": ")[1]
-        print(f"{float(accuracy):.2%}")
-        table.add_row([round, '{:.2%}'.format(float(accuracy))])
-        round += 1
+def retrieveAccuracy(table, accuracies, poison_accuracies):
+    table.add_row(["Round", "Accuracy", "Poison Accuracy"])
+    #round = 0
+    #for line in accuracies:
+    #    accuracy = line.split(": ")[1]
+    #    table.add_row([round, '{:.2%}'.format(float(accuracy))])
+    #    round += 1
+
+    for i in range(len(accuracies)):
+        accuracy = accuracies[i].split(": ")[1]
+        poison_accuracy = poison_accuracies[i].split(": ")[1]
+        table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))])
     return(table)
 
 def countMaliciousFlags(table, predicted_malicious):
