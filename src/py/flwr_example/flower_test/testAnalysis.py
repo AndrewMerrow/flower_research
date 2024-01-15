@@ -2,7 +2,7 @@ from prettytable import PrettyTable
 from texttable import Texttable
 
 def countMaliciousFlags(predicted_malicious):
-    #print(predicted_malicious)
+    print(predicted_malicious)
     #table = PrettyTable(['Client', 'Malicious Flags'])
     table = Texttable()
     table.add_rows([["Client", "Malicious Flags", "Benign Flags"]])
