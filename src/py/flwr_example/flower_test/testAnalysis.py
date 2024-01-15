@@ -54,7 +54,7 @@ def main():
 
     table = countMaliciousFlags(table, predicted_malicious)
     print(table.draw())
-    accuracyTable = retrieveAccuracy(accuracyTable, accuracies)
+    accuracyTable = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies)
     print(accuracyTable.draw())
 
 
