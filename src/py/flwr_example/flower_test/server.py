@@ -8,6 +8,7 @@ from torch.nn.utils import parameters_to_vector, vector_to_parameters
 from flwr.common import Metrics, Scalar, EvaluateRes, FitRes, parameters_to_ndarrays, ndarrays_to_parameters, NDArray, NDArrays
 from flwr.server.client_proxy import ClientProxy
 from utils import H5Dataset
+import datetime
 
 import numpy as np
 import copy
@@ -114,11 +115,11 @@ def get_evaluate_fn(model: torch.nn.Module, toy: bool, data):
         poison_loss, poison_accuracy, poison_per_class_accuracy = utils.test(model, poisoned_val_loader)
         
         if(selectedDataset == "cifar10"):
-            with open("cifarOutput.txt", "a") as f:
+            with open(filename, "a") as f:
                 print("Round {} accuracy: {}".format(str(server_round), accuracy), file=f)
                 print("Round {} poison accuracy: {}\n".format(str(server_round), poison_accuracy), file=f)
         else:
-            with open("fedemnistOutput.txt", "a") as f:
+            with open(filename, "a") as f:
                 print("Round {} accuracy: {}".format(str(server_round), accuracy), file=f)
                 print("Round {} poison accuracy: {}\n".format(str(server_round), poison_accuracy), file=f)
 
@@ -149,10 +150,10 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #print(parameters_to_ndarrays(aggregated_parameters))
 
         if(selectedDataset == "cifar10"):
-            with open("cifarOutput.txt", "a") as f:
+            with open(filename, "a") as f:
                 print("Server Round {}".format(str(server_round)), file=f)
         else:
-            with open("fedemnistOutput.txt", "a") as f:
+            with open(filename, "a") as f:
                 print("Server Round {}".format(str(server_round)), file=f)
 
         #new custom aggregation (delta value implementation)
@@ -218,10 +219,10 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #convert data into a dataframe for our detection code
         if(ourDetect):
             if(selectedDataset == "cifar10"):
-                with open("cifarOutput.txt", "a") as f:
+                with open(filename, "a") as f:
                     print("RUNNING OUR DETECTION", file=f)
             else:
-                with open("fedemnistOutput.txt", "a") as f:
+                with open(filename, "a") as f:
                     print("RUNNING OUR DETECTION", file=f)
 
             print("RUNNING OUR DETECTION")
@@ -239,11 +240,11 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             print(sorted(predicted_malicious))
 
             if(selectedDataset == "cifar10"):
-                with open("cifarOutput.txt", "a") as f:
+                with open(filename, "a") as f:
                     print("The predicted malicious clients", file=f)
                     print(predicted_malicious, file=f)
             else:
-                with open("fedemnistOutput.txt", "a") as f:
+                with open(filename, "a") as f:
                     print("The predicted malicious clients", file=f)
                     print(predicted_malicious, file=f)
 
@@ -254,10 +255,10 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                     new_results.append((proxy, client))  
                     print("Keeping client {}".format(str(client.metrics["clientID"])))
                     if(selectedDataset == "cifar10"):
-                        with open("cifarOutput.txt", "a") as f:
+                        with open(filename, "a") as f:
                             print("Keeping client {}".format(str(client.metrics["clientID"])), file=f)
                     else:
-                        with open("fedemnistOutput.txt", "a") as f:
+                        with open(filename, "a") as f:
                             print("Keeping client {}".format(str(client.metrics["clientID"])), file=f)
             
             newClientIDs = []
@@ -274,10 +275,10 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         if UTDDetect:
             print("RUNNING UTD DETECTION")
             if(selectedDataset == "cifar10"):
-                with open("cifarOutput.txt", "a") as f:
+                with open(filename, "a") as f:
                     print("RUNNING UTD DETECTION", file=f)
             else:
-                with open("fedemnistOutput.txt", "a") as f:
+                with open(filename, "a") as f:
                     print("RUNNING UTD DETECTION", file=f)
             lr_vector = compute_robustLR(update_dict)
         
@@ -367,10 +368,10 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #print("Remove List: {}".format(str(sorted(removeList))))
         print("Number of clients after removing some: {}".format(str(len(results))))
         if(selectedDataset == "cifar10"):
-            with open("cifarOutput.txt", "a") as f:
+            with open(filename, "a") as f:
                 print("Number of clients after removing some: {}".format(str(len(results))), file=f)
         else:
-            with open("fedemnistOutput.txt", "a") as f:
+            with open(filename, "a") as f:
                 print("Number of clients after removing some: {}".format(str(len(results))), file=f)
         #remainingClients = []
         #for proxy, client in results:
@@ -464,17 +465,22 @@ def main():
     global selectedDataset 
     global UTDDetect
     global ourDetect
+    global filename
     UTDDetect = args.UTDDetect
     ourDetect = args.ourDetect
     selectedDataset = args.data
     
     if(args.data == "cifar10"):
         model = utils.Net()
-        with open("cifarOutput.txt", "w") as f:
+        ct = datetime.datetime.now()
+        filename = "cifar test " + str(ct)
+        with open(filename, "w") as f:
             print("Running cifar test", file=f)
     else:
         model = utils.CNN_MNIST()
-        with open("fedemnistOutput.txt", "w") as f:
+        ct = datetime.datetime.now()
+        filename = "fedemnist test " + str(ct)
+        with open(filename, "w") as f:
             print("Running fedemnist test", file=f)
 
     print("NUMBER OF PARAMETERS: " + str(len(parameters_to_vector(model.parameters()))))
