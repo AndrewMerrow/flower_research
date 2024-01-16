@@ -69,6 +69,7 @@ class CifarClient(fl.client.NumPyClient):
             if(int(id_list[clientID]) < 338):
                 print("POISONING MY DATA")
                 utils.poison_dataset(self.trainset, selectedDataset, None, id_list[clientID])
+            clientID = int(id_list[clientID])
 
         #valset = torch.utils.data.Subset(self.trainset, range(0, n_valset))
         valset = self.testset
