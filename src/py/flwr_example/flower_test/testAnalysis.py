@@ -22,7 +22,7 @@ def countMaliciousFlags(table, predicted_malicious):
     #table = PrettyTable(['Client', 'Malicious Flags'])
     table.add_row(["Client", "Malicious Flags", "Benign Flags"])
     times_flagged = {}
-    for client in range(30):
+    for client in range(40):
         mal_counter = 0
         ben_counter = 0
         for round in predicted_malicious:
