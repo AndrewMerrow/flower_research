@@ -233,7 +233,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             for column in detection_slice.columns:
                 #print(column)
                 detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
-            print(detection_slice)
+            #print(detection_slice)
             #call our detection code
             predicted_malicious = our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, "kmeans")
             print("The predicted malicious clients")
@@ -271,10 +271,10 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             results = new_results
         
         
-        #print("LR vector before detect check")
-        print(lr_vector)
         #This line runs the detection code...without this line, the LR vector won't do anything
         if UTDDetect:
+            #print("LR vector before detect check")
+            print(lr_vector)
             print("RUNNING UTD DETECTION")
             if(selectedDataset == "cifar10"):
                 with open(filename, "a") as f:
@@ -283,11 +283,9 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                 with open(filename, "a") as f:
                     print("RUNNING UTD DETECTION", file=f)
             lr_vector = compute_robustLR(update_dict)
-        
-        #Testing to see if the LR vector is being created correctly 
-        #print("LR vector AFTER detect check")
-        print(lr_vector)
-        print(len(lr_vector))
+            #Testing to see if the LR vector is being created correctly 
+            #print("LR vector AFTER detect check")
+            print(lr_vector)
 
         #vectorTest = lr_vector * update_dict[1]
         #print("LR vector multiplication test")
@@ -328,9 +326,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         weights_prime = utils.get_model_params(model)
         #print("AFTER DETECTION")
         #print(weights_prime)
-
-        cur_global_params = parameters_to_ndarrays(self.initial_parameters)
-        params_old = self.initial_parameters
+        
         #print(lr_vector.shape)
         #print(lr_vector)
         #print(weights_prime)
