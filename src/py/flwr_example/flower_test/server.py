@@ -232,7 +232,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             for column in detection_slice.columns:
                 #print(column)
                 detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
-            #print(detection_slice)
+            print(detection_slice)
             #call our detection code
             predicted_malicious = our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, "kmeans")
             print("The predicted malicious clients")
