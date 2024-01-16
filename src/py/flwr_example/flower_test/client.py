@@ -58,6 +58,7 @@ class CifarClient(fl.client.NumPyClient):
 
         n_valset = int(len(self.trainset) * self.validation_split)
 
+        clientID_local = clientID
         #print("The selected dataset is {}".format(selectedDataset))
         if(selectedDataset == "fedemnist"):
             id_list = config['id_list']
@@ -69,7 +70,7 @@ class CifarClient(fl.client.NumPyClient):
             if(int(id_list[clientID]) < 338):
                 print("POISONING MY DATA")
                 utils.poison_dataset(self.trainset, selectedDataset, None, id_list[clientID])
-            #clientID = int(id_list[clientID])
+            clientID_local = int(id_list[clientID])
 
         #valset = torch.utils.data.Subset(self.trainset, range(0, n_valset))
         valset = self.testset
@@ -157,7 +158,7 @@ class CifarClient(fl.client.NumPyClient):
         #test_params = parameters_to_ndarrays(test_params)
 
         #add the ID of the client to be sent back to the server
-        results["clientID"] = clientID
+        results["clientID"] = clientID_local
 
         #return test_params, num_examples_train, results
         return finalParams, num_examples_train, results
