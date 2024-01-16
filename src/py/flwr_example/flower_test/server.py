@@ -473,13 +473,13 @@ def main():
     if(args.data == "cifar10"):
         model = utils.Net()
         ct = datetime.datetime.now()
-        filename = "cifar test " + str(ct)
+        filename = "cifar_test " + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running cifar test", file=f)
     else:
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now()
-        filename = "fedemnist test " + str(ct)
+        filename = "fedemnist_test " + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running fedemnist test", file=f)
 
