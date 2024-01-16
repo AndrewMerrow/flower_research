@@ -326,7 +326,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         weights_prime = utils.get_model_params(model)
         #print("AFTER DETECTION")
         #print(weights_prime)
-        
+
         #print(lr_vector.shape)
         #print(lr_vector)
         #print(weights_prime)

@@ -44,7 +44,7 @@ def main():
         "--file",
         type=str,
         default="cifarOutput.txt",
-        required=True,
+        required=False,
         help="Used to select the dataset to train on"
     )
     args = parser.parse_args()
