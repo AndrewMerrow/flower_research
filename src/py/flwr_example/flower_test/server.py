@@ -253,13 +253,15 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                 if(client.metrics["clientID"] not in predicted_malicious):
                     #results.remove((proxy, client))
                     new_results.append((proxy, client))  
-                    print("Keeping client {}".format(str(client.metrics["clientID"])))
+                    #print("Keeping client {}".format(str(client.metrics["clientID"])))
                     if(selectedDataset == "cifar10"):
                         with open(filename, "a") as f:
-                            print("Keeping client {}".format(str(client.metrics["clientID"])), file=f)
+                            pass
+                            #print("Keeping client {}".format(str(client.metrics["clientID"])), file=f)
                     else:
                         with open(filename, "a") as f:
-                            print("Keeping client {}".format(str(client.metrics["clientID"])), file=f)
+                            pass
+                            #print("Keeping client {}".format(str(client.metrics["clientID"])), file=f)
             
             newClientIDs = []
             for proxy, client in new_results:
