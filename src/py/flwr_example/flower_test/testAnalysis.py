@@ -1,5 +1,7 @@
 from prettytable import PrettyTable
 from texttable import Texttable
+import argparse
+
 
 def retrieveAccuracy(table, accuracies, poison_accuracies):
     table.add_row(["Round", "Accuracy", "Poison Accuracy"])
@@ -37,12 +39,22 @@ def countMaliciousFlags(table, predicted_malicious):
     return(table)
 
 def main():
+    parser = argparse.ArgumentParser(description="Flower")
+    parser.add_argument(
+        "--file",
+        type=str,
+        default="cifarOutput.txt",
+        required=True,
+        help="Used to select the dataset to train on"
+    )
+    args = parser.parse_args()
+
     table = Texttable()
     accuracyTable = Texttable()
     predicted_malicious = []
     accuracies = []
     poison_accuracies = []
-    with open("cifarOutput.txt", "r") as f:
+    with open(args.file, "r") as f:
         lines = f.readlines()
         for line in lines:
             if("[" in line):
