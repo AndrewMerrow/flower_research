@@ -128,6 +128,7 @@ def detect_malicious(selectedDataset, dataset, K, model):
   reduced_df = pd.DataFrame({'min': min_values, 'max': max_values})
   #print (reduced_df)
   #print(reduced_df.index.values)
+  
 
   client_list = np.array(formatit(reduced_df.index.values))
   reduced_df.index = client_list
@@ -149,6 +150,12 @@ def detect_malicious(selectedDataset, dataset, K, model):
   malicious_list = np.array([c for c in client_list if int(c) < malicious_id])
   malicious_int_list = list(map(int, malicious_list))
   print (f'malicious client_list: {sorted(malicious_int_list)}')
+
+  #Cluster visualization
+  #fig, ax = plt.subplots(figsize=(4,3))
+  #color = ['red' if client in malicious_list else 'blue' for client in reduced_df.index]
+  #reduced_df.plot.scatter(x='min',y='max',c=color,ax=ax)
+  
   #  color = ['red' if client in malicious_list else 'blue' for client in reduced_df.index]
   #  fig, ax = plt.subplots(figsize=(4,3))
   #  reduced_df.plot.scatter(x='min',y='max',c=color,ax=ax)
