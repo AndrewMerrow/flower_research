@@ -94,7 +94,7 @@ def main():
     table = countMaliciousFlags(args, table, predicted_malicious, selected_clients)
     print(table.draw())
     accuracyTable = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies)
-    #print(accuracyTable.draw())
+    print(accuracyTable.draw())
 
 
 if __name__ == "__main__":
