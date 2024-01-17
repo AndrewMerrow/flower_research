@@ -129,9 +129,7 @@ def detect_malicious(selectedDataset, dataset, K, model):
   #print (reduced_df)
   #print(reduced_df.index.values)
 
-  #I don't think I need formatit to run cause my column names are just the ID numbers
   client_list = np.array(formatit(reduced_df.index.values))
-  #client_list = np.array(reduced_df.index.values)
   reduced_df.index = client_list
 
   #client_list stores IDs as strings, so we cast them to ints so we can easily
@@ -218,7 +216,7 @@ def detect_malicious(selectedDataset, dataset, K, model):
   else:
     print ('invalid model name')
   
-  return predicted_int_malicious
+  return sorted(intList), sorted(predicted_int_malicious)
 
   '''
   predicted_kmeans = call('kmeans_clustering', reduced_df, K, n)
