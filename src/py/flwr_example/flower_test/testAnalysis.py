@@ -89,12 +89,12 @@ def main():
                 if("selected clients" in line):
                     selected_clients.append(line.rstrip('\n'))
 
-    print("Clients selected each round: " + str(selected_clients))
+    #print("Clients selected each round: " + str(selected_clients))
     print("MALICIOUS PREDICTIONS: " + str(predicted_malicious))
     table = countMaliciousFlags(args, table, predicted_malicious, selected_clients)
     print(table.draw())
     accuracyTable = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies)
-    print(accuracyTable.draw())
+    #print(accuracyTable.draw())
 
 
 if __name__ == "__main__":
