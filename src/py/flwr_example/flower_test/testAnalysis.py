@@ -18,7 +18,7 @@ def retrieveAccuracy(table, accuracies, poison_accuracies):
     return(table)
 
 def countMaliciousFlags(args, table, predicted_malicious, selected_clients = None):
-    #print(predicted_malicious)
+    print(selected_clients)
     #table = PrettyTable(['Client', 'Malicious Flags'])
     table.add_row(["Client", "Malicious Flags", "Benign Flags"])
     times_flagged = {}
