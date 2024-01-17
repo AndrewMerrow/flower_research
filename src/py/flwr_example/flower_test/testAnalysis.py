@@ -50,7 +50,7 @@ def countMaliciousFlags(args, table, predicted_malicious, selected_clients = Non
                 elif(" {},".format(client) in selected_clients or "[{}".format(client) in selected_clients or " {}]".format(client) in selected_clients):
                     ben_counter += 1
             times_flagged[client] = (mal_counter, ben_counter)
-            
+
         for key, value in times_flagged.items():
             table.add_row([key, value[0], value[1]])
     
@@ -88,6 +88,7 @@ def main():
                 if("selected clients" in line):
                     selected_clients.append(line.rstrip('\n'))
 
+    print("Clients selected each round: " + str(selected_clients))
     table = countMaliciousFlags(args, table, predicted_malicious, selected_clients)
     print(table.draw())
     accuracyTable = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies)
