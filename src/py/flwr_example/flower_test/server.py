@@ -244,8 +244,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             #Since not all clients are used for fedemnist, we write all the selected clients for the round to the output file
             elif(selectedDataset == "fedemnist"):
                 with open(filename, "a") as f:
-                    print("test line", file=f)
-                    print("All selected clients: {}".format(all_clients, file=f))
+                    print("All selected clients: {}".format(all_clients), file=f)
                     print("The predicted malicious clients: {}".format(predicted_malicious), file=f)
                     #print(predicted_malicious, file=f)
 
