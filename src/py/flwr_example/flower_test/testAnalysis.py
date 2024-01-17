@@ -44,10 +44,10 @@ def countMaliciousFlags(args, table, predicted_malicious, selected_clients = Non
         for client in range(num_clients):
             mal_counter = 0
             ben_counter = 0
-            for round in predicted_malicious:
-                if(" {},".format(client) in round or "[{}".format(client) in round or " {}]".format(client) in round):
+            for i in range(len(predicted_malicious)):
+                if(" {},".format(client) in predicted_malicious[i] or "[{}".format(client) in predicted_malicious[i] or " {}]".format(client) in predicted_malicious[i]):
                     mal_counter += 1
-                elif(" {},".format(client) in selected_clients or "[{}".format(client) in selected_clients or " {}]".format(client) in selected_clients):
+                elif(" {},".format(client) in selected_clients[i] or "[{}".format(client) in selected_clients[i] or " {}]".format(client) in selected_clients[i]):
                     ben_counter += 1
             times_flagged[client] = (mal_counter, ben_counter)
 
