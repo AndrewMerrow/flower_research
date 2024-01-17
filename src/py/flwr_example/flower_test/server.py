@@ -174,10 +174,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #for _, fit_res in results:
             #print("FIT RES")
             #print(len(fit_res.parameters))
-        weights_results = [
-            (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples)
-            for _, fit_res in results
-        ]
+        
+        #Weight results used to be here
         #print("WEIGHT TEST")
         #print(weights_results[1])
         #print(len(weights_results))
@@ -294,6 +292,10 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #print(vectorTest)
         
         #interpretation of the aggregate.py flower code
+        weights_results = [
+            (parameters_to_ndarrays(fit_res.parameters), fit_res.num_examples)
+            for _, fit_res in results
+        ]
         num_examples_total = sum([num_examples for _, num_examples in weights_results])
         weighted_weights = [
         [layer * num_examples for layer in weights] for weights, num_examples in weights_results
