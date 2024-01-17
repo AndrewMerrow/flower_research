@@ -26,7 +26,7 @@ def countMaliciousFlags(table, predicted_malicious):
         mal_counter = 0
         ben_counter = 0
         for round in predicted_malicious:
-            if(" {},".format(client) in round or "[{}".format(client) in round):
+            if(" {},".format(client) in round or "[{}".format(client) in round or "{}]".format(client) in round):
                 #print(round)
                 mal_counter += 1
             else:
