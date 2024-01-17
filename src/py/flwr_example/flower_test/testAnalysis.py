@@ -78,7 +78,8 @@ def main():
         lines = f.readlines()
         for line in lines:
             if("[" in line and "malicious" in line):
-                predicted_malicious.append(line.rstrip('\n'))
+                mal_list = line.split(": ")[1]
+                predicted_malicious.append(mal_list.rstrip('\n'))
             elif("poison" not in line and "accuracy:" in line):
                 accuracies.append(line.rstrip('\n'))
             elif("poison" in line):
