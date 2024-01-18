@@ -109,15 +109,21 @@ def main():
                     except:
                         pass
                 
-                print(int_list)
+                #print(int_list)
                 false_negatives.append(int_list)
                 false_negatives_count += len(int_list)
             #retrieve the false positives
             elif("false positives" in line):
                 list_test = list(line.rstrip('\n')[:-1].split(": [")[1].split(", "))
+                int_list = []
+                for value in list_test:
+                    try:
+                        int_list.append(int(value))
+                    except:
+                        pass
                 #print(list_test)
-                false_positives.append(list_test)
-                false_positives_count += len(list_test)
+                false_positives.append(int_list)
+                false_positives_count += len(int_list)
             #keep track of the current number of rounds
             elif("Server Round" in line):
                 server_round_count += 1
