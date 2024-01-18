@@ -101,7 +101,9 @@ def main():
                 poison_accuracies.append(line.rstrip("\n"))
             #retrieve the false negatives
             elif("false negatives" in line):
-                list_test = list(line.rstrip('\n')[:-1].split(": [")[1].split(", "))
+                list_test = []
+                #list_test = list(line.rstrip('\n')[:-1].split(": [")[1].split(", "))
+                list_test.append(int(x) for x in line.rstrip('\n')[:-1].split(": [")[1].split(", "))
                 print(list_test)
                 false_negatives.append(list_test)
                 false_negatives_count += len(list_test)
