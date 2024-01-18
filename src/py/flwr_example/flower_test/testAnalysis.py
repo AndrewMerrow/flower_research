@@ -119,6 +119,8 @@ def main():
     accuracyTable = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies)
     #print(accuracyTable.draw())
 
+    print(false_negatives_count)
+
 
 if __name__ == "__main__":
     main()
