@@ -85,6 +85,7 @@ def main():
     false_positives_count = 0
     false_negatives = []
     false_negatives_count = 0
+    server_round_count = 0
     with open(args.file, "r") as f:
         lines = f.readlines()
         #This loop puts the relevant lines from the test output file into the coordinating lists for analysis
@@ -104,8 +105,13 @@ def main():
                 false_negatives_count += len(line.rstrip("\n").split(","))
             #retrieve the false positives
             elif("false positives" in line):
+                list_test = list(line.rstrip('\n').split(": ")[1])
+                print(list_test)
                 false_positives.append(line.rstrip("\n"))
                 false_positives_count += len(line.rstrip("\n").split(","))
+            #keep track of the current number of rounds
+            elif("Server Round" in line):
+                server_round_count += 1
             #retrieve the clients that were selected each round (useful for the benign counter for fedemnist)
             if("fedemnist" in args.file):
                 if("selected clients" in line):
