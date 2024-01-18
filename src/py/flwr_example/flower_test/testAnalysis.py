@@ -101,14 +101,15 @@ def main():
                 poison_accuracies.append(line.rstrip("\n"))
             #retrieve the false negatives
             elif("false negatives" in line):
-                false_negatives.append(line.rstrip("\n"))
-                false_negatives_count += len(line.rstrip("\n").split(","))
+                list_test = list(line.rstrip('\n')[:-1].split(": [")[1].split(", "))
+                false_negatives.append(list_test)
+                false_negatives_count += len(list_test)
             #retrieve the false positives
             elif("false positives" in line):
                 list_test = list(line.rstrip('\n')[:-1].split(": [")[1].split(", "))
                 print(list_test)
-                false_positives.append(line.rstrip("\n"))
-                false_positives_count += len(line.rstrip("\n").split(","))
+                false_positives.append(list_test)
+                false_positives_count += len(list_test)
             #keep track of the current number of rounds
             elif("Server Round" in line):
                 server_round_count += 1
