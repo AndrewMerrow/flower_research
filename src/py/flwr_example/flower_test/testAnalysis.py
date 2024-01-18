@@ -105,7 +105,7 @@ def main():
                 false_negatives_count += len(line.rstrip("\n").split(","))
             #retrieve the false positives
             elif("false positives" in line):
-                list_test = list(line.rstrip('\n').split(": ")[1])
+                list_test = list(line.rstrip('\n').split(": ")[1].split(", "))
                 print(list_test)
                 false_positives.append(line.rstrip("\n"))
                 false_positives_count += len(line.rstrip("\n").split(","))
