@@ -145,7 +145,9 @@ def main():
     accuracyTable = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies)
     #print(accuracyTable.draw())
 
+    print("Number of rounds: {}".format(str(server_round_count)))
     print("Total false negatives: " + str(false_negatives_count) + "\tTotal false positives: " + str(false_positives_count))
+    print("False negatives per round: {}".format(str(false_negatives_count/server_round_count)) + "\tFalse positives per round: {}".format(str(false_positives_count/server_round_count)))
 
 
 if __name__ == "__main__":
