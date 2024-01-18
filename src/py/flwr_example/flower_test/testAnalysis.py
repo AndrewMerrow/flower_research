@@ -101,28 +101,33 @@ def main():
                 poison_accuracies.append(line.rstrip("\n"))
             #retrieve the false negatives
             elif("false negatives" in line):
+                #convert the string into a list
                 list_test = list(line.rstrip('\n')[:-1].split(": [")[1].split(", "))
                 int_list = []
+                #convert the list into a list of ints
                 for value in list_test:
                     try:
                         int_list.append(int(value))
+                    #if the value is not an int, skip it
                     except:
                         pass
-                
-                #print(int_list)
                 false_negatives.append(int_list)
+                #we create a list of ints to avoid counting a value that is not a client ID
                 false_negatives_count += len(int_list)
             #retrieve the false positives
             elif("false positives" in line):
+                #convert the string into a list
                 list_test = list(line.rstrip('\n')[:-1].split(": [")[1].split(", "))
                 int_list = []
+                #convert the list into a list of ints
                 for value in list_test:
                     try:
                         int_list.append(int(value))
+                    #if the value is not an int, skip it
                     except:
                         pass
-                #print(list_test)
                 false_positives.append(int_list)
+                #we create a list of ints to avoid counting a value that is not a client ID
                 false_positives_count += len(int_list)
             #keep track of the current number of rounds
             elif("Server Round" in line):
