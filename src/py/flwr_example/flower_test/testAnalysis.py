@@ -110,8 +110,8 @@ def main():
                         pass
                 
                 print(int_list)
-                false_negatives.append(list_test)
-                false_negatives_count += len(list_test)
+                false_negatives.append(int_list)
+                false_negatives_count += len(int_list)
             #retrieve the false positives
             elif("false positives" in line):
                 list_test = list(line.rstrip('\n')[:-1].split(": [")[1].split(", "))
