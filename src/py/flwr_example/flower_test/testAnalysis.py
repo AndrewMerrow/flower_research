@@ -101,11 +101,11 @@ def main():
             #retrieve the false negatives
             elif("false negatives" in line):
                 false_negatives.append(line.rstrip("\n"))
-                print(line.rstrip('\n'))
                 false_negatives_count += len(line.rstrip("\n").split(","))
             #retrieve the false positives
             elif("false positives" in line):
                 false_positives.append(line.rstrip("\n"))
+                false_positives_count += len(line.rstrip("\n").split(","))
             #retrieve the clients that were selected each round (useful for the benign counter for fedemnist)
             if("fedemnist" in args.file):
                 if("selected clients" in line):
@@ -119,7 +119,7 @@ def main():
     accuracyTable = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies)
     #print(accuracyTable.draw())
 
-    print(false_negatives_count)
+    print("Total false negatives: " + str(false_negatives_count) + "\tTotal false positives: " + str(false_positives_count))
 
 
 if __name__ == "__main__":
