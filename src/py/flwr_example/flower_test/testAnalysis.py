@@ -141,11 +141,12 @@ def main():
     #create the malicious/benign counter table
     table = countMaliciousFlags(args, table, predicted_malicious, selected_clients)
     print(table.draw())
-    print("\n----------------------------------------------------------\n")
+    print("\n--------------------------------------------------------------\n")
 
     #create the accuracy table
     accuracyTable = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies)
     print(accuracyTable.draw())
+    print("\n--------------------------------------------------------------\n")
 
     perRoundTable.add_row(["Total Rounds", "Total FNs", "FN/Round", "Total FPs", "FP/Round"])
     perRoundTable.add_row([server_round_count, false_negatives_count, false_negatives_count/server_round_count, false_positives_count, false_positives_count/server_round_count])
