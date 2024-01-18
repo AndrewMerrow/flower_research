@@ -81,6 +81,10 @@ def main():
     accuracies = []
     poison_accuracies = []
     selected_clients = []
+    false_positives = []
+    false_positives_count = 0
+    false_negatives = []
+    false_negatives_count = 0
     with open(args.file, "r") as f:
         lines = f.readlines()
         #This loop puts the relevant lines from the test output file into the coordinating lists for analysis
@@ -94,6 +98,14 @@ def main():
             #retrieve the poison accuracy
             elif("poison" in line):
                 poison_accuracies.append(line.rstrip("\n"))
+            #retrieve the false negatives
+            elif("false negatives" in line):
+                false_negatives.append(line.rstrip("\n"))
+                print(line.rstrip('\n'))
+                false_negatives_count += len(line.rstrip("\n").split(","))
+            #retrieve the false positives
+            elif("false positives" in line):
+                false_positives.append(line.rstrip("\n"))
             #retrieve the clients that were selected each round (useful for the benign counter for fedemnist)
             if("fedemnist" in args.file):
                 if("selected clients" in line):
@@ -101,10 +113,11 @@ def main():
 
     #create the malicious/benign counter table
     table = countMaliciousFlags(args, table, predicted_malicious, selected_clients)
-    print(table.draw())
+    #print(table.draw())
+
     #create the accuracy table
     accuracyTable = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies)
-    print(accuracyTable.draw())
+    #print(accuracyTable.draw())
 
 
 if __name__ == "__main__":
