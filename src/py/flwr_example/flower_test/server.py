@@ -239,9 +239,6 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             print("The predicted malicious clients")
             print(sorted(predicted_malicious))
 
-            for key in detection_metrics.keys():
-                print(key)
-
             if(selectedDataset == "cifar10"):
                 with open(filename, "a") as f:
                     print("The predicted malicious clients: {}".format(predicted_malicious), file=f)
