@@ -4,13 +4,12 @@ import argparse
 
 
 def retrieveAccuracy(table, accuracies, poison_accuracies):
+    '''This function pulls the accuracy and poison accuracy metric for each 
+    round and then creates the table containing the accuracy information'''
+    #Add the column names to the table
     table.add_row(["Round", "Accuracy", "Poison Accuracy"])
-    #round = 0
-    #for line in accuracies:
-    #    accuracy = line.split(": ")[1]
-    #    table.add_row([round, '{:.2%}'.format(float(accuracy))])
-    #    round += 1
 
+    #This loop retrieves the base and poison accuracies to the nearest 2 decimal places and adds them to the accuracy table
     for i in range(len(accuracies)):
         accuracy = accuracies[i].split(": ")[1]
         poison_accuracy = poison_accuracies[i].split(": ")[1]
@@ -18,9 +17,10 @@ def retrieveAccuracy(table, accuracies, poison_accuracies):
     return(table)
 
 def countMaliciousFlags(args, table, predicted_malicious, selected_clients = None):
-    #print(selected_clients)
-    #table = PrettyTable(['Client', 'Malicious Flags'])
+    '''This function computes how many times each client was labeled as benign or malicious'''
+    #Add the column names to the table
     table.add_row(["Client", "Malicious Flags", "Benign Flags"])
+    #This dictionary stores the final count for each client ID (malicious/benign count)
     times_flagged = {}
     num_clients = 0
     if("cifar" in args.file):
@@ -28,10 +28,11 @@ def countMaliciousFlags(args, table, predicted_malicious, selected_clients = Non
         for client in range(num_clients):
             mal_counter = 0
             ben_counter = 0
+            #In this case, every client is selected each round
             for round in predicted_malicious:
                 if(" {},".format(client) in round or "[{}".format(client) in round or " {}]".format(client) in round):
-                    #print(round)
                     mal_counter += 1
+                #If not predicted as malicous, the client is labeled benign
                 else:
                     ben_counter += 1
             times_flagged[client] = (mal_counter, ben_counter)
@@ -39,18 +40,22 @@ def countMaliciousFlags(args, table, predicted_malicious, selected_clients = Non
         for key, value in times_flagged.items():
             table.add_row([key, value[0], value[1]])
 
+    #Since not every client is selected each round, we must check to see if the client was selected before labeling it as benign
     elif("fedemnist" in args.file):
         num_clients = 3383
         for client in range(num_clients):
             mal_counter = 0
             ben_counter = 0
             for i in range(len(predicted_malicious)):
+                #If it was labeled as malicious, we know it was selected
                 if(" {},".format(client) in predicted_malicious[i] or "[{}".format(client) in predicted_malicious[i] or " {}]".format(client) in predicted_malicious[i]):
                     mal_counter += 1
+                #If it was not labeled malicious, we need to check to see if it was selected this round before labeling it benign
                 elif(" {},".format(client) in selected_clients[i] or "[{}".format(client) in selected_clients[i] or " {}]".format(client) in selected_clients[i]):
                     ben_counter += 1
             times_flagged[client] = (mal_counter, ben_counter)
 
+        #Add each client to the table using this form: (clientID, times labeled malicious, times labeled benign)
         for key, value in times_flagged.items():
             table.add_row([key, value[0], value[1]])
     
@@ -68,31 +73,36 @@ def main():
     )
     args = parser.parse_args()
 
+    #Two tables are created. One to store the amount of times each client is labeled malicious/benign, and one to store the accuracy info for each round
     table = Texttable()
     accuracyTable = Texttable()
+    
     predicted_malicious = []
     accuracies = []
     poison_accuracies = []
     selected_clients = []
     with open(args.file, "r") as f:
         lines = f.readlines()
+        #This loop puts the relevant lines from the test output file into the coordinating lists for analysis
         for line in lines:
+            #retrieve the predicted malicious clients
             if("[" in line and "malicious" in line):
-                #mal_list = line.split(": ")[1]
                 predicted_malicious.append(line.rstrip('\n'))
+            #retrieve the base accuracy
             elif("poison" not in line and "accuracy:" in line):
                 accuracies.append(line.rstrip('\n'))
+            #retrieve the poison accuracy
             elif("poison" in line):
                 poison_accuracies.append(line.rstrip("\n"))
-
+            #retrieve the clients that were selected each round (useful for the benign counter for fedemnist)
             if("fedemnist" in args.file):
                 if("selected clients" in line):
                     selected_clients.append(line.rstrip('\n'))
 
-    print("Clients selected each round: " + str(selected_clients[0]))
-    print("MALICIOUS PREDICTIONS: " + str(predicted_malicious[0]))
+    #create the malicious/benign counter table
     table = countMaliciousFlags(args, table, predicted_malicious, selected_clients)
     print(table.draw())
+    #create the accuracy table
     accuracyTable = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies)
     print(accuracyTable.draw())
 
