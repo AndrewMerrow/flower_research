@@ -160,6 +160,8 @@ def detect_malicious(selectedDataset, dataset, K, model):
   #  fig, ax = plt.subplots(figsize=(4,3))
   #  reduced_df.plot.scatter(x='min',y='max',c=color,ax=ax)
 
+  detection_metrics = {}
+
   if model == 'kmeans':
     predicted_malicious = call('kmeans_clustering', reduced_df, K)
     predicted_int_malicious = list(map(int, predicted_malicious))
@@ -185,6 +187,12 @@ def detect_malicious(selectedDataset, dataset, K, model):
     print(f'false negatives list:  {sorted(false_negatives)}')
     print (f'Predicted malicious: {sorted(predicted_int_malicious)}')
     print (f'Predicted benign: {sorted(predicted_int_benign)}')
+
+    detection_metrics = {
+      "true_positives": sorted(true_positives),
+      "false_negatives": sorted(false_negatives)
+    }
+
     evaluate(client_list, malicious_list, predicted_malicious)
   elif model == 'lof':
     predicted_malicious = call('Local_Outlier_Factor', reduced_df, K, None, 0.1)
@@ -211,6 +219,12 @@ def detect_malicious(selectedDataset, dataset, K, model):
     print(f'false negatives list:  {sorted(false_negatives)}')
     print (f'Predicted malicious:   {sorted(predicted_int_malicious)}')
     print (f'Predicted benign: {sorted(predicted_int_benign)}')
+
+    detection_metrics = {
+      "true_positives": sorted(true_positives),
+      "false_negatives": sorted(false_negatives)
+    }
+
     evaluate(client_list, malicious_list, predicted_malicious)
   elif model == 'lof_topk':
     predicted_malicious, topKclients, topKlof = call('Local_Outlier_Factor_topK', reduced_df, K, None, 0.1, 0.5)
@@ -223,7 +237,8 @@ def detect_malicious(selectedDataset, dataset, K, model):
   else:
     print ('invalid model name')
   
-  return sorted(intList), sorted(predicted_int_malicious)
+  all_selected_client_IDs = sorted(intList)
+  return detection_metrics, all_selected_client_IDs, sorted(predicted_int_malicious)
 
   '''
   predicted_kmeans = call('kmeans_clustering', reduced_df, K, n)

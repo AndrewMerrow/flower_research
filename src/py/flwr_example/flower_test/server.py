@@ -235,19 +235,22 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                 detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
             #print(detection_slice)
             #call our detection code
-            all_clients, predicted_malicious = our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, cluster_algorithm)
+            detection_metrics, all_clients, predicted_malicious = our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, cluster_algorithm)
             print("The predicted malicious clients")
             print(sorted(predicted_malicious))
 
             if(selectedDataset == "cifar10"):
                 with open(filename, "a") as f:
                     print("The predicted malicious clients: {}".format(predicted_malicious), file=f)
-                    #print(predicted_malicious, file=f)
+                    print("The true positives: " + str(detection_metrics["true_positives"]))
+                    print("The false negatives: " + str(detection_metrics["false_negatives"]))
             #Since not all clients are used for fedemnist, we write all the selected clients for the round to the output file
             elif(selectedDataset == "fedemnist"):
                 with open(filename, "a") as f:
                     print("All selected clients: {}".format(all_clients), file=f)
                     print("The predicted malicious clients: {}".format(predicted_malicious), file=f)
+                    print("The true positives: " + str(detection_metrics["true_positives"]))
+                    print("The false negatives: " + str(detection_metrics["false_negatives"]))
                     #print(predicted_malicious, file=f)
 
             new_results = []
