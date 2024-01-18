@@ -219,9 +219,11 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             if(selectedDataset == "cifar10"):
                 with open(filename, "a") as f:
                     print("RUNNING OUR DETECTION", file=f)
+                    print("Using {} clustering".format(cluster_algorithm), file=f)
             else:
                 with open(filename, "a") as f:
                     print("RUNNING OUR DETECTION", file=f)
+                    print("Using {} clustering".format(cluster_algorithm), file=f)
 
             print("RUNNING OUR DETECTION")
             df = pd.DataFrame(update_dict)
@@ -233,7 +235,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                 detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
             #print(detection_slice)
             #call our detection code
-            all_clients, predicted_malicious = our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, "kmeans")
+            all_clients, predicted_malicious = our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, cluster_algorithm)
             print("The predicted malicious clients")
             print(sorted(predicted_malicious))
 
@@ -462,14 +464,23 @@ def main():
         required=False,
         help="Toggle to enable or disable our poisoning detection/mitigation"
     )
+    parser.add_argument(
+        "--cluster",
+        type=str,
+        default="kmeans",
+        required=False,
+        help="The clustering algorithm to use for our detection method"
+    )
     args = parser.parse_args()
 
     global selectedDataset 
     global UTDDetect
     global ourDetect
+    global cluster_algorithm
     global filename
     UTDDetect = args.UTDDetect
     ourDetect = args.ourDetect
+    cluster_algorithm = args.cluster
     selectedDataset = args.data
     
     if(args.data == "cifar10"):
