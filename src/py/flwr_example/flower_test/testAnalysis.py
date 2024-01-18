@@ -76,6 +76,7 @@ def main():
     #Two tables are created. One to store the amount of times each client is labeled malicious/benign, and one to store the accuracy info for each round
     table = Texttable()
     accuracyTable = Texttable()
+    perRoundTable = Texttable()
     
     predicted_malicious = []
     accuracies = []
@@ -145,9 +146,11 @@ def main():
     accuracyTable = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies)
     print(accuracyTable.draw())
 
+    perRoundTable.add_row(["Total Rounds", "Total False Negatives", "False Negatvies per Round", "Total False Positives", "False Positives per Round"])
     print("Number of rounds: {}".format(str(server_round_count)))
     print("Total false negatives: " + str(false_negatives_count) + "\tTotal false positives: " + str(false_positives_count))
     print("False negatives per round: {}".format(str(false_negatives_count/server_round_count)) + "\tFalse positives per round: {}".format(str(false_positives_count/server_round_count)))
+    print(perRoundTable.draw())
 
 
 if __name__ == "__main__":
