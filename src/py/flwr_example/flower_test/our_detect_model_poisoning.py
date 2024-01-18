@@ -224,7 +224,9 @@ def detect_malicious(selectedDataset, dataset, K, model):
 
     detection_metrics = {
       "true_positives": sorted(true_positives),
-      "false_negatives": sorted(false_negatives)
+      "false_negatives": sorted(false_negatives),
+      "true_negatives": sorted(true_negatives),
+      "false_positives": sorted(false_positives)
     }
 
     evaluate(client_list, malicious_list, predicted_malicious)
