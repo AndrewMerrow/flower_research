@@ -242,15 +242,15 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             if(selectedDataset == "cifar10"):
                 with open(filename, "a") as f:
                     print("The predicted malicious clients: {}".format(predicted_malicious), file=f)
-                    print("The true positives: " + str(detection_metrics["true_positives"]))
-                    print("The false negatives: " + str(detection_metrics["false_negatives"]))
+                    print("The true positives: " + str(detection_metrics["true_positives"]), file=f)
+                    print("The false negatives: " + str(detection_metrics["false_negatives"]), file=f)
             #Since not all clients are used for fedemnist, we write all the selected clients for the round to the output file
             elif(selectedDataset == "fedemnist"):
                 with open(filename, "a") as f:
                     print("All selected clients: {}".format(all_clients), file=f)
                     print("The predicted malicious clients: {}".format(predicted_malicious), file=f)
-                    print("The true positives: " + str(detection_metrics["true_positives"]))
-                    print("The false negatives: " + str(detection_metrics["false_negatives"]))
+                    print("The true positives: " + str(detection_metrics["true_positives"]), file=f)
+                    print("The false negatives: " + str(detection_metrics["false_negatives"]), file=f)
                     #print(predicted_malicious, file=f)
 
             new_results = []
