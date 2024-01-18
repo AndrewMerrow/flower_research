@@ -146,8 +146,6 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
 
         # Call aggregate_evaluate from base class (FedAvg) to aggregate loss and metrics
         aggregated_parameters, aggregated_metrics = super().aggregate_fit(server_round, results, failures)
-        #print("Aggregated parameters")
-        #print(parameters_to_ndarrays(aggregated_parameters))
 
         if(selectedDataset == "cifar10"):
             with open(filename, "a") as f:
@@ -157,9 +155,6 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                 print("Server Round {}".format(str(server_round)), file=f)
 
         #new custom aggregation (delta value implementation)
-        _, clientExample = results[0]
-        print("Client example metrics")
-        print(clientExample.metrics)
 
         #number of cifar model parameters
         if selectedDataset == "cifar10":
@@ -170,26 +165,6 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
 
         #lr_vector = torch.Tensor([self.server_learning_rate]*n_params)
         lr_vector = np.array([self.server_learning_rate]*n_params)
-        # Convert results (creates tuples of the client updates and their number of training examples for weighting purposes)
-        #for _, fit_res in results:
-            #print("FIT RES")
-            #print(len(fit_res.parameters))
-        
-        #Weight results used to be here
-        #print("WEIGHT TEST")
-        #print(weights_results[1])
-        #print(len(weights_results))
-        #print(len(weights_results[0][0]))
-
-        #testing to see if I can get the params from the model in the format I want 
-        #model = utils.Net()
-        #params_dict = zip(model.state_dict().keys(), weights_results[0][0])
-        #state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
-        #model.load_state_dict(state_dict, strict=False)
-        #UTD_test = parameters_to_vector(model.parameters()).detach()
-        #print("UTD test")
-        #print(UTD_test)
-        #print(len(UTD_test))
 
         update_dict = {}
         #Construct the UTD update dict for detection purposes
@@ -307,11 +282,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         weighted_weights = [
         [layer * num_examples for layer in weights] for weights, num_examples in weights_results
         ]
-        #print("WEIGHTED WEIGHTS")
-        #print(len(weighted_weights))
-        #total_data = 0
-        #for layer in weighted_weights:
-        #    total_data += len(layer)
+      
         #compute average weights of each layer
         weights_prime: NDArrays = [
         reduce(np.add, layer_updates) / num_examples_total
@@ -361,20 +332,6 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         aggregated_poison_accuracy = sum(poisonAccuracies) / sum(examples)
         print(f"Round {server_round} poison accuracy aggregated from client fit results: {aggregated_poison_accuracy}")
 
-        #Testing to see if I can remove clients from the aggregation process
-        #print("Number of client results: {}".format(str(len(results))))
-        #keepList = []
-        #removeList = []
-        #for proxy, clientResult in results:
-        #    if(clientResult.metrics["clientID"] < 4):
-        #        print("{} is less than 4, removing".format(str(clientResult.metrics["clientID"])))
-        #        removeList.append(clientResult.metrics["clientID"])
-        #       results.remove((proxy, clientResult))
-        #    else:
-        #        print("{} is greater than 4, keeping".format(str(clientResult.metrics["clientID"])))
-        #        keepList.append(clientResult.metrics["clientID"])
-        #print("Keep List: {}".format(str(sorted(keepList))))
-        #print("Remove List: {}".format(str(sorted(removeList))))
         print("Number of clients after removing some: {}".format(str(len(results))))
         if(selectedDataset == "cifar10"):
             with open(filename, "a") as f:
@@ -401,9 +358,6 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
 
         if not results:
             return None, {}
-        
-        #for client in results:
-        #    print("Client results: " + str(client[1].metrics))
 
         # Call aggregate_evaluate from base class (FedAvg) to aggregate loss and metrics
         aggregated_loss, aggregated_metrics = super().aggregate_evaluate(server_round, results, failures)
@@ -421,7 +375,6 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #print(f"Round {server_round} poison accuracy aggregated from client fit results: {aggregated_poison_accuracy}")
 
         # Return aggregated loss and metrics (i.e., aggregated accuracy)
-        #print("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
         return aggregated_loss, {"accuracy": aggregated_accuracy}
 
 def compute_robustLR(agent_updates_dict):
@@ -511,15 +464,12 @@ def main():
     strategy = AggregateCustomMetricStrategy(
         min_fit_clients=num_agents,
         min_evaluate_clients=num_agents,
-        #fraction_fit=.01,
-        #fraction_evaluate=.01,
         min_available_clients=num_agents,
         evaluate_fn=get_evaluate_fn(model, args.toy, args.data),
         on_fit_config_fn=get_on_fit_config_fn(), #fit_config,
         on_evaluate_config_fn=evaluate_config,
         server_learning_rate = 1.0,
         server_momentum = 0,
-    #    evaluate_metrics_aggregation_fn=weighted_average,
         initial_parameters=fl.common.ndarrays_to_parameters(model_parameters),
         
     )
