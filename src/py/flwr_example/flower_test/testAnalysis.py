@@ -141,7 +141,7 @@ def main():
     #create the malicious/benign counter table
     table = countMaliciousFlags(args, table, predicted_malicious, selected_clients)
     print(table.draw())
-    print("\n-----------------------------\n")
+    print("\n----------------------------------------------------------\n")
 
     #create the accuracy table
     accuracyTable = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies)
