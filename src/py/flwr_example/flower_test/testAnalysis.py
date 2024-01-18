@@ -87,6 +87,7 @@ def main():
     false_negatives = []
     false_negatives_count = 0
     server_round_count = 0
+    cluster_method = ""
     with open(args.file, "r") as f:
         lines = f.readlines()
         #This loop puts the relevant lines from the test output file into the coordinating lists for analysis
@@ -100,6 +101,8 @@ def main():
             #retrieve the poison accuracy
             elif("poison" in line):
                 poison_accuracies.append(line.rstrip("\n"))
+            elif("clustering" in line):
+                cluster_method = line.strip("\n").split(" ")[1]
             #retrieve the false negatives
             elif("false negatives" in line):
                 #convert the string into a list
@@ -148,6 +151,7 @@ def main():
     print(accuracyTable.draw())
     print("\n--------------------------------------------------------------\n")
 
+    print("Type of clustering used: " + str(cluster_method))
     perRoundTable.add_row(["Total Rounds", "Total FNs", "FN/Round", "Total FPs", "FP/Round"])
     perRoundTable.add_row([server_round_count, false_negatives_count, false_negatives_count/server_round_count, false_positives_count, false_positives_count/server_round_count])
     print(perRoundTable.draw())
