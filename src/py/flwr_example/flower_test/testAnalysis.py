@@ -104,7 +104,10 @@ def main():
                 list_test = list(line.rstrip('\n')[:-1].split(": [")[1].split(", "))
                 int_list = []
                 for value in list_test:
-                    int_list.append(int(value))
+                    try:
+                        int_list.append(int(value))
+                    except:
+                        pass
                 
                 print(int_list)
                 false_negatives.append(list_test)
