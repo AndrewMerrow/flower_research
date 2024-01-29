@@ -76,6 +76,8 @@ def clusterRounds(table, FN_dict, FP_dict, step):
         table.add_row(["{}-{}".format(previous_index, current_index), FP_tally, FN_tally])
         previous_index = current_index
         current_index += step
+        FN_tally = 0
+        FP_tally = 0
     return table
         
 
