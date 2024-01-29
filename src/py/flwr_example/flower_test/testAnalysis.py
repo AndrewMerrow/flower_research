@@ -169,7 +169,7 @@ def main():
             #retrieve the clients that were selected each round (useful for the benign counter for fedemnist)
             if("fedemnist" in args.file):
                 if("selected clients" in line):
-                    selected_clients.append(line.rstrip('\n'))
+                    selected_clients.append(line.rstrip('\n').split(": ")[1])
             FPs_per_round[int(current_round)] = current_FPs
             FNs_per_round[int(current_round)] = current_FNs
 
