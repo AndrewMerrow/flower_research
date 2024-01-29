@@ -62,6 +62,22 @@ def countMaliciousFlags(args, table, predicted_malicious, selected_clients = Non
     #print(table.draw())
     return(table)
 
+def clusterRounds(table, FN_dict, FP_dict, step):
+    table.add_row(["Rounds", "FPs", "FNs"])
+    current_index = step
+    previous_index = 0
+    FN_tally = 0
+    FP_tally = 0
+    while(current_index <= len(FN_dict.keys())):
+        for key in FN_dict.keys():
+            if(key > previous_index and key <= current_index):
+                FN_tally += FN_dict[key]
+                FP_tally += FP_dict[key]
+        table.add_row(["{}-{}".format(previous_index, current_index), FP_tally, FN_tally])
+        previous_index = current_index
+        current_index += step
+        
+
 def main():
     parser = argparse.ArgumentParser(description="Flower")
     parser.add_argument(
@@ -77,6 +93,7 @@ def main():
     table = Texttable()
     accuracyTable = Texttable()
     perRoundTable = Texttable()
+    roundGroupTable = Texttable()
 
     #values used to store the number of of each metric happening per round
     current_FPs = 0
