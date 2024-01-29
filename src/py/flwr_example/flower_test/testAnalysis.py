@@ -173,6 +173,7 @@ def main():
             FPs_per_round[int(current_round)] = current_FPs
             FNs_per_round[int(current_round)] = current_FNs
 
+    print(selected_clients)
     #create the malicious/benign counter table
     #table = countMaliciousFlags(args, table, predicted_malicious, selected_clients)
     #print(table.draw())
