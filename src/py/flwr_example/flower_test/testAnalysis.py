@@ -83,6 +83,7 @@ def main():
     current_FNs = 0
     current_round = 0
     FPs_per_round = {}
+    FNs_per_round = {}
     
     predicted_malicious = []
     accuracies = []
@@ -150,8 +151,10 @@ def main():
                 if("selected clients" in line):
                     selected_clients.append(line.rstrip('\n'))
             FPs_per_round[current_round] = current_FPs
+            FNs_per_round[current_round] = current_FNs
 
     print(FPs_per_round)
+    print(FNs_per_round)
     #create the malicious/benign counter table
     table = countMaliciousFlags(args, table, predicted_malicious, selected_clients)
     #print(table.draw())
