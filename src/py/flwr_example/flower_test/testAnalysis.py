@@ -195,8 +195,17 @@ def main():
     print("\n--------------------------------------------------------------\n")
 
     print("Type of clustering used: " + str(cluster_method))
-    perRoundTable.add_row(["Total Rounds", "Total FNs", "FN/Round", "Total FPs", "FP/Round"])
-    perRoundTable.add_row([server_round_count, false_negatives_count, false_negatives_count/server_round_count, false_positives_count, false_positives_count/server_round_count])
+    if("cifar" in args.file):
+        perRoundTable.add_row(["Total Rounds", "Total FNs", "FN/Round", "Total FPs", "FP/Round"])
+        perRoundTable.add_row([server_round_count, false_negatives_count, false_negatives_count/server_round_count, false_positives_count, false_positives_count/server_round_count])
+    elif("fedemnist" in args.file):
+        total_malicious = 0
+        for i in range(len(selected_clients)):
+            for client in selected_clients[i]:
+                if(client < 338):
+                    total_malicious += 1
+        perRoundTable.add_row(["Total Rounds", "Total Malicious", "Total FNs", "FN/Round", "Total FPs", "FP/Round"])
+        perRoundTable.add_row([server_round_count, total_malicious, false_negatives_count, false_negatives_count/server_round_count, false_positives_count, false_positives_count/server_round_count])
     print(perRoundTable.draw())
 
     roundGroupTable = clusterRounds(roundGroupTable, FNs_per_round, FPs_per_round, 50)
