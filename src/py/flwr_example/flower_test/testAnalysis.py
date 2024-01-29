@@ -150,8 +150,8 @@ def main():
             if("fedemnist" in args.file):
                 if("selected clients" in line):
                     selected_clients.append(line.rstrip('\n'))
-            FPs_per_round[current_round] = current_FPs
-            FNs_per_round[current_round] = current_FNs
+            FPs_per_round[int(current_round)] = current_FPs
+            FNs_per_round[int(current_round)] = current_FNs
 
     print(FPs_per_round)
     print(FNs_per_round)
