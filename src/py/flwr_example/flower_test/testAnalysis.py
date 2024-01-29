@@ -77,6 +77,12 @@ def main():
     table = Texttable()
     accuracyTable = Texttable()
     perRoundTable = Texttable()
+
+    #values used to store the number of of each metric happening per round
+    current_FPs = 0
+    current_FNs = 0
+    current_round = 0
+    FPs_per_round = {}
     
     predicted_malicious = []
     accuracies = []
@@ -117,6 +123,7 @@ def main():
                         pass
                 false_negatives.append(int_list)
                 #we create a list of ints to avoid counting a value that is not a client ID
+                current_FNs = len(int_list)
                 false_negatives_count += len(int_list)
             #retrieve the false positives
             elif("false positives" in line):
@@ -132,23 +139,27 @@ def main():
                         pass
                 false_positives.append(int_list)
                 #we create a list of ints to avoid counting a value that is not a client ID
+                current_FPs = len(int_list)
                 false_positives_count += len(int_list)
             #keep track of the current number of rounds
             elif("Server Round" in line):
                 server_round_count += 1
+                current_round = line.rstrip('\n').split(" ")[2]
             #retrieve the clients that were selected each round (useful for the benign counter for fedemnist)
             if("fedemnist" in args.file):
                 if("selected clients" in line):
                     selected_clients.append(line.rstrip('\n'))
+            FPs_per_round[current_round] = current_FPs
 
+    print(FPs_per_round)
     #create the malicious/benign counter table
     table = countMaliciousFlags(args, table, predicted_malicious, selected_clients)
-    print(table.draw())
+    #print(table.draw())
     print("\n--------------------------------------------------------------\n")
 
     #create the accuracy table
     accuracyTable = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies)
-    print(accuracyTable.draw())
+    #print(accuracyTable.draw())
     print("\n--------------------------------------------------------------\n")
 
     print("Type of clustering used: " + str(cluster_method))
