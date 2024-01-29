@@ -190,8 +190,8 @@ def main():
     print("\n--------------------------------------------------------------\n")
 
     #create the accuracy table
-    #accuracyTable = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies)
-    #print(accuracyTable.draw())
+    accuracyTable = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies)
+    print(accuracyTable.draw())
     print("\n--------------------------------------------------------------\n")
 
     print("Type of clustering used: " + str(cluster_method))
