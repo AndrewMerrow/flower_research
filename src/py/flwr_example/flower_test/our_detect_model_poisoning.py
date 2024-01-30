@@ -15,6 +15,9 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import balanced_accuracy_score
 
+from scipy.spatial.distance import euclidean
+from scipy.spatial.distance import cosine
+
 def read_files(root_dir):
     file_list = glob.glob(root_dir + '/*.txt')
     df_list = []
@@ -120,13 +123,21 @@ def call(algo, reduced_df, K, filter_clients=None, offset=0.5, topK=0.5):
 
   return client_list[indices]
 
-def detect_malicious(selectedDataset, dataset, K, model):
+def detect_malicious(selectedDataset, dataset, K, model, metrics):
   # Calculate minimum and maximum values for each column
-  min_values = dataset.min()
-  max_values = dataset.max()
-  # Create a new dataframe with min and max values
-  reduced_df = pd.DataFrame({'min': min_values, 'max': max_values})
-  #print (reduced_df)
+  global_model = pd.read_csv("server_model.csv")["Server"].to_list()
+  if(metrics == "minmax"):
+    min_values = dataset.min()
+    max_values = dataset.max()
+    # Create a new dataframe with min and max values
+    reduced_df = pd.DataFrame({'min': min_values, 'max': max_values})
+  if(metrics == "EDCD"):
+    reduced_df = pd.DataFrame(columns=["Euclidean Distances", "Cosine Distances"])
+    for col in dataset:
+      client_model = dataset[col].to_list()
+      reduced_df.loc[len(reduced_df)] = euclidean(global_model, client_model), cosine(global_model, client_model)
+
+  print(reduced_df)
   #print(reduced_df.index.values)
   
 
@@ -302,4 +313,4 @@ if __name__ == "__main__":
   dataslice = pd.read_csv(table)
   K = len(dataslice.columns)
   print(dataslice)
-  detect_malicious("fedemnist", dataslice, K, model)
+  detect_malicious("fedemnist", dataslice, K, model, "ECDC")

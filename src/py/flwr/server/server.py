@@ -117,6 +117,17 @@ class Server:
 
         for current_round in range(1, num_rounds + 1):
             # Train model and replace previous global model
+            model = utils.CNN_MNIST()
+            params_dict = zip(model.state_dict().keys(), parameters_to_ndarrays(self.parameters))
+            state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
+            model.load_state_dict(state_dict, strict=False)
+            UTD_test = parameters_to_vector(model.parameters()).detach()
+            server_model = {}
+            server_model["Server"] = UTD_test
+            df = pd.DataFrame(server_model)
+            reduced_df = df.tail(10).reset_index(drop=True)
+            saved_csv = reduced_df.to_csv('server_model.csv', index=False)
+            
             res_fit = self.fit_round(
                 server_round=current_round,
                 timeout=timeout,
@@ -133,16 +144,18 @@ class Server:
                     #print("Prime test:")
                     #print(parameters_to_ndarrays(parameters_prime))
                     test_params = self.parameters
-                    model = utils.CNN_MNIST()
-                    params_dict = zip(model.state_dict().keys(), parameters_to_ndarrays(self.parameters))
-                    state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
-                    model.load_state_dict(state_dict, strict=False)
-                    UTD_test = parameters_to_vector(model.parameters()).detach()
-                    server_model = {}
-                    server_model["Server"] = UTD_test
-                    df = pd.DataFrame(server_model)
-                    reduced_df = df.tail(10).reset_index(drop=True)
-                    saved_csv = reduced_df.to_csv('server_model.csv', index=False)
+                    
+                    #model = utils.CNN_MNIST()
+                    #params_dict = zip(model.state_dict().keys(), parameters_to_ndarrays(self.parameters))
+                    #state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
+                    #model.load_state_dict(state_dict, strict=False)
+                    #UTD_test = parameters_to_vector(model.parameters()).detach()
+                    #server_model = {}
+                    #server_model["Server"] = UTD_test
+                    #df = pd.DataFrame(server_model)
+                    #reduced_df = df.tail(10).reset_index(drop=True)
+                    #saved_csv = reduced_df.to_csv('server_model.csv', index=False)
+                    
                     #print("Before update")
                     #for val1, val2 in zip(parameters_to_ndarrays(test_params), parameters_to_ndarrays(self.parameters)):
                         #print(val1)
