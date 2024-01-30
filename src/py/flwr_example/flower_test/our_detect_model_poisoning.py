@@ -132,6 +132,7 @@ def detect_malicious(selectedDataset, dataset, K, model, metrics):
     # Create a new dataframe with min and max values
     reduced_df = pd.DataFrame({'min': min_values, 'max': max_values})
   if(metrics == "EDCD"):
+    print("running ECDC")
     reduced_df = pd.DataFrame(columns=["Euclidean Distances", "Cosine Distances"])
     for col in dataset:
       client_model = dataset[col].to_list()
