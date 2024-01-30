@@ -284,7 +284,7 @@ if __name__ == "__main__":
 
   table = sys.argv[1]
   model = sys.argv[2]
-  root_dir = "./detection_code/static_data/" + table
+  #root_dir = "./detection_code/static_data/" + table
   #root_dir = "../data/Round1_only_67clients/" + table
 
   #for r in range(1,51):
@@ -302,4 +302,4 @@ if __name__ == "__main__":
   dataslice = pd.read_csv(table)
   K = len(dataslice.columns)
   print(dataslice)
-  detect_malicious(root_dir, dataslice, K, model)
+  detect_malicious("fedemnist", dataslice, K, model)
