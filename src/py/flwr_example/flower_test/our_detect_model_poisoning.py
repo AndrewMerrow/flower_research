@@ -318,4 +318,4 @@ if __name__ == "__main__":
   dataslice = pd.read_csv(table)
   K = len(dataslice.columns)
   print(dataslice)
-  detect_malicious("fedemnist", dataslice, K, model, "minmax")
+  detect_malicious("fedemnist", dataslice, K, model, "EDCD")

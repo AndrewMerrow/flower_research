@@ -212,7 +212,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             #save the df to a csv for testing
             saved_csv = detection_slice.to_csv('client_models.csv', index=False)
             #call our detection code
-            detection_metrics, all_clients, predicted_malicious = our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, cluster_algorithm)
+            detection_metrics, all_clients, predicted_malicious = our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, cluster_algorithm, "EDCD")
             print("The predicted malicious clients")
             print(sorted(predicted_malicious))
 
