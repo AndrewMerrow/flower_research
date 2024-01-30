@@ -134,10 +134,10 @@ def detect_malicious(selectedDataset, dataset, K, model, metrics):
   if(metrics == "EDCD"):
     print("running ECDC")
     reduced_df = pd.DataFrame(columns=["Euclidean Distances", "Cosine Distances"])
-    reduced_df.set_index(dataset.columns)
     for col in dataset:
       client_model = dataset[col].to_list()
       reduced_df.loc[len(reduced_df)] = euclidean(global_model, client_model), cosine(global_model, client_model)
+    reduced_df.set_index(dataset.columns)
 
   print(reduced_df.index)
   #print(dataset.columns)
