@@ -168,10 +168,10 @@ def detect_malicious(selectedDataset, dataset, K, model, metrics):
   print (f'malicious client_list: {sorted(malicious_int_list)}')
 
   #Cluster visualization
-  print("Running visualization")
-  fig, ax = plt.subplots(figsize=(4,3))
-  color = ['red' if client in malicious_list else 'blue' for client in reduced_df.index]
-  reduced_df.plot.scatter(x='min',y='max',c=color,ax=ax)
+  #print("Running visualization")
+  #fig, ax = plt.subplots(figsize=(4,3))
+  #color = ['red' if client in malicious_list else 'blue' for client in reduced_df.index]
+  #reduced_df.plot.scatter(x='min',y='max',c=color,ax=ax)
   
   #  color = ['red' if client in malicious_list else 'blue' for client in reduced_df.index]
   #  fig, ax = plt.subplots(figsize=(4,3))
