@@ -139,7 +139,7 @@ def detect_malicious(selectedDataset, dataset, K, model, metrics):
       reduced_df.loc[len(reduced_df)] = euclidean(global_model, client_model), cosine(global_model, client_model)
     clientIDs = dataset.columns
     print(clientIDs)
-    reduced_df.set_index(clientIDs)
+    reduced_df.set_index(clientIDs, inplace=True)
 
   print(reduced_df)
   #print(dataset.columns)
