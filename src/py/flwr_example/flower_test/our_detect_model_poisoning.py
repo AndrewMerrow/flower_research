@@ -279,7 +279,7 @@ if __name__ == "__main__":
   # rounds = ['RND1_4', 'RND1_5', 'RND1_6','RND1_10','RND1_12']
   #rounds = ['RND1_1', 'RND1_2', 'RND1_4']
   if len(sys.argv) < 3:
-    print("Usage: python script.py TableX model")
+    print("Usage: python script.py csv_file model")
     exit()
 
   table = sys.argv[1]
@@ -288,12 +288,18 @@ if __name__ == "__main__":
   #root_dir = "../data/Round1_only_67clients/" + table
 
   #for r in range(1,51):
-  for r in [5,6,45]:
-    print ("\n" + root_dir + '/' + 'RND1_' + str(r))
-    dataset = read_files(root_dir + '/' + 'RND1_' + str(r))
-    print(dataset)
-    K = len(dataset.columns)
-    print ('---------------------RND1_'+str(r)+'--------------------')
-    dataslice = dataset.tail(10).reset_index(drop=True)
-    print(dataslice)
-    detect_malicious(root_dir, dataslice, K, model)
+  #for r in [5,6,45]:
+  #  print ("\n" + root_dir + '/' + 'RND1_' + str(r))
+  #  dataset = read_files(root_dir + '/' + 'RND1_' + str(r))
+  #  print(dataset)
+  #  K = len(dataset.columns)
+  #  print ('---------------------RND1_'+str(r)+'--------------------')
+  #  dataslice = dataset.tail(10).reset_index(drop=True)
+  #  print(dataslice)
+  #  detect_malicious(root_dir, dataslice, K, model)
+
+  #dataslice = dataset.tail(10).reset_index(drop=True)
+  dataslice = pd.read_csv(table)
+  K = len(dataslice.columns)
+  print(dataslice)
+  detect_malicious(root_dir, dataslice, K, model)
