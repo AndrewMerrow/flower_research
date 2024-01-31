@@ -204,13 +204,14 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             df = pd.DataFrame(update_dict)
             #print(df)
             K = len(df.columns)
+            full_model = df.to_csv('Round1_full_client_models.csv', index=False)
             detection_slice = df.tail(10).reset_index(drop=True)
             for column in detection_slice.columns:
                 #print(column)
                 detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
             #print(detection_slice)
             #save the df to a csv for testing
-            saved_csv = detection_slice.to_csv('Round1_test3_client_models.csv', index=False)
+            #saved_csv = detection_slice.to_csv('Round1_test3_client_models.csv', index=False)
             #call our detection code
             detection_metrics, all_clients, predicted_malicious = our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, cluster_algorithm, "minmax")
             print("The predicted malicious clients")
@@ -453,7 +454,7 @@ def main():
     else:
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "Round1_test3_kmeans_fedemnist_test_" + str(ct) + ".txt"
+        filename = "Round1_full_model_kmeans_fedemnist_test_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running fedemnist test", file=f)
 
