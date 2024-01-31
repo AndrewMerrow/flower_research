@@ -126,7 +126,7 @@ class Server:
             server_model["Server"] = UTD_test
             df = pd.DataFrame(server_model)
             reduced_df = df.tail(10).reset_index(drop=True)
-            saved_csv = reduced_df.to_csv('server_model.csv', index=False)
+            saved_csv = reduced_df.to_csv('Round1_server_model.csv', index=False)
             
             res_fit = self.fit_round(
                 server_round=current_round,

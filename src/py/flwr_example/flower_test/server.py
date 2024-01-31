@@ -210,9 +210,9 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                 detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
             #print(detection_slice)
             #save the df to a csv for testing
-            saved_csv = detection_slice.to_csv('client_models.csv', index=False)
+            saved_csv = detection_slice.to_csv('Round1_client_models.csv', index=False)
             #call our detection code
-            detection_metrics, all_clients, predicted_malicious = our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, cluster_algorithm, "EDCD")
+            detection_metrics, all_clients, predicted_malicious = our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, cluster_algorithm, "minmax")
             print("The predicted malicious clients")
             print(sorted(predicted_malicious))
 
@@ -225,7 +225,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             #Since not all clients are used for fedemnist, we write all the selected clients for the round to the output file
             elif(selectedDataset == "fedemnist"):
                 with open(filename, "a") as f:
-                    print("Using EDCD", file=f)
+                    print("Using minmax", file=f)
                     print("All selected clients: {}".format(all_clients), file=f)
                     print("The predicted malicious clients: {}".format(predicted_malicious), file=f)
                     print("The true positives: " + str(detection_metrics["true_positives"]), file=f)
@@ -453,7 +453,7 @@ def main():
     else:
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "EDCD_fedemnist_test_" + str(ct) + ".txt"
+        filename = "Round1_kmeans_fedemnist_test_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running fedemnist test", file=f)
 
@@ -480,7 +480,7 @@ def main():
     # Start Flower server for four rounds of federated learning
     fl.server.start_server(
         server_address="10.100.116.10:8080",
-        config=fl.server.ServerConfig(num_rounds=500 if selectedDataset == "fedemnist" else 200),
+        config=fl.server.ServerConfig(num_rounds=1 if selectedDataset == "fedemnist" else 200),
         strategy=strategy,
     )
 
