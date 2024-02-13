@@ -256,7 +256,16 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             print("Clients in the new results: {}".format(str(sorted(newClientIDs))))
             results = new_results
         
-        
+        if(ourDetectV2):
+            df = pd.DataFrame(update_dict)
+            #print(df)
+            K = len(df.columns)
+            detection_slice = df.tail(10).reset_index(drop=True)
+            for column in detection_slice.columns:
+                #print(column)
+                detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
+            
+
         #This line runs the detection code...without this line, the LR vector won't do anything
         if UTDDetect:
             #print("LR vector before detect check")
@@ -427,6 +436,13 @@ def main():
         help="Toggle to enable or disable our poisoning detection/mitigation"
     )
     parser.add_argument(
+        "--ourDetectV2",
+        type=bool,
+        default=False,
+        required=False,
+        help="Toggle to enable or disable our poisoning detection/mitigation V2"
+    )
+    parser.add_argument(
         "--cluster",
         type=str,
         default="kmeans",
@@ -438,10 +454,13 @@ def main():
     global selectedDataset 
     global UTDDetect
     global ourDetect
+    global ourDetectV2
     global cluster_algorithm
     global filename
     UTDDetect = args.UTDDetect
     ourDetect = args.ourDetect
+    ourDetectV2 = args.ourDetectV2
+
     cluster_algorithm = args.cluster
     selectedDataset = args.data
     
