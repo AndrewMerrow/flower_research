@@ -34,7 +34,7 @@ def extract_features_minmax(dataset, selectedDataset):
   return X.values, client_list, malicious_list
 
 from sklearn.manifold import TSNE
-def extract_features_tsne(dataset):
+def extract_features_tsne(dataset, selectedDataset):
   # Apply t-SNE to reduce dimensionality
 
   X = dataset.T
@@ -65,11 +65,11 @@ def extract_features_tsne(dataset):
   plt.show()
 
 
-  if 'Table3' in root_dir:
+  if selectedDataset == "fmnist":
     malicious_id = 1
-  elif 'Table4' in root_dir:
+  elif selectedDataset == "fedemnist":
     malicious_id = 338
-  elif 'Table5' in root_dir:
+  elif selectedDataset == "cifar10":
     malicious_id = 4
 
   client_list = X.index.astype(int)
