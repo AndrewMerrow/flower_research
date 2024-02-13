@@ -21,6 +21,7 @@ import math
 import warnings
 
 import our_detect_model_poisoning
+import our_detection_v2
 
 warnings.filterwarnings("ignore")
 
@@ -264,6 +265,15 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             for column in detection_slice.columns:
                 #print(column)
                 detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
+            X, clients, malicious = our_detection_v2.extract_features_tsne(detection_slice)
+            predicted1 = our_detection_v2.kmeans_clustering(X, clients)
+            print ('kmeans prediciton:', predicted1)
+            predicted2 = our_detection_v2.local_outlier_factor(X, clients)
+            predicted = np.concatenate((predicted1, predicted2), axis=0)
+            print ('lof prediction:', predicted2)
+            # final results are written to output file
+            with open(filename+"V2", "a") as f:
+                our_detection_v2.evaluate(clients, malicious, predicted, f)
             
 
         #This line runs the detection code...without this line, the LR vector won't do anything
