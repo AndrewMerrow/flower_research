@@ -262,9 +262,9 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             #print(df)
             K = len(df.columns)
             detection_slice = df.tail(10).reset_index(drop=True)
-            for column in detection_slice.columns:
+            #for column in detection_slice.columns:
                 #print(column)
-                detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
+            #    detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
             X, clients, malicious = our_detection_v2.extract_features_tsne(detection_slice)
             predicted1 = our_detection_v2.kmeans_clustering(X, clients)
             print ('kmeans prediciton:', predicted1)
