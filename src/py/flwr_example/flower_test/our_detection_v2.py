@@ -140,26 +140,26 @@ def evaluate(client_list, malicious_list, predicted_list, f):
   print (f'{roundinfo} False Positives: {fp:<4}, False Negatives: {fn:<4}, True Positives: {tp:<4}', file=f)
 
 
-file_list = glob.glob(root_dir + '/**/Test2*.csv', recursive=True)
+#file_list = glob.glob(root_dir + '/**/Test2*.csv', recursive=True)
 
 lof_offset = 0.01
 
 #with open('/content/drive/My Drive/client updates/Table4_flower/test1.txt', 'w') as f:
-with open('/content/drive/My Drive/client updates/Table4_flower/test2.txt', 'w') as f:
+#with open('/content/drive/My Drive/client updates/Table4_flower/test2.txt', 'w') as f:
 
-  for file in file_list:
-    roundinfo = '_'.join(os.path.basename(file).split('_')[:2])
-    dataset = pd.read_csv(file)
-    dataset.columns = dataset.columns.str.replace('Client_','')
-    X, clients, malicious = extract_features_tsne(dataset)
+#  for file in file_list:
+#    roundinfo = '_'.join(os.path.basename(file).split('_')[:2])
+#    dataset = pd.read_csv(file)
+#    dataset.columns = dataset.columns.str.replace('Client_','')
+#    X, clients, malicious = extract_features_tsne(dataset)
     #X, clients, malicious = extract_features_minmax(dataset)
-    predicted1 = kmeans_clustering(X, clients)
-    print ('kmeans prediciton:', predicted1)
-    predicted2 = local_outlier_factor(X, clients)
+#    predicted1 = kmeans_clustering(X, clients)
+#    print ('kmeans prediciton:', predicted1)
+#   predicted2 = local_outlier_factor(X, clients)
     # combine predictions from kmeans and lof
-    predicted = np.concatenate((predicted1, predicted2), axis=0)
-    print ('lof prediction:', predicted2)
+#    predicted = np.concatenate((predicted1, predicted2), axis=0)
+#    print ('lof prediction:', predicted2)
     # final results are written to output file
-    evaluate(clients, malicious, predicted, f)
+#    evaluate(clients, malicious, predicted, f)
 
-  f.close()
+#  f.close()
