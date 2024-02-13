@@ -481,7 +481,7 @@ def main():
     # Start Flower server for four rounds of federated learning
     fl.server.start_server(
         server_address="10.100.116.10:8080",
-        config=fl.server.ServerConfig(num_rounds=10 if selectedDataset == "fedemnist" else 200),
+        config=fl.server.ServerConfig(num_rounds=200 if selectedDataset == "fedemnist" else 200),
         strategy=strategy,
     )
 
