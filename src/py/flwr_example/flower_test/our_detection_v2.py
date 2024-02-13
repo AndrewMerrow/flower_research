@@ -11,7 +11,7 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import balanced_accuracy_score
 
-def extract_features_minmax(dataset):
+def extract_features_minmax(dataset, selectedDataset):
   min_values = dataset.min()
   max_values = dataset.max()
   # Create a new dataframe with min and max values
@@ -21,11 +21,11 @@ def extract_features_minmax(dataset):
   plt.scatter(x=X['min'], y=X['max'], c=y)
   plt.show()
 
-  if 'Table3' in root_dir:
+  if selectedDataset == "fmnist":
     malicious_id = 1
-  elif 'Table4' in root_dir:
+  elif selectedDataset == "fedemnist":
     malicious_id = 338
-  elif 'Table5' in root_dir:
+  elif selectedDataset == "cifar10":
     malicious_id = 4
 
   client_list = X.index.astype(int)

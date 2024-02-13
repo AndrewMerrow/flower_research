@@ -265,7 +265,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             #for column in detection_slice.columns:
                 #print(column)
             #    detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
-            X, clients, malicious = our_detection_v2.extract_features_tsne(detection_slice)
+            X, clients, malicious = our_detection_v2.extract_features_tsne(detection_slice, selectedDataset)
             predicted1 = our_detection_v2.kmeans_clustering(X, clients)
             print ('kmeans prediciton:', predicted1)
             predicted2 = our_detection_v2.local_outlier_factor(X, clients)
