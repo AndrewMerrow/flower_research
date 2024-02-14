@@ -36,3 +36,6 @@ def main():
     table.add_row(["Total Rounds", "Total FPs", "Total FNs", "Total TPs"])
     table.add_row([current_round, current_FPs, current_FNs, current_TPs])
     print(table.draw())
+
+if __name__ == "__main__":
+    main()
