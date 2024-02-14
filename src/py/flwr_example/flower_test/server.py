@@ -273,7 +273,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             print ('lof prediction:', predicted2)
             # final results are written to output file
             with open(filename+"V2", "a") as f:
-                our_detection_v2.evaluate(clients, malicious, predicted, f)
+                our_detection_v2.evaluate(clients, malicious, predicted, f, server_round)
             
 
         #This line runs the detection code...without this line, the LR vector won't do anything

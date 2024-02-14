@@ -131,14 +131,14 @@ def local_outlier_factor(X, clients):
   index = np.argwhere(lof-lof_offset > 1).flatten()
   return clients[index].values
 
-def evaluate(client_list, malicious_list, predicted_list, f):
+def evaluate(client_list, malicious_list, predicted_list, f, server_round):
   y_true = [1 if client in malicious_list else 0 for client in client_list]
   y_pred = [1 if client in predicted_list else 0 for client in client_list]
 
   target_names = ['benign', 'malicious']
   #print (classification_report(y_true, y_pred, target_names=target_names))
   tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
-  print (f'{roundinfo} False Positives: {fp:<4}, False Negatives: {fn:<4}, True Positives: {tp:<4}', file=f)
+  print (f'Server Round: {server_round} False Positives: {fp:<4}, False Negatives: {fn:<4}, True Positives: {tp:<4}', file=f)
 
 
 #file_list = glob.glob(root_dir + '/**/Test2*.csv', recursive=True)
