@@ -27,6 +27,8 @@ def main():
             if("Server Round" in line):
                 current_round = line.rstrip("\n").split(": ")[1]
             elif("False Positives" in line):
+                fps = line.rstrip("\n").split(" ")[2]
+                print(fps)
                 current_FPs += line.rstrip("\n").split(" ")[2]
             elif("False Negatives" in line):
                 current_FNs += line.rstrip("\n").split(" ")[2]
