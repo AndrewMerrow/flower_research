@@ -33,7 +33,7 @@ def main():
             elif("True Positives" in line):
                 current_TPs += int(line.rstrip("\n").split(" ")[2])
     
-    table.add_row(["Total Rounds", "Total FPs", "FPs/Round", "Total FNs", "FNs/Round", "Total TPs", "TPs/Round0"])
+    table.add_row(["Total Rounds", "Total FPs", "FPs/Round", "Total FNs", "FNs/Round", "Total TPs", "TPs/Round"])
     table.add_row([current_round, current_FPs, current_FPs/current_round, current_FNs, current_FNs/current_round, current_TPs, current_TPs/current_round])
     print(table.draw())
 
