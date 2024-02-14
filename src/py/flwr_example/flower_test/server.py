@@ -281,7 +281,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             new_results = []
             for proxy, client in results:
                 if(client.metrics["clientID"] not in predicted):
-                    print("Client {} is not marked as malicious".format(client.metrics["clientID"]))
+                    #print("Client {} is not marked as malicious".format(client.metrics["clientID"]))
                     new_results.append((proxy, client))
 
             newClientIDs = []

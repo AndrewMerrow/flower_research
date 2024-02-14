@@ -138,7 +138,7 @@ def evaluate(client_list, malicious_list, predicted_list, f, server_round):
   target_names = ['benign', 'malicious']
   #print (classification_report(y_true, y_pred, target_names=target_names))
   tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
-  print (f'Server Round: {server_round} False Positives: {fp:<4}, False Negatives: {fn:<4}, True Positives: {tp:<4}', file=f)
+  print (f'Server Round: {server_round} \nFalse Positives: {fp:<4}, \nFalse Negatives: {fn:<4}, \nTrue Positives: {tp:<4}', file=f)
 
 
 #file_list = glob.glob(root_dir + '/**/Test2*.csv', recursive=True)
