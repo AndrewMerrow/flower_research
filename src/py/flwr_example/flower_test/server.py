@@ -277,6 +277,17 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             # final results are written to output file
             with open(filename+"V2", "a") as f:
                 our_detection_v2.evaluate(clients, malicious, predicted, f, server_round)
+
+            new_results = []
+            for proxy, client in results:
+                if(client.metrics["clientID"] not in predicted):
+                    print("Client {} is not marked as malicious".format(client.metrics["clientID"]))
+                    new_results.append((proxy, client))
+
+            newClientIDs = []
+            for proxy, client in new_results:
+                newClientIDs.append(client.metrics["clientID"])
+            results = new_results
             
 
         #This line runs the detection code...without this line, the LR vector won't do anything
