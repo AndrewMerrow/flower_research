@@ -29,7 +29,7 @@ def main():
             elif("False Positives" in line):
                 fps = line.rstrip("\n").split(" ")[2]
                 print(fps)
-                current_FPs += line.rstrip("\n").split(" ")[2]
+                current_FPs += int(line.rstrip("\n").split(" ")[2])
             elif("False Negatives" in line):
                 current_FNs += line.rstrip("\n").split(" ")[2]
             elif("True Positives" in line):
