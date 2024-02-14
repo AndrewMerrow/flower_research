@@ -271,6 +271,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             predicted2 = our_detection_v2.local_outlier_factor(X, clients)
             predicted = np.concatenate((predicted1, predicted2), axis=0)
             print ('lof prediction:', predicted2)
+            print("Final Predication: ")
+            print(predicted)
             # final results are written to output file
             with open(filename+"V2", "a") as f:
                 our_detection_v2.evaluate(clients, malicious, predicted, f, server_round)
