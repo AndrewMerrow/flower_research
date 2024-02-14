@@ -25,7 +25,7 @@ def main():
         lines = f.readlines()
         for line in lines:
             if("Server Round" in line):
-                current_round = line.rstrip("\n").split(": ")[1]
+                current_round = int(line.rstrip("\n").split(": ")[1])
             elif("False Positives" in line):
                 current_FPs += int(line.rstrip("\n").split(" ")[2])
             elif("False Negatives" in line):
