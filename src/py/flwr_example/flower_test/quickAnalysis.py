@@ -27,13 +27,11 @@ def main():
             if("Server Round" in line):
                 current_round = line.rstrip("\n").split(": ")[1]
             elif("False Positives" in line):
-                fps = line.rstrip("\n").split(" ")[2]
-                print(fps)
                 current_FPs += int(line.rstrip("\n").split(" ")[2])
             elif("False Negatives" in line):
-                current_FNs += line.rstrip("\n").split(" ")[2]
+                current_FNs += int(line.rstrip("\n").split(" ")[2])
             elif("True Positives" in line):
-                current_TPs += line.rstrip("\n").split(" ")[2]
+                current_TPs += int(line.rstrip("\n").split(" ")[2])
     
     table.add_row(["Total Rounds", "Total FPs", "Total FNs", "Total TPs"])
     table.add_row([current_round, current_FPs, current_FNs, current_TPs])
