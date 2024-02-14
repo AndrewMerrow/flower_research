@@ -80,7 +80,8 @@ def extract_features_tsne(dataset, selectedDataset):
 from sklearn.cluster import KMeans
 def kmeans_clustering(X, clients):
   n_clusters = 3
-  model = KMeans(n_clusters, random_state=42, n_init='auto')
+  #model = KMeans(n_clusters, random_state=42, n_init='auto')
+  model = KMeans(n_clusters, random_state=42)
   model.fit(X) # Fit the model to the data
   # Get the cluster labels and centroids
   labels = model.labels_ # An array of cluster labels for each point
