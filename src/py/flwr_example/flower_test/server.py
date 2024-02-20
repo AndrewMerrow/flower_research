@@ -289,9 +289,12 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             predicted_list = []
             for value in predicted:
                 predicted_list.append(value)
+            client_list = []
+            for value in clients:
+                client_list.append(value)
             # final results are written to output file
             with open(filename, "a") as f:
-                print("All selected clients: {}".format(clients), file=f)
+                print("All selected clients: {}".format(sorted(client_list)), file=f)
                 print("The predicted malicious clients: {}".format(sorted(predicted_list)), file=f)
                 print("The true positives: {}".format(sorted(true_positives)), file=f)
                 print("The false negatives: {}".format(sorted(false_negatives)), file=f)
