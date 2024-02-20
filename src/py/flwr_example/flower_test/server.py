@@ -386,13 +386,6 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         examples = [r.num_examples for _, r in results]
         poisonAccuracies = [r.metrics["poison_accuracy"] * r.num_examples for _, r in results]
 
-        # Aggregate and print custom metric
-        aggregated_accuracy = sum(accuracies) / sum(examples)
-        print(f"Round {server_round} accuracy aggregated from client fit results: {aggregated_accuracy}")
-
-        aggregated_poison_accuracy = sum(poisonAccuracies) / sum(examples)
-        print(f"Round {server_round} poison accuracy aggregated from client fit results: {aggregated_poison_accuracy}")
-
         print("Number of clients after removing some: {}".format(str(len(results))))
         if(selectedDataset == "cifar10"):
             with open(filename, "a") as f:
@@ -400,6 +393,15 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         else:
             with open(filename, "a") as f:
                 print("Number of clients after removing some: {}".format(str(len(results))), file=f)
+        
+        # Aggregate and print custom metric
+        aggregated_accuracy = sum(accuracies) / sum(examples)
+        print(f"Round {server_round} accuracy aggregated from client fit results: {aggregated_accuracy}")
+
+        aggregated_poison_accuracy = sum(poisonAccuracies) / sum(examples)
+        print(f"Round {server_round} poison accuracy aggregated from client fit results: {aggregated_poison_accuracy}")
+
+        
         #remainingClients = []
         #for proxy, client in results:
         #    remainingClients.append(client.metrics["clientID"])
@@ -521,7 +523,7 @@ def main():
     else:
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "V2_lof_minmax_delta_fedemnist_test_" + str(ct) + ".txt"
+        filename = "V2_lof_minmax_delta_fedemnist_test2_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running fedemnist test", file=f)
 
