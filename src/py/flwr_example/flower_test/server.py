@@ -273,10 +273,27 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             print ('lof prediction:', predicted2)
             print("Final Predication: ")
             print(predicted)
-            print(type(predicted))
+            #print(type(predicted))
+
+            false_positives = []
+            true_positives = []
+            false_negatives = []
+            for value in predicted:
+                if(value < 338):
+                    true_positives.append(value)
+                else:
+                    false_positives.append(value)
+            for value in malicious:
+                if(value not in predicted):
+                    false_negatives.append(value)
             # final results are written to output file
-            with open(filename+"V2", "a") as f:
-                our_detection_v2.evaluate(clients, malicious, predicted, f, server_round)
+            with open(filename, "a") as f:
+                print("All selected clients: {}".format(clients), file=f)
+                print("The predicted malicious clients: {}".format(predicted), file=f)
+                print("The true positives: {}".format(true_positives), file=f)
+                print("The false negatives: {}".format(false_negatives), file=f)
+                print("The false positives: {}".format(false_positives), file=f)
+                #our_detection_v2.evaluate(clients, malicious, predicted, f, server_round)
 
             new_results = []
             for proxy, client in results:
