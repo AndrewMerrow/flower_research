@@ -269,7 +269,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             predicted1 = our_detection_v2.kmeans_clustering(X, clients)
             print ('kmeans prediciton:', predicted1)
             predicted2 = our_detection_v2.local_outlier_factor(X, clients)
-            predicted = np.concatenate((predicted1, predicted2), axis=0)
+            predicted = np.unique(np.concatenate((predicted1, predicted2), axis=0))
             print ('lof prediction:', predicted2)
             print("Final Predication: ")
             print(predicted)
