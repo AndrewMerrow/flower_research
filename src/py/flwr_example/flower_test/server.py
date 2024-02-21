@@ -395,11 +395,14 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                 print("Number of clients after removing some: {}".format(str(len(results))), file=f)
         
         # Aggregate and print custom metric
-        aggregated_accuracy = sum(accuracies) / sum(examples)
-        print(f"Round {server_round} accuracy aggregated from client fit results: {aggregated_accuracy}")
+        if(sum(examples) > 0):
+            aggregated_accuracy = sum(accuracies) / sum(examples)
+            print(f"Round {server_round} accuracy aggregated from client fit results: {aggregated_accuracy}")
 
-        aggregated_poison_accuracy = sum(poisonAccuracies) / sum(examples)
-        print(f"Round {server_round} poison accuracy aggregated from client fit results: {aggregated_poison_accuracy}")
+            aggregated_poison_accuracy = sum(poisonAccuracies) / sum(examples)
+            print(f"Round {server_round} poison accuracy aggregated from client fit results: {aggregated_poison_accuracy}")
+        else:
+            aggregated_accuracy = 0
 
         
         #remainingClients = []
@@ -431,8 +434,11 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         #poisonAccuracies = [r.metrics["poison_accuracy"] * r.num_examples for _, r in results]
 
         # Aggregate and print custom metric
-        aggregated_accuracy = sum(accuracies) / sum(examples)
-        print(f"Round {server_round} accuracy aggregated from client eval results: {aggregated_accuracy}")
+        if(sum(examples) > 0):
+            aggregated_accuracy = sum(accuracies) / sum(examples)
+            print(f"Round {server_round} accuracy aggregated from client eval results: {aggregated_accuracy}")
+        else:
+            aggregated_accuracy = 0
 
         #aggregated_poison_accuracy = sum(poisonAccuracies) / sum(examples)
         #print(f"Round {server_round} poison accuracy aggregated from client fit results: {aggregated_poison_accuracy}")
