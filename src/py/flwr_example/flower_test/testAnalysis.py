@@ -208,7 +208,7 @@ def main():
         perRoundTable.add_row([server_round_count, total_malicious, total_malicious/server_round_count, false_negatives_count, false_negatives_count/server_round_count, false_positives_count, false_positives_count/server_round_count])
     print(perRoundTable.draw())
 
-    roundGroupTable = clusterRounds(roundGroupTable, FNs_per_round, FPs_per_round, 50)
+    roundGroupTable = clusterRounds(roundGroupTable, FNs_per_round, FPs_per_round, 10)
     print(roundGroupTable.draw())
 
 
