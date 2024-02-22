@@ -333,20 +333,21 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             print ('kmeans malicious prediction:', sorted(kmeans_predicted_malicious))
             
             #print(type(predicted))
+            predicted_malicious = np.unique(np.concatenate((lof_predicted_malicious, kmeans_predicted_malicious), axis=0))
 
             false_positives = []
             true_positives = []
             false_negatives = []
-            for value in kmeans_predicted_malicious:
+            for value in predicted_malicious:
                 if(value < 338):
                     true_positives.append(value)
                 else:
                     false_positives.append(value)
             for value in malicious:
-                if(value not in kmeans_predicted_malicious):
+                if(value not in predicted_malicious):
                     false_negatives.append(value)
             predicted_list = []
-            for value in kmeans_predicted_malicious:
+            for value in predicted_malicious:
                 predicted_list.append(value)
             client_list = []
             for value in clients:
@@ -362,7 +363,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
 
             new_results = []
             for proxy, client in results:
-                if(client.metrics["clientID"] not in kmeans_predicted_malicious):
+                if(client.metrics["clientID"] not in predicted_malicious):
                     #print("Client {} is not marked as malicious".format(client.metrics["clientID"]))
                     new_results.append((proxy, client))
 
