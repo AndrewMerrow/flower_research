@@ -119,7 +119,6 @@ def main():
         lines = f.readlines()
         #This loop puts the relevant lines from the test output file into the coordinating lists for analysis
         for line in lines:
-            print(line + "\n")
             #retrieve the predicted malicious clients
             if("[" in line and "malicious" in line):
                 predicted_malicious.append(line.rstrip('\n'))
