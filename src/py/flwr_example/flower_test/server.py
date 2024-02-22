@@ -327,7 +327,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             lof_predicted_benign, lof_predicted_malicious = our_detection_v3.local_outlier_factor(X1, clients, 0.1)
             print ('lof prediction benign:', lof_predicted_benign)
             
-            filtered_dataset = detection_slice.filter(items=list(map(str, lof_predicted_benign)))
+            #filtered_dataset = detection_slice.filter(items=list(map(str, lof_predicted_benign)))
+            filtered_dataset = detection_slice
             print(filtered_dataset)
             X2, clients, malicious = our_detection_v3.extract_features_tsne(filtered_dataset, selectedDataset)
             kmeans_predicted_malicious = our_detection_v3.kmeans_clustering(X2, clients)
