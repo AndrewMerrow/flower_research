@@ -22,6 +22,7 @@ import warnings
 
 import our_detect_model_poisoning
 import our_detection_v2
+import our_detection_v3
 
 warnings.filterwarnings("ignore")
 
@@ -313,6 +314,62 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             for proxy, client in new_results:
                 newClientIDs.append(client.metrics["clientID"])
             results = new_results
+
+        if(ourDetectV3):
+            df = pd.DataFrame(update_dict)
+            #print(df)
+            K = len(df.columns)
+            detection_slice = df.tail(10).reset_index(drop=True)
+            #for column in detection_slice.columns:
+                #print(column)
+            #    detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
+            X1, clients, malicious = our_detection_v3.extract_features_minmax(detection_slice, selectedDataset)
+            lof_predicted_benign, lof_predicted_malicious = our_detection_v3.local_outlier_factor(X1, clients, 0.1)
+            print ('lof prediction benign:', lof_predicted_benign)
+            
+            filtered_dataset = detection_slice.filter(items=list(map(str, lof_predicted_benign)))
+            X2, clients, malicious = our_detection_v3.extract_features_tsne(filtered_dataset, selectedDataset)
+            kmeans_predicted_malicious = our_detection_v3.kmeans_clustering(X2, clients)
+            print ('kmeans malicious prediction:', kmeans_predicted_malicious)
+            
+            #print(type(predicted))
+
+            false_positives = []
+            true_positives = []
+            false_negatives = []
+            for value in kmeans_predicted_malicious:
+                if(value < 338):
+                    true_positives.append(value)
+                else:
+                    false_positives.append(value)
+            for value in malicious:
+                if(value not in kmeans_predicted_malicious):
+                    false_negatives.append(value)
+            predicted_list = []
+            for value in kmeans_predicted_malicious:
+                predicted_list.append(value)
+            client_list = []
+            for value in clients:
+                client_list.append(value)
+            # final results are written to output file
+            with open(filename, "a") as f:
+                print("All selected clients: {}".format(sorted(client_list)), file=f)
+                print("The predicted malicious clients: {}".format(sorted(predicted_list)), file=f)
+                print("The true positives: {}".format(sorted(true_positives)), file=f)
+                print("The false negatives: {}".format(sorted(false_negatives)), file=f)
+                print("The false positives: {}".format(sorted(false_positives)), file=f)
+                #our_detection_v2.evaluate(clients, malicious, predicted, f, server_round)
+
+            new_results = []
+            for proxy, client in results:
+                if(client.metrics["clientID"] not in predicted):
+                    #print("Client {} is not marked as malicious".format(client.metrics["clientID"]))
+                    new_results.append((proxy, client))
+
+            newClientIDs = []
+            for proxy, client in new_results:
+                newClientIDs.append(client.metrics["clientID"])
+            results = new_results
             
 
         #This line runs the detection code...without this line, the LR vector won't do anything
@@ -500,6 +557,13 @@ def main():
         help="Toggle to enable or disable our poisoning detection/mitigation V2"
     )
     parser.add_argument(
+        "--ourDetectV3",
+        type=bool,
+        default=False,
+        required=False,
+        help="Toggle to enable or disable our poisoning detection/mitigation V3"
+    )
+    parser.add_argument(
         "--cluster",
         type=str,
         default="kmeans",
@@ -512,11 +576,13 @@ def main():
     global UTDDetect
     global ourDetect
     global ourDetectV2
+    global ourDetectV3
     global cluster_algorithm
     global filename
     UTDDetect = args.UTDDetect
     ourDetect = args.ourDetect
     ourDetectV2 = args.ourDetectV2
+    ourDetectV3 = args.ourDetectV3
 
     cluster_algorithm = args.cluster
     selectedDataset = args.data
