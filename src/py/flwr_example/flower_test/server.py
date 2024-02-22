@@ -325,14 +325,14 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             #    detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
             X1, clients, malicious = our_detection_v3.extract_features_minmax(detection_slice, selectedDataset)
             lof_predicted_benign, lof_predicted_malicious = our_detection_v3.local_outlier_factor(X1, clients, 0.1)
-            print ('lof prediction benign:', lof_predicted_benign)
+            print ('lof prediction benign:', sorted(lof_predicted_benign))
             
             #filtered_dataset = detection_slice.filter(items=list(map(str, lof_predicted_benign)))
             filtered_dataset = detection_slice
             print(filtered_dataset)
             X2, clients, malicious = our_detection_v3.extract_features_tsne(filtered_dataset, selectedDataset)
             kmeans_predicted_malicious = our_detection_v3.kmeans_clustering(X2, clients)
-            print ('kmeans malicious prediction:', kmeans_predicted_malicious)
+            print ('kmeans malicious prediction:', sorted(kmeans_predicted_malicious))
             
             #print(type(predicted))
 
@@ -364,7 +364,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
 
             new_results = []
             for proxy, client in results:
-                if(client.metrics["clientID"] not in predicted):
+                if(client.metrics["clientID"] not in kmeans_predicted_malicious):
                     #print("Client {} is not marked as malicious".format(client.metrics["clientID"]))
                     new_results.append((proxy, client))
 
