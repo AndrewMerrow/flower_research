@@ -131,9 +131,13 @@ class CifarClient(fl.client.NumPyClient):
 
         #This is the format from UTD, but flwr won't let me return it
         #Is there a floating point error here? 
-        vectorTest = np.subtract(parameters_new, parameters_test)
-        vector_to_parameters(vectorTest, model.parameters())
+
+        #Here is the delta value calculation
+        #vectorTest = np.subtract(parameters_new, parameters_test)
+        #vector_to_parameters(vectorTest, model.parameters())
         finalParams = utils.get_model_params(model)
+        
+        
         #print(vectorTest)
         #print(len(vectorTest))
         #print(type(vectorTest.numpy()))
