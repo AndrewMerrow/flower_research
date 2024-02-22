@@ -123,7 +123,7 @@ def kmeans_clustering(X, clients):
 
 from sklearn.neighbors import LocalOutlierFactor
 
-def local_outlier_factor(X, clients):
+def local_outlier_factor(X, clients, lof_offset):
   model = LocalOutlierFactor(n_neighbors=4)
   outlier_prediction = model.fit_predict(X)
   lof = np.array(-1 * model.negative_outlier_factor_)

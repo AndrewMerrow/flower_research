@@ -35,7 +35,8 @@ def get_on_fit_config_fn():
         """
         new_list = ""
         if selectedDataset == "fedemnist":
-            id_list = np.random.choice(3383, math.floor(3383*.01), replace=False)
+            #id_list = np.random.choice(3383, math.floor(3383*.01), replace=False)
+            id_list = np.random.choice(3383, 66, replace=False)
             #print("ID list:")
             #print(id_list)
             #The ID list has to be converted to a string because Flower won't except a list as a config option
@@ -269,7 +270,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             X2, clients, malicious = our_detection_v2.extract_features_minmax(detection_slice, selectedDataset)
             predicted1 = our_detection_v2.kmeans_clustering(X1, clients)
             print ('kmeans prediciton:', predicted1)
-            predicted2 = our_detection_v2.local_outlier_factor(X2, clients)
+            predicted2 = our_detection_v2.local_outlier_factor(X2, clients, 0.1)
             predicted = np.unique(np.concatenate((predicted1, predicted2), axis=0))
             print ('lof prediction:', predicted2)
             print("Final Predication: ")
