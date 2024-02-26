@@ -371,7 +371,24 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             for proxy, client in new_results:
                 newClientIDs.append(client.metrics["clientID"])
             results = new_results
+
+        if perfect:
+            new_results = []
+            selectedClients = []
+            for proxy, client in results:
+                selectedClients.append(client.metrics["clientID"])
+                if(client.metrics["clientID"] >= 338):
+                    #print("Client {} is not marked as malicious".format(client.metrics["clientID"]))
+                    new_results.append((proxy, client))
             
+            newClientIDs = []
+            for proxy, client in new_results:
+                newClientIDs.append(client.metrics["clientID"])
+            with open(filename, "a") as f:
+                print("All selected clients: {}".format(sorted(selectedClients)), file=f)
+                print("The remaining clients: {}".format(sorted(newClientIDs)), file=f)
+
+            results = new_results
 
         #This line runs the detection code...without this line, the LR vector won't do anything
         if UTDDetect:
@@ -565,6 +582,13 @@ def main():
         help="Toggle to enable or disable our poisoning detection/mitigation V3"
     )
     parser.add_argument(
+        "--perfect",
+        type=bool,
+        default=False,
+        required=False,
+        help="Toggle to enable perfect detection"
+    )
+    parser.add_argument(
         "--cluster",
         type=str,
         default="kmeans",
@@ -580,10 +604,12 @@ def main():
     global ourDetectV3
     global cluster_algorithm
     global filename
+    global perfect
     UTDDetect = args.UTDDetect
     ourDetect = args.ourDetect
     ourDetectV2 = args.ourDetectV2
     ourDetectV3 = args.ourDetectV3
+    perfect = args.perfect
 
     cluster_algorithm = args.cluster
     selectedDataset = args.data
@@ -597,7 +623,7 @@ def main():
     else:
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "Round30/non_delta_poison_90_V3_kmeans_and_lof_fedemnist_66_client_test_" + str(ct) + ".txt"
+        filename = "Round30/perfect_detection_fedemnist_66_client_test_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running fedemnist test", file=f)
 
