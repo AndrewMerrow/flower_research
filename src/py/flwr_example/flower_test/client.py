@@ -133,8 +133,8 @@ class CifarClient(fl.client.NumPyClient):
         #Is there a floating point error here? 
 
         #Here is the delta value calculation
-        #vectorTest = np.subtract(parameters_new, parameters_test)
-        #vector_to_parameters(vectorTest, model.parameters())
+        vectorTest = np.subtract(parameters_new, parameters_test)
+        vector_to_parameters(vectorTest, model.parameters())
         finalParams = utils.get_model_params(model)
         
         

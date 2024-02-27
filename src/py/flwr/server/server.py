@@ -136,9 +136,7 @@ class Server:
                 parameters_prime, fit_metrics, _ = res_fit  # fit_metrics_aggregated
                 if parameters_prime:
                     server_lr = 1.0
-                    n_params = 537610
-                    #n_params = len(parameters_to_vector(self.parameters))
-                    lr_vector = torch.Tensor([server_lr]*n_params)
+                    
                     #print("NUMBER OF PRIME PARAMETERS")
                     #print(len(parameters_to_ndarrays(parameters_prime)))
                     #print("Prime test:")
@@ -169,8 +167,9 @@ class Server:
                     #for val1, val2 in zip(test_params, parameters_to_ndarrays(self.parameters)):
                     #    print(np.array_equal(val1, val2))
                     #This is the delta value implementation
-                    #self.parameters = ndarrays_to_parameters(test_params)
-                    self.parameters = parameters_prime
+                    self.parameters = ndarrays_to_parameters(test_params)
+                    #This is the non delta implementation
+                    #self.parameters = parameters_prime
                     
                     
                 history.add_metrics_distributed_fit(
