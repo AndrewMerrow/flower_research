@@ -390,6 +390,25 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
 
             results = new_results
 
+        if perfectSmall:
+            new_results = []
+            selectedClients = []
+            for proxy, client in results:
+                selectedClients.append(client.metrics["clientID"])
+                if(client.metrics["clientID"] >= 338):
+                    #print("Client {} is not marked as malicious".format(client.metrics["clientID"]))
+                    if(len(new_results) < 5):
+                        new_results.append((proxy, client))
+
+            newClientIDs = []
+            for proxy, client in new_results:
+                newClientIDs.append(client.metrics["clientID"])
+            with open(filename, "a") as f:
+                print("All selected clients: {}".format(sorted(selectedClients)), file=f)
+                print("The remaining clients: {}".format(sorted(newClientIDs)), file=f)
+
+            results = new_results
+
         #This line runs the detection code...without this line, the LR vector won't do anything
         if UTDDetect:
             #print("LR vector before detect check")
@@ -589,6 +608,13 @@ def main():
         help="Toggle to enable perfect detection"
     )
     parser.add_argument(
+        "--perfectSmall",
+        type=bool,
+        default=False,
+        required=False,
+        help="Toggle to enable perfect detection, but only include 5 benign clients per round"
+    )
+    parser.add_argument(
         "--cluster",
         type=str,
         default="kmeans",
@@ -605,11 +631,13 @@ def main():
     global cluster_algorithm
     global filename
     global perfect
+    global perfectSmall
     UTDDetect = args.UTDDetect
     ourDetect = args.ourDetect
     ourDetectV2 = args.ourDetectV2
     ourDetectV3 = args.ourDetectV3
     perfect = args.perfect
+    perfectSmall = args.perfectSmall
 
     cluster_algorithm = args.cluster
     selectedDataset = args.data
