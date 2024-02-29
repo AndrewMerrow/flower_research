@@ -426,7 +426,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                         if(client.metrics["clientID"] < 338):
                             new_results.append((proxy, client))
                             poison_counter += 1
-                    if(benign_counter < 20):
+                    if(benign_counter < 10):
                         if(client.metrics["clientID"] >= 338):
                             new_results.append((proxy, client))
                             benign_counter += 1
@@ -436,7 +436,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                 selectedClients = []
                 for proxy, client in results:
                     selectedClients.append(client.metrics["clientID"])
-                    if(benign_counter < 25):
+                    if(benign_counter < 15):
                         if(client.metrics["clientID"] >= 338):
                             new_results.append((proxy, client))
                             benign_counter += 1
@@ -702,7 +702,7 @@ def main():
     else:
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "Round30/Control_test_perfect_detection_with_poison_round3and4_fedemnist_66_clients_" + str(ct) + ".txt"
+        filename = "Round30/Control_test_perfect_detection_with_poison_round3and4_15_benign_fedemnist_66_clients_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running fedemnist test", file=f)
 
