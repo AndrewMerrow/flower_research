@@ -400,7 +400,45 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                 if(client.metrics["clientID"] >= 338):
                     #print("Client {} is not marked as malicious".format(client.metrics["clientID"]))
                     if(len(new_results) < 5):
-                        new_results.append((proxy, client))
+                        new_results.append((proxy, client))           
+
+            newClientIDs = []
+            for proxy, client in new_results:
+                newClientIDs.append(client.metrics["clientID"])
+            with open(filename, "a") as f:
+                print("All selected clients: {}".format(sorted(selectedClients)), file=f)
+                print("The remaining clients: {}".format(sorted(newClientIDs)), file=f)
+
+            results = new_results
+
+        if perfectPoison:
+            benign_counter = 0
+            #We want to poison the model on round 3
+            if(server_round == 3):
+                print("Adding POISONED clients")
+                new_results = []
+                selectedClients = []
+                poison_counter = 0
+                for proxy, client in results:
+                    selectedClients.append(client.metrics["clientID"])
+                    #we want to add 5 malicious clients and 20 benign clients 
+                    if(poison_counter < 5):
+                        if(client.metrics["clientID"] < 338):
+                            new_results.append((proxy, client))
+                            poison_counter += 1
+                    if(benign_counter < 20):
+                        if(client.metrics["clientID"] >= 338):
+                            new_results.append((proxy, client))
+                            benign_counter += 1
+            #if it is not round 3, we use perfect detection to keep 25 benign clients per round
+            else:
+                new_results = []
+                selectedClients = []
+                for proxy, client in results:
+                    selectedClients.append(client.metrics["clientID"])
+                    if(benign_counter < 25):
+                        if(client.metrics["clientID"] >= 338):
+                            new_results.append((proxy, client))
 
             newClientIDs = []
             for proxy, client in new_results:
@@ -617,6 +655,13 @@ def main():
         help="Toggle to enable perfect detection, but only include 5 benign clients per round"
     )
     parser.add_argument(
+        "--perfectPoison",
+        type=bool,
+        default=False,
+        required=False,
+        help="Toggle to enable perfect detection, but allow poisoning to happen for 1 round"
+    )
+    parser.add_argument(
         "--cluster",
         type=str,
         default="kmeans",
@@ -634,12 +679,15 @@ def main():
     global filename
     global perfect
     global perfectSmall
+    global perfectPoison
+
     UTDDetect = args.UTDDetect
     ourDetect = args.ourDetect
     ourDetectV2 = args.ourDetectV2
     ourDetectV3 = args.ourDetectV3
     perfect = args.perfect
     perfectSmall = args.perfectSmall
+    perfectPoison = args.perfectPoison
 
     cluster_algorithm = args.cluster
     selectedDataset = args.data
