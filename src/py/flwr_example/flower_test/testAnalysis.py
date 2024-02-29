@@ -93,7 +93,14 @@ def main():
         type=str,
         default="cifarOutput.txt",
         required=False,
-        help="Used to select the dataset to train on"
+        help="Used to specify which file to analyze"
+    )
+    parser.add_argument(
+        "--csv",
+        type=bool,
+        default=False,
+        required=False,
+        help="Used to save the results to a csv"
     )
     args = parser.parse_args()
 
@@ -221,7 +228,8 @@ def main():
     print("False negatives per round: ")
     print(FNs_per_round)
 
-    accuracy_df.to_csv(args.file + '.csv', index=False)
+    if(args.csv):
+        accuracy_df.to_csv(args.file + '.csv', index=False)
 
 
 if __name__ == "__main__":
