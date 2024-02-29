@@ -124,21 +124,41 @@ def local_outlier_factor(X, clients, offset):
   model = LocalOutlierFactor(n_neighbors=int(K/2))
   outlier_prediction = model.fit_predict(X)
   lof = np.array(-1 * model.negative_outlier_factor_)
-  #print ('sorted lof:', lof[np.argsort(lof)])
-  #print ('sorted clients:', clients[np.argsort(lof)].values)
   topindices = np.argsort(lof)[:int(0.5*K)] # top 50% of clients with low LOF values (likely to be benign)
+  topclients = clients[topindices].values
   bottomindices = np.argsort(lof)[int(0.5*K):] # bottom 50% clients with high LOF value (discard as malicious)
   bottomclients = clients[bottomindices].values
   top_loflist = lof[topindices]
   benign_indices = np.argwhere(top_loflist-offset <= 1).flatten() # considered benign among top 50% clients
-  predicted_benign = clients[benign_indices].values
+  predicted_benign = topclients[benign_indices]
   malicious_indices = np.argwhere(top_loflist-offset > 1).flatten() # considered malicious among top 50% clients
-
+  print (top_loflist, topclients, topclients[malicious_indices])
   if len(malicious_indices) >= 1:
-    predicted_malicious = np.concatenate((clients[malicious_indices].values, bottomclients), axis=0)
+    predicted_malicious = np.concatenate((topclients[malicious_indices], bottomclients), axis=0)
   else:
     predicted_malicious = bottomclients
   return predicted_benign, predicted_malicious
+
+#def local_outlier_factor(X, clients, offset):
+#  K = len(clients)
+#  model = LocalOutlierFactor(n_neighbors=int(K/2))
+#  outlier_prediction = model.fit_predict(X)
+#  lof = np.array(-1 * model.negative_outlier_factor_)
+  #print ('sorted lof:', lof[np.argsort(lof)])
+  #print ('sorted clients:', clients[np.argsort(lof)].values)
+#  topindices = np.argsort(lof)[:int(0.5*K)] # top 50% of clients with low LOF values (likely to be benign)
+#  bottomindices = np.argsort(lof)[int(0.5*K):] # bottom 50% clients with high LOF value (discard as malicious)
+#  bottomclients = clients[bottomindices].values
+#  top_loflist = lof[topindices]
+#  benign_indices = np.argwhere(top_loflist-offset <= 1).flatten() # considered benign among top 50% clients
+#  predicted_benign = clients[benign_indices].values
+#  malicious_indices = np.argwhere(top_loflist-offset > 1).flatten() # considered malicious among top 50% clients
+
+#  if len(malicious_indices) >= 1:
+#    predicted_malicious = np.concatenate((clients[malicious_indices].values, bottomclients), axis=0)
+#  else:
+#    predicted_malicious = bottomclients
+#  return predicted_benign, predicted_malicious
 
 def evaluate(client_list, malicious_list, predicted_list, f):
   y_true = [1 if client in malicious_list else 0 for client in client_list]
