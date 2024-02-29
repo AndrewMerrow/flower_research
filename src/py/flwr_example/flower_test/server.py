@@ -414,7 +414,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         if perfectPoison:
             benign_counter = 0
             #We want to poison the model on round 3
-            if(server_round == 3):
+            if(server_round == 3 or server_round == 4):
                 print("Adding POISONED clients")
                 new_results = []
                 selectedClients = []
