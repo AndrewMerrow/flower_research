@@ -17,7 +17,7 @@ def retrieveAccuracy(table, accuracies, poison_accuracies):
         poison_accuracy = poison_accuracies[i].split(": ")[1]
         table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))])
 
-        df2 = pd.DataFrame([[i, accuracy, poison_accuracy]], columns=['Round', 'Accuracy', 'Poison Accuracy'])
+        df2 = pd.DataFrame([[i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))]], columns=['Round', 'Accuracy', 'Poison Accuracy'])
         df = pd.concat([df2, df])
     return(table, df)
 
