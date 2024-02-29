@@ -439,6 +439,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                     if(benign_counter < 25):
                         if(client.metrics["clientID"] >= 338):
                             new_results.append((proxy, client))
+                            benign_counter += 1
 
             newClientIDs = []
             for proxy, client in new_results:
