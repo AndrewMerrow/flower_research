@@ -197,7 +197,6 @@ def main():
     #create the accuracy table
     accuracyTable, accuracy_df = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies)
     print(accuracyTable.draw())
-    accuracy_df.to_csv(args.file + '.csv', index=False)
     print("\n--------------------------------------------------------------\n")
 
     print("Type of clustering used: " + str(cluster_method))
@@ -212,10 +211,14 @@ def main():
                     total_malicious += 1
         perRoundTable.add_row(["Total Rounds", "Total Malicious", "Malicious/Round", "Total FNs", "FN/Round", "Total FPs", "FP/Round"])
         perRoundTable.add_row([server_round_count, total_malicious, total_malicious/server_round_count, false_negatives_count, false_negatives_count/server_round_count, false_positives_count, false_positives_count/server_round_count])
+        df2 = pd.DataFrame([[server_round_count, total_malicious, total_malicious/server_round_count, false_negatives_count, false_negatives_count/server_round_count, false_positives_count, false_positives_count/server_round_count]], columns=["Total Rounds", "Total Malicious", "Malicious/Round", "Total FNs", "FN/Round", "Total FPs", "FP/Round"])
+        accuracy_df = pd.concat([accuracy_df, df2])
     print(perRoundTable.draw())
 
     roundGroupTable = clusterRounds(roundGroupTable, FNs_per_round, FPs_per_round, 10)
     print(roundGroupTable.draw())
+
+    accuracy_df.to_csv(args.file + '.csv', index=False)
 
 
 if __name__ == "__main__":
