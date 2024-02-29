@@ -18,7 +18,7 @@ def retrieveAccuracy(table, accuracies, poison_accuracies):
         table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))])
 
         df2 = pd.DataFrame([[i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))]], columns=['Round', 'Accuracy', 'Poison Accuracy'])
-        df = pd.concat([df2, df])
+        df = pd.concat([df, df2])
     return(table, df)
 
 def countMaliciousFlags(args, table, predicted_malicious, selected_clients = None):
