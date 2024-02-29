@@ -197,7 +197,7 @@ def main():
     #create the accuracy table
     accuracyTable, accuracy_df = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies)
     print(accuracyTable.draw())
-    accuracy_df.to_csv(args.file + '.csv')
+    accuracy_df.to_csv(args.file + '.csv', index=False)
     print("\n--------------------------------------------------------------\n")
 
     print("Type of clustering used: " + str(cluster_method))
