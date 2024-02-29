@@ -1,6 +1,7 @@
 from prettytable import PrettyTable
 from texttable import Texttable
 import argparse
+import pandas as pd
 
 
 def retrieveAccuracy(table, accuracies, poison_accuracies):
@@ -8,13 +9,17 @@ def retrieveAccuracy(table, accuracies, poison_accuracies):
     round and then creates the table containing the accuracy information'''
     #Add the column names to the table
     table.add_row(["Round", "Accuracy", "Poison Accuracy"])
+    df = pd.DataFrame()
 
     #This loop retrieves the base and poison accuracies to the nearest 2 decimal places and adds them to the accuracy table
     for i in range(len(accuracies)):
         accuracy = accuracies[i].split(": ")[1]
         poison_accuracy = poison_accuracies[i].split(": ")[1]
         table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))])
-    return(table)
+
+        df2 = pd.DataFrame([[i, accuracy, poison_accuracy]], columns=['Round', 'Accuracy', 'Poison Accuracy'])
+        df = pd.concat(df2, df)
+    return(table, df)
 
 def countMaliciousFlags(args, table, predicted_malicious, selected_clients = None):
     '''This function computes how many times each client was labeled as benign or malicious'''
@@ -190,9 +195,10 @@ def main():
     print("\n--------------------------------------------------------------\n")
 
     #create the accuracy table
-    accuracyTable = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies)
+    accuracyTable, accuracy_df = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies)
     print(accuracyTable.draw())
     print("\n--------------------------------------------------------------\n")
+    print(accuracy_df)
 
     print("Type of clustering used: " + str(cluster_method))
     if("cifar" in args.file):
