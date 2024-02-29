@@ -218,6 +218,9 @@ def main():
     roundGroupTable = clusterRounds(roundGroupTable, FNs_per_round, FPs_per_round, 10)
     print(roundGroupTable.draw())
 
+    print("False negatives per round: ")
+    print(FNs_per_round)
+
     accuracy_df.to_csv(args.file + '.csv', index=False)
 
 
