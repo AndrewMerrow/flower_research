@@ -702,7 +702,7 @@ def main():
     else:
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "Round30/Control_test_perfect_detection_with_poison_80_round3and4_15_benign_fedemnist_66_clients_" + str(ct) + ".txt"
+        filename = "furtherResearch/V3_poison_80_200_round_test_fedemnist_66_clients_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running fedemnist test", file=f)
 
@@ -729,7 +729,7 @@ def main():
     # Start Flower server for four rounds of federated learning
     fl.server.start_server(
         server_address="10.100.116.10:8080",
-        config=fl.server.ServerConfig(num_rounds=30 if selectedDataset == "fedemnist" else 200),
+        config=fl.server.ServerConfig(num_rounds=200 if selectedDataset == "fedemnist" else 200),
         strategy=strategy,
     )
 
