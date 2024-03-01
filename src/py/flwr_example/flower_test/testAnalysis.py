@@ -226,7 +226,9 @@ def main():
     print(roundGroupTable.draw())
 
     print("False negatives per round: ")
-    print(FNs_per_round)
+    #print(FNs_per_round)
+    for key, value in FNs_per_round:
+        print("Round {}: {}".format(key,value))
 
     if(args.csv):
         accuracy_df.to_csv(args.file + '.csv', index=False)
