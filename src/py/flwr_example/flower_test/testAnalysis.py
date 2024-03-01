@@ -227,7 +227,7 @@ def main():
 
     print("False negatives per round: ")
     #print(FNs_per_round)
-    for key, value in FNs_per_round:
+    for key, value in FNs_per_round.items():
         print("Round {}: {}".format(key,value))
 
     if(args.csv):
