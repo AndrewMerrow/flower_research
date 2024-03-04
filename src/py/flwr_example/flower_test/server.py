@@ -656,6 +656,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         return aggregated_loss, {"accuracy": aggregated_accuracy}
 
 def compute_robustLR(agent_updates_dict, threshold):
+        print("Threshold: " + str(threshold))
         agent_updates_sign = [torch.sign(update) for update in agent_updates_dict.values()]  
         sm_of_signs = torch.abs(sum(agent_updates_sign))
         
