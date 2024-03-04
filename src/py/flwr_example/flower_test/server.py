@@ -515,13 +515,9 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             for proxy, client in new_results:
                 newClientIDs.append(client.metrics["clientID"])
 
-            print("new client ids")
-            print(sorted(newClientIDs))
-            dict_list = []
-            for key in new_update_dict.keys():
-                dict_list.append(key)
-            print("new update dict")
-            print(sorted(dict_list))
+            lr_vector = compute_robustLR(new_update_dict, len(new_update_dict.keys())*.25)
+            print("LR vector based on hybrid method:")
+            print(lr_vector)
 
             results = new_results
         #This line runs the detection code...without this line, the LR vector won't do anything
@@ -570,7 +566,10 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
         model.load_state_dict(state_dict, strict=False)
         primeParams = parameters_to_vector(model.parameters()).detach()
-        finalParams = primeParams * lr_vector
+        if(UTDDetect or hybrid):
+            finalParams = primeParams * lr_vector
+        else:
+            finalParams = primeParams
         #print("FINAL PARAMS")
         #print(finalParams)
         vector_to_parameters(finalParams, model.parameters())
