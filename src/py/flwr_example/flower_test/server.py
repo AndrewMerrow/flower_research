@@ -505,10 +505,14 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                     new_results.append((proxy, client))
 
             #Remove the clients that were filtered out from the update dictionary
+            to_remove = []
             for proxy, client in new_results:
                 for key, value in update_dict.items():
                     if(client.metrics["clientID"] == key):
-                        update_dict.pop(key)
+                        to_remove.append(key)
+                        #update_dict.pop(key)
+            for key in to_remove:
+                update_dict.pop(key)
 
             newClientIDs = []
             for proxy, client in new_results:
