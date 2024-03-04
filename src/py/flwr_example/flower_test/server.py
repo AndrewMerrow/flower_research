@@ -324,7 +324,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                 #print(column)
             #    detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
             X1, clients1, malicious = our_detection_v3.extract_features_minmax(detection_slice, selectedDataset)
-            lof_predicted_benign, lof_predicted_malicious = our_detection_v3.local_outlier_factor(X1, clients1, 0.1)
+            lof_predicted_benign, lof_predicted_malicious = our_detection_v3.local_outlier_factor(X1, clients1, 0)
             print ('lof prediction benign:', sorted(lof_predicted_benign))
             
             filtered_dataset = detection_slice.filter(items=list(map(int, lof_predicted_benign)))
@@ -702,7 +702,7 @@ def main():
     else:
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "furtherResearch/V3_poison_80_200_round_test_fedemnist_66_clients_" + str(ct) + ".txt"
+        filename = "furtherResearch/V3_lof_offset_0_poison_80_test_fedemnist_66_clients_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running fedemnist test", file=f)
 
@@ -729,7 +729,7 @@ def main():
     # Start Flower server for four rounds of federated learning
     fl.server.start_server(
         server_address="10.100.116.10:8080",
-        config=fl.server.ServerConfig(num_rounds=200 if selectedDataset == "fedemnist" else 200),
+        config=fl.server.ServerConfig(num_rounds=30 if selectedDataset == "fedemnist" else 200),
         strategy=strategy,
     )
 
