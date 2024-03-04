@@ -449,7 +449,80 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                 print("The remaining clients: {}".format(sorted(newClientIDs)), file=f)
 
             results = new_results
+        
+        if hybrid:
+            df = pd.DataFrame(update_dict)
+            #print(df)
+            K = len(df.columns)
+            detection_slice = df.tail(10).reset_index(drop=True)
+            #for column in detection_slice.columns:
+                #print(column)
+            #    detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
+            X1, clients1, malicious = our_detection_v3.extract_features_minmax(detection_slice, selectedDataset)
+            lof_predicted_benign, lof_predicted_malicious = our_detection_v3.local_outlier_factor(X1, clients1, 0)
+            print ('lof prediction benign:', sorted(lof_predicted_benign))
+            
+            filtered_dataset = detection_slice.filter(items=list(map(int, lof_predicted_benign)))
+            X2, clients2, malicious = our_detection_v3.extract_features_tsne(filtered_dataset, selectedDataset)
+            kmeans_predicted_malicious = our_detection_v3.kmeans_clustering(X2, clients2)
+            print ('kmeans malicious prediction:', sorted(kmeans_predicted_malicious))
+            
+            clients = np.unique(np.concatenate((clients1, clients2), axis=0))
 
+            #print(type(predicted))
+            predicted_malicious = np.unique(np.concatenate((lof_predicted_malicious, kmeans_predicted_malicious), axis=0))
+
+            false_positives = []
+            true_positives = []
+            false_negatives = []
+            for value in predicted_malicious:
+                if(value < 338):
+                    true_positives.append(value)
+                else:
+                    false_positives.append(value)
+            for value in malicious:
+                if(value not in predicted_malicious):
+                    false_negatives.append(value)
+            predicted_list = []
+            for value in predicted_malicious:
+                predicted_list.append(value)
+            client_list = []
+            for value in clients:
+                client_list.append(value)
+            # final results are written to output file
+            with open(filename, "a") as f:
+                print("All selected clients: {}".format(sorted(client_list)), file=f)
+                print("The predicted malicious clients: {}".format(sorted(predicted_list)), file=f)
+                print("The true positives: {}".format(sorted(true_positives)), file=f)
+                print("The false negatives: {}".format(sorted(false_negatives)), file=f)
+                print("The false positives: {}".format(sorted(false_positives)), file=f)
+                #our_detection_v2.evaluate(clients, malicious, predicted, f, server_round)
+
+            new_results = []
+            for proxy, client in results:
+                if(client.metrics["clientID"] not in predicted_malicious):
+                    #print("Client {} is not marked as malicious".format(client.metrics["clientID"]))
+                    new_results.append((proxy, client))
+
+            #Remove the clients that were filtered out from the update dictionary
+            for proxy, client in new_results:
+                for key, value in update_dict.items():
+                    if(client.metrics["clientID"] == key):
+                        update_dict.pop(key)
+
+            newClientIDs = []
+            for proxy, client in new_results:
+                newClientIDs.append(client.metrics["clientID"])
+
+            print("new client ids")
+            print(sorted(newClientIDs))
+            dict_list = []
+            for key in update_dict.keys():
+                dict_list.append(key)
+            print("new update dict")
+            print(sorted(dict_list))
+
+            results = new_results
         #This line runs the detection code...without this line, the LR vector won't do anything
         if UTDDetect:
             #print("LR vector before detect check")
@@ -582,12 +655,12 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         # Return aggregated loss and metrics (i.e., aggregated accuracy)
         return aggregated_loss, {"accuracy": aggregated_accuracy}
 
-def compute_robustLR(agent_updates_dict):
+def compute_robustLR(agent_updates_dict, threshold):
         agent_updates_sign = [torch.sign(update) for update in agent_updates_dict.values()]  
         sm_of_signs = torch.abs(sum(agent_updates_sign))
         
-        sm_of_signs[sm_of_signs < 8] = -1
-        sm_of_signs[sm_of_signs >= 8] = 1                                           
+        sm_of_signs[sm_of_signs < threshold] = -1
+        sm_of_signs[sm_of_signs >= threshold] = 1                                           
         return sm_of_signs
 
 def main():
@@ -663,6 +736,13 @@ def main():
         help="Toggle to enable perfect detection, but allow poisoning to happen for 1 round"
     )
     parser.add_argument(
+        "--hybrid",
+        type=bool,
+        default=False,
+        required=False,
+        help="Toggle to enable V3 detection followed by UTD RLR"
+    )
+    parser.add_argument(
         "--cluster",
         type=str,
         default="kmeans",
@@ -681,6 +761,7 @@ def main():
     global perfect
     global perfectSmall
     global perfectPoison
+    global hybrid
 
     UTDDetect = args.UTDDetect
     ourDetect = args.ourDetect
@@ -689,6 +770,7 @@ def main():
     perfect = args.perfect
     perfectSmall = args.perfectSmall
     perfectPoison = args.perfectPoison
+    hybrid = args.hybrid
 
     cluster_algorithm = args.cluster
     selectedDataset = args.data
@@ -702,7 +784,7 @@ def main():
     else:
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "furtherResearch/V3_lof_offset_0_poison_80_test_fedemnist_66_clients_" + str(ct) + ".txt"
+        filename = "furtherResearch/hybrid_test_fedemnist_66_clients_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running fedemnist test", file=f)
 
