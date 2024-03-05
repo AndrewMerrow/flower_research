@@ -785,7 +785,7 @@ def main():
     else:
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "poisonAllFix/hybrid_100_rounds_poison_50_offset_0_test_fedemnist_66_clients_" + str(ct) + ".txt"
+        filename = "poisonAllFix/hybrid_100_rounds_poison_20_offset_0_test_fedemnist_66_clients_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running fedemnist test", file=f)
 
