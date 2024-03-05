@@ -4,7 +4,7 @@ import argparse
 import pandas as pd
 
 
-def retrieveAccuracy(table, accuracies, poison_accuracies):
+def retrieveAccuracy(table, accuracies, poison_accuracies, FNs_Per_Round):
     '''This function pulls the accuracy and poison accuracy metric for each 
     round and then creates the table containing the accuracy information'''
     #Add the column names to the table
@@ -17,7 +17,7 @@ def retrieveAccuracy(table, accuracies, poison_accuracies):
         poison_accuracy = poison_accuracies[i].split(": ")[1]
         table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))])
 
-        df2 = pd.DataFrame([[i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))]], columns=['Round', 'Accuracy', 'Poison Accuracy'])
+        df2 = pd.DataFrame([[i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy)), FNs_Per_Round[i]]], columns=['Round', 'Accuracy', 'Poison Accuracy', 'FNs'])
         df = pd.concat([df, df2])
     return(table, df)
 
@@ -202,7 +202,7 @@ def main():
     print("\n--------------------------------------------------------------\n")
 
     #create the accuracy table
-    accuracyTable, accuracy_df = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies)
+    accuracyTable, accuracy_df = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies, FNs_per_round)
     print(accuracyTable.draw())
     print("\n--------------------------------------------------------------\n")
 
