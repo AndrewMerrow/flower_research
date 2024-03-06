@@ -2,6 +2,7 @@ from prettytable import PrettyTable
 from texttable import Texttable
 import argparse
 import pandas as pd
+import matplotlib as plt
 
 
 def retrieveAccuracy(table, accuracies, poison_accuracies, FNs_Per_Round):
@@ -9,7 +10,8 @@ def retrieveAccuracy(table, accuracies, poison_accuracies, FNs_Per_Round):
     round and then creates the table containing the accuracy information'''
     #Add the column names to the table
     table.add_row(["Round", "Accuracy", "Poison Accuracy"])
-    df = pd.DataFrame()
+    all_df = pd.DataFrame()
+    acc_df = pd.DataFrame()
 
     #This loop retrieves the base and poison accuracies to the nearest 2 decimal places and adds them to the accuracy table
     for i in range(len(accuracies)):
@@ -17,9 +19,16 @@ def retrieveAccuracy(table, accuracies, poison_accuracies, FNs_Per_Round):
         poison_accuracy = poison_accuracies[i].split(": ")[1]
         table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))])
 
-        df2 = pd.DataFrame([[i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy)), FNs_Per_Round[i]]], columns=['Round', 'Accuracy', 'Poison Accuracy', 'FNs'])
-        df = pd.concat([df, df2])
-    return(table, df)
+        #includes FNs in each round
+        all_df2 = pd.DataFrame([[i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy)), FNs_Per_Round[i]]], columns=['Round', 'Accuracy', 'Poison Accuracy', 'FNs'])
+        all_df = pd.concat([all_df, all_df2])
+
+        #just includes accuracies and round number
+        acc_df2 = pd.DataFrame([[i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))]], columns=['Round', 'Accuracy', 'Poison Accuracy'])
+        acc_df = pd.concat([acc_df, acc_df2])
+
+
+    return(table, all_df, acc_df)
 
 def countMaliciousFlags(args, table, predicted_malicious, selected_clients = None):
     '''This function computes how many times each client was labeled as benign or malicious'''
@@ -202,7 +211,7 @@ def main():
     print("\n--------------------------------------------------------------\n")
 
     #create the accuracy table
-    accuracyTable, accuracy_df = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies, FNs_per_round)
+    accuracyTable, all_accuracy_df, just_accuracy_df = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies, FNs_per_round)
     print(accuracyTable.draw())
     print("\n--------------------------------------------------------------\n")
 
@@ -219,7 +228,7 @@ def main():
         perRoundTable.add_row(["Total Rounds", "Total Malicious", "Malicious/Round", "Total FNs", "FN/Round", "Total FPs", "FP/Round"])
         perRoundTable.add_row([server_round_count, total_malicious, total_malicious/server_round_count, false_negatives_count, false_negatives_count/server_round_count, false_positives_count, false_positives_count/server_round_count])
         df2 = pd.DataFrame([[server_round_count, total_malicious, total_malicious/server_round_count, false_negatives_count, false_negatives_count/server_round_count, false_positives_count, false_positives_count/server_round_count]], columns=["Total Rounds", "Total Malicious", "Malicious/Round", "Total FNs", "FN/Round", "Total FPs", "FP/Round"])
-        accuracy_df = pd.concat([accuracy_df, df2])
+        all_accuracy_df = pd.concat([all_accuracy_df, df2])
     print(perRoundTable.draw())
 
     roundGroupTable = clusterRounds(roundGroupTable, FNs_per_round, FPs_per_round, 10)
@@ -230,8 +239,15 @@ def main():
     for key, value in FNs_per_round.items():
         print("Round {}: {}".format(key,value))
 
+    #create accuracy graphs
+    val_accuracy = just_accuracy_df[["Accuracy"]]
+    poison_accuracy = just_accuracy_df[["Poison Accuracy"]]
+    round_number = just_accuracy_df[["Round"]]
+    plt.plot(val_accuracy, round_number, label="Accuracy")
+    plt.plot(poison_accuracy, round_number, label="Poison Accuracy")
+
     if(args.csv):
-        accuracy_df.to_csv(args.file + '.csv', index=False)
+        all_accuracy_df.to_csv(args.file + '.csv', index=False)
 
 
 if __name__ == "__main__":
