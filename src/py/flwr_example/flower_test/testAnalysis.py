@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def retrieveAccuracy(table, accuracies, poison_accuracies, FNs_Per_Round):
+def retrieveAccuracy(table, accuracies, poison_accuracies, FNs_Per_Round, args):
     '''This function pulls the accuracy and poison accuracy metric for each 
     round and then creates the table containing the accuracy information'''
     #Add the column names to the table
@@ -21,8 +21,9 @@ def retrieveAccuracy(table, accuracies, poison_accuracies, FNs_Per_Round):
         table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))])
 
         #includes FNs in each round
-        all_df2 = pd.DataFrame([[i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy)), FNs_Per_Round[i]]], columns=['Round', 'Accuracy', 'Poison Accuracy', 'FNs'])
-        all_df = pd.concat([all_df, all_df2])
+        if("UTD" not in args.file):
+            all_df2 = pd.DataFrame([[i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy)), FNs_Per_Round[i]]], columns=['Round', 'Accuracy', 'Poison Accuracy', 'FNs'])
+            all_df = pd.concat([all_df, all_df2])
 
         #just includes accuracies and round number
         acc_df2 = pd.DataFrame([[i, '{:.2}'.format(float(accuracy)), '{:.2}'.format(float(poison_accuracy))]], columns=['Round', 'Accuracy', 'Poison_Accuracy'])
@@ -213,7 +214,7 @@ def main():
     print("\n--------------------------------------------------------------\n")
 
     #create the accuracy table
-    accuracyTable, all_accuracy_df, just_accuracy_df = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies, FNs_per_round)
+    accuracyTable, all_accuracy_df, just_accuracy_df = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies, FNs_per_round, args)
     print(accuracyTable.draw())
     print("\n--------------------------------------------------------------\n")
 
