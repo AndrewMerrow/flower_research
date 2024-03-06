@@ -218,24 +218,25 @@ def main():
     print(accuracyTable.draw())
     print("\n--------------------------------------------------------------\n")
 
-    print("Type of clustering used: " + str(cluster_method))
-    if("cifar" in args.file):
-        perRoundTable.add_row(["Total Rounds", "Total FNs", "FN/Round", "Total FPs", "FP/Round"])
-        perRoundTable.add_row([server_round_count, false_negatives_count, false_negatives_count/server_round_count, false_positives_count, false_positives_count/server_round_count])
-    elif("fedemnist" in args.file):
-        total_malicious = 0
-        for i in range(len(selected_clients)):
-            for client in selected_clients[i]:
-                if(client < 338):
-                    total_malicious += 1
-        perRoundTable.add_row(["Total Rounds", "Total Malicious", "Malicious/Round", "Total FNs", "FN/Round", "Total FPs", "FP/Round"])
-        perRoundTable.add_row([server_round_count, total_malicious, total_malicious/server_round_count, false_negatives_count, false_negatives_count/server_round_count, false_positives_count, false_positives_count/server_round_count])
-        df2 = pd.DataFrame([[server_round_count, total_malicious, total_malicious/server_round_count, false_negatives_count, false_negatives_count/server_round_count, false_positives_count, false_positives_count/server_round_count]], columns=["Total Rounds", "Total Malicious", "Malicious/Round", "Total FNs", "FN/Round", "Total FPs", "FP/Round"])
-        all_accuracy_df = pd.concat([all_accuracy_df, df2])
-    print(perRoundTable.draw())
+    if("UTD" not in args.file):
+        print("Type of clustering used: " + str(cluster_method))
+        if("cifar" in args.file):
+            perRoundTable.add_row(["Total Rounds", "Total FNs", "FN/Round", "Total FPs", "FP/Round"])
+            perRoundTable.add_row([server_round_count, false_negatives_count, false_negatives_count/server_round_count, false_positives_count, false_positives_count/server_round_count])
+        elif("fedemnist" in args.file):
+            total_malicious = 0
+            for i in range(len(selected_clients)):
+                for client in selected_clients[i]:
+                    if(client < 338):
+                        total_malicious += 1
+            perRoundTable.add_row(["Total Rounds", "Total Malicious", "Malicious/Round", "Total FNs", "FN/Round", "Total FPs", "FP/Round"])
+            perRoundTable.add_row([server_round_count, total_malicious, total_malicious/server_round_count, false_negatives_count, false_negatives_count/server_round_count, false_positives_count, false_positives_count/server_round_count])
+            df2 = pd.DataFrame([[server_round_count, total_malicious, total_malicious/server_round_count, false_negatives_count, false_negatives_count/server_round_count, false_positives_count, false_positives_count/server_round_count]], columns=["Total Rounds", "Total Malicious", "Malicious/Round", "Total FNs", "FN/Round", "Total FPs", "FP/Round"])
+            all_accuracy_df = pd.concat([all_accuracy_df, df2])
+        print(perRoundTable.draw())
 
-    roundGroupTable = clusterRounds(roundGroupTable, FNs_per_round, FPs_per_round, 10)
-    print(roundGroupTable.draw())
+        roundGroupTable = clusterRounds(roundGroupTable, FNs_per_round, FPs_per_round, 10)
+        print(roundGroupTable.draw())
 
     print("False negatives per round: ")
     #print(FNs_per_round)
