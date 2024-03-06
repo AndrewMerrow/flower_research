@@ -2,7 +2,8 @@ from prettytable import PrettyTable
 from texttable import Texttable
 import argparse
 import pandas as pd
-import matplotlib as plt
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 def retrieveAccuracy(table, accuracies, poison_accuracies, FNs_Per_Round):
@@ -24,7 +25,7 @@ def retrieveAccuracy(table, accuracies, poison_accuracies, FNs_Per_Round):
         all_df = pd.concat([all_df, all_df2])
 
         #just includes accuracies and round number
-        acc_df2 = pd.DataFrame([[i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))]], columns=['Round', 'Accuracy', 'Poison Accuracy'])
+        acc_df2 = pd.DataFrame([[i, '{:.2}'.format(float(accuracy)), '{:.2}'.format(float(poison_accuracy))]], columns=['Round', 'Accuracy', 'Poison_Accuracy'])
         acc_df = pd.concat([acc_df, acc_df2])
 
 
@@ -112,6 +113,7 @@ def main():
         help="Used to save the results to a csv"
     )
     args = parser.parse_args()
+    #args.file = 'hybrid_100_rounds_poison_90_offset_0_test_fedemnist_66_clients_2024-03-04_20-10-53.txt'
 
     #Two tables are created. One to store the amount of times each client is labeled malicious/benign, and one to store the accuracy info for each round
     table = Texttable()
@@ -240,11 +242,21 @@ def main():
         print("Round {}: {}".format(key,value))
 
     #create accuracy graphs
-    val_accuracy = just_accuracy_df[["Accuracy"]]
-    poison_accuracy = just_accuracy_df[["Poison Accuracy"]]
-    round_number = just_accuracy_df[["Round"]]
-    plt.plot(val_accuracy, round_number, label="Accuracy")
-    plt.plot(poison_accuracy, round_number, label="Poison Accuracy")
+    fig, ax = plt.subplots()
+    #numbers are retrieved from the dataframe and converted to floats for graphing
+    val_accuracy = np.asarray(just_accuracy_df.Accuracy.values, float)
+    poison_accuracy = np.asarray(just_accuracy_df.Poison_Accuracy.values, float)
+    round_number = just_accuracy_df.Round.values
+    
+    #plot the retrieved values
+    ax.plot(round_number, val_accuracy, label="Accuracy")
+    ax.plot(round_number, poison_accuracy, label="Poison Accuracy")
+    ax.set_xlabel("Round")
+    ax.set_ylabel("Accuracy")
+    #the legend is set manually because the labels aren't working for some reason
+    L = ax.legend()
+    L.get_texts()[0].set_text('Accuracy')
+    L.get_texts()[1].set_text('Poison Accuracy')
 
     if(args.csv):
         all_accuracy_df.to_csv(args.file + '.csv', index=False)
