@@ -315,27 +315,36 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                 newClientIDs.append(client.metrics["clientID"])
             results = new_results
 
-        if(ourDetectV3):
+        if(V3):
             df = pd.DataFrame(update_dict)
-            #print(df)
             K = len(df.columns)
             detection_slice = df.tail(10).reset_index(drop=True)
             #for column in detection_slice.columns:
                 #print(column)
             #    detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
-            X1, clients1, malicious = our_detection_v3.extract_features_minmax(detection_slice, selectedDataset)
-            lof_predicted_benign, lof_predicted_malicious = our_detection_v3.local_outlier_factor(X1, clients1, 0)
-            print ('lof prediction benign:', sorted(lof_predicted_benign))
-            
-            filtered_dataset = detection_slice.filter(items=list(map(int, lof_predicted_benign)))
-            X2, clients2, malicious = our_detection_v3.extract_features_tsne(filtered_dataset, selectedDataset)
-            kmeans_predicted_malicious = our_detection_v3.kmeans_clustering(X2, clients2)
-            print ('kmeans malicious prediction:', sorted(kmeans_predicted_malicious))
-            
-            clients = np.unique(np.concatenate((clients1, clients2), axis=0))
 
-            #print(type(predicted))
-            predicted_malicious = np.unique(np.concatenate((lof_predicted_malicious, kmeans_predicted_malicious), axis=0))
+            #used to run only lof
+            if(lofOnly):
+                X1, clients1, malicious = our_detection_v3.extract_features_minmax(detection_slice, selectedDataset)
+                lof_predicted_benign, lof_predicted_malicious = our_detection_v3.local_outlier_factor(X1, clients1, 0.1)
+                print ('lof prediction benign:', sorted(lof_predicted_benign))
+
+                clients = clients1
+                predicted_malicious = lof_predicted_malicious
+
+            #used to run lof and kmeans
+            else:
+                X1, clients1, malicious = our_detection_v3.extract_features_minmax(detection_slice, selectedDataset)
+                lof_predicted_benign, lof_predicted_malicious = our_detection_v3.local_outlier_factor(X1, clients1, 0.1)
+                print ('lof prediction benign:', sorted(lof_predicted_benign))
+                
+                filtered_dataset = detection_slice.filter(items=list(map(int, lof_predicted_benign)))
+                X2, clients2, malicious = our_detection_v3.extract_features_tsne(filtered_dataset, selectedDataset)
+                kmeans_predicted_malicious = our_detection_v3.kmeans_clustering(X2, clients2)
+                print ('kmeans malicious prediction:', sorted(kmeans_predicted_malicious))
+            
+                clients = np.unique(np.concatenate((clients1, clients2), axis=0))
+                predicted_malicious = np.unique(np.concatenate((lof_predicted_malicious, kmeans_predicted_malicious), axis=0))
 
             false_positives = []
             true_positives = []
@@ -709,11 +718,18 @@ def main():
         help="Toggle to enable or disable our poisoning detection/mitigation V2"
     )
     parser.add_argument(
-        "--ourDetectV3",
+        "--V3",
         type=bool,
         default=False,
         required=False,
         help="Toggle to enable or disable our poisoning detection/mitigation V3"
+    )
+    parser.add_argument(
+        "--lofOnly",
+        type=bool,
+        default=False,
+        required=False,
+        help="Toggle to only run lof when using V3 detection"
     )
     parser.add_argument(
         "--perfect",
@@ -756,7 +772,8 @@ def main():
     global UTDDetect
     global ourDetect
     global ourDetectV2
-    global ourDetectV3
+    global V3
+    global lofOnly
     global cluster_algorithm
     global filename
     global perfect
@@ -767,7 +784,8 @@ def main():
     UTDDetect = args.UTDDetect
     ourDetect = args.ourDetect
     ourDetectV2 = args.ourDetectV2
-    ourDetectV3 = args.ourDetectV3
+    V3 = args.V3
+    lofOnly = args.lofOnly
     perfect = args.perfect
     perfectSmall = args.perfectSmall
     perfectPoison = args.perfectPoison
@@ -785,7 +803,7 @@ def main():
     else:
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "poisonAllFix/V3_lof_offset_0_poison_80_test2_fedemnist_66_clients_" + str(ct) + ".txt"
+        filename = "lof/offset0.1/lof_offset_01_poison_100_test_fedemnist_66_clients_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running fedemnist test", file=f)
 
