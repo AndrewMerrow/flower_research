@@ -238,10 +238,10 @@ def main():
         roundGroupTable = clusterRounds(roundGroupTable, FNs_per_round, FPs_per_round, 10)
         print(roundGroupTable.draw())
 
-    print("False negatives per round: ")
-    #print(FNs_per_round)
-    for key, value in FNs_per_round.items():
-        print("Round {}: {}".format(key,value))
+        print("False negatives per round: ")
+        #print(FNs_per_round)
+        for key, value in FNs_per_round.items():
+            print("Round {}: {}".format(key,value))
 
     #create accuracy graphs
     fig, ax = plt.subplots()
