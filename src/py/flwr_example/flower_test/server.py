@@ -459,6 +459,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
 
             results = new_results
         
+        #This method uses V3 detection then uses RLR on what is left
         if hybrid:
             df = pd.DataFrame(update_dict)
             #print(df)
@@ -530,6 +531,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
 
             results = new_results
 
+        #This method uses lof detection and then uses RLR on what is left
         if lofHybrid:
             df = pd.DataFrame(update_dict)
             K = len(df.columns)
