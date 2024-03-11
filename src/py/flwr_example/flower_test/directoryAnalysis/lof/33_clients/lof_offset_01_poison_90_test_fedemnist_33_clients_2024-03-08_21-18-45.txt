@@ -1,0 +1,1004 @@
+Running fedemnist test
+Round 0 accuracy: 0.09982366771159874
+Round 0 poison accuracy: 0.0
+
+Server Round 1
+All selected clients: [169, 322, 342, 488, 732, 740, 960, 1034, 1363, 1366, 1393, 1402, 1437, 1446, 1472, 1524, 1737, 1793, 1829, 1840, 2021, 2107, 2171, 2358, 2634, 2739, 2829, 2938, 3038, 3220, 3249, 3250, 3344]
+The predicted malicious clients: [169, 322, 488, 732, 740, 960, 1366, 1393, 1437, 1446, 1793, 1829, 1840, 2171, 3249, 3250, 3344]
+The true positives: [169, 322]
+The false negatives: []
+The false positives: [488, 732, 740, 960, 1366, 1393, 1437, 1446, 1793, 1829, 1840, 2171, 3249, 3250, 3344]
+Number of clients after removing some: 16
+Round 1 accuracy: 0.24921630094043887
+Round 1 poison accuracy: 0.037991858887381276
+
+Server Round 2
+All selected clients: [2, 275, 342, 350, 469, 513, 627, 804, 856, 858, 896, 1190, 1291, 1396, 1453, 1483, 1596, 1656, 1776, 1843, 1890, 1901, 1953, 1983, 2078, 2326, 2564, 2771, 3075, 3168, 3207, 3256, 3345]
+The predicted malicious clients: [2, 275, 469, 513, 804, 856, 858, 1190, 1396, 1453, 1483, 1656, 1843, 1890, 1953, 1983, 3256]
+The true positives: [2, 275]
+The false negatives: []
+The false positives: [469, 513, 804, 856, 858, 1190, 1396, 1453, 1483, 1656, 1843, 1890, 1953, 1983, 3256]
+Number of clients after removing some: 16
+Round 2 accuracy: 0.6528458072100314
+Round 2 poison accuracy: 0.032021709633649934
+
+Server Round 3
+All selected clients: [5, 7, 317, 349, 423, 634, 649, 1026, 1064, 1144, 1147, 1193, 1249, 1455, 1479, 1550, 1601, 1709, 1729, 1762, 1933, 2236, 2265, 2365, 2370, 2400, 2416, 2495, 2746, 2780, 2850, 3072, 3127]
+The predicted malicious clients: [5, 7, 317, 349, 634, 1026, 1064, 1144, 1147, 1479, 1550, 1601, 1709, 2370, 2416, 2495, 2850]
+The true positives: [5, 7, 317]
+The false negatives: []
+The false positives: [349, 634, 1026, 1064, 1144, 1147, 1479, 1550, 1601, 1709, 2370, 2416, 2495, 2850]
+Number of clients after removing some: 16
+Round 3 accuracy: 0.7453467868338558
+Round 3 poison accuracy: 0.008141112618724558
+
+Server Round 4
+All selected clients: [192, 234, 292, 317, 476, 556, 565, 867, 1005, 1132, 1153, 1163, 1169, 1284, 1303, 1388, 1535, 1583, 1840, 2051, 2127, 2251, 2274, 2442, 2466, 2538, 2830, 3082, 3097, 3102, 3168, 3240, 3291]
+The predicted malicious clients: [317, 476, 867, 1132, 1153, 1169, 1303, 1535, 1583, 1840, 2051, 2127, 2251, 2830, 3082, 3102, 3240]
+The true positives: [317]
+The false negatives: [192, 234, 292]
+The false positives: [476, 867, 1132, 1153, 1169, 1303, 1535, 1583, 1840, 2051, 2127, 2251, 2830, 3082, 3102, 3240]
+Number of clients after removing some: 16
+Round 4 accuracy: 0.8125979623824452
+Round 4 poison accuracy: 0.05508819538670285
+
+Server Round 5
+All selected clients: [46, 311, 700, 711, 737, 823, 840, 892, 943, 1022, 1194, 1309, 1377, 1534, 1707, 1715, 1754, 1784, 1915, 1957, 2069, 2099, 2284, 2426, 2636, 2704, 2719, 2736, 2750, 2818, 2899, 3043, 3158]
+The predicted malicious clients: [46, 311, 700, 711, 892, 1194, 1309, 1377, 1707, 1754, 1784, 1915, 2426, 2704, 2719, 2736, 2899]
+The true positives: [46, 311]
+The false negatives: []
+The false positives: [700, 711, 892, 1194, 1309, 1377, 1707, 1754, 1784, 1915, 2426, 2704, 2719, 2736, 2899]
+Number of clients after removing some: 16
+Round 5 accuracy: 0.8597668495297806
+Round 5 poison accuracy: 0.02659430122116689
+
+Server Round 6
+All selected clients: [108, 152, 201, 350, 377, 406, 449, 530, 670, 676, 1199, 1203, 1464, 1635, 1816, 1984, 1998, 2097, 2208, 2616, 2650, 2655, 2792, 2798, 2806, 2817, 2836, 2878, 2925, 2928, 2976, 3079, 3350]
+The predicted malicious clients: [108, 152, 201, 406, 449, 670, 1199, 1203, 1464, 1816, 1984, 2650, 2806, 2817, 2878, 2925, 3350]
+The true positives: [108, 152, 201]
+The false negatives: []
+The false positives: [406, 449, 670, 1199, 1203, 1464, 1816, 1984, 2650, 2806, 2817, 2878, 2925, 3350]
+Number of clients after removing some: 16
+Round 6 accuracy: 0.8754408307210031
+Round 6 poison accuracy: 0.006512890094979647
+
+Server Round 7
+All selected clients: [0, 95, 150, 284, 382, 501, 525, 586, 779, 1058, 1172, 1405, 1492, 1606, 1626, 1763, 1984, 1993, 2175, 2218, 2510, 2526, 2615, 2721, 2793, 2796, 2923, 2963, 2967, 3030, 3272, 3302, 3359]
+The predicted malicious clients: [0, 95, 150, 382, 525, 1058, 1172, 1405, 1984, 1993, 2510, 2796, 2923, 2963, 3272, 3302, 3359]
+The true positives: [0, 95, 150]
+The false negatives: [284]
+The false positives: [382, 525, 1058, 1172, 1405, 1984, 1993, 2510, 2796, 2923, 2963, 3272, 3302, 3359]
+Number of clients after removing some: 16
+Round 7 accuracy: 0.8963313087774295
+Round 7 poison accuracy: 0.016282225237449117
+
+Server Round 8
+All selected clients: [23, 139, 254, 258, 296, 363, 494, 522, 552, 691, 784, 911, 1004, 1007, 1354, 1665, 1935, 2079, 2330, 2356, 2398, 2550, 2569, 2751, 2779, 2813, 2954, 3100, 3105, 3172, 3187, 3223, 3268]
+The predicted malicious clients: [23, 139, 258, 494, 784, 1354, 1665, 1935, 2079, 2356, 2569, 2751, 2779, 2954, 3100, 3223, 3268]
+The true positives: [23, 139, 258]
+The false negatives: [254, 296]
+The false positives: [494, 784, 1354, 1665, 1935, 2079, 2356, 2569, 2751, 2779, 2954, 3100, 3223, 3268]
+Number of clients after removing some: 16
+Round 8 accuracy: 0.9166095219435737
+Round 8 poison accuracy: 0.08005427408412483
+
+Server Round 9
+All selected clients: [101, 196, 243, 476, 695, 763, 806, 884, 924, 925, 1067, 1232, 1314, 1376, 1454, 1483, 1574, 1691, 1711, 1828, 1846, 1878, 1899, 2021, 2076, 2203, 2230, 2554, 2704, 2781, 2933, 2977, 3200]
+The predicted malicious clients: [101, 196, 243, 763, 806, 884, 925, 1067, 1232, 1376, 1454, 1846, 1878, 2021, 2076, 2781, 3200]
+The true positives: [101, 196, 243]
+The false negatives: []
+The false positives: [763, 806, 884, 925, 1067, 1232, 1376, 1454, 1846, 1878, 2021, 2076, 2781, 3200]
+Number of clients after removing some: 16
+Round 9 accuracy: 0.9232464733542319
+Round 9 poison accuracy: 0.04531886024423338
+
+Server Round 10
+All selected clients: [45, 49, 76, 136, 249, 541, 704, 898, 902, 934, 942, 990, 1018, 1138, 1238, 1343, 1344, 1486, 1507, 1574, 1935, 2015, 2043, 2240, 2342, 2821, 2830, 2847, 2863, 2878, 2925, 2983, 3327]
+The predicted malicious clients: [45, 49, 136, 249, 704, 898, 902, 934, 1018, 1238, 1343, 1486, 1574, 2015, 2821, 2925, 3327]
+The true positives: [45, 49, 136, 249]
+The false negatives: [76]
+The false positives: [704, 898, 902, 934, 1018, 1238, 1343, 1486, 1574, 2015, 2821, 2925, 3327]
+Number of clients after removing some: 16
+Round 10 accuracy: 0.9250097962382445
+Round 10 poison accuracy: 0.09145183175033922
+
+Server Round 11
+All selected clients: [52, 67, 431, 581, 739, 742, 752, 753, 755, 918, 955, 972, 997, 1205, 1256, 1335, 1340, 1357, 1469, 1519, 1862, 2045, 2216, 2312, 2437, 2537, 2549, 2560, 2584, 2806, 2975, 3113, 3263]
+The predicted malicious clients: [52, 67, 431, 581, 739, 753, 918, 972, 997, 1256, 1335, 1340, 1519, 2045, 2537, 2584, 2806]
+The true positives: [52, 67]
+The false negatives: []
+The false positives: [431, 581, 739, 753, 918, 972, 997, 1256, 1335, 1340, 1519, 2045, 2537, 2584, 2806]
+Number of clients after removing some: 16
+Round 11 accuracy: 0.934242750783699
+Round 11 poison accuracy: 0.0350067842605156
+
+Server Round 12
+All selected clients: [45, 156, 226, 271, 325, 330, 440, 445, 813, 821, 1014, 1033, 1078, 1213, 1308, 1460, 1615, 1702, 1840, 2202, 2208, 2287, 2306, 2347, 2362, 2364, 2398, 2739, 2903, 2983, 3135, 3181, 3233]
+The predicted malicious clients: [45, 156, 226, 325, 330, 440, 445, 813, 1033, 1702, 1840, 2347, 2362, 2398, 2739, 3181, 3233]
+The true positives: [45, 156, 226, 325, 330]
+The false negatives: [271]
+The false positives: [440, 445, 813, 1033, 1702, 1840, 2347, 2362, 2398, 2739, 3181, 3233]
+Number of clients after removing some: 16
+Round 12 accuracy: 0.9384551332288401
+Round 12 poison accuracy: 0.03310719131614654
+
+Server Round 13
+All selected clients: [15, 415, 679, 714, 751, 753, 894, 944, 1165, 1322, 1422, 1436, 1464, 1684, 1875, 1912, 1921, 1979, 2044, 2281, 2289, 2764, 2776, 2828, 2840, 2867, 2894, 2913, 2986, 3059, 3073, 3119, 3261]
+The predicted malicious clients: [15, 415, 753, 894, 1322, 1422, 1684, 1912, 1921, 1979, 2281, 2289, 2764, 2828, 2840, 2867, 2986]
+The true positives: [15]
+The false negatives: []
+The false positives: [415, 753, 894, 1322, 1422, 1684, 1912, 1921, 1979, 2281, 2289, 2764, 2828, 2840, 2867, 2986]
+Number of clients after removing some: 16
+Round 13 accuracy: 0.9417613636363636
+Round 13 poison accuracy: 0.03934871099050204
+
+Server Round 14
+All selected clients: [144, 246, 293, 309, 327, 694, 1182, 1199, 1201, 1298, 1498, 1658, 1873, 1974, 1992, 2038, 2141, 2249, 2252, 2481, 2635, 2647, 2775, 2781, 2821, 2861, 3022, 3028, 3085, 3218, 3263, 3300, 3330]
+The predicted malicious clients: [144, 246, 293, 309, 327, 694, 1182, 1201, 1873, 1992, 2249, 2481, 2647, 2781, 2821, 3028, 3085]
+The true positives: [144, 246, 293, 309, 327]
+The false negatives: []
+The false positives: [694, 1182, 1201, 1873, 1992, 2249, 2481, 2647, 2781, 2821, 3028, 3085]
+Number of clients after removing some: 16
+Round 14 accuracy: 0.9365203761755486
+Round 14 poison accuracy: 0.01519674355495251
+
+Server Round 15
+All selected clients: [119, 160, 163, 357, 744, 848, 908, 1001, 1017, 1075, 1178, 1274, 1488, 1594, 1752, 1805, 1818, 1934, 1938, 2121, 2209, 2236, 2260, 2339, 2442, 2471, 2533, 2577, 2913, 3013, 3017, 3075, 3160]
+The predicted malicious clients: [119, 160, 163, 1017, 1178, 1274, 1488, 1594, 1752, 1818, 1934, 1938, 2121, 2209, 2236, 2471, 3160]
+The true positives: [119, 160, 163]
+The false negatives: []
+The false positives: [1017, 1178, 1274, 1488, 1594, 1752, 1818, 1934, 1938, 2121, 2209, 2236, 2471, 3160]
+Number of clients after removing some: 16
+Round 15 accuracy: 0.9460227272727273
+Round 15 poison accuracy: 0.014111261872455903
+
+Server Round 16
+All selected clients: [114, 192, 298, 463, 521, 733, 818, 872, 949, 1054, 1084, 1096, 1130, 1140, 1172, 1400, 1480, 1554, 1628, 1645, 1694, 1777, 1964, 2003, 2011, 2226, 2320, 2735, 2927, 2955, 2971, 2993, 3098]
+The predicted malicious clients: [114, 192, 298, 733, 872, 949, 1054, 1140, 1172, 1645, 1694, 2011, 2226, 2320, 2735, 2971, 3098]
+The true positives: [114, 192, 298]
+The false negatives: []
+The false positives: [733, 872, 949, 1054, 1140, 1172, 1645, 1694, 2011, 2226, 2320, 2735, 2971, 3098]
+Number of clients after removing some: 16
+Round 16 accuracy: 0.9485207680250783
+Round 16 poison accuracy: 0.01682496607869742
+
+Server Round 17
+All selected clients: [64, 359, 562, 612, 689, 821, 858, 890, 997, 1030, 1042, 1163, 1397, 1547, 1554, 1622, 1810, 1935, 1951, 1956, 2000, 2039, 2158, 2178, 2185, 2298, 2368, 2879, 2886, 2967, 3027, 3150, 3261]
+The predicted malicious clients: [64, 689, 821, 890, 1030, 1163, 1397, 1622, 1810, 1956, 2039, 2178, 2298, 2368, 2886, 3027, 3261]
+The true positives: [64]
+The false negatives: []
+The false positives: [689, 821, 890, 1030, 1163, 1397, 1622, 1810, 1956, 2039, 2178, 2298, 2368, 2886, 3027, 3261]
+Number of clients after removing some: 16
+Round 17 accuracy: 0.9502596003134797
+Round 17 poison accuracy: 0.014111261872455903
+
+Server Round 18
+All selected clients: [208, 307, 412, 506, 566, 595, 611, 857, 876, 1021, 1131, 1177, 1294, 1451, 1480, 1497, 1542, 1555, 1584, 1589, 2103, 2213, 2231, 2256, 2593, 2949, 3014, 3044, 3086, 3126, 3172, 3294, 3324]
+The predicted malicious clients: [208, 307, 412, 566, 857, 1131, 1294, 1542, 1555, 1584, 1589, 2103, 2213, 2256, 2593, 3014, 3172]
+The true positives: [208, 307]
+The false negatives: []
+The false positives: [412, 566, 857, 1131, 1294, 1542, 1555, 1584, 1589, 2103, 2213, 2256, 2593, 3014, 3172]
+Number of clients after removing some: 16
+Round 18 accuracy: 0.9541046238244514
+Round 18 poison accuracy: 0.017096336499321574
+
+Server Round 19
+All selected clients: [97, 186, 284, 345, 487, 614, 718, 722, 829, 1000, 1014, 1039, 1261, 1493, 1563, 1690, 1760, 1812, 1846, 1877, 1881, 1945, 2075, 2294, 2401, 2483, 2503, 2700, 2723, 2764, 2767, 2778, 3190]
+The predicted malicious clients: [97, 186, 284, 345, 487, 614, 722, 1000, 1039, 1261, 1690, 1846, 2294, 2483, 2503, 2700, 2764]
+The true positives: [97, 186, 284]
+The false negatives: []
+The false positives: [345, 487, 614, 722, 1000, 1039, 1261, 1690, 1846, 2294, 2483, 2503, 2700, 2764]
+Number of clients after removing some: 16
+Round 19 accuracy: 0.9547168887147336
+Round 19 poison accuracy: 0.013568521031207599
+
+Server Round 20
+All selected clients: [22, 217, 288, 354, 435, 564, 667, 673, 852, 873, 1045, 1328, 1362, 1461, 1626, 1902, 2182, 2289, 2387, 2388, 2405, 2489, 2508, 2662, 2665, 2718, 2749, 2769, 2845, 2988, 3073, 3116, 3192]
+The predicted malicious clients: [22, 217, 288, 435, 667, 673, 1045, 1328, 1461, 2182, 2289, 2387, 2388, 2405, 2749, 2988, 3116]
+The true positives: [22, 217, 288]
+The false negatives: []
+The false positives: [435, 667, 673, 1045, 1328, 1461, 2182, 2289, 2387, 2388, 2405, 2749, 2988, 3116]
+Number of clients after removing some: 16
+Round 20 accuracy: 0.9555005877742947
+Round 20 poison accuracy: 0.015468113975576661
+
+Server Round 21
+All selected clients: [168, 203, 352, 458, 533, 544, 864, 1044, 1100, 1152, 1250, 1322, 1457, 1463, 1531, 1791, 1927, 1969, 2070, 2119, 2218, 2281, 2357, 2360, 2432, 2605, 2867, 3061, 3064, 3190, 3217, 3271, 3285]
+The predicted malicious clients: [168, 203, 458, 544, 1100, 1250, 1457, 1927, 2070, 2119, 2218, 2281, 2360, 2432, 2867, 3061, 3064]
+The true positives: [168, 203]
+The false negatives: []
+The false positives: [458, 544, 1100, 1250, 1457, 1927, 2070, 2119, 2218, 2281, 2360, 2432, 2867, 3061, 3064]
+Number of clients after removing some: 16
+Round 21 accuracy: 0.9566026645768025
+Round 21 poison accuracy: 0.011397557666214383
+
+Server Round 22
+All selected clients: [40, 65, 90, 126, 145, 635, 1123, 1433, 1434, 1470, 1581, 1594, 1649, 1654, 1757, 1843, 1848, 1867, 1888, 2003, 2115, 2138, 2195, 2245, 2349, 2423, 2530, 2696, 2738, 2753, 3165, 3184, 3330]
+The predicted malicious clients: [40, 65, 90, 126, 145, 1470, 1581, 1594, 1649, 1757, 2115, 2138, 2195, 2349, 2530, 2738, 3184]
+The true positives: [40, 65, 90, 126, 145]
+The false negatives: []
+The false positives: [1470, 1581, 1594, 1649, 1757, 2115, 2138, 2195, 2349, 2530, 2738, 3184]
+Number of clients after removing some: 16
+Round 22 accuracy: 0.950724921630094
+Round 22 poison accuracy: 0.012754409769335142
+
+Server Round 23
+All selected clients: [42, 161, 211, 402, 418, 461, 716, 753, 935, 1009, 1123, 1257, 1264, 1285, 1338, 1388, 1434, 1470, 1587, 1616, 1668, 1736, 1883, 2002, 2145, 2433, 2503, 2715, 2843, 3179, 3307, 3358, 3361]
+The predicted malicious clients: [42, 161, 211, 461, 716, 753, 935, 1388, 1470, 1587, 1616, 2002, 2145, 2433, 2503, 3179, 3358]
+The true positives: [42, 161, 211]
+The false negatives: []
+The false positives: [461, 716, 753, 935, 1388, 1470, 1587, 1616, 2002, 2145, 2433, 2503, 3179, 3358]
+Number of clients after removing some: 16
+Round 23 accuracy: 0.957680250783699
+Round 23 poison accuracy: 0.00841248303934871
+
+Server Round 24
+All selected clients: [42, 164, 243, 292, 340, 369, 575, 645, 836, 1009, 1086, 1203, 1600, 1667, 1799, 1831, 1945, 1962, 1968, 2065, 2113, 2116, 2240, 2334, 2422, 2435, 2507, 2645, 2865, 2935, 2972, 3102, 3374]
+The predicted malicious clients: [42, 164, 243, 292, 645, 836, 1086, 1203, 1600, 1968, 2113, 2334, 2435, 2507, 2935, 2972, 3374]
+The true positives: [42, 164, 243, 292]
+The false negatives: []
+The false positives: [645, 836, 1086, 1203, 1600, 1968, 2113, 2334, 2435, 2507, 2935, 2972, 3374]
+Number of clients after removing some: 16
+Round 24 accuracy: 0.9586353840125392
+Round 24 poison accuracy: 0.010312075983717774
+
+Server Round 25
+All selected clients: [83, 133, 187, 392, 433, 514, 557, 674, 694, 823, 910, 923, 1352, 1395, 1401, 1408, 1492, 1529, 1598, 1714, 1868, 1932, 2289, 2368, 2412, 2514, 2518, 2811, 2900, 2935, 2984, 2988, 3370]
+The predicted malicious clients: [83, 133, 187, 392, 514, 557, 674, 923, 1352, 1408, 1492, 2289, 2368, 2518, 2900, 2988, 3370]
+The true positives: [83, 133, 187]
+The false negatives: []
+The false positives: [392, 514, 557, 674, 923, 1352, 1408, 1492, 2289, 2368, 2518, 2900, 2988, 3370]
+Number of clients after removing some: 16
+Round 25 accuracy: 0.9603987068965517
+Round 25 poison accuracy: 0.00841248303934871
+
+Server Round 26
+All selected clients: [17, 38, 65, 289, 370, 452, 584, 702, 1097, 1203, 1210, 1249, 1431, 1499, 1636, 1645, 1651, 1954, 2043, 2185, 2192, 2196, 2309, 2310, 2311, 2359, 2681, 2688, 2794, 2886, 3119, 3158, 3276]
+The predicted malicious clients: [17, 38, 65, 289, 370, 702, 1203, 1499, 1636, 1954, 2043, 2192, 2310, 2359, 2681, 3119, 3276]
+The true positives: [17, 38, 65, 289]
+The false negatives: []
+The false positives: [370, 702, 1203, 1499, 1636, 1954, 2043, 2192, 2310, 2359, 2681, 3119, 3276]
+Number of clients after removing some: 16
+Round 26 accuracy: 0.9611824059561128
+Round 26 poison accuracy: 0.008141112618724558
+
+Server Round 27
+All selected clients: [15, 520, 529, 629, 682, 683, 839, 844, 978, 985, 1141, 1269, 1322, 1508, 1597, 1746, 1825, 1966, 1967, 2044, 2053, 2073, 2190, 2301, 2434, 2560, 2628, 2836, 2910, 2990, 3021, 3050, 3374]
+The predicted malicious clients: [15, 683, 978, 1141, 1269, 1322, 1508, 1597, 1825, 2044, 2053, 2073, 2190, 2434, 2560, 2628, 2910]
+The true positives: [15]
+The false negatives: []
+The false positives: [683, 978, 1141, 1269, 1322, 1508, 1597, 1825, 2044, 2053, 2073, 2190, 2434, 2560, 2628, 2910]
+Number of clients after removing some: 16
+Round 27 accuracy: 0.9621865203761756
+Round 27 poison accuracy: 0.005156037991858887
+
+Server Round 28
+All selected clients: [40, 448, 519, 537, 738, 882, 981, 1053, 1123, 1267, 1347, 1517, 1696, 1790, 1846, 1954, 1982, 2119, 2261, 2284, 2311, 2493, 2502, 2630, 2646, 2719, 2842, 2859, 2880, 2960, 2981, 3096, 3131]
+The predicted malicious clients: [40, 448, 738, 1053, 1267, 1347, 1517, 1954, 2119, 2311, 2493, 2502, 2630, 2842, 2859, 2981, 3131]
+The true positives: [40]
+The false negatives: []
+The false positives: [448, 738, 1053, 1267, 1347, 1517, 1954, 2119, 2311, 2493, 2502, 2630, 2842, 2859, 2981, 3131]
+Number of clients after removing some: 16
+Round 28 accuracy: 0.9604476880877743
+Round 28 poison accuracy: 0.008683853459972864
+
+Server Round 29
+All selected clients: [184, 232, 354, 426, 528, 536, 821, 971, 1003, 1441, 1521, 1592, 1655, 1742, 1844, 1887, 2187, 2279, 2284, 2376, 2438, 2618, 2645, 2657, 2810, 2840, 2886, 2915, 2930, 2947, 3237, 3300, 3376]
+The predicted malicious clients: [184, 232, 426, 1003, 1592, 1655, 1742, 1887, 2187, 2376, 2618, 2645, 2840, 2915, 2930, 2947, 3376]
+The true positives: [184, 232]
+The false negatives: []
+The false positives: [426, 1003, 1592, 1655, 1742, 1887, 2187, 2376, 2618, 2645, 2840, 2915, 2930, 2947, 3376]
+Number of clients after removing some: 16
+Round 29 accuracy: 0.9626273510971787
+Round 29 poison accuracy: 0.006512890094979647
+
+Server Round 30
+All selected clients: [27, 34, 191, 344, 647, 748, 814, 870, 974, 1533, 1568, 1571, 1773, 1833, 1882, 2091, 2125, 2255, 2296, 2319, 2593, 2649, 2660, 2706, 2709, 2729, 2758, 2871, 2928, 2961, 3028, 3115, 3219]
+The predicted malicious clients: [34, 191, 748, 814, 974, 1571, 1773, 1882, 2091, 2296, 2593, 2649, 2706, 2709, 2729, 2928, 3115]
+The true positives: [34, 191]
+The false negatives: [27]
+The false positives: [748, 814, 974, 1571, 1773, 1882, 2091, 2296, 2593, 2649, 2706, 2709, 2729, 2928, 3115]
+Number of clients after removing some: 16
+Round 30 accuracy: 0.9636559561128527
+Round 30 poison accuracy: 0.008141112618724558
+
+Server Round 31
+All selected clients: [372, 457, 703, 779, 804, 917, 1065, 1164, 1239, 1459, 1469, 1550, 1572, 1574, 1770, 1915, 2027, 2063, 2075, 2099, 2105, 2166, 2191, 2220, 2341, 2646, 2755, 2757, 3022, 3273, 3336, 3339, 3349]
+The predicted malicious clients: [457, 703, 779, 804, 917, 1164, 1239, 1459, 1469, 1572, 1915, 2027, 2105, 2191, 2646, 2755, 3022]
+The true positives: []
+The false negatives: []
+The false positives: [457, 703, 779, 804, 917, 1164, 1239, 1459, 1469, 1572, 1915, 2027, 2105, 2191, 2646, 2755, 3022]
+Number of clients after removing some: 16
+Round 31 accuracy: 0.9630681818181818
+Round 31 poison accuracy: 0.004884667571234735
+
+Server Round 32
+All selected clients: [173, 180, 324, 344, 373, 436, 580, 583, 659, 699, 775, 853, 1095, 1218, 1385, 1590, 1591, 1627, 1685, 2003, 2095, 2139, 2144, 2147, 2212, 2280, 2571, 2647, 2704, 2705, 2767, 2773, 3244]
+The predicted malicious clients: [173, 180, 324, 580, 583, 1095, 1385, 1627, 1685, 2144, 2147, 2212, 2280, 2571, 2647, 2705, 3244]
+The true positives: [173, 180, 324]
+The false negatives: []
+The false positives: [580, 583, 1095, 1385, 1627, 1685, 2144, 2147, 2212, 2280, 2571, 2647, 2705, 3244]
+Number of clients after removing some: 16
+Round 32 accuracy: 0.9645865987460815
+Round 32 poison accuracy: 0.007598371777476255
+
+Server Round 33
+All selected clients: [21, 75, 159, 247, 279, 524, 705, 752, 811, 860, 995, 1036, 1074, 1209, 1225, 1408, 1456, 1485, 1656, 1658, 1879, 1898, 1993, 2079, 2248, 2533, 2567, 2741, 2934, 3070, 3162, 3238, 3333]
+The predicted malicious clients: [21, 75, 159, 247, 279, 705, 752, 811, 860, 995, 1658, 1879, 1898, 1993, 2079, 2567, 3333]
+The true positives: [21, 75, 159, 247, 279]
+The false negatives: []
+The false positives: [705, 752, 811, 860, 995, 1658, 1879, 1898, 1993, 2079, 2567, 3333]
+Number of clients after removing some: 16
+Round 33 accuracy: 0.9657376567398119
+Round 33 poison accuracy: 0.006241519674355495
+
+Server Round 34
+All selected clients: [5, 142, 239, 323, 361, 371, 437, 461, 521, 555, 692, 745, 796, 959, 1172, 1211, 1274, 1343, 1517, 1628, 1782, 1843, 1847, 1911, 1971, 2255, 2325, 2737, 2825, 2948, 3007, 3253, 3307]
+The predicted malicious clients: [5, 142, 239, 323, 361, 437, 461, 555, 745, 959, 1172, 1782, 1847, 1911, 1971, 2948, 3253]
+The true positives: [5, 142, 239, 323]
+The false negatives: []
+The false positives: [361, 437, 461, 555, 745, 959, 1172, 1782, 1847, 1911, 1971, 2948, 3253]
+Number of clients after removing some: 16
+Round 34 accuracy: 0.9650274294670846
+Round 34 poison accuracy: 0.005427408412483039
+
+Server Round 35
+All selected clients: [170, 289, 395, 457, 515, 525, 575, 699, 811, 950, 1160, 1248, 1524, 1540, 1577, 1579, 1613, 1630, 1634, 1710, 1916, 2263, 2509, 2632, 2635, 2713, 2802, 2828, 2899, 2903, 2984, 3086, 3291]
+The predicted malicious clients: [170, 289, 395, 515, 950, 1248, 1540, 1579, 1710, 1916, 2263, 2509, 2632, 2713, 2802, 2828, 3086]
+The true positives: [170, 289]
+The false negatives: []
+The false positives: [395, 515, 950, 1248, 1540, 1579, 1710, 1916, 2263, 2509, 2632, 2713, 2802, 2828, 3086]
+Number of clients after removing some: 16
+Round 35 accuracy: 0.9658601097178683
+Round 35 poison accuracy: 0.005156037991858887
+
+Server Round 36
+All selected clients: [95, 167, 176, 230, 344, 612, 662, 721, 753, 841, 842, 911, 993, 1030, 1071, 1414, 1506, 1744, 1794, 1831, 1911, 1970, 1978, 2013, 2125, 2232, 2244, 2314, 2390, 2466, 2549, 2799, 3019]
+The predicted malicious clients: [95, 167, 176, 230, 344, 721, 753, 841, 911, 1030, 1414, 1744, 1911, 1978, 2125, 2232, 2244]
+The true positives: [95, 167, 176, 230]
+The false negatives: []
+The false positives: [344, 721, 753, 841, 911, 1030, 1414, 1744, 1911, 1978, 2125, 2232, 2244]
+Number of clients after removing some: 16
+Round 36 accuracy: 0.9673050548589341
+Round 36 poison accuracy: 0.004884667571234735
+
+Server Round 37
+All selected clients: [187, 195, 328, 450, 919, 944, 1103, 1124, 1251, 1263, 1432, 1474, 1661, 1714, 1715, 1829, 1902, 2004, 2046, 2180, 2221, 2475, 2656, 2725, 2770, 2777, 2952, 3037, 3064, 3108, 3219, 3246, 3310]
+The predicted malicious clients: [187, 195, 328, 450, 1251, 1474, 1829, 1902, 2004, 2180, 2221, 2656, 2777, 2952, 3064, 3219, 3246]
+The true positives: [187, 195, 328]
+The false negatives: []
+The false positives: [450, 1251, 1474, 1829, 1902, 2004, 2180, 2221, 2656, 2777, 2952, 3064, 3219, 3246]
+Number of clients after removing some: 16
+Round 37 accuracy: 0.9676969043887147
+Round 37 poison accuracy: 0.004613297150610584
+
+Server Round 38
+All selected clients: [99, 271, 309, 406, 510, 518, 541, 585, 637, 760, 767, 834, 1074, 1113, 1228, 1354, 1437, 1574, 1694, 1790, 1898, 2192, 2262, 2405, 2524, 2693, 2720, 2832, 2914, 2940, 2948, 2961, 3270]
+The predicted malicious clients: [99, 271, 309, 541, 585, 760, 834, 1113, 1354, 1437, 1898, 2192, 2262, 2405, 2832, 2914, 2948]
+The true positives: [99, 271, 309]
+The false negatives: []
+The false positives: [541, 585, 760, 834, 1113, 1354, 1437, 1898, 2192, 2262, 2405, 2832, 2914, 2948]
+Number of clients after removing some: 16
+Round 38 accuracy: 0.9680397727272727
+Round 38 poison accuracy: 0.005698778833107192
+
+Server Round 39
+All selected clients: [321, 429, 480, 640, 659, 683, 750, 924, 935, 1003, 1052, 1060, 1072, 1083, 1342, 1410, 1424, 1459, 1462, 1582, 1726, 1901, 1908, 2336, 2419, 2470, 2537, 2679, 2859, 2920, 2985, 3038, 3049]
+The predicted malicious clients: [321, 480, 659, 683, 924, 1003, 1060, 1072, 1342, 1459, 1582, 1726, 1908, 2419, 2537, 2679, 2859]
+The true positives: [321]
+The false negatives: []
+The false positives: [480, 659, 683, 924, 1003, 1060, 1072, 1342, 1459, 1582, 1726, 1908, 2419, 2537, 2679, 2859]
+Number of clients after removing some: 16
+Round 39 accuracy: 0.9670846394984326
+Round 39 poison accuracy: 0.0037991858887381274
+
+Server Round 40
+All selected clients: [29, 85, 152, 283, 291, 388, 473, 532, 562, 578, 739, 904, 951, 998, 1011, 1027, 1093, 1268, 1388, 1411, 1431, 1452, 1501, 1530, 1664, 1944, 2090, 2508, 2596, 2647, 2813, 2919, 3344]
+The predicted malicious clients: [29, 152, 283, 473, 532, 904, 1011, 1027, 1268, 1411, 1431, 1452, 1501, 2090, 2647, 2813, 3344]
+The true positives: [29, 152, 283]
+The false negatives: [85, 291]
+The false positives: [473, 532, 904, 1011, 1027, 1268, 1411, 1431, 1452, 1501, 2090, 2647, 2813, 3344]
+Number of clients after removing some: 16
+Round 40 accuracy: 0.9678683385579937
+Round 40 poison accuracy: 0.004613297150610584
+
+Server Round 41
+All selected clients: [84, 131, 159, 281, 395, 573, 590, 628, 675, 715, 741, 865, 1145, 1163, 1214, 1412, 1428, 1516, 1583, 1642, 1784, 1840, 1991, 2156, 2172, 2413, 2709, 2911, 2972, 3035, 3055, 3190, 3243]
+The predicted malicious clients: [84, 131, 159, 281, 395, 590, 1163, 1428, 1516, 1583, 1840, 1991, 2156, 2413, 2911, 2972, 3035]
+The true positives: [84, 131, 159, 281]
+The false negatives: []
+The false positives: [395, 590, 1163, 1428, 1516, 1583, 1840, 1991, 2156, 2413, 2911, 2972, 3035]
+Number of clients after removing some: 16
+Round 41 accuracy: 0.9680152821316614
+Round 41 poison accuracy: 0.0035278154681139757
+
+Server Round 42
+All selected clients: [26, 61, 72, 154, 187, 216, 308, 354, 360, 430, 433, 514, 748, 1571, 1624, 1710, 1726, 1982, 2004, 2264, 2296, 2360, 2427, 2428, 2550, 2586, 2827, 2889, 3043, 3152, 3181, 3318, 3341]
+The predicted malicious clients: [26, 61, 72, 154, 187, 216, 308, 430, 514, 748, 1571, 1710, 2004, 2360, 2428, 2550, 3181]
+The true positives: [26, 61, 72, 154, 187, 216, 308]
+The false negatives: []
+The false positives: [430, 514, 748, 1571, 1710, 2004, 2360, 2428, 2550, 3181]
+Number of clients after removing some: 16
+Round 42 accuracy: 0.9687989811912225
+Round 42 poison accuracy: 0.005427408412483039
+
+Server Round 43
+All selected clients: [65, 122, 139, 209, 269, 733, 803, 948, 1122, 1142, 1218, 1294, 1544, 1550, 1566, 1586, 1593, 1676, 1737, 1772, 1921, 1924, 2073, 2162, 2164, 2174, 2464, 2575, 2706, 2829, 2838, 3015, 3276]
+The predicted malicious clients: [122, 139, 209, 269, 803, 1142, 1294, 1566, 1586, 1593, 1921, 1924, 2073, 2174, 2464, 2829, 3276]
+The true positives: [122, 139, 209, 269]
+The false negatives: [65]
+The false positives: [803, 1142, 1294, 1566, 1586, 1593, 1921, 1924, 2073, 2174, 2464, 2829, 3276]
+Number of clients after removing some: 16
+Round 43 accuracy: 0.9688724529780565
+Round 43 poison accuracy: 0.012754409769335142
+
+Server Round 44
+All selected clients: [274, 525, 545, 655, 689, 755, 769, 771, 911, 952, 1005, 1123, 1222, 1585, 1697, 1849, 2039, 2251, 2260, 2265, 2325, 2380, 2390, 2637, 2766, 3112, 3153, 3164, 3168, 3202, 3221, 3272, 3273]
+The predicted malicious clients: [274, 545, 689, 911, 952, 1849, 2039, 2251, 2260, 2265, 2380, 3112, 3164, 3168, 3202, 3221, 3273]
+The true positives: [274]
+The false negatives: []
+The false positives: [545, 689, 911, 952, 1849, 2039, 2251, 2260, 2265, 2380, 3112, 3164, 3168, 3202, 3221, 3273]
+Number of clients after removing some: 16
+Round 44 accuracy: 0.9689949059561128
+Round 44 poison accuracy: 0.010854816824966078
+
+Server Round 45
+All selected clients: [6, 13, 86, 305, 338, 345, 624, 723, 790, 884, 1086, 1155, 1187, 1215, 1223, 1359, 1422, 1441, 1451, 1535, 1718, 1783, 1787, 1875, 2014, 2314, 2385, 2432, 2516, 2721, 2958, 3121, 3188]
+The predicted malicious clients: [6, 13, 86, 305, 345, 624, 1086, 1155, 1215, 1223, 1422, 1441, 1535, 1718, 1783, 2014, 2432]
+The true positives: [6, 13, 86, 305]
+The false negatives: []
+The false positives: [345, 624, 1086, 1155, 1215, 1223, 1422, 1441, 1535, 1718, 1783, 2014, 2432]
+Number of clients after removing some: 16
+Round 45 accuracy: 0.9696561520376176
+Round 45 poison accuracy: 0.011397557666214383
+
+Server Round 46
+All selected clients: [135, 366, 460, 541, 589, 625, 708, 763, 843, 909, 1002, 1198, 1433, 1630, 1680, 1745, 1769, 1807, 1856, 1984, 2074, 2086, 2303, 2333, 2480, 2607, 3035, 3089, 3165, 3173, 3177, 3218, 3377]
+The predicted malicious clients: [135, 460, 708, 763, 843, 909, 1198, 1769, 1856, 1984, 2303, 2333, 2607, 3035, 3165, 3218, 3377]
+The true positives: [135]
+The false negatives: []
+The false positives: [460, 708, 763, 843, 909, 1198, 1769, 1856, 1984, 2303, 2333, 2607, 3035, 3165, 3218, 3377]
+Number of clients after removing some: 16
+Round 46 accuracy: 0.9707092476489029
+Round 46 poison accuracy: 0.00841248303934871
+
+Server Round 47
+All selected clients: [31, 158, 424, 548, 579, 830, 927, 1004, 1024, 1051, 1194, 1337, 1373, 1602, 1694, 2230, 2330, 2387, 2465, 2508, 2570, 2698, 2747, 2765, 2815, 2937, 2959, 2964, 3062, 3229, 3272, 3283, 3381]
+The predicted malicious clients: [31, 158, 548, 579, 1004, 1024, 1051, 1194, 2330, 2465, 2508, 2698, 2765, 2815, 2964, 3283, 3381]
+The true positives: [31, 158]
+The false negatives: []
+The false positives: [548, 579, 1004, 1024, 1051, 1194, 2330, 2465, 2508, 2698, 2765, 2815, 2964, 3283, 3381]
+Number of clients after removing some: 16
+Round 47 accuracy: 0.9699990203761756
+Round 47 poison accuracy: 0.00841248303934871
+
+Server Round 48
+All selected clients: [240, 541, 560, 791, 838, 849, 893, 1007, 1026, 1065, 1066, 1228, 1347, 1554, 1912, 1985, 2054, 2073, 2160, 2165, 2201, 2207, 2263, 2298, 2462, 2563, 2575, 2644, 2777, 2784, 2913, 3014, 3184]
+The predicted malicious clients: [240, 849, 1007, 1026, 1065, 1347, 1912, 1985, 2054, 2073, 2165, 2263, 2298, 2462, 2777, 2784, 3184]
+The true positives: [240]
+The false negatives: []
+The false positives: [849, 1007, 1026, 1065, 1347, 1912, 1985, 2054, 2073, 2165, 2263, 2298, 2462, 2777, 2784, 3184]
+Number of clients after removing some: 16
+Round 48 accuracy: 0.9708317006269592
+Round 48 poison accuracy: 0.013568521031207599
+
+Server Round 49
+All selected clients: [19, 94, 171, 213, 362, 504, 565, 608, 625, 660, 829, 927, 984, 1078, 1168, 1302, 1546, 1625, 1747, 1839, 2146, 2349, 2393, 2425, 2537, 2539, 2568, 2692, 2760, 2910, 3066, 3129, 3291]
+The predicted malicious clients: [19, 94, 171, 213, 565, 829, 984, 1078, 1302, 1747, 1839, 2146, 2349, 2537, 2539, 2568, 2910]
+The true positives: [19, 94, 171, 213]
+The false negatives: []
+The false positives: [565, 829, 984, 1078, 1302, 1747, 1839, 2146, 2349, 2537, 2539, 2568, 2910]
+Number of clients after removing some: 16
+Round 49 accuracy: 0.9718603056426333
+Round 49 poison accuracy: 0.009226594301221167
+
+Server Round 50
+All selected clients: [179, 687, 711, 805, 829, 943, 1008, 1097, 1278, 1566, 1843, 2024, 2054, 2103, 2154, 2191, 2246, 2334, 2437, 2444, 2537, 2539, 2548, 2690, 2804, 2848, 2951, 2994, 3061, 3270, 3288, 3327, 3356]
+The predicted malicious clients: [179, 829, 943, 1566, 2054, 2103, 2154, 2191, 2246, 2334, 2537, 2548, 2804, 2848, 2994, 3288, 3327]
+The true positives: [179]
+The false negatives: []
+The false positives: [829, 943, 1566, 2054, 2103, 2154, 2191, 2246, 2334, 2537, 2548, 2804, 2848, 2994, 3288, 3327]
+Number of clients after removing some: 16
+Round 50 accuracy: 0.9717133620689655
+Round 50 poison accuracy: 0.00841248303934871
+
+Server Round 51
+All selected clients: [64, 173, 733, 771, 788, 801, 950, 969, 977, 1039, 1220, 1234, 1317, 1341, 1344, 1366, 1441, 1544, 1556, 1602, 2019, 2125, 2251, 2276, 2377, 2451, 2631, 2703, 2935, 3151, 3185, 3225, 3306]
+The predicted malicious clients: [64, 173, 733, 771, 801, 950, 977, 1220, 1317, 1344, 1556, 2019, 2125, 2251, 2377, 2451, 2703]
+The true positives: [64, 173]
+The false negatives: []
+The false positives: [733, 771, 801, 950, 977, 1220, 1317, 1344, 1556, 2019, 2125, 2251, 2377, 2451, 2703]
+Number of clients after removing some: 16
+Round 51 accuracy: 0.9718603056426333
+Round 51 poison accuracy: 0.008955223880597015
+
+Server Round 52
+All selected clients: [128, 260, 274, 284, 430, 543, 720, 738, 864, 948, 1061, 1145, 1157, 1337, 1450, 1477, 1607, 1808, 2050, 2064, 2182, 2230, 2669, 2738, 2768, 2938, 2965, 3003, 3091, 3139, 3278, 3324, 3378]
+The predicted malicious clients: [128, 260, 274, 284, 430, 738, 948, 1061, 1337, 1477, 1607, 1808, 2064, 2669, 2738, 2768, 3278]
+The true positives: [128, 260, 274, 284]
+The false negatives: []
+The false positives: [430, 738, 948, 1061, 1337, 1477, 1607, 1808, 2064, 2669, 2738, 2768, 3278]
+Number of clients after removing some: 16
+Round 52 accuracy: 0.9700969827586207
+Round 52 poison accuracy: 0.007055630936227951
+
+Server Round 53
+All selected clients: [2, 73, 90, 186, 200, 282, 348, 618, 1023, 1031, 1092, 1122, 1144, 1294, 1331, 1557, 1592, 1886, 1931, 1936, 2101, 2117, 2188, 2345, 2530, 2578, 2692, 2698, 2742, 2782, 3009, 3018, 3338]
+The predicted malicious clients: [2, 73, 90, 186, 200, 282, 618, 1031, 1144, 1294, 1592, 1886, 1936, 2101, 2117, 2345, 2742]
+The true positives: [2, 73, 90, 186, 200, 282]
+The false negatives: []
+The false positives: [618, 1031, 1144, 1294, 1592, 1886, 1936, 2101, 2117, 2345, 2742]
+Number of clients after removing some: 16
+Round 53 accuracy: 0.9715909090909091
+Round 53 poison accuracy: 0.005156037991858887
+
+Server Round 54
+All selected clients: [25, 50, 89, 112, 182, 237, 746, 754, 883, 920, 1100, 1102, 1107, 1342, 1378, 1509, 1591, 1658, 1800, 1872, 2238, 2255, 2290, 2393, 2396, 2450, 2472, 2681, 2682, 3008, 3102, 3249, 3276]
+The predicted malicious clients: [25, 50, 89, 112, 182, 237, 883, 1100, 1107, 1658, 1872, 2290, 2450, 2472, 2681, 2682, 3276]
+The true positives: [25, 50, 89, 112, 182, 237]
+The false negatives: []
+The false positives: [883, 1100, 1107, 1658, 1872, 2290, 2450, 2472, 2681, 2682, 3276]
+Number of clients after removing some: 16
+Round 54 accuracy: 0.9704398510971787
+Round 54 poison accuracy: 0.010040705563093623
+
+Server Round 55
+All selected clients: [47, 105, 126, 200, 373, 395, 397, 491, 667, 738, 788, 908, 959, 1080, 1101, 1397, 1417, 1449, 1479, 1723, 1745, 1763, 1812, 1845, 2273, 2349, 2362, 2590, 2713, 2786, 2849, 2962, 2979]
+The predicted malicious clients: [47, 105, 126, 200, 395, 491, 667, 738, 959, 1101, 1397, 1812, 1845, 2273, 2349, 2786, 2849]
+The true positives: [47, 105, 126, 200]
+The false negatives: []
+The false positives: [395, 491, 667, 738, 959, 1101, 1397, 1812, 1845, 2273, 2349, 2786, 2849]
+Number of clients after removing some: 16
+Round 55 accuracy: 0.9717623432601881
+Round 55 poison accuracy: 0.006512890094979647
+
+Server Round 56
+All selected clients: [250, 486, 495, 508, 518, 532, 799, 801, 901, 948, 1001, 1072, 1195, 1265, 1439, 1469, 1597, 1636, 1705, 2045, 2151, 2152, 2198, 2454, 2508, 2622, 2629, 2670, 2747, 2784, 3016, 3263, 3358]
+The predicted malicious clients: [250, 486, 495, 518, 532, 799, 901, 1072, 1439, 1636, 2045, 2151, 2152, 2508, 2629, 2670, 3358]
+The true positives: [250]
+The false negatives: []
+The false positives: [486, 495, 518, 532, 799, 901, 1072, 1439, 1636, 2045, 2151, 2152, 2508, 2629, 2670, 3358]
+Number of clients after removing some: 16
+Round 56 accuracy: 0.9727174764890282
+Round 56 poison accuracy: 0.0067842605156037995
+
+Server Round 57
+All selected clients: [42, 95, 115, 211, 334, 394, 508, 765, 795, 884, 1003, 1192, 1410, 1433, 1449, 1559, 1578, 1680, 1805, 1874, 1880, 2168, 2343, 2425, 2471, 2476, 2631, 2661, 2666, 2733, 3119, 3351, 3365]
+The predicted malicious clients: [42, 95, 115, 211, 334, 765, 795, 1578, 1805, 1880, 2168, 2343, 2471, 2476, 2661, 3119, 3351]
+The true positives: [42, 95, 115, 211, 334]
+The false negatives: []
+The false positives: [765, 795, 1578, 1805, 1880, 2168, 2343, 2471, 2476, 2661, 3119, 3351]
+Number of clients after removing some: 16
+Round 57 accuracy: 0.9732317789968652
+Round 57 poison accuracy: 0.0067842605156037995
+
+Server Round 58
+All selected clients: [377, 820, 848, 854, 941, 957, 1040, 1543, 1620, 1748, 1827, 1878, 1905, 2122, 2175, 2187, 2277, 2325, 2466, 2568, 2583, 2689, 2887, 2889, 2914, 3034, 3096, 3119, 3128, 3329, 3344, 3367, 3371]
+The predicted malicious clients: [848, 941, 1748, 1878, 1905, 2122, 2187, 2277, 2325, 2568, 2583, 2887, 2889, 3034, 3128, 3329, 3344]
+The true positives: []
+The false negatives: []
+The false positives: [848, 941, 1748, 1878, 1905, 2122, 2187, 2277, 2325, 2568, 2583, 2887, 2889, 3034, 3128, 3329, 3344]
+Number of clients after removing some: 16
+Round 58 accuracy: 0.9731338166144201
+Round 58 poison accuracy: 0.009497964721845319
+
+Server Round 59
+All selected clients: [24, 63, 87, 250, 365, 435, 503, 660, 837, 893, 1056, 1422, 1465, 1498, 1544, 1607, 1646, 1901, 1915, 1924, 1934, 1953, 2052, 2428, 2458, 2655, 2745, 2889, 2914, 3145, 3232, 3345, 3380]
+The predicted malicious clients: [24, 63, 87, 250, 435, 837, 1544, 1646, 1901, 1915, 1924, 1934, 1953, 2052, 2745, 3145, 3232]
+The true positives: [24, 63, 87, 250]
+The false negatives: []
+The false positives: [435, 837, 1544, 1646, 1901, 1915, 1924, 1934, 1953, 2052, 2745, 3145, 3232]
+Number of clients after removing some: 16
+Round 59 accuracy: 0.9715909090909091
+Round 59 poison accuracy: 0.007327001356852103
+
+Server Round 60
+All selected clients: [31, 112, 177, 194, 313, 481, 485, 523, 528, 560, 580, 733, 786, 1019, 1197, 1298, 1575, 1577, 1612, 1879, 1987, 2148, 2165, 2357, 2438, 2561, 2761, 2986, 3012, 3025, 3140, 3257, 3320]
+The predicted malicious clients: [31, 112, 177, 194, 313, 481, 523, 580, 733, 786, 1019, 1575, 1577, 2165, 2561, 3140, 3257]
+The true positives: [31, 112, 177, 194, 313]
+The false negatives: []
+The false positives: [481, 523, 580, 733, 786, 1019, 1575, 1577, 2165, 2561, 3140, 3257]
+Number of clients after removing some: 16
+Round 60 accuracy: 0.970635775862069
+Round 60 poison accuracy: 0.004613297150610584
+
+Server Round 61
+All selected clients: [26, 33, 83, 115, 203, 292, 303, 438, 534, 604, 736, 1063, 1114, 1375, 1825, 1830, 1894, 1982, 2030, 2097, 2160, 2178, 2378, 2417, 2418, 2463, 2483, 2809, 2847, 2903, 2913, 3111, 3369]
+The predicted malicious clients: [26, 33, 83, 115, 203, 292, 303, 534, 736, 1063, 1375, 2160, 2178, 2417, 2463, 2483, 3369]
+The true positives: [26, 33, 83, 115, 203, 292, 303]
+The false negatives: []
+The false positives: [534, 736, 1063, 1375, 2160, 2178, 2417, 2463, 2483, 3369]
+Number of clients after removing some: 16
+Round 61 accuracy: 0.9739664968652038
+Round 61 poison accuracy: 0.004613297150610584
+
+Server Round 62
+All selected clients: [69, 91, 180, 285, 355, 494, 528, 609, 631, 635, 801, 819, 973, 985, 1285, 1296, 1395, 1437, 1558, 1657, 1679, 1847, 1905, 2101, 2136, 2179, 2356, 2535, 2561, 2762, 2912, 2995, 3113]
+The predicted malicious clients: [69, 91, 180, 285, 494, 528, 609, 819, 973, 1285, 1437, 1558, 1679, 1905, 2101, 2179, 2356]
+The true positives: [69, 91, 180, 285]
+The false negatives: []
+The false positives: [494, 528, 609, 819, 973, 1285, 1437, 1558, 1679, 1905, 2101, 2179, 2356]
+Number of clients after removing some: 16
+Round 62 accuracy: 0.9741379310344828
+Round 62 poison accuracy: 0.007598371777476255
+
+Server Round 63
+All selected clients: [78, 315, 493, 606, 833, 883, 1491, 1641, 1676, 1690, 1721, 1744, 1758, 1767, 1811, 2021, 2114, 2158, 2192, 2223, 2434, 2457, 2479, 2720, 2775, 2824, 2856, 2914, 3102, 3107, 3214, 3219, 3288]
+The predicted malicious clients: [78, 315, 883, 1641, 1676, 1690, 1721, 1744, 1758, 2021, 2114, 2158, 2192, 2223, 2824, 2856, 3107]
+The true positives: [78, 315]
+The false negatives: []
+The false positives: [883, 1641, 1676, 1690, 1721, 1744, 1758, 2021, 2114, 2158, 2192, 2223, 2824, 2856, 3107]
+Number of clients after removing some: 16
+Round 63 accuracy: 0.9738440438871473
+Round 63 poison accuracy: 0.004613297150610584
+
+Server Round 64
+All selected clients: [109, 265, 292, 393, 427, 482, 602, 616, 665, 701, 758, 963, 973, 1415, 1416, 1423, 1698, 1856, 1870, 1909, 1953, 1983, 2088, 2105, 2129, 2214, 2243, 2537, 2942, 3092, 3114, 3226, 3347]
+The predicted malicious clients: [109, 265, 292, 427, 616, 963, 973, 1415, 1698, 1953, 1983, 2088, 2105, 2243, 2537, 2942, 3092]
+The true positives: [109, 265, 292]
+The false negatives: []
+The false positives: [427, 616, 963, 973, 1415, 1698, 1953, 1983, 2088, 2105, 2243, 2537, 2942, 3092]
+Number of clients after removing some: 16
+Round 64 accuracy: 0.9748971394984326
+Round 64 poison accuracy: 0.005427408412483039
+
+Server Round 65
+All selected clients: [83, 241, 270, 399, 578, 593, 607, 646, 800, 835, 897, 1020, 1132, 1274, 1466, 1477, 1688, 1911, 2058, 2096, 2149, 2266, 2524, 2556, 2606, 2613, 2639, 2734, 3015, 3142, 3224, 3243, 3258]
+The predicted malicious clients: [83, 241, 270, 578, 646, 1274, 1477, 1688, 1911, 2058, 2096, 2149, 2266, 2606, 2734, 3142, 3224]
+The true positives: [83, 241, 270]
+The false negatives: []
+The false positives: [578, 646, 1274, 1477, 1688, 1911, 2058, 2096, 2149, 2266, 2606, 2734, 3142, 3224]
+Number of clients after removing some: 16
+Round 65 accuracy: 0.9745542711598746
+Round 65 poison accuracy: 0.0024423337856173677
+
+Server Round 66
+All selected clients: [32, 110, 370, 592, 929, 958, 1027, 1115, 1142, 1145, 1224, 1227, 1407, 1607, 1660, 1731, 1967, 2038, 2067, 2074, 2138, 2198, 2278, 2307, 2367, 2376, 2454, 2470, 2563, 2653, 3019, 3207, 3264]
+The predicted malicious clients: [32, 110, 370, 592, 929, 1027, 1224, 1407, 1660, 1967, 2038, 2067, 2138, 2307, 2367, 2376, 3019]
+The true positives: [32, 110]
+The false negatives: []
+The false positives: [370, 592, 929, 1027, 1224, 1407, 1660, 1967, 2038, 2067, 2138, 2307, 2367, 2376, 3019]
+Number of clients after removing some: 16
+Round 66 accuracy: 0.9742603840125392
+Round 66 poison accuracy: 0.004341926729986432
+
+Server Round 67
+All selected clients: [72, 313, 383, 730, 972, 1003, 1151, 1153, 1212, 1251, 1364, 1398, 1451, 1834, 1980, 2229, 2271, 2416, 2525, 2559, 2621, 2714, 2725, 2819, 2874, 2893, 3029, 3061, 3142, 3158, 3253, 3280, 3374]
+The predicted malicious clients: [72, 313, 730, 1153, 1212, 1251, 1834, 1980, 2229, 2271, 2416, 2525, 2714, 2874, 2893, 3158, 3374]
+The true positives: [72, 313]
+The false negatives: []
+The false positives: [730, 1153, 1212, 1251, 1834, 1980, 2229, 2271, 2416, 2525, 2714, 2874, 2893, 3158, 3374]
+Number of clients after removing some: 16
+Round 67 accuracy: 0.974676724137931
+Round 67 poison accuracy: 0.004613297150610584
+
+Server Round 68
+All selected clients: [106, 108, 142, 197, 456, 472, 475, 710, 719, 803, 890, 891, 989, 1055, 1076, 1104, 1133, 1197, 1298, 1440, 1561, 1980, 2092, 2160, 2282, 2348, 2421, 2475, 2602, 2605, 2828, 2980, 3114]
+The predicted malicious clients: [106, 108, 142, 197, 456, 472, 475, 710, 719, 890, 891, 989, 1104, 2348, 2421, 2605, 2828]
+The true positives: [106, 108, 142, 197]
+The false negatives: []
+The false positives: [456, 472, 475, 710, 719, 890, 891, 989, 1104, 2348, 2421, 2605, 2828]
+Number of clients after removing some: 16
+Round 68 accuracy: 0.973476684952978
+Round 68 poison accuracy: 0.0024423337856173677
+
+Server Round 69
+All selected clients: [185, 304, 478, 720, 866, 916, 978, 1040, 1347, 1397, 1468, 1517, 1737, 1742, 1821, 1843, 1994, 2007, 2398, 2419, 2439, 2465, 2684, 2710, 2752, 2787, 2879, 2920, 2924, 2927, 3005, 3094, 3357]
+The predicted malicious clients: [185, 304, 720, 978, 1040, 1347, 1397, 1468, 1517, 1843, 2007, 2419, 2465, 2752, 2927, 3094, 3357]
+The true positives: [185, 304]
+The false negatives: []
+The false positives: [720, 978, 1040, 1347, 1397, 1468, 1517, 1843, 2007, 2419, 2465, 2752, 2927, 3094, 3357]
+Number of clients after removing some: 16
+Round 69 accuracy: 0.9747991771159875
+Round 69 poison accuracy: 0.005970149253731343
+
+Server Round 70
+All selected clients: [33, 50, 116, 302, 324, 500, 501, 795, 805, 824, 1010, 1219, 1276, 1285, 1335, 1418, 1555, 1750, 1785, 1802, 1833, 1876, 1962, 2160, 2209, 2211, 2298, 2580, 2959, 2976, 3034, 3161, 3379]
+The predicted malicious clients: [33, 50, 116, 302, 324, 795, 1276, 1555, 1750, 1876, 2160, 2209, 2211, 2298, 3034, 3161, 3379]
+The true positives: [33, 50, 116, 302, 324]
+The false negatives: []
+The false positives: [795, 1276, 1555, 1750, 1876, 2160, 2209, 2211, 2298, 3034, 3161, 3379]
+Number of clients after removing some: 16
+Round 70 accuracy: 0.9746277429467085
+Round 70 poison accuracy: 0.004884667571234735
+
+Server Round 71
+All selected clients: [167, 254, 416, 506, 572, 610, 685, 787, 874, 931, 957, 1069, 1076, 1147, 1318, 1330, 1406, 1430, 1533, 1654, 1669, 1670, 1702, 1710, 1905, 2113, 2549, 2639, 2775, 2893, 3053, 3117, 3192]
+The predicted malicious clients: [167, 254, 787, 957, 1069, 1147, 1330, 1430, 1669, 1710, 1905, 2113, 2639, 2775, 2893, 3117, 3192]
+The true positives: [167, 254]
+The false negatives: []
+The false positives: [787, 957, 1069, 1147, 1330, 1430, 1669, 1710, 1905, 2113, 2639, 2775, 2893, 3117, 3192]
+Number of clients after removing some: 16
+Round 71 accuracy: 0.9756318573667712
+Round 71 poison accuracy: 0.006241519674355495
+
+Server Round 72
+All selected clients: [35, 66, 125, 266, 275, 422, 450, 491, 653, 659, 694, 797, 967, 995, 1080, 1091, 1130, 1310, 1339, 1490, 1682, 1940, 2039, 2103, 2154, 2217, 2251, 2426, 2500, 2522, 2535, 2659, 3228]
+The predicted malicious clients: [35, 66, 125, 266, 275, 422, 450, 694, 797, 967, 1339, 1682, 1940, 2103, 2154, 2251, 2659]
+The true positives: [35, 66, 125, 266, 275]
+The false negatives: []
+The false positives: [422, 450, 694, 797, 967, 1339, 1682, 1940, 2103, 2154, 2251, 2659]
+Number of clients after removing some: 16
+Round 72 accuracy: 0.9752644984326019
+Round 72 poison accuracy: 0.004884667571234735
+
+Server Round 73
+All selected clients: [98, 135, 264, 306, 315, 389, 614, 638, 658, 699, 898, 1002, 1134, 1280, 1296, 1488, 1519, 1523, 1582, 1994, 2005, 2065, 2376, 2408, 2455, 2494, 2538, 2651, 2697, 2750, 2885, 2994, 3289]
+The predicted malicious clients: [98, 135, 264, 306, 315, 389, 614, 1519, 2005, 2065, 2376, 2494, 2538, 2651, 2750, 2885, 3289]
+The true positives: [98, 135, 264, 306, 315]
+The false negatives: []
+The false positives: [389, 614, 1519, 2005, 2065, 2376, 2494, 2538, 2651, 2750, 2885, 3289]
+Number of clients after removing some: 16
+Round 73 accuracy: 0.9734277037617555
+Round 73 poison accuracy: 0.004884667571234735
+
+Server Round 74
+All selected clients: [86, 254, 309, 376, 403, 421, 499, 741, 748, 791, 807, 931, 1140, 1188, 1376, 1604, 1892, 1896, 2224, 2238, 2395, 2573, 2578, 2729, 2793, 2814, 2900, 3025, 3066, 3146, 3212, 3221, 3363]
+The predicted malicious clients: [86, 254, 309, 376, 403, 421, 499, 748, 807, 1376, 1892, 2224, 2814, 2900, 3212, 3221, 3363]
+The true positives: [86, 254, 309]
+The false negatives: []
+The false positives: [376, 403, 421, 499, 748, 807, 1376, 1892, 2224, 2814, 2900, 3212, 3221, 3363]
+Number of clients after removing some: 16
+Round 74 accuracy: 0.9756318573667712
+Round 74 poison accuracy: 0.0037991858887381274
+
+Server Round 75
+All selected clients: [124, 272, 283, 478, 588, 932, 1026, 1120, 1301, 1336, 1363, 1426, 1548, 1558, 1641, 1725, 1822, 1835, 1915, 1987, 2154, 2280, 2307, 2317, 2572, 2678, 2943, 3092, 3161, 3258, 3308, 3363, 3377]
+The predicted malicious clients: [124, 272, 283, 1026, 1120, 1301, 1548, 1725, 1835, 1915, 2154, 2280, 2317, 2572, 2943, 3258, 3377]
+The true positives: [124, 272, 283]
+The false negatives: []
+The false positives: [1026, 1120, 1301, 1548, 1725, 1835, 1915, 2154, 2280, 2317, 2572, 2943, 3258, 3377]
+Number of clients after removing some: 16
+Round 75 accuracy: 0.9755094043887147
+Round 75 poison accuracy: 0.005970149253731343
+
+Server Round 76
+All selected clients: [110, 193, 199, 603, 646, 711, 839, 974, 1153, 1259, 1464, 1492, 1573, 1613, 1651, 1701, 1706, 1734, 1828, 1914, 1926, 2111, 2267, 2348, 2469, 2510, 2565, 2667, 2748, 2821, 2823, 2896, 3178]
+The predicted malicious clients: [110, 193, 199, 974, 1153, 1464, 1492, 1613, 1651, 1706, 2111, 2267, 2348, 2510, 2667, 2821, 2896]
+The true positives: [110, 193, 199]
+The false negatives: []
+The false positives: [974, 1153, 1464, 1492, 1613, 1651, 1706, 2111, 2267, 2348, 2510, 2667, 2821, 2896]
+Number of clients after removing some: 16
+Round 76 accuracy: 0.9762686128526645
+Round 76 poison accuracy: 0.006241519674355495
+
+Server Round 77
+All selected clients: [49, 224, 339, 349, 416, 513, 986, 1018, 1154, 1270, 1355, 1392, 1456, 1600, 1631, 1809, 2020, 2075, 2225, 2257, 2278, 2466, 2530, 2555, 2738, 2807, 2873, 2875, 2903, 3034, 3076, 3287, 3348]
+The predicted malicious clients: [49, 224, 349, 513, 1018, 1270, 1355, 1392, 1600, 1809, 2020, 2225, 2466, 2875, 3034, 3076, 3348]
+The true positives: [49, 224]
+The false negatives: []
+The false positives: [349, 513, 1018, 1270, 1355, 1392, 1600, 1809, 2020, 2225, 2466, 2875, 3034, 3076, 3348]
+Number of clients after removing some: 16
+Round 77 accuracy: 0.976391065830721
+Round 77 poison accuracy: 0.004884667571234735
+
+Server Round 78
+All selected clients: [114, 187, 453, 560, 603, 841, 1031, 1087, 1157, 1244, 1312, 1359, 1572, 1588, 1594, 1635, 1643, 1799, 1868, 1874, 2025, 2237, 2324, 2550, 2608, 2685, 2739, 2856, 2931, 3006, 3193, 3229, 3273]
+The predicted malicious clients: [114, 187, 560, 603, 841, 1157, 1359, 1588, 1594, 1799, 1874, 2025, 2237, 2324, 2685, 3229, 3273]
+The true positives: [114, 187]
+The false negatives: []
+The false positives: [560, 603, 841, 1157, 1359, 1588, 1594, 1799, 1874, 2025, 2237, 2324, 2685, 3229, 3273]
+Number of clients after removing some: 16
+Round 78 accuracy: 0.9756318573667712
+Round 78 poison accuracy: 0.004341926729986432
+
+Server Round 79
+All selected clients: [10, 113, 185, 210, 222, 565, 667, 678, 938, 989, 1052, 1248, 1469, 1507, 1609, 2036, 2105, 2111, 2198, 2246, 2310, 2478, 2565, 2607, 2717, 2801, 2921, 2953, 2965, 3102, 3167, 3176, 3350]
+The predicted malicious clients: [10, 113, 185, 210, 222, 565, 667, 678, 938, 1052, 1609, 2105, 2310, 2478, 2607, 2801, 2953]
+The true positives: [10, 113, 185, 210, 222]
+The false negatives: []
+The false positives: [565, 667, 678, 938, 1052, 1609, 2105, 2310, 2478, 2607, 2801, 2953]
+Number of clients after removing some: 16
+Round 79 accuracy: 0.9747257053291536
+Round 79 poison accuracy: 0.0067842605156037995
+
+Server Round 80
+All selected clients: [31, 185, 289, 664, 667, 752, 834, 1154, 1182, 1344, 1384, 1499, 1666, 1809, 1833, 1937, 1989, 2010, 2205, 2434, 2651, 2682, 2850, 2877, 2934, 3000, 3124, 3148, 3163, 3273, 3274, 3300, 3345]
+The predicted malicious clients: [31, 185, 289, 664, 752, 1154, 1809, 1833, 1937, 1989, 2010, 2205, 2434, 2651, 2682, 3148, 3163]
+The true positives: [31, 185, 289]
+The false negatives: []
+The false positives: [664, 752, 1154, 1809, 1833, 1937, 1989, 2010, 2205, 2434, 2651, 2682, 3148, 3163]
+Number of clients after removing some: 16
+Round 80 accuracy: 0.9757543103448276
+Round 80 poison accuracy: 0.0035278154681139757
+
+Server Round 81
+All selected clients: [66, 75, 270, 437, 888, 995, 1016, 1153, 1475, 1476, 1494, 1544, 1560, 1604, 1610, 1670, 1694, 1793, 1827, 1921, 1933, 2029, 2129, 2272, 2646, 2686, 2737, 2963, 2994, 3041, 3175, 3308, 3345]
+The predicted malicious clients: [66, 75, 270, 437, 888, 995, 1016, 1153, 1475, 1494, 1670, 1793, 1921, 2129, 2272, 2963, 2994]
+The true positives: [66, 75, 270]
+The false negatives: []
+The false positives: [437, 888, 995, 1016, 1153, 1475, 1494, 1670, 1793, 1921, 2129, 2272, 2963, 2994]
+Number of clients after removing some: 16
+Round 81 accuracy: 0.9759992163009404
+Round 81 poison accuracy: 0.0037991858887381274
+
+Server Round 82
+All selected clients: [40, 121, 163, 175, 314, 368, 466, 601, 898, 976, 1116, 1214, 1285, 1430, 1464, 1478, 1526, 1618, 1696, 1775, 1847, 1863, 1978, 2030, 2068, 2219, 2254, 2310, 2536, 2915, 3036, 3122, 3254]
+The predicted malicious clients: [40, 121, 163, 175, 314, 1430, 1464, 1526, 1775, 1847, 1863, 1978, 2068, 2254, 2310, 2915, 3122]
+The true positives: [40, 121, 163, 175, 314]
+The false negatives: []
+The false positives: [1430, 1464, 1526, 1775, 1847, 1863, 1978, 2068, 2254, 2310, 2915, 3122]
+Number of clients after removing some: 16
+Round 82 accuracy: 0.9763175940438872
+Round 82 poison accuracy: 0.005156037991858887
+
+Server Round 83
+All selected clients: [52, 165, 166, 170, 463, 677, 709, 852, 955, 989, 1026, 1081, 1141, 1317, 1438, 1443, 1600, 1616, 1683, 1935, 1945, 1995, 2036, 2044, 2073, 2339, 2351, 2430, 2597, 2699, 3097, 3120, 3371]
+The predicted malicious clients: [52, 165, 166, 170, 1026, 1141, 1443, 1600, 1995, 2036, 2073, 2339, 2351, 2430, 2597, 2699, 3120]
+The true positives: [52, 165, 166, 170]
+The false negatives: []
+The false positives: [1026, 1141, 1443, 1600, 1995, 2036, 2073, 2339, 2351, 2430, 2597, 2699, 3120]
+Number of clients after removing some: 16
+Round 83 accuracy: 0.9768808777429467
+Round 83 poison accuracy: 0.005698778833107192
+
+Server Round 84
+All selected clients: [322, 337, 486, 490, 534, 708, 778, 893, 1230, 1384, 1593, 1688, 1712, 1756, 2080, 2118, 2373, 2417, 2464, 2556, 2584, 2590, 2671, 2676, 2786, 2910, 2967, 3049, 3135, 3151, 3204, 3249, 3314]
+The predicted malicious clients: [322, 337, 486, 708, 1230, 2373, 2417, 2464, 2584, 2671, 2676, 2786, 2910, 2967, 3135, 3249, 3314]
+The true positives: [322, 337]
+The false negatives: []
+The false positives: [486, 708, 1230, 2373, 2417, 2464, 2584, 2671, 2676, 2786, 2910, 2967, 3135, 3249, 3314]
+Number of clients after removing some: 16
+Round 84 accuracy: 0.9768808777429467
+Round 84 poison accuracy: 0.004341926729986432
+
+Server Round 85
+All selected clients: [210, 308, 379, 476, 599, 623, 1219, 1264, 1294, 1653, 1702, 1756, 1833, 2066, 2208, 2306, 2362, 2385, 2419, 2558, 2642, 2669, 2760, 2764, 2829, 2936, 3040, 3054, 3112, 3127, 3136, 3181, 3342]
+The predicted malicious clients: [210, 308, 379, 623, 1219, 1294, 2066, 2306, 2419, 2642, 2760, 2764, 2829, 3040, 3054, 3136, 3181]
+The true positives: [210, 308]
+The false negatives: []
+The false positives: [379, 623, 1219, 1294, 2066, 2306, 2419, 2642, 2760, 2764, 2829, 3040, 3054, 3136, 3181]
+Number of clients after removing some: 16
+Round 85 accuracy: 0.9771992554858934
+Round 85 poison accuracy: 0.004341926729986432
+
+Server Round 86
+All selected clients: [74, 327, 377, 400, 628, 743, 1000, 1153, 1227, 1323, 1573, 1574, 1826, 1831, 1879, 1884, 1890, 1975, 2020, 2182, 2188, 2373, 2434, 2476, 2548, 2612, 2618, 2793, 2987, 3038, 3039, 3108, 3375]
+The predicted malicious clients: [74, 327, 400, 743, 1000, 1227, 1573, 1826, 1831, 1884, 2188, 2373, 2476, 2548, 2618, 3039, 3108]
+The true positives: [74, 327]
+The false negatives: []
+The false positives: [400, 743, 1000, 1227, 1573, 1826, 1831, 1884, 2188, 2373, 2476, 2548, 2618, 3039, 3108]
+Number of clients after removing some: 16
+Round 86 accuracy: 0.9767094435736677
+Round 86 poison accuracy: 0.004884667571234735
+
+Server Round 87
+All selected clients: [84, 271, 354, 448, 915, 998, 1031, 1213, 1246, 1369, 1391, 1442, 1490, 1537, 1539, 1577, 1747, 1828, 1829, 1850, 1861, 1889, 2276, 2295, 2372, 2445, 2514, 2761, 2762, 2830, 2997, 3175, 3352]
+The predicted malicious clients: [84, 271, 448, 915, 998, 1031, 1213, 1391, 1577, 2276, 2295, 2445, 2761, 2830, 2997, 3175, 3352]
+The true positives: [84, 271]
+The false negatives: []
+The false positives: [448, 915, 998, 1031, 1213, 1391, 1577, 2276, 2295, 2445, 2761, 2830, 2997, 3175, 3352]
+Number of clients after removing some: 16
+Round 87 accuracy: 0.9767829153605015
+Round 87 poison accuracy: 0.005427408412483039
+
+Server Round 88
+All selected clients: [115, 188, 239, 325, 329, 375, 455, 618, 625, 665, 678, 692, 917, 1051, 1205, 1246, 1263, 1348, 1386, 1392, 1454, 1464, 1532, 1862, 2006, 2040, 2394, 2638, 2723, 2817, 2856, 3133, 3340]
+The predicted malicious clients: [115, 188, 239, 325, 329, 375, 618, 692, 917, 1051, 1246, 1392, 1454, 1464, 2040, 2394, 2638]
+The true positives: [115, 188, 239, 325, 329]
+The false negatives: []
+The false positives: [375, 618, 692, 917, 1051, 1246, 1392, 1454, 1464, 2040, 2394, 2638]
+Number of clients after removing some: 16
+Round 88 accuracy: 0.9767829153605015
+Round 88 poison accuracy: 0.007055630936227951
+
+Server Round 89
+All selected clients: [104, 323, 358, 406, 485, 656, 984, 1133, 1164, 1263, 1272, 1344, 1418, 1462, 1506, 1688, 1923, 1949, 2005, 2173, 2229, 2240, 2253, 2341, 2510, 2702, 2754, 2945, 3095, 3149, 3253, 3267, 3344]
+The predicted malicious clients: [104, 323, 406, 656, 984, 1688, 1923, 2005, 2173, 2229, 2253, 2754, 3095, 3149, 3253, 3267, 3344]
+The true positives: [104, 323]
+The false negatives: []
+The false positives: [406, 656, 984, 1688, 1923, 2005, 2173, 2229, 2253, 2754, 3095, 3149, 3253, 3267, 3344]
+Number of clients after removing some: 16
+Round 89 accuracy: 0.9765625
+Round 89 poison accuracy: 0.006241519674355495
+
+Server Round 90
+All selected clients: [29, 197, 525, 595, 697, 698, 1005, 1313, 1338, 1395, 1409, 1425, 1517, 1531, 1537, 1556, 1571, 1611, 1748, 1839, 2001, 2020, 2307, 2561, 2681, 2719, 2811, 3027, 3034, 3046, 3193, 3330, 3365]
+The predicted malicious clients: [29, 197, 698, 1409, 1531, 1571, 1611, 1839, 2001, 2020, 2307, 2681, 2719, 3027, 3034, 3046, 3330]
+The true positives: [29, 197]
+The false negatives: []
+The false positives: [698, 1409, 1531, 1571, 1611, 1839, 2001, 2020, 2307, 2681, 2719, 3027, 3034, 3046, 3330]
+Number of clients after removing some: 16
+Round 90 accuracy: 0.9769298589341693
+Round 90 poison accuracy: 0.0037991858887381274
+
+Server Round 91
+All selected clients: [233, 307, 325, 391, 476, 480, 571, 586, 700, 718, 751, 837, 844, 852, 962, 1013, 1040, 1053, 1081, 1250, 1454, 1475, 1503, 1552, 1584, 1610, 1781, 1794, 2133, 2143, 2326, 2361, 2926]
+The predicted malicious clients: [233, 307, 325, 480, 571, 837, 962, 1013, 1081, 1250, 1475, 1552, 1794, 2133, 2143, 2326, 2926]
+The true positives: [233, 307, 325]
+The false negatives: []
+The false positives: [480, 571, 837, 962, 1013, 1081, 1250, 1475, 1552, 1794, 2133, 2143, 2326, 2926]
+Number of clients after removing some: 16
+Round 91 accuracy: 0.9768318965517241
+Round 91 poison accuracy: 0.004884667571234735
+
+Server Round 92
+All selected clients: [63, 67, 159, 181, 290, 319, 323, 379, 454, 662, 713, 845, 854, 872, 987, 1034, 1067, 1090, 1252, 1633, 1795, 1859, 1909, 2139, 2166, 2284, 2509, 2771, 3021, 3073, 3145, 3160, 3293]
+The predicted malicious clients: [63, 67, 159, 181, 290, 319, 323, 379, 845, 1034, 1067, 1090, 1795, 2139, 2166, 2509, 3293]
+The true positives: [63, 67, 159, 181, 290, 319, 323]
+The false negatives: []
+The false positives: [379, 845, 1034, 1067, 1090, 1795, 2139, 2166, 2509, 3293]
+Number of clients after removing some: 16
+Round 92 accuracy: 0.9773706896551724
+Round 92 poison accuracy: 0.005698778833107192
+
+Server Round 93
+All selected clients: [61, 103, 195, 354, 357, 506, 591, 654, 858, 916, 1118, 1286, 1433, 1448, 1504, 1539, 1602, 1781, 1838, 1932, 1973, 1985, 2074, 2147, 2210, 2216, 2468, 2504, 2788, 2923, 3089, 3205, 3366]
+The predicted malicious clients: [61, 103, 195, 354, 591, 654, 1118, 1286, 1433, 1504, 1985, 2147, 2210, 2923, 3089, 3205, 3366]
+The true positives: [61, 103, 195]
+The false negatives: []
+The false positives: [354, 591, 654, 1118, 1286, 1433, 1504, 1985, 2147, 2210, 2923, 3089, 3205, 3366]
+Number of clients after removing some: 16
+Round 93 accuracy: 0.9771992554858934
+Round 93 poison accuracy: 0.002170963364993216
+
+Server Round 94
+All selected clients: [228, 378, 379, 518, 613, 758, 899, 955, 1048, 1589, 1789, 1799, 1806, 1821, 1857, 1979, 2090, 2095, 2148, 2257, 2299, 2356, 2405, 2494, 2632, 2738, 2747, 2784, 2853, 2861, 3117, 3246, 3334]
+The predicted malicious clients: [228, 378, 379, 1589, 1799, 1979, 2090, 2356, 2405, 2494, 2632, 2738, 2784, 2861, 3117, 3246, 3334]
+The true positives: [228]
+The false negatives: []
+The false positives: [378, 379, 1589, 1799, 1979, 2090, 2356, 2405, 2494, 2632, 2738, 2784, 2861, 3117, 3246, 3334]
+Number of clients after removing some: 16
+Round 94 accuracy: 0.9771502742946708
+Round 94 poison accuracy: 0.0018995929443690637
+
+Server Round 95
+All selected clients: [66, 210, 264, 268, 337, 428, 560, 638, 733, 1016, 1154, 1270, 1336, 1443, 1592, 1832, 1891, 1959, 2270, 2310, 2316, 2390, 2395, 2440, 2595, 2613, 2776, 2779, 2977, 3037, 3059, 3086, 3279]
+The predicted malicious clients: [66, 210, 264, 268, 337, 733, 1016, 1270, 1443, 2270, 2310, 2316, 2395, 2440, 2595, 2613, 2977]
+The true positives: [66, 210, 264, 268, 337]
+The false negatives: []
+The false positives: [733, 1016, 1270, 1443, 2270, 2310, 2316, 2395, 2440, 2595, 2613, 2977]
+Number of clients after removing some: 16
+Round 95 accuracy: 0.9773461990595611
+Round 95 poison accuracy: 0.0027137042062415195
+
+Server Round 96
+All selected clients: [174, 186, 211, 269, 397, 460, 596, 942, 1023, 1040, 1071, 1173, 1197, 1251, 1362, 1447, 1622, 1768, 1810, 1877, 2086, 2198, 2288, 2324, 2369, 2496, 2578, 2667, 2670, 2920, 3012, 3329, 3356]
+The predicted malicious clients: [174, 186, 211, 269, 397, 1023, 1040, 1071, 1251, 1362, 1768, 1810, 2198, 2288, 2369, 2667, 2920]
+The true positives: [174, 186, 211, 269]
+The false negatives: []
+The false positives: [397, 1023, 1040, 1071, 1251, 1362, 1768, 1810, 2198, 2288, 2369, 2667, 2920]
+Number of clients after removing some: 16
+Round 96 accuracy: 0.9779339733542319
+Round 96 poison accuracy: 0.0029850746268656717
+
+Server Round 97
+All selected clients: [6, 53, 61, 197, 235, 427, 507, 662, 669, 1306, 1435, 1456, 1460, 1481, 1587, 1716, 1756, 1790, 2092, 2177, 2191, 2259, 2347, 2484, 2503, 2560, 2635, 2737, 2741, 2803, 3130, 3184, 3205]
+The predicted malicious clients: [6, 53, 61, 197, 235, 427, 1306, 1756, 2177, 2259, 2347, 2484, 2503, 2560, 2635, 3184, 3205]
+The true positives: [6, 53, 61, 197, 235]
+The false negatives: []
+The false positives: [427, 1306, 1756, 2177, 2259, 2347, 2484, 2503, 2560, 2635, 3184, 3205]
+Number of clients after removing some: 16
+Round 97 accuracy: 0.9776400862068966
+Round 97 poison accuracy: 0.005427408412483039
+
+Server Round 98
+All selected clients: [59, 148, 234, 271, 391, 409, 557, 582, 620, 674, 1068, 1153, 1262, 1265, 1316, 1317, 1393, 1413, 1521, 1687, 1725, 1760, 1904, 2115, 2195, 2255, 2361, 2394, 2555, 2643, 2784, 2867, 2915]
+The predicted malicious clients: [59, 148, 234, 271, 582, 620, 1068, 1262, 1265, 1393, 1760, 1904, 2115, 2195, 2555, 2784, 2915]
+The true positives: [59, 148, 234, 271]
+The false negatives: []
+The false positives: [582, 620, 1068, 1262, 1265, 1393, 1760, 1904, 2115, 2195, 2555, 2784, 2915]
+Number of clients after removing some: 16
+Round 98 accuracy: 0.9779339733542319
+Round 98 poison accuracy: 0.004070556309362279
+
+Server Round 99
+All selected clients: [5, 189, 451, 503, 656, 676, 772, 898, 939, 1243, 1331, 1392, 1477, 1521, 1666, 1745, 1790, 1842, 2411, 2422, 2446, 2552, 2714, 2830, 2976, 2982, 3034, 3111, 3128, 3136, 3242, 3287, 3300]
+The predicted malicious clients: [5, 189, 451, 656, 676, 772, 898, 1392, 1521, 1666, 2411, 2552, 2714, 2982, 3128, 3287, 3300]
+The true positives: [5, 189]
+The false negatives: []
+The false positives: [451, 656, 676, 772, 898, 1392, 1521, 1666, 2411, 2552, 2714, 2982, 3128, 3287, 3300]
+Number of clients after removing some: 16
+Round 99 accuracy: 0.9783013322884012
+Round 99 poison accuracy: 0.0027137042062415195
+
+Server Round 100
+All selected clients: [88, 382, 388, 542, 557, 674, 1209, 1243, 1312, 1330, 1355, 1415, 1467, 1475, 1479, 1504, 1807, 2093, 2127, 2139, 2177, 2260, 2309, 2375, 2643, 2674, 2683, 2689, 2693, 3000, 3016, 3103, 3348]
+The predicted malicious clients: [88, 382, 557, 1330, 1415, 1475, 1504, 1807, 2093, 2309, 2643, 2683, 2689, 3000, 3016, 3103, 3348]
+The true positives: [88]
+The false negatives: []
+The false positives: [382, 557, 1330, 1415, 1475, 1504, 1807, 2093, 2309, 2643, 2683, 2689, 3000, 3016, 3103, 3348]
+Number of clients after removing some: 16
+Round 100 accuracy: 0.977591105015674
+Round 100 poison accuracy: 0.0037991858887381274
+
