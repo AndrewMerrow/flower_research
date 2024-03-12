@@ -6,11 +6,17 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def retrieveAccuracy(table, accuracies, poison_accuracies, FNs_Per_Round, args):
+def retrieveAccuracy(table, accuracies, poison_accuracies, aggregated_training_accuracies, aggregated_poison_accuracies, FNs_Per_Round, args):
     '''This function pulls the accuracy and poison accuracy metric for each 
     round and then creates the table containing the accuracy information'''
     #Add the column names to the table
-    table.add_row(["Round", "Accuracy", "Poison Accuracy"])
+    if("UTD" in args.file):
+        table.add_row(["Round", "Accuracy", "Poison Accuracy"])
+    else:
+        if(len(aggregated_training_accuracies) > 0):
+            table.add_row(["Round", "Val Accuracy", "Poison Accuracy", "Train Accuracy", "Client Poison Acc"])
+        else:
+            table.add_row(["Round", "Accuracy", "Poison Accuracy"])
     all_df = pd.DataFrame()
     acc_df = pd.DataFrame()
 
@@ -18,7 +24,18 @@ def retrieveAccuracy(table, accuracies, poison_accuracies, FNs_Per_Round, args):
     for i in range(len(accuracies)):
         accuracy = accuracies[i].split(": ")[1]
         poison_accuracy = poison_accuracies[i].split(": ")[1]
-        table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))])
+
+        if("UTD" in args.file):
+            table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))])
+        else:
+            #added training accuracy recording, but not all my input files will have this new info in them
+            if(len(aggregated_training_accuracies) > 0):
+                training_accuracy = aggregated_training_accuracies[i].split(": ")[1]
+                aggregated_poison_accuracy = aggregated_poison_accuracies[i].split(": ")[1]
+                table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy)), '{:.2%}'.format(float(training_accuracy)), '{:.2%}'.format(float(aggregated_poison_accuracy))])
+            #if the new info is not present, use the old format
+            else:
+                table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))])
 
         #includes FNs in each round
         if("UTD" not in args.file):
@@ -222,7 +239,7 @@ def main():
     print("\n--------------------------------------------------------------\n")
 
     #create the accuracy table
-    accuracyTable, all_accuracy_df, just_accuracy_df = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies, FNs_per_round, args)
+    accuracyTable, all_accuracy_df, just_accuracy_df = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies, aggregated_training_accuracies, aggregated_poison_accuracies, FNs_per_round, args)
     print(accuracyTable.draw())
     print("\n--------------------------------------------------------------\n")
 
