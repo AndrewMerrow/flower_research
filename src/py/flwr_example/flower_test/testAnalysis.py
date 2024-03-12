@@ -30,6 +30,8 @@ def retrieveAccuracy(table, accuracies, poison_accuracies, aggregated_training_a
         else:
             #added training accuracy recording, but not all my input files will have this new info in them
             if(len(aggregated_training_accuracies) > 0):
+                print(aggregated_training_accuracies[i])
+                print(aggregated_training_accuracies[i].split(": "))
                 training_accuracy = aggregated_training_accuracies[i].split(": ")[1]
                 aggregated_poison_accuracy = aggregated_poison_accuracies[i].split(": ")[1]
                 table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy)), '{:.2%}'.format(float(training_accuracy)), '{:.2%}'.format(float(aggregated_poison_accuracy))])

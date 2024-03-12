@@ -117,8 +117,14 @@ def retrieveAccuracy(table, accuracies, poison_accuracies, aggregated_training_a
 
     #This loop retrieves the base and poison accuracies to the nearest 2 decimal places and adds them to the accuracy table
     for i in range(len(accuracies)):
-        accuracy = accuracies[i].split(": ")[1]
-        poison_accuracy = poison_accuracies[i].split(": ")[1]
+        if(len(aggregated_training_accuracies) > 0):
+            accuracy = accuracies[i].split(": ")[1]
+            poison_accuracy = poison_accuracies[i].split(": ")[1]
+            training_accuracy = aggregated_training_accuracies[i].split(": ")[1]
+            aggregated_poison_accuracy = aggregated_poison_accuracies[i].split(": ")[1]
+        else:
+            accuracy = accuracies[i].split(": ")[1]
+            poison_accuracy = poison_accuracies[i].split(": ")[1]
 
         if("UTD" in args.file):
             table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))])
@@ -138,8 +144,12 @@ def retrieveAccuracy(table, accuracies, poison_accuracies, aggregated_training_a
             all_df = pd.concat([all_df, all_df2])
 
         #just includes accuracies and round number
-        acc_df2 = pd.DataFrame([[i, '{:.2}'.format(float(accuracy)), '{:.2}'.format(float(poison_accuracy))]], columns=['Round', 'Accuracy', 'Poison_Accuracy'])
-        acc_df = pd.concat([acc_df, acc_df2])
+        if(len(aggregated_training_accuracies) > 0):
+            acc_df2 = pd.DataFrame([[i, '{:.2}'.format(float(accuracy)), '{:.2}'.format(float(poison_accuracy)), '{:.2}'.format(float(training_accuracy)), '{:.2}'.format(float(aggregated_poison_accuracy))]], columns=['Round', 'Accuracy', 'Poison_Accuracy', 'Training_Accuracy', 'Aggregated_Poison_Accuracy'])
+            acc_df = pd.concat([acc_df, acc_df2])
+        else:
+            acc_df2 = pd.DataFrame([[i, '{:.2}'.format(float(accuracy)), '{:.2}'.format(float(poison_accuracy))]], columns=['Round', 'Accuracy', 'Poison_Accuracy'])
+            acc_df = pd.concat([acc_df, acc_df2])
 
 
     return(table, all_df, acc_df)
