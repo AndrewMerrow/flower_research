@@ -156,7 +156,7 @@ def main():
                 poison_accuracies.append(line.rstrip("\n"))
             #retrieve the aggregated client training accuracy
             elif("aggregated" in line and "training" in line):
-                aggregated_training_accuracies.ap-pend(line.rstrip("\n"))
+                aggregated_training_accuracies.append(line.rstrip("\n"))
             #retrieve the aggregated client poison accuracy
             elif("aggregated" in line and "poison" in line):
                 aggregated_poison_accuracies.append(line.rstrip("\n"))
