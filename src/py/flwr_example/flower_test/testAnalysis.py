@@ -34,9 +34,15 @@ def retrieveAccuracy(table, accuracies, poison_accuracies, aggregated_training_a
                 print(len(aggregated_training_accuracies))
                 print(aggregated_training_accuracies[i])
                 print(aggregated_training_accuracies[i].split(": "))
-                training_accuracy = aggregated_training_accuracies[i].split(": ")[1]
-                aggregated_poison_accuracy = aggregated_poison_accuracies[i].split(": ")[1]
-                table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy)), '{:.2%}'.format(float(training_accuracy)), '{:.2%}'.format(float(aggregated_poison_accuracy))])
+                if(i == 0):
+                    training_accuracy = 'N/A'
+                    aggregated_poison_accuracy = 'N/A'
+                    table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy)), 'N/A', 'N/A'])
+
+                else:
+                    training_accuracy = aggregated_training_accuracies[i-1].split(": ")[1]
+                    aggregated_poison_accuracy = aggregated_poison_accuracies[i-1].split(": ")[1]
+                    table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy)), '{:.2%}'.format(float(training_accuracy)), '{:.2%}'.format(float(aggregated_poison_accuracy))])
             #if the new info is not present, use the old format
             else:
                 table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))])
