@@ -181,12 +181,14 @@ def main():
             #numbers are retrieved from the dataframe and converted to floats for graphing
             val_accuracy = np.asarray(just_accuracy_df.Accuracy.values, float)
             poison_accuracy = np.asarray(just_accuracy_df.Poison_Accuracy.values, float)
+            train_accuracy = np.asanyarray(just_accuracy_df.Train_Accuracy.values, float)
             
             round_number = just_accuracy_df.Round.values
             
             #plot the retrieved values
-            ax.plot(round_number, val_accuracy, label="Accuracy")
+            ax.plot(round_number, val_accuracy, label="Val Accuracy")
             ax.plot(round_number, poison_accuracy, label="Poison Accuracy")
+            ax.plot(round_number, train_accuracy, label="Train Accuracy")
             ax.set_xlabel("Round")
             ax.set_ylabel("Accuracy")
             title_pieces = child.name.split('_')
@@ -204,8 +206,9 @@ def main():
             ax.set_title(title)
             #the legend is set manually because the labels aren't working for some reason
             L = ax.legend()
-            L.get_texts()[0].set_text('Accuracy')
+            L.get_texts()[0].set_text('Val Accuracy')
             L.get_texts()[1].set_text('Poison Accuracy')
+            L.get_texts()[2].set_text('Train Accuracy')
 
 
 if __name__ == "__main__":
