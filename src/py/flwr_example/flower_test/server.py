@@ -870,7 +870,7 @@ def main():
     else:
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "lofHybrid/offset0.1/lofHybrid_offset_01_poison_50_test_fedemnist_66_clients_" + str(ct) + ".txt"
+        filename = "UTD/offset0.1/UTD_flower_poison_50_test_fedemnist_33_clients_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running fedemnist test", file=f)
 
@@ -879,7 +879,7 @@ def main():
     model_parameters = [val.cpu().numpy() for _, val in model.state_dict().items()]
 
     # Create strategy
-    num_agents = 66 if selectedDataset == "fedemnist" else 40
+    num_agents = 33 if selectedDataset == "fedemnist" else 40
     #strategy = fl.server.strategy.FedAvg(
     strategy = AggregateCustomMetricStrategy(
         min_fit_clients=num_agents,
