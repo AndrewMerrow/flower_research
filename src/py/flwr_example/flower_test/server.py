@@ -182,6 +182,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             else:
                 model = utils.CNN_MNIST()
 
+            #doing this sequence of commands allows us to convert the params from the form flower uses to the form UTD uses
             params_dict = zip(model.state_dict().keys(), parameters_to_ndarrays(r.parameters))
             state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
             model.load_state_dict(state_dict, strict=False)
@@ -259,6 +260,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             print("Clients in the new results: {}".format(str(sorted(newClientIDs))))
             results = new_results
         
+        #V2 uses lof and kmeans. Both methods are passed all the clients each round.  Lof uses minmax and kmeans uses tsne features
         if(ourDetectV2):
             df = pd.DataFrame(update_dict)
             #print(df)
@@ -315,6 +317,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                 newClientIDs.append(client.metrics["clientID"])
             results = new_results
 
+        #V3 uses more of a pipline structure. All clients are sent to lof, the predicted malicious clients are removed, then the remaining clients are sent to kmeans
+        #lof still uses minmax features and kmeans still uses tsne features
         if(V3):
             df = pd.DataFrame(update_dict)
             K = len(df.columns)
@@ -323,7 +327,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                 #print(column)
             #    detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
 
-            #used to run only lof
+            #used to run lof only
             if(lofOnly):
                 X1, clients1, malicious = our_detection_v3.extract_features_minmax(detection_slice, selectedDataset)
                 lof_predicted_benign, lof_predicted_malicious = our_detection_v3.local_outlier_factor(X1, clients1, 0.1)
@@ -383,6 +387,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                 newClientIDs.append(client.metrics["clientID"])
             results = new_results
 
+        #uses perfect knowledge to remove all malicious clients every round
         if perfect:
             new_results = []
             selectedClients = []
@@ -401,6 +406,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
 
             results = new_results
 
+        #uses perfect knowledge to remove all malicious clients each round and keep 5 benign clients
         if perfectSmall:
             new_results = []
             selectedClients = []
@@ -420,6 +426,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
 
             results = new_results
 
+        #uses perfect  knowledge to remove all malicious clients every round but injects poisoned clients on specific rounds
+        #the rounds to inject poison are hard coded to be rounds 3 and 4
         if perfectPoison:
             benign_counter = 0
             #We want to poison the model on round 3
@@ -569,7 +577,6 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                 print("The true positives: {}".format(sorted(true_positives)), file=f)
                 print("The false negatives: {}".format(sorted(false_negatives)), file=f)
                 print("The false positives: {}".format(sorted(false_positives)), file=f)
-                #our_detection_v2.evaluate(clients, malicious, predicted, f, server_round)
 
             new_results = []
             for proxy, client in results:
@@ -588,16 +595,15 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             for proxy, client in new_results:
                 newClientIDs.append(client.metrics["clientID"])
 
+            #compute RLR based on the updated update dictionary
             lr_vector = compute_robustLR(new_update_dict, len(new_update_dict.keys())*.25)
-            print("LR vector based on hybrid method:")
+            print("LR vector based on lof hybrid method:")
             print(lr_vector)
 
             results = new_results
 
-        #This line runs the detection code...without this line, the LR vector won't do anything
+        #UTD RLR method
         if UTDDetect:
-            #print("LR vector before detect check")
-            print(lr_vector)
             print("RUNNING UTD DETECTION")
             if(selectedDataset == "cifar10"):
                 with open(filename, "a") as f:
@@ -605,14 +611,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             else:
                 with open(filename, "a") as f:
                     print("RUNNING UTD DETECTION", file=f)
-            lr_vector = compute_robustLR(update_dict)
-            #Testing to see if the LR vector is being created correctly 
-            #print("LR vector AFTER detect check")
+            lr_vector = compute_robustLR(update_dict, 8)
             print(lr_vector)
-
-        #vectorTest = lr_vector * update_dict[1]
-        #print("LR vector multiplication test")
-        #print(vectorTest)
         
         #interpretation of the aggregate.py flower code
         weights_results = [
@@ -630,7 +630,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         for layer_updates in zip(*weighted_weights)
         ]
 
-        #Multiply LR vector with the prime weights (do the final detection step)
+        #load the correct model
         if selectedDataset == "cifar10":
             model = utils.Net()
         else:
@@ -640,28 +640,17 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
         model.load_state_dict(state_dict, strict=False)
         primeParams = parameters_to_vector(model.parameters()).detach()
+        
+        #apply RLR if it is being used
         if(UTDDetect or hybrid or lofHybrid):
             finalParams = primeParams * lr_vector
         else:
             finalParams = primeParams
-        #print("FINAL PARAMS")
-        #print(finalParams)
+        
+        #store the final weights back into the model
         vector_to_parameters(finalParams, model.parameters())
-        #print("WEIGHT PRIME")
-        #print(weights_prime)
+        #retrieve the final weights (this converts the params from the UTD format to flower format)
         weights_prime = utils.get_model_params(model)
-        #print("AFTER DETECTION")
-        #print(weights_prime)
-
-        #print(lr_vector.shape)
-        #print(lr_vector)
-        #print(weights_prime)
-        #total_data = 0
-        #for layer in weights_prime:
-        #    total_data += len(layer)
-        #print("TOTAL DATA: " + str(total_data))
-        #test1 = lr_vector * torch.from_numpy(parameters_to_ndarrays(ndarrays_to_parameters(weights_prime)))
-        #test2 = cur_global_params + test1
 
         #metric stuff
         # Weigh accuracy of each client by number of examples used
@@ -686,12 +675,6 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             print(f"Round {server_round} poison accuracy aggregated from client fit results: {aggregated_poison_accuracy}")
         else:
             aggregated_accuracy = 0
-
-        
-        #remainingClients = []
-        #for proxy, client in results:
-        #    remainingClients.append(client.metrics["clientID"])
-        #print("Remaining clients: {}".format(str(sorted(remainingClients))))
 
         # Return aggregated model paramters and other metrics (i.e., aggregated accuracy)
         return ndarrays_to_parameters(weights_prime), {"accuracy": aggregated_accuracy}
