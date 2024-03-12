@@ -676,6 +676,16 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         else:
             aggregated_accuracy = 0
 
+        #Save the aggregated client training accuracies to the output file
+        if(selectedDataset == "cifar10"):
+            with open(filename, "a") as f:
+                print("Round {} aggregated training accuracy: {}".format(str(server_round), aggregated_accuracy), file=f)
+                print("Round {} aggregated poison accuracy: {}".format(str(server_round), aggregated_poison_accuracy), file=f)
+        else:
+            with open(filename, "a") as f:
+                print("Round {} aggregated training accuracy: {}".format(str(server_round), aggregated_accuracy), file=f)
+                print("Round {} aggregated poison accuracy: {}".format(str(server_round), aggregated_poison_accuracy), file=f)
+
         # Return aggregated model paramters and other metrics (i.e., aggregated accuracy)
         return ndarrays_to_parameters(weights_prime), {"accuracy": aggregated_accuracy}
         #return model.parameters(), {"accuracy": aggregated_accuracy}

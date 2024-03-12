@@ -132,6 +132,8 @@ def main():
     predicted_malicious = []
     accuracies = []
     poison_accuracies = []
+    aggregated_training_accuracies = []
+    aggregated_poison_accuracies = []
     selected_clients = []
     false_positives = []
     false_positives_count = 0
@@ -147,11 +149,17 @@ def main():
             if("[" in line and "malicious" in line):
                 predicted_malicious.append(line.rstrip('\n'))
             #retrieve the base accuracy
-            elif("poison" not in line and "accuracy:" in line):
+            elif("poison" not in line and "aggregated" not in line and "accuracy:" in line):
                 accuracies.append(line.rstrip('\n'))
             #retrieve the poison accuracy
-            elif("poison" in line):
+            elif("poison" in line and "aggregated" not in line):
                 poison_accuracies.append(line.rstrip("\n"))
+            #retrieve the aggregated client training accuracy
+            elif("aggregated" in line and "training" in line):
+                aggregated_training_accuracies.ap-pend(line.rstrip("\n"))
+            #retrieve the aggregated client poison accuracy
+            elif("aggregated" in line and "poison" in line):
+                aggregated_poison_accuracies.append(line.rstrip("\n"))
             elif("clustering" in line):
                 cluster_method = line.strip("\n").split(" ")[1]
             #retrieve the false negatives
