@@ -117,23 +117,24 @@ def retrieveAccuracy(table, accuracies, poison_accuracies, aggregated_training_a
 
     #This loop retrieves the base and poison accuracies to the nearest 2 decimal places and adds them to the accuracy table
     for i in range(len(accuracies)):
-        if(len(aggregated_training_accuracies) > 0):
-            accuracy = accuracies[i].split(": ")[1]
-            poison_accuracy = poison_accuracies[i].split(": ")[1]
-            training_accuracy = aggregated_training_accuracies[i].split(": ")[1]
-            aggregated_poison_accuracy = aggregated_poison_accuracies[i].split(": ")[1]
-        else:
-            accuracy = accuracies[i].split(": ")[1]
-            poison_accuracy = poison_accuracies[i].split(": ")[1]
+        accuracy = accuracies[i].split(": ")[1]
+        poison_accuracy = poison_accuracies[i].split(": ")[1]
 
         if("UTD" in args.file):
             table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))])
         else:
             #added training accuracy recording, but not all my input files will have this new info in them
             if(len(aggregated_training_accuracies) > 0):
-                training_accuracy = aggregated_training_accuracies[i].split(": ")[1]
-                aggregated_poison_accuracy = aggregated_poison_accuracies[i].split(": ")[1]
-                table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy)), '{:.2%}'.format(float(training_accuracy)), '{:.2%}'.format(float(aggregated_poison_accuracy))])
+                #Round 0 is used by the server to get the initial model metrics, it is not applicaple to the training accuracy reported by the clients
+                if(i == 0):
+                    training_accuracy = 'N/A'
+                    aggregated_poison_accuracy = 'N/A'
+                    table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy)), 'N/A', 'N/A'])
+
+                else:
+                    training_accuracy = aggregated_training_accuracies[i-1].split(": ")[1]
+                    aggregated_poison_accuracy = aggregated_poison_accuracies[i-1].split(": ")[1]
+                    table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy)), '{:.2%}'.format(float(training_accuracy)), '{:.2%}'.format(float(aggregated_poison_accuracy))])
             #if the new info is not present, use the old format
             else:
                 table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))])
@@ -145,8 +146,12 @@ def retrieveAccuracy(table, accuracies, poison_accuracies, aggregated_training_a
 
         #just includes accuracies and round number
         if(len(aggregated_training_accuracies) > 0):
-            acc_df2 = pd.DataFrame([[i, '{:.2}'.format(float(accuracy)), '{:.2}'.format(float(poison_accuracy)), '{:.2}'.format(float(training_accuracy)), '{:.2}'.format(float(aggregated_poison_accuracy))]], columns=['Round', 'Accuracy', 'Poison_Accuracy', 'Training_Accuracy', 'Aggregated_Poison_Accuracy'])
-            acc_df = pd.concat([acc_df, acc_df2])
+            if(i == 0):
+                acc_df2 = pd.DataFrame([[i, '{:.2}'.format(float(accuracy)), '{:.2}'.format(float(poison_accuracy)), 0, 0]], columns=['Round', 'Accuracy', 'Poison_Accuracy', 'Train_Accuracy', 'Aggregated_Poison_Accuracy'])
+                acc_df = pd.concat([acc_df, acc_df2])
+            else:
+                acc_df2 = pd.DataFrame([[i, '{:.2}'.format(float(accuracy)), '{:.2}'.format(float(poison_accuracy)), aggregated_training_accuracies[i-1], aggregated_poison_accuracies[i-1]]], columns=['Round', 'Accuracy', 'Poison_Accuracy', 'Train_Accuracy', 'Aggregated_Poison_Accuracy'])
+                acc_df = pd.concat([acc_df, acc_df2])
         else:
             acc_df2 = pd.DataFrame([[i, '{:.2}'.format(float(accuracy)), '{:.2}'.format(float(poison_accuracy))]], columns=['Round', 'Accuracy', 'Poison_Accuracy'])
             acc_df = pd.concat([acc_df, acc_df2])
