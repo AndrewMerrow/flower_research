@@ -33,7 +33,7 @@ def gatherInfo(filename):
             if("[" in line and "malicious" in line):
                 predicted_malicious.append(line.rstrip('\n'))
             #retrieve the base accuracy
-            elif("poison" not in line and "accuracy:" in line):
+            elif("poison" not in line and "aggregated" not in line and "accuracy:" in line):
                 accuracies.append(line.rstrip('\n'))
             #retrieve the poison accuracy
             elif("poison" in line and "aggregated:" not in line):
@@ -42,7 +42,7 @@ def gatherInfo(filename):
             elif("aggregated" in line and "training" in line):
                 aggregated_training_accuracies.append(line.rstrip("\n"))
             #retrieve the aggregated client poison accuracy
-            elif("aggregated" in line and "poison" in line):
+            elif("aggregated poison" in line):
                 aggregated_poison_accuracies.append(line.rstrip("\n"))
             elif("clustering" in line):
                 cluster_method = line.strip("\n").split(" ")[1]
@@ -101,26 +101,26 @@ def gatherInfo(filename):
 
     return FPs_per_round, FNs_per_round, accuracies, poison_accuracies, false_positives_count, false_negatives_count, server_round_count, aggregated_training_accuracies, aggregated_poison_accuracies
 
-def retrieveAccuracy(table, accuracies, poison_accuracies, aggregated_training_accuracies, aggregated_poison_accuracies, FNs_Per_Round, args):
+def retrieveAccuracy(table, accuracies, poison_accuracies, aggregated_training_accuracies, aggregated_poison_accuracies, FNs_Per_Round, filename):
     '''This function pulls the accuracy and poison accuracy metric for each 
     round and then creates the table containing the accuracy information'''
     #Add the column names to the table
-    if("UTD" in args.file):
+    if("UTD" in filename):
         table.add_row(["Round", "Accuracy", "Poison Accuracy"])
     else:
         if(len(aggregated_training_accuracies) > 0):
-            table.add_row(["Round", "Val Accuracy", "Poison Accuracy", "Train Accuracy", "Client Poison Acc"])
+            table.add_row(["Round", "Val Accuracy", "Poison Accuracy", "Train Accuracy"])
         else:
             table.add_row(["Round", "Accuracy", "Poison Accuracy"])
     all_df = pd.DataFrame()
     acc_df = pd.DataFrame()
-
     #This loop retrieves the base and poison accuracies to the nearest 2 decimal places and adds them to the accuracy table
     for i in range(len(accuracies)):
         accuracy = accuracies[i].split(": ")[1]
         poison_accuracy = poison_accuracies[i].split(": ")[1]
+        training_accuracy = ''
 
-        if("UTD" in args.file):
+        if("UTD" in filename):
             table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))])
         else:
             #added training accuracy recording, but not all my input files will have this new info in them
@@ -129,28 +129,28 @@ def retrieveAccuracy(table, accuracies, poison_accuracies, aggregated_training_a
                 if(i == 0):
                     training_accuracy = 'N/A'
                     aggregated_poison_accuracy = 'N/A'
-                    table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy)), 'N/A', 'N/A'])
+                    table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy)), 'N/A'])
 
                 else:
                     training_accuracy = aggregated_training_accuracies[i-1].split(": ")[1]
-                    aggregated_poison_accuracy = aggregated_poison_accuracies[i-1].split(": ")[1]
-                    table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy)), '{:.2%}'.format(float(training_accuracy)), '{:.2%}'.format(float(aggregated_poison_accuracy))])
+                    #aggregated_poison_accuracy = aggregated_poison_accuracies[i-1].split(": ")[1]
+                    table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy)), '{:.2%}'.format(float(training_accuracy))])
             #if the new info is not present, use the old format
             else:
                 table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))])
 
         #includes FNs in each round
-        if("UTD" not in args.file):
+        if("UTD" not in filename):
             all_df2 = pd.DataFrame([[i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy)), FNs_Per_Round[i]]], columns=['Round', 'Accuracy', 'Poison Accuracy', 'FNs'])
             all_df = pd.concat([all_df, all_df2])
 
         #just includes accuracies and round number
         if(len(aggregated_training_accuracies) > 0):
             if(i == 0):
-                acc_df2 = pd.DataFrame([[i, '{:.2}'.format(float(accuracy)), '{:.2}'.format(float(poison_accuracy)), 0, 0]], columns=['Round', 'Accuracy', 'Poison_Accuracy', 'Train_Accuracy', 'Aggregated_Poison_Accuracy'])
+                acc_df2 = pd.DataFrame([[i, '{:.2}'.format(float(accuracy)), '{:.2}'.format(float(poison_accuracy)), 0]], columns=['Round', 'Accuracy', 'Poison_Accuracy', 'Train_Accuracy'])
                 acc_df = pd.concat([acc_df, acc_df2])
             else:
-                acc_df2 = pd.DataFrame([[i, '{:.2}'.format(float(accuracy)), '{:.2}'.format(float(poison_accuracy)), aggregated_training_accuracies[i-1], aggregated_poison_accuracies[i-1]]], columns=['Round', 'Accuracy', 'Poison_Accuracy', 'Train_Accuracy', 'Aggregated_Poison_Accuracy'])
+                acc_df2 = pd.DataFrame([[i, '{:.2}'.format(float(accuracy)), '{:.2}'.format(float(poison_accuracy)), '{:.2}'.format(float(training_accuracy))]], columns=['Round', 'Accuracy', 'Poison_Accuracy', 'Train_Accuracy'])
                 acc_df = pd.concat([acc_df, acc_df2])
         else:
             acc_df2 = pd.DataFrame([[i, '{:.2}'.format(float(accuracy)), '{:.2}'.format(float(poison_accuracy))]], columns=['Round', 'Accuracy', 'Poison_Accuracy'])
@@ -166,7 +166,7 @@ def main():
     roundGroupTable = Texttable()
 
     #the path of the directory containing the files we want to analyize 
-    p = Path('./directoryAnalysis/hybrid/all')
+    p = Path('./directoryAnalysis/lof/all')
     for child in p.iterdir():
         if child.is_file():
             #save the path of the current file
@@ -174,21 +174,23 @@ def main():
 
             #retrive the info from the current file
             FPs_per_round, FNs_per_round, accuracies, poison_accuracies, false_positives_count, false_negatives_count, server_round_count, aggregated_training_accuracies, aggregated_poison_accuracies = gatherInfo(q)
-            accuracyTable, all_accuracy_df, just_accuracy_df, aggregated_training_accuracies, aggregated_poison_accuracies = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies, FNs_per_round, child.name)
+            accuracyTable, all_accuracy_df, just_accuracy_df = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies, aggregated_training_accuracies, aggregated_poison_accuracies, FNs_per_round, child.name)
 
             #create the graph for the current file
             fig, ax = plt.subplots()
             #numbers are retrieved from the dataframe and converted to floats for graphing
             val_accuracy = np.asarray(just_accuracy_df.Accuracy.values, float)
             poison_accuracy = np.asarray(just_accuracy_df.Poison_Accuracy.values, float)
-            train_accuracy = np.asanyarray(just_accuracy_df.Train_Accuracy.values, float)
+            if(len(aggregated_training_accuracies) > 0):
+                train_accuracy = np.asanyarray(just_accuracy_df.Train_Accuracy.values, float)
             
             round_number = just_accuracy_df.Round.values
             
             #plot the retrieved values
             ax.plot(round_number, val_accuracy, label="Val Accuracy")
             ax.plot(round_number, poison_accuracy, label="Poison Accuracy")
-            ax.plot(round_number, train_accuracy, label="Train Accuracy")
+            if(len(aggregated_training_accuracies) > 0):
+                ax.plot(round_number, train_accuracy, label="Train Accuracy")
             ax.set_xlabel("Round")
             ax.set_ylabel("Accuracy")
             title_pieces = child.name.split('_')
@@ -208,7 +210,8 @@ def main():
             L = ax.legend()
             L.get_texts()[0].set_text('Val Accuracy')
             L.get_texts()[1].set_text('Poison Accuracy')
-            L.get_texts()[2].set_text('Train Accuracy')
+            if(len(aggregated_training_accuracies) > 0):
+                L.get_texts()[2].set_text('Train Accuracy')
 
 
 if __name__ == "__main__":
