@@ -545,38 +545,42 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             K = len(df.columns)
             detection_slice = df.tail(10).reset_index(drop=True)
 
-            #used to run only lof
-            X1, clients1, malicious = our_detection_v3.extract_features_minmax(detection_slice, selectedDataset)
-            lof_predicted_benign, lof_predicted_malicious = our_detection_v3.local_outlier_factor(X1, clients1, 0.1)
-            print ('lof prediction malicious:', sorted(lof_predicted_malicious))
+            if(justUTD):
+                predicted_malicious = []
+            else:
 
-            clients = clients1
-            predicted_malicious = lof_predicted_malicious
+                #used to run only lof
+                X1, clients1, malicious = our_detection_v3.extract_features_minmax(detection_slice, selectedDataset)
+                lof_predicted_benign, lof_predicted_malicious = our_detection_v3.local_outlier_factor(X1, clients1, 0.1)
+                print ('lof prediction malicious:', sorted(lof_predicted_malicious))
 
-            false_positives = []
-            true_positives = []
-            false_negatives = []
-            for value in predicted_malicious:
-                if(value < 338):
-                    true_positives.append(value)
-                else:
-                    false_positives.append(value)
-            for value in malicious:
-                if(value not in predicted_malicious):
-                    false_negatives.append(value)
-            predicted_list = []
-            for value in predicted_malicious:
-                predicted_list.append(value)
-            client_list = []
-            for value in clients:
-                client_list.append(value)
-            # final results are written to output file
-            with open(filename, "a") as f:
-                print("All selected clients: {}".format(sorted(client_list)), file=f)
-                print("The predicted malicious clients: {}".format(sorted(predicted_list)), file=f)
-                print("The true positives: {}".format(sorted(true_positives)), file=f)
-                print("The false negatives: {}".format(sorted(false_negatives)), file=f)
-                print("The false positives: {}".format(sorted(false_positives)), file=f)
+                clients = clients1
+                predicted_malicious = lof_predicted_malicious
+
+                false_positives = []
+                true_positives = []
+                false_negatives = []
+                for value in predicted_malicious:
+                    if(value < 338):
+                        true_positives.append(value)
+                    else:
+                        false_positives.append(value)
+                for value in malicious:
+                    if(value not in predicted_malicious):
+                        false_negatives.append(value)
+                predicted_list = []
+                for value in predicted_malicious:
+                    predicted_list.append(value)
+                client_list = []
+                for value in clients:
+                    client_list.append(value)
+                # final results are written to output file
+                with open(filename, "a") as f:
+                    print("All selected clients: {}".format(sorted(client_list)), file=f)
+                    print("The predicted malicious clients: {}".format(sorted(predicted_list)), file=f)
+                    print("The true positives: {}".format(sorted(true_positives)), file=f)
+                    print("The false negatives: {}".format(sorted(false_negatives)), file=f)
+                    print("The false positives: {}".format(sorted(false_positives)), file=f)
 
             new_results = []
             for proxy, client in results:
@@ -825,6 +829,13 @@ def main():
         help="Toggle to enable lof detection followed by UTD RLR"
     )
     parser.add_argument(
+        "--justUTD",
+        type=bool,
+        default=False,
+        required=False,
+        help="Toggle to remove the lof part of the lofHybrid and just run the UTD method"
+    )
+    parser.add_argument(
         "--cluster",
         type=str,
         default="kmeans",
@@ -846,6 +857,7 @@ def main():
     global perfectPoison
     global hybrid
     global lofHybrid
+    global justUTD
 
     UTDDetect = args.UTDDetect
     ourDetect = args.ourDetect
@@ -857,6 +869,7 @@ def main():
     perfectPoison = args.perfectPoison
     hybrid = args.hybrid
     lofHybrid = args.lofHybrid
+    justUTD = args.justUTD
 
     cluster_algorithm = args.cluster
     selectedDataset = args.data
