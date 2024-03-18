@@ -883,7 +883,7 @@ def main():
     else:
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "UTD/flower/UTD_lofHybrid_justUTD_poison_50_test_fedemnist_33_clients_" + str(ct) + ".txt"
+        filename = "UTD/flower/UTD_lofHybrid_justUTD_poison_50_test2_fedemnist_33_clients_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running fedemnist test", file=f)
 
