@@ -162,11 +162,12 @@ def retrieveAccuracy(table, accuracies, poison_accuracies, aggregated_training_a
 
 def main():
     accuracyTable = Texttable()
+
     perRoundTable = Texttable()
     roundGroupTable = Texttable()
 
     #the path of the directory containing the files we want to analyize 
-    p = Path('./directoryAnalysis/UTD/test')
+    p = Path('./directoryAnalysis/UTD/500Rounds')
     for child in p.iterdir():
         if child.is_file():
             #save the path of the current file

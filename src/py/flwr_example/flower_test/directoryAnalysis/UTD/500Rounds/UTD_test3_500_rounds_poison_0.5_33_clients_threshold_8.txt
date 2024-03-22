@@ -1,0 +1,2000 @@
+Server Round 1
+Round 1 accuracy: 0.2819602272727273
+Round 1 poison accuracy: 0.730257801899593
+
+Server Round 2
+Round 2 accuracy: 0.6902184561128527
+Round 2 poison accuracy: 0.051560379918588875
+
+Server Round 3
+Round 3 accuracy: 0.6173099529780565
+Round 3 poison accuracy: 0.2344640434192673
+
+Server Round 4
+Round 4 accuracy: 0.7905809169278997
+Round 4 poison accuracy: 0.08059701492537313
+
+Server Round 5
+Round 5 accuracy: 0.8203369905956113
+Round 5 poison accuracy: 0.07489823609226594
+
+Server Round 6
+Round 6 accuracy: 0.8428683385579937
+Round 6 poison accuracy: 0.034735413839891455
+
+Server Round 7
+Round 7 accuracy: 0.8534972570532915
+Round 7 poison accuracy: 0.0203527815468114
+
+Server Round 8
+Round 8 accuracy: 0.8586402821316614
+Round 8 poison accuracy: 0.00976933514246947
+
+Server Round 9
+Round 9 accuracy: 0.8642486285266457
+Round 9 poison accuracy: 0.008683853459972864
+
+Server Round 10
+Round 10 accuracy: 0.8744367163009404
+Round 10 poison accuracy: 0.004070556309362279
+
+Server Round 11
+Round 11 accuracy: 0.873971394984326
+Round 11 poison accuracy: 0.0035278154681139757
+
+Server Round 12
+Round 12 accuracy: 0.8730652429467085
+Round 12 poison accuracy: 0.0032564450474898234
+
+Server Round 13
+Round 13 accuracy: 0.8753918495297806
+Round 13 poison accuracy: 0.0027137042062415195
+
+Server Round 14
+Round 14 accuracy: 0.8754408307210031
+Round 14 poison accuracy: 0.0027137042062415195
+
+Server Round 15
+Round 15 accuracy: 0.8809512147335423
+Round 15 poison accuracy: 0.0024423337856173677
+
+Server Round 16
+Round 16 accuracy: 0.8846248040752351
+Round 16 poison accuracy: 0.0018995929443690637
+
+Server Round 17
+Round 17 accuracy: 0.8813675548589341
+Round 17 poison accuracy: 0.0018995929443690637
+
+Server Round 18
+Round 18 accuracy: 0.8879800156739812
+Round 18 poison accuracy: 0.0016282225237449117
+
+Server Round 19
+Round 19 accuracy: 0.8914331896551724
+Round 19 poison accuracy: 0.0016282225237449117
+
+Server Round 20
+Round 20 accuracy: 0.8889351489028213
+Round 20 poison accuracy: 0.0018995929443690637
+
+Server Round 21
+Round 21 accuracy: 0.8867309952978056
+Round 21 poison accuracy: 0.0016282225237449117
+
+Server Round 22
+Round 22 accuracy: 0.8873187695924765
+Round 22 poison accuracy: 0.001085481682496608
+
+Server Round 23
+Round 23 accuracy: 0.887367750783699
+Round 23 poison accuracy: 0.0008141112618724559
+
+Server Round 24
+Round 24 accuracy: 0.8985354623824452
+Round 24 poison accuracy: 0.0016282225237449117
+
+Server Round 25
+Round 25 accuracy: 0.895865987460815
+Round 25 poison accuracy: 0.0013568521031207597
+
+Server Round 26
+Round 26 accuracy: 0.8930740595611285
+Round 26 poison accuracy: 0.0013568521031207597
+
+Server Round 27
+Round 27 accuracy: 0.893882249216301
+Round 27 poison accuracy: 0.0016282225237449117
+
+Server Round 28
+Round 28 accuracy: 0.8952537225705329
+Round 28 poison accuracy: 0.001085481682496608
+
+Server Round 29
+Round 29 accuracy: 0.8959149686520376
+Round 29 poison accuracy: 0.001085481682496608
+
+Server Round 30
+Round 30 accuracy: 0.8988538401253918
+Round 30 poison accuracy: 0.001085481682496608
+
+Server Round 31
+Round 31 accuracy: 0.8943475705329154
+Round 31 poison accuracy: 0.001085481682496608
+
+Server Round 32
+Round 32 accuracy: 0.893882249216301
+Round 32 poison accuracy: 0.001085481682496608
+
+Server Round 33
+Round 33 accuracy: 0.8982905564263323
+Round 33 poison accuracy: 0.001085481682496608
+
+Server Round 34
+Round 34 accuracy: 0.8973109326018809
+Round 34 poison accuracy: 0.001085481682496608
+
+Server Round 35
+Round 35 accuracy: 0.8983395376175548
+Round 35 poison accuracy: 0.001085481682496608
+
+Server Round 36
+Round 36 accuracy: 0.9005192006269592
+Round 36 poison accuracy: 0.001085481682496608
+
+Server Round 37
+Round 37 accuracy: 0.9030907131661442
+Round 37 poison accuracy: 0.001085481682496608
+
+Server Round 38
+Round 38 accuracy: 0.9042417711598746
+Round 38 poison accuracy: 0.001085481682496608
+
+Server Round 39
+Round 39 accuracy: 0.911148119122257
+Round 39 poison accuracy: 0.001085481682496608
+
+Server Round 40
+Round 40 accuracy: 0.9080133228840125
+Round 40 poison accuracy: 0.001085481682496608
+
+Server Round 41
+Round 41 accuracy: 0.9090419278996865
+Round 41 poison accuracy: 0.001085481682496608
+
+Server Round 42
+Round 42 accuracy: 0.9007396159874608
+Round 42 poison accuracy: 0.001085481682496608
+
+Server Round 43
+Round 43 accuracy: 0.905907131661442
+Round 43 poison accuracy: 0.0018995929443690637
+
+Server Round 44
+Round 44 accuracy: 0.9096297021943573
+Round 44 poison accuracy: 0.0013568521031207597
+
+Server Round 45
+Round 45 accuracy: 0.9097766457680251
+Round 45 poison accuracy: 0.001085481682496608
+
+Server Round 46
+Round 46 accuracy: 0.9162666536050157
+Round 46 poison accuracy: 0.001085481682496608
+
+Server Round 47
+Round 47 accuracy: 0.9123971394984326
+Round 47 poison accuracy: 0.001085481682496608
+
+Server Round 48
+Round 48 accuracy: 0.9149686520376176
+Round 48 poison accuracy: 0.0016282225237449117
+
+Server Round 49
+Round 49 accuracy: 0.9137686128526645
+Round 49 poison accuracy: 0.001085481682496608
+
+Server Round 50
+Round 50 accuracy: 0.9110256661442007
+Round 50 poison accuracy: 0.0008141112618724559
+
+Server Round 51
+Round 51 accuracy: 0.9132788009404389
+Round 51 poison accuracy: 0.0013568521031207597
+
+Server Round 52
+Round 52 accuracy: 0.9097766457680251
+Round 52 poison accuracy: 0.001085481682496608
+
+Server Round 53
+Round 53 accuracy: 0.9123971394984326
+Round 53 poison accuracy: 0.001085481682496608
+
+Server Round 54
+Round 54 accuracy: 0.911490987460815
+Round 54 poison accuracy: 0.001085481682496608
+
+Server Round 55
+Round 55 accuracy: 0.9149686520376176
+Round 55 poison accuracy: 0.0008141112618724559
+
+Server Round 56
+Round 56 accuracy: 0.9032131661442007
+Round 56 poison accuracy: 0.001085481682496608
+
+Server Round 57
+Round 57 accuracy: 0.9121032523510971
+Round 57 poison accuracy: 0.000271370420624152
+
+Server Round 58
+Round 58 accuracy: 0.8789429858934169
+Round 58 poison accuracy: 0.0016282225237449117
+
+Server Round 59
+Round 59 accuracy: 0.9086010971786834
+Round 59 poison accuracy: 0.0013568521031207597
+
+Server Round 60
+Round 60 accuracy: 0.9075969827586207
+Round 60 poison accuracy: 0.0013568521031207597
+
+Server Round 61
+Round 61 accuracy: 0.91139302507837
+Round 61 poison accuracy: 0.0029850746268656717
+
+Server Round 62
+Round 62 accuracy: 0.9135971786833855
+Round 62 poison accuracy: 0.0013568521031207597
+
+Server Round 63
+Round 63 accuracy: 0.9133032915360502
+Round 63 poison accuracy: 0.000542740841248304
+
+Server Round 64
+Round 64 accuracy: 0.9142584247648903
+Round 64 poison accuracy: 0.001085481682496608
+
+Server Round 65
+Round 65 accuracy: 0.9107072884012539
+Round 65 poison accuracy: 0.0008141112618724559
+
+Server Round 66
+Round 66 accuracy: 0.9048295454545454
+Round 66 poison accuracy: 0.0013568521031207597
+
+Server Round 67
+Round 67 accuracy: 0.9096541927899686
+Round 67 poison accuracy: 0.0016282225237449117
+
+Server Round 68
+Round 68 accuracy: 0.9129359326018809
+Round 68 poison accuracy: 0.0008141112618724559
+
+Server Round 69
+Round 69 accuracy: 0.9104868730407524
+Round 69 poison accuracy: 0.0008141112618724559
+
+Server Round 70
+Round 70 accuracy: 0.9026988636363636
+Round 70 poison accuracy: 0.0035278154681139757
+
+Server Round 71
+Round 71 accuracy: 0.9082092476489029
+Round 71 poison accuracy: 0.0018995929443690637
+
+Server Round 72
+Round 72 accuracy: 0.9142094435736677
+Round 72 poison accuracy: 0.001085481682496608
+
+Server Round 73
+Round 73 accuracy: 0.9082827194357367
+Round 73 poison accuracy: 0.0008141112618724559
+
+Server Round 74
+Round 74 accuracy: 0.9094337774294671
+Round 74 poison accuracy: 0.0008141112618724559
+
+Server Round 75
+Round 75 accuracy: 0.9034335815047022
+Round 75 poison accuracy: 0.0008141112618724559
+
+Server Round 76
+Round 76 accuracy: 0.9034335815047022
+Round 76 poison accuracy: 0.0008141112618724559
+
+Server Round 77
+Round 77 accuracy: 0.9083806818181818
+Round 77 poison accuracy: 0.0008141112618724559
+
+Server Round 78
+Round 78 accuracy: 0.8931720219435737
+Round 78 poison accuracy: 0.0018995929443690637
+
+Server Round 79
+Round 79 accuracy: 0.9090909090909091
+Round 79 poison accuracy: 0.0008141112618724559
+
+Server Round 80
+Round 80 accuracy: 0.9136706504702194
+Round 80 poison accuracy: 0.000542740841248304
+
+Server Round 81
+Round 81 accuracy: 0.9108297413793104
+Round 81 poison accuracy: 0.0008141112618724559
+
+Server Round 82
+Round 82 accuracy: 0.9050499608150471
+Round 82 poison accuracy: 0.001085481682496608
+
+Server Round 83
+Round 83 accuracy: 0.9026009012539185
+Round 83 poison accuracy: 0.001085481682496608
+
+Server Round 84
+Round 84 accuracy: 0.8790409482758621
+Round 84 poison accuracy: 0.0013568521031207597
+
+Server Round 85
+Round 85 accuracy: 0.8866085423197492
+Round 85 poison accuracy: 0.0013568521031207597
+
+Server Round 86
+Round 86 accuracy: 0.8906494905956113
+Round 86 poison accuracy: 0.001085481682496608
+
+Server Round 87
+Round 87 accuracy: 0.9023804858934169
+Round 87 poison accuracy: 0.0013568521031207597
+
+Server Round 88
+Round 88 accuracy: 0.9021600705329154
+Round 88 poison accuracy: 0.001085481682496608
+
+Server Round 89
+Round 89 accuracy: 0.9019396551724138
+Round 89 poison accuracy: 0.0018995929443690637
+
+Server Round 90
+Round 90 accuracy: 0.9101440047021944
+Round 90 poison accuracy: 0.001085481682496608
+
+Server Round 91
+Round 91 accuracy: 0.9041193181818182
+Round 91 poison accuracy: 0.0016282225237449117
+
+Server Round 92
+Round 92 accuracy: 0.9052458855799373
+Round 92 poison accuracy: 0.001085481682496608
+
+Server Round 93
+Round 93 accuracy: 0.853619710031348
+Round 93 poison accuracy: 0.0013568521031207597
+
+Server Round 94
+Round 94 accuracy: 0.45305152821316613
+Round 94 poison accuracy: 0.0013568521031207597
+
+Server Round 95
+Round 95 accuracy: 0.7258522727272727
+Round 95 poison accuracy: 0.005698778833107192
+
+Server Round 96
+Round 96 accuracy: 0.8485991379310345
+Round 96 poison accuracy: 0.004341926729986432
+
+Server Round 97
+Round 97 accuracy: 0.8864615987460815
+Round 97 poison accuracy: 0.0029850746268656717
+
+Server Round 98
+Round 98 accuracy: 0.8337333463949843
+Round 98 poison accuracy: 0.0029850746268656717
+
+Server Round 99
+Round 99 accuracy: 0.8886412617554859
+Round 99 poison accuracy: 0.0008141112618724559
+
+Server Round 100
+Round 100 accuracy: 0.8621914184952978
+Round 100 poison accuracy: 0.000542740841248304
+
+Server Round 101
+Round 101 accuracy: 0.8594239811912225
+Round 101 poison accuracy: 0.0016282225237449117
+
+Server Round 102
+Round 102 accuracy: 0.9031886755485894
+Round 102 poison accuracy: 0.0008141112618724559
+
+Server Round 103
+Round 103 accuracy: 0.8910903213166145
+Round 103 poison accuracy: 0.0008141112618724559
+
+Server Round 104
+Round 104 accuracy: 0.8834737460815048
+Round 104 poison accuracy: 0.0027137042062415195
+
+Server Round 105
+Round 105 accuracy: 0.8834737460815048
+Round 105 poison accuracy: 0.0008141112618724559
+
+Server Round 106
+Round 106 accuracy: 0.8762735109717869
+Round 106 poison accuracy: 0.001085481682496608
+
+Server Round 107
+Round 107 accuracy: 0.8976538009404389
+Round 107 poison accuracy: 0.0016282225237449117
+
+Server Round 108
+Round 108 accuracy: 0.8900862068965517
+Round 108 poison accuracy: 0.001085481682496608
+
+Server Round 109
+Round 109 accuracy: 0.875514302507837
+Round 109 poison accuracy: 0.0016282225237449117
+
+Server Round 110
+Round 110 accuracy: 0.8802654780564263
+Round 110 poison accuracy: 0.0016282225237449117
+
+Server Round 111
+Round 111 accuracy: 0.8749265282131662
+Round 111 poison accuracy: 0.0013568521031207597
+
+Server Round 112
+Round 112 accuracy: 0.8888861677115988
+Round 112 poison accuracy: 0.0016282225237449117
+
+Server Round 113
+Round 113 accuracy: 0.8836451802507836
+Round 113 poison accuracy: 0.0013568521031207597
+
+Server Round 114
+Round 114 accuracy: 0.8930495689655172
+Round 114 poison accuracy: 0.0013568521031207597
+
+Server Round 115
+Round 115 accuracy: 0.8924373040752351
+Round 115 poison accuracy: 0.001085481682496608
+
+Server Round 116
+Round 116 accuracy: 0.8238146551724138
+Round 116 poison accuracy: 0.0013568521031207597
+
+Server Round 117
+Round 117 accuracy: 0.8902086598746082
+Round 117 poison accuracy: 0.0024423337856173677
+
+Server Round 118
+Round 118 accuracy: 0.900323275862069
+Round 118 poison accuracy: 0.004613297150610584
+
+Server Round 119
+Round 119 accuracy: 0.8943230799373041
+Round 119 poison accuracy: 0.0013568521031207597
+
+Server Round 120
+Round 120 accuracy: 0.8819308385579937
+Round 120 poison accuracy: 0.001085481682496608
+
+Server Round 121
+Round 121 accuracy: 0.9032376567398119
+Round 121 poison accuracy: 0.0018995929443690637
+
+Server Round 122
+Round 122 accuracy: 0.904364224137931
+Round 122 poison accuracy: 0.0024423337856173677
+
+Server Round 123
+Round 123 accuracy: 0.8923638322884012
+Round 123 poison accuracy: 0.0018995929443690637
+
+Server Round 124
+Round 124 accuracy: 0.8976293103448276
+Round 124 poison accuracy: 0.0016282225237449117
+
+Server Round 125
+Round 125 accuracy: 0.8886167711598746
+Round 125 poison accuracy: 0.0016282225237449117
+
+Server Round 126
+Round 126 accuracy: 0.8750244905956113
+Round 126 poison accuracy: 0.0027137042062415195
+
+Server Round 127
+Round 127 accuracy: 0.8949598354231975
+Round 127 poison accuracy: 0.0016282225237449117
+
+Server Round 128
+Round 128 accuracy: 0.895694553291536
+Round 128 poison accuracy: 0.0016282225237449117
+
+Server Round 129
+Round 129 accuracy: 0.8935638714733543
+Round 129 poison accuracy: 0.0018995929443690637
+
+Server Round 130
+Round 130 accuracy: 0.8953761755485894
+Round 130 poison accuracy: 0.001085481682496608
+
+Server Round 131
+Round 131 accuracy: 0.8770082288401254
+Round 131 poison accuracy: 0.0013568521031207597
+
+Server Round 132
+Round 132 accuracy: 0.8893759796238244
+Round 132 poison accuracy: 0.0029850746268656717
+
+Server Round 133
+Round 133 accuracy: 0.8890331112852664
+Round 133 poison accuracy: 0.0029850746268656717
+
+Server Round 134
+Round 134 accuracy: 0.8921923981191222
+Round 134 poison accuracy: 0.0018995929443690637
+
+Server Round 135
+Round 135 accuracy: 0.8901841692789969
+Round 135 poison accuracy: 0.002170963364993216
+
+Server Round 136
+Round 136 accuracy: 0.8840370297805643
+Round 136 poison accuracy: 0.001085481682496608
+
+Server Round 137
+Round 137 accuracy: 0.8763224921630094
+Round 137 poison accuracy: 0.0024423337856173677
+
+Server Round 138
+Round 138 accuracy: 0.8720611285266457
+Round 138 poison accuracy: 0.0018995929443690637
+
+Server Round 139
+Round 139 accuracy: 0.8815634796238244
+Round 139 poison accuracy: 0.0027137042062415195
+
+Server Round 140
+Round 140 accuracy: 0.8896698667711599
+Round 140 poison accuracy: 0.0016282225237449117
+
+Server Round 141
+Round 141 accuracy: 0.8717182601880877
+Round 141 poison accuracy: 0.0018995929443690637
+
+Server Round 142
+Round 142 accuracy: 0.833023119122257
+Round 142 poison accuracy: 0.000542740841248304
+
+Server Round 143
+Round 143 accuracy: 0.8827390282131662
+Round 143 poison accuracy: 0.000542740841248304
+
+Server Round 144
+Round 144 accuracy: 0.8785266457680251
+Round 144 poison accuracy: 0.0018995929443690637
+
+Server Round 145
+Round 145 accuracy: 0.8477174764890282
+Round 145 poison accuracy: 0.0016282225237449117
+
+Server Round 146
+Round 146 accuracy: 0.8474725705329154
+Round 146 poison accuracy: 0.001085481682496608
+
+Server Round 147
+Round 147 accuracy: 0.8476929858934169
+Round 147 poison accuracy: 0.0008141112618724559
+
+Server Round 148
+Round 148 accuracy: 0.8793348354231975
+Round 148 poison accuracy: 0.001085481682496608
+
+Server Round 149
+Round 149 accuracy: 0.879555250783699
+Round 149 poison accuracy: 0.0013568521031207597
+
+Server Round 150
+Round 150 accuracy: 0.8710325235109718
+Round 150 poison accuracy: 0.0018995929443690637
+
+Server Round 151
+Round 151 accuracy: 0.8913842084639498
+Round 151 poison accuracy: 0.0013568521031207597
+
+Server Round 152
+Round 152 accuracy: 0.8714978448275862
+Round 152 poison accuracy: 0.0024423337856173677
+
+Server Round 153
+Round 153 accuracy: 0.8866820141065831
+Round 153 poison accuracy: 0.0013568521031207597
+
+Server Round 154
+Round 154 accuracy: 0.805716105015674
+Round 154 poison accuracy: 0.01953867028493894
+
+Server Round 155
+Round 155 accuracy: 0.8278556034482759
+Round 155 poison accuracy: 0.0035278154681139757
+
+Server Round 156
+Round 156 accuracy: 0.8660609326018809
+Round 156 poison accuracy: 0.0067842605156037995
+
+Server Round 157
+Round 157 accuracy: 0.8635139106583072
+Round 157 poison accuracy: 0.004613297150610584
+
+Server Round 158
+Round 158 accuracy: 0.8706161833855799
+Round 158 poison accuracy: 0.007327001356852103
+
+Server Round 159
+Round 159 accuracy: 0.890625
+Round 159 poison accuracy: 0.0029850746268656717
+
+Server Round 160
+Round 160 accuracy: 0.8852860501567398
+Round 160 poison accuracy: 0.0016282225237449117
+
+Server Round 161
+Round 161 accuracy: 0.8643955721003135
+Round 161 poison accuracy: 0.005156037991858887
+
+Server Round 162
+Round 162 accuracy: 0.8527625391849529
+Round 162 poison accuracy: 0.0067842605156037995
+
+Server Round 163
+Round 163 accuracy: 0.8496522335423198
+Round 163 poison accuracy: 0.007055630936227951
+
+Server Round 164
+Round 164 accuracy: 0.7612656739811913
+Round 164 poison accuracy: 0.002170963364993216
+
+Server Round 165
+Round 165 accuracy: 0.8087774294670846
+Round 165 poison accuracy: 0.0013568521031207597
+
+Server Round 166
+Round 166 accuracy: 0.8402968260188087
+Round 166 poison accuracy: 0.0018995929443690637
+
+Server Round 167
+Round 167 accuracy: 0.8678242554858934
+Round 167 poison accuracy: 0.001085481682496608
+
+Server Round 168
+Round 168 accuracy: 0.8567545062695925
+Round 168 poison accuracy: 0.0018995929443690637
+
+Server Round 169
+Round 169 accuracy: 0.8746326410658307
+Round 169 poison accuracy: 0.0016282225237449117
+
+Server Round 170
+Round 170 accuracy: 0.8768612852664577
+Round 170 poison accuracy: 0.0018995929443690637
+
+Server Round 171
+Round 171 accuracy: 0.88109815830721
+Round 171 poison accuracy: 0.0018995929443690637
+
+Server Round 172
+Round 172 accuracy: 0.8607954545454546
+Round 172 poison accuracy: 0.0024423337856173677
+
+Server Round 173
+Round 173 accuracy: 0.8775470219435737
+Round 173 poison accuracy: 0.002170963364993216
+
+Server Round 174
+Round 174 accuracy: 0.8701998432601881
+Round 174 poison accuracy: 0.0013568521031207597
+
+Server Round 175
+Round 175 accuracy: 0.5791780956112853
+Round 175 poison accuracy: 0.001085481682496608
+
+Server Round 176
+Round 176 accuracy: 0.8229085031347962
+Round 176 poison accuracy: 0.0029850746268656717
+
+Server Round 177
+Round 177 accuracy: 0.8174715909090909
+Round 177 poison accuracy: 0.04531886024423338
+
+Server Round 178
+Round 178 accuracy: 0.8007445141065831
+Round 178 poison accuracy: 0.0067842605156037995
+
+Server Round 179
+Round 179 accuracy: 0.8490399686520376
+Round 179 poison accuracy: 0.0032564450474898234
+
+Server Round 180
+Round 180 accuracy: 0.8580280172413793
+Round 180 poison accuracy: 0.004613297150610584
+
+Server Round 181
+Round 181 accuracy: 0.8454888322884012
+Round 181 poison accuracy: 0.005427408412483039
+
+Server Round 182
+Round 182 accuracy: 0.8638077978056427
+Round 182 poison accuracy: 0.0027137042062415195
+
+Server Round 183
+Round 183 accuracy: 0.882469631661442
+Round 183 poison accuracy: 0.0024423337856173677
+
+Server Round 184
+Round 184 accuracy: 0.875514302507837
+Round 184 poison accuracy: 0.0016282225237449117
+
+Server Round 185
+Round 185 accuracy: 0.8336353840125392
+Round 185 poison accuracy: 0.0037991858887381274
+
+Server Round 186
+Round 186 accuracy: 0.8490399686520376
+Round 186 poison accuracy: 0.0024423337856173677
+
+Server Round 187
+Round 187 accuracy: 0.8116673197492164
+Round 187 poison accuracy: 0.004341926729986432
+
+Server Round 188
+Round 188 accuracy: 0.8644690438871473
+Round 188 poison accuracy: 0.0008141112618724559
+
+Server Round 189
+Round 189 accuracy: 0.8502644984326019
+Round 189 poison accuracy: 0.0016282225237449117
+
+Server Round 190
+Round 190 accuracy: 0.8447296238244514
+Round 190 poison accuracy: 0.0013568521031207597
+
+Server Round 191
+Round 191 accuracy: 0.8501910266457681
+Round 191 poison accuracy: 0.0018995929443690637
+
+Server Round 192
+Round 192 accuracy: 0.8653751959247649
+Round 192 poison accuracy: 0.0024423337856173677
+
+Server Round 193
+Round 193 accuracy: 0.846492946708464
+Round 193 poison accuracy: 0.0013568521031207597
+
+Server Round 194
+Round 194 accuracy: 0.8700039184952978
+Round 194 poison accuracy: 0.0024423337856173677
+
+Server Round 195
+Round 195 accuracy: 0.7553634404388715
+Round 195 poison accuracy: 0.0029850746268656717
+
+Server Round 196
+Round 196 accuracy: 0.8528360109717869
+Round 196 poison accuracy: 0.0013568521031207597
+
+Server Round 197
+Round 197 accuracy: 0.8649343652037618
+Round 197 poison accuracy: 0.001085481682496608
+
+Server Round 198
+Round 198 accuracy: 0.87671434169279
+Round 198 poison accuracy: 0.0013568521031207597
+
+Server Round 199
+Round 199 accuracy: 0.8484032131661442
+Round 199 poison accuracy: 0.0024423337856173677
+
+Server Round 200
+Round 200 accuracy: 0.8369905956112853
+Round 200 poison accuracy: 0.0032564450474898234
+
+Server Round 201
+Round 201 accuracy: 0.8760775862068966
+Round 201 poison accuracy: 0.002170963364993216
+
+Server Round 202
+Round 202 accuracy: 0.8798736285266457
+Round 202 poison accuracy: 0.001085481682496608
+
+Server Round 203
+Round 203 accuracy: 0.8384600313479624
+Round 203 poison accuracy: 0.0018995929443690637
+
+Server Round 204
+Round 204 accuracy: 0.8500440830721003
+Round 204 poison accuracy: 0.005427408412483039
+
+Server Round 205
+Round 205 accuracy: 0.8450235109717869
+Round 205 poison accuracy: 0.0013568521031207597
+
+Server Round 206
+Round 206 accuracy: 0.8187206112852664
+Round 206 poison accuracy: 0.0029850746268656717
+
+Server Round 207
+Round 207 accuracy: 0.8516114811912225
+Round 207 poison accuracy: 0.0037991858887381274
+
+Server Round 208
+Round 208 accuracy: 0.8528360109717869
+Round 208 poison accuracy: 0.0027137042062415195
+
+Server Round 209
+Round 209 accuracy: 0.8648608934169278
+Round 209 poison accuracy: 0.0008141112618724559
+
+Server Round 210
+Round 210 accuracy: 0.8691957288401254
+Round 210 poison accuracy: 0.001085481682496608
+
+Server Round 211
+Round 211 accuracy: 0.8553095611285266
+Round 211 poison accuracy: 0.0018995929443690637
+
+Server Round 212
+Round 212 accuracy: 0.8586157915360502
+Round 212 poison accuracy: 0.000542740841248304
+
+Server Round 213
+Round 213 accuracy: 0.7907278605015674
+Round 213 poison accuracy: 0.0037991858887381274
+
+Server Round 214
+Round 214 accuracy: 0.8476684952978056
+Round 214 poison accuracy: 0.0035278154681139757
+
+Server Round 215
+Round 215 accuracy: 0.8244514106583072
+Round 215 poison accuracy: 0.005427408412483039
+
+Server Round 216
+Round 216 accuracy: 0.8171777037617555
+Round 216 poison accuracy: 0.005970149253731343
+
+Server Round 217
+Round 217 accuracy: 0.8570728840125392
+Round 217 poison accuracy: 0.0016282225237449117
+
+Server Round 218
+Round 218 accuracy: 0.851219631661442
+Round 218 poison accuracy: 0.0016282225237449117
+
+Server Round 219
+Round 219 accuracy: 0.8410315438871473
+Round 219 poison accuracy: 0.005698778833107192
+
+Server Round 220
+Round 220 accuracy: 0.7699843260188087
+Round 220 poison accuracy: 0.0035278154681139757
+
+Server Round 221
+Round 221 accuracy: 0.8374804075235109
+Round 221 poison accuracy: 0.002170963364993216
+
+Server Round 222
+Round 222 accuracy: 0.8750244905956113
+Round 222 poison accuracy: 0.001085481682496608
+
+Server Round 223
+Round 223 accuracy: 0.875342868338558
+Round 223 poison accuracy: 0.0013568521031207597
+
+Server Round 224
+Round 224 accuracy: 0.8768612852664577
+Round 224 poison accuracy: 0.000271370420624152
+
+Server Round 225
+Round 225 accuracy: 0.7958953761755486
+Round 225 poison accuracy: 0.002170963364993216
+
+Server Round 226
+Round 226 accuracy: 0.7899686520376176
+Round 226 poison accuracy: 0.0013568521031207597
+
+Server Round 227
+Round 227 accuracy: 0.8108101489028213
+Round 227 poison accuracy: 0.0008141112618724559
+
+Server Round 228
+Round 228 accuracy: 0.6734179075235109
+Round 228 poison accuracy: 0.0008141112618724559
+
+Server Round 229
+Round 229 accuracy: 0.818426724137931
+Round 229 poison accuracy: 0.000271370420624152
+
+Server Round 230
+Round 230 accuracy: 0.8688528605015674
+Round 230 poison accuracy: 0.000271370420624152
+
+Server Round 231
+Round 231 accuracy: 0.86890184169279
+Round 231 poison accuracy: 0.000271370420624152
+
+Server Round 232
+Round 232 accuracy: 0.8298148510971787
+Round 232 poison accuracy: 0.000271370420624152
+
+Server Round 233
+Round 233 accuracy: 0.8064263322884012
+Round 233 poison accuracy: 0.0008141112618724559
+
+Server Round 234
+Round 234 accuracy: 0.828467868338558
+Round 234 poison accuracy: 0.000271370420624152
+
+Server Round 235
+Round 235 accuracy: 0.8457092476489029
+Round 235 poison accuracy: 0.000542740841248304
+
+Server Round 236
+Round 236 accuracy: 0.8271208855799373
+Round 236 poison accuracy: 0.000271370420624152
+
+Server Round 237
+Round 237 accuracy: 0.8603791144200627
+Round 237 poison accuracy: 0.0
+
+Server Round 238
+Round 238 accuracy: 0.8373334639498433
+Round 238 poison accuracy: 0.0
+
+Server Round 239
+Round 239 accuracy: 0.8381906347962382
+Round 239 poison accuracy: 0.0
+
+Server Round 240
+Round 240 accuracy: 0.8385335031347962
+Round 240 poison accuracy: 0.0008141112618724559
+
+Server Round 241
+Round 241 accuracy: 0.8417417711598746
+Round 241 poison accuracy: 0.0008141112618724559
+
+Server Round 242
+Round 242 accuracy: 0.8130387931034483
+Round 242 poison accuracy: 0.001085481682496608
+
+Server Round 243
+Round 243 accuracy: 0.794646355799373
+Round 243 poison accuracy: 0.0008141112618724559
+
+Server Round 244
+Round 244 accuracy: 0.7884012539184952
+Round 244 poison accuracy: 0.001085481682496608
+
+Server Round 245
+Round 245 accuracy: 0.8179858934169278
+Round 245 poison accuracy: 0.0013568521031207597
+
+Server Round 246
+Round 246 accuracy: 0.8299617946708464
+Round 246 poison accuracy: 0.000271370420624152
+
+Server Round 247
+Round 247 accuracy: 0.8319210423197492
+Round 247 poison accuracy: 0.000542740841248304
+
+Server Round 248
+Round 248 accuracy: 0.830867946708464
+Round 248 poison accuracy: 0.0
+
+Server Round 249
+Round 249 accuracy: 0.827096394984326
+Round 249 poison accuracy: 0.0
+
+Server Round 250
+Round 250 accuracy: 0.8256024686520376
+Round 250 poison accuracy: 0.000542740841248304
+
+Server Round 251
+Round 251 accuracy: 0.8162225705329154
+Round 251 poison accuracy: 0.000542740841248304
+
+Server Round 252
+Round 252 accuracy: 0.8374069357366771
+Round 252 poison accuracy: 0.000542740841248304
+
+Server Round 253
+Round 253 accuracy: 0.7778458072100314
+Round 253 poison accuracy: 0.000271370420624152
+
+Server Round 254
+Round 254 accuracy: 0.7916585031347962
+Round 254 poison accuracy: 0.0008141112618724559
+
+Server Round 255
+Round 255 accuracy: 0.8208757836990596
+Round 255 poison accuracy: 0.0016282225237449117
+
+Server Round 256
+Round 256 accuracy: 0.7964341692789969
+Round 256 poison accuracy: 0.0
+
+Server Round 257
+Round 257 accuracy: 0.8137000391849529
+Round 257 poison accuracy: 0.000271370420624152
+
+Server Round 258
+Round 258 accuracy: 0.8267780172413793
+Round 258 poison accuracy: 0.0
+
+Server Round 259
+Round 259 accuracy: 0.8354476880877743
+Round 259 poison accuracy: 0.000271370420624152
+
+Server Round 260
+Round 260 accuracy: 0.7753477664576802
+Round 260 poison accuracy: 0.0
+
+Server Round 261
+Round 261 accuracy: 0.8119122257053292
+Round 261 poison accuracy: 0.0
+
+Server Round 262
+Round 262 accuracy: 0.8120836598746082
+Round 262 poison accuracy: 0.0016282225237449117
+
+Server Round 263
+Round 263 accuracy: 0.7959688479623824
+Round 263 poison accuracy: 0.000271370420624152
+
+Server Round 264
+Round 264 accuracy: 0.8314312304075235
+Round 264 poison accuracy: 0.000271370420624152
+
+Server Round 265
+Round 265 accuracy: 0.8110060736677116
+Round 265 poison accuracy: 0.000271370420624152
+
+Server Round 266
+Round 266 accuracy: 0.841349921630094
+Round 266 poison accuracy: 0.0
+
+Server Round 267
+Round 267 accuracy: 0.8110305642633229
+Round 267 poison accuracy: 0.000271370420624152
+
+Server Round 268
+Round 268 accuracy: 0.842892829153605
+Round 268 poison accuracy: 0.0
+
+Server Round 269
+Round 269 accuracy: 0.8273657915360502
+Round 269 poison accuracy: 0.0
+
+Server Round 270
+Round 270 accuracy: 0.8251371473354232
+Round 270 poison accuracy: 0.000271370420624152
+
+Server Round 271
+Round 271 accuracy: 0.8217819357366771
+Round 271 poison accuracy: 0.0
+
+Server Round 272
+Round 272 accuracy: 0.8250881661442007
+Round 272 poison accuracy: 0.0013568521031207597
+
+Server Round 273
+Round 273 accuracy: 0.8569014498432602
+Round 273 poison accuracy: 0.000271370420624152
+
+Server Round 274
+Round 274 accuracy: 0.857317789968652
+Round 274 poison accuracy: 0.000542740841248304
+
+Server Round 275
+Round 275 accuracy: 0.82641065830721
+Round 275 poison accuracy: 0.0008141112618724559
+
+Server Round 276
+Round 276 accuracy: 0.8350068573667712
+Round 276 poison accuracy: 0.0
+
+Server Round 277
+Round 277 accuracy: 0.8165409482758621
+Round 277 poison accuracy: 0.000542740841248304
+
+Server Round 278
+Round 278 accuracy: 0.8510726880877743
+Round 278 poison accuracy: 0.000542740841248304
+
+Server Round 279
+Round 279 accuracy: 0.794817789968652
+Round 279 poison accuracy: 0.0029850746268656717
+
+Server Round 280
+Round 280 accuracy: 0.7825480015673981
+Round 280 poison accuracy: 0.000542740841248304
+
+Server Round 281
+Round 281 accuracy: 0.6825528996865203
+Round 281 poison accuracy: 0.0024423337856173677
+
+Server Round 282
+Round 282 accuracy: 0.7758130877742947
+Round 282 poison accuracy: 0.007327001356852103
+
+Server Round 283
+Round 283 accuracy: 0.8285658307210031
+Round 283 poison accuracy: 0.001085481682496608
+
+Server Round 284
+Round 284 accuracy: 0.86108934169279
+Round 284 poison accuracy: 0.000271370420624152
+
+Server Round 285
+Round 285 accuracy: 0.8462970219435737
+Round 285 poison accuracy: 0.000271370420624152
+
+Server Round 286
+Round 286 accuracy: 0.8503869514106583
+Round 286 poison accuracy: 0.0008141112618724559
+
+Server Round 287
+Round 287 accuracy: 0.8411295062695925
+Round 287 poison accuracy: 0.0013568521031207597
+
+Server Round 288
+Round 288 accuracy: 0.8561912225705329
+Round 288 poison accuracy: 0.0016282225237449117
+
+Server Round 289
+Round 289 accuracy: 0.8303291536050157
+Round 289 poison accuracy: 0.0008141112618724559
+
+Server Round 290
+Round 290 accuracy: 0.8469827586206896
+Round 290 poison accuracy: 0.000542740841248304
+
+Server Round 291
+Round 291 accuracy: 0.8396110893416928
+Round 291 poison accuracy: 0.0024423337856173677
+
+Server Round 292
+Round 292 accuracy: 0.7945973746081505
+Round 292 poison accuracy: 0.002170963364993216
+
+Server Round 293
+Round 293 accuracy: 0.7920013714733543
+Round 293 poison accuracy: 0.0027137042062415195
+
+Server Round 294
+Round 294 accuracy: 0.827610697492163
+Round 294 poison accuracy: 0.0013568521031207597
+
+Server Round 295
+Round 295 accuracy: 0.8671630094043887
+Round 295 poison accuracy: 0.000271370420624152
+
+Server Round 296
+Round 296 accuracy: 0.8211451802507836
+Round 296 poison accuracy: 0.0008141112618724559
+
+Server Round 297
+Round 297 accuracy: 0.8524441614420063
+Round 297 poison accuracy: 0.000542740841248304
+
+Server Round 298
+Round 298 accuracy: 0.7481387147335423
+Round 298 poison accuracy: 0.006241519674355495
+
+Server Round 299
+Round 299 accuracy: 0.772408894984326
+Round 299 poison accuracy: 0.0016282225237449117
+
+Server Round 300
+Round 300 accuracy: 0.8373579545454546
+Round 300 poison accuracy: 0.0016282225237449117
+
+Server Round 301
+Round 301 accuracy: 0.8328761755485894
+Round 301 poison accuracy: 0.0018995929443690637
+
+Server Round 302
+Round 302 accuracy: 0.7801724137931034
+Round 302 poison accuracy: 0.004613297150610584
+
+Server Round 303
+Round 303 accuracy: 0.794989224137931
+Round 303 poison accuracy: 0.0027137042062415195
+
+Server Round 304
+Round 304 accuracy: 0.8481827978056427
+Round 304 poison accuracy: 0.0013568521031207597
+
+Server Round 305
+Round 305 accuracy: 0.8598403213166145
+Round 305 poison accuracy: 0.000542740841248304
+
+Server Round 306
+Round 306 accuracy: 0.7561471394984326
+Round 306 poison accuracy: 0.004613297150610584
+
+Server Round 307
+Round 307 accuracy: 0.822198275862069
+Round 307 poison accuracy: 0.0032564450474898234
+
+Server Round 308
+Round 308 accuracy: 0.7872746865203761
+Round 308 poison accuracy: 0.000542740841248304
+
+Server Round 309
+Round 309 accuracy: 0.7646453761755486
+Round 309 poison accuracy: 0.0018995929443690637
+
+Server Round 310
+Round 310 accuracy: 0.7899686520376176
+Round 310 poison accuracy: 0.002170963364993216
+
+Server Round 311
+Round 311 accuracy: 0.7889155564263323
+Round 311 poison accuracy: 0.0018995929443690637
+
+Server Round 312
+Round 312 accuracy: 0.7928830329153606
+Round 312 poison accuracy: 0.001085481682496608
+
+Server Round 313
+Round 313 accuracy: 0.8210961990595611
+Round 313 poison accuracy: 0.0008141112618724559
+
+Server Round 314
+Round 314 accuracy: 0.8394641457680251
+Round 314 poison accuracy: 0.0
+
+Server Round 315
+Round 315 accuracy: 0.8006220611285266
+Round 315 poison accuracy: 0.0018995929443690637
+
+Server Round 316
+Round 316 accuracy: 0.7320728840125392
+Round 316 poison accuracy: 0.002170963364993216
+
+Server Round 317
+Round 317 accuracy: 0.7433875391849529
+Round 317 poison accuracy: 0.0024423337856173677
+
+Server Round 318
+Round 318 accuracy: 0.7869807993730408
+Round 318 poison accuracy: 0.0013568521031207597
+
+Server Round 319
+Round 319 accuracy: 0.8256759404388715
+Round 319 poison accuracy: 0.0013568521031207597
+
+Server Round 320
+Round 320 accuracy: 0.7890869905956113
+Round 320 poison accuracy: 0.0027137042062415195
+
+Server Round 321
+Round 321 accuracy: 0.7844092868338558
+Round 321 poison accuracy: 0.002170963364993216
+
+Server Round 322
+Round 322 accuracy: 0.8327537225705329
+Round 322 poison accuracy: 0.0018995929443690637
+
+Server Round 323
+Round 323 accuracy: 0.8360109717868338
+Round 323 poison accuracy: 0.0024423337856173677
+
+Server Round 324
+Round 324 accuracy: 0.7808091692789969
+Round 324 poison accuracy: 0.0018995929443690637
+
+Server Round 325
+Round 325 accuracy: 0.7939116379310345
+Round 325 poison accuracy: 0.001085481682496608
+
+Server Round 326
+Round 326 accuracy: 0.781935736677116
+Round 326 poison accuracy: 0.0024423337856173677
+
+Server Round 327
+Round 327 accuracy: 0.8027772335423198
+Round 327 poison accuracy: 0.0018995929443690637
+
+Server Round 328
+Round 328 accuracy: 0.7878379702194357
+Round 328 poison accuracy: 0.0013568521031207597
+
+Server Round 329
+Round 329 accuracy: 0.8192349137931034
+Round 329 poison accuracy: 0.0013568521031207597
+
+Server Round 330
+Round 330 accuracy: 0.7746620297805643
+Round 330 poison accuracy: 0.0016282225237449117
+
+Server Round 331
+Round 331 accuracy: 0.8014547413793104
+Round 331 poison accuracy: 0.0008141112618724559
+
+Server Round 332
+Round 332 accuracy: 0.7426283307210031
+Round 332 poison accuracy: 0.000271370420624152
+
+Server Round 333
+Round 333 accuracy: 0.7873971394984326
+Round 333 poison accuracy: 0.000271370420624152
+
+Server Round 334
+Round 334 accuracy: 0.7896257836990596
+Round 334 poison accuracy: 0.0
+
+Server Round 335
+Round 335 accuracy: 0.8112019984326019
+Round 335 poison accuracy: 0.001085481682496608
+
+Server Round 336
+Round 336 accuracy: 0.839023315047022
+Round 336 poison accuracy: 0.000271370420624152
+
+Server Round 337
+Round 337 accuracy: 0.7878624608150471
+Round 337 poison accuracy: 0.0
+
+Server Round 338
+Round 338 accuracy: 0.7708414968652038
+Round 338 poison accuracy: 0.0008141112618724559
+
+Server Round 339
+Round 339 accuracy: 0.7808091692789969
+Round 339 poison accuracy: 0.000271370420624152
+
+Server Round 340
+Round 340 accuracy: 0.7864420062695925
+Round 340 poison accuracy: 0.0
+
+Server Round 341
+Round 341 accuracy: 0.7455427115987461
+Round 341 poison accuracy: 0.0
+
+Server Round 342
+Round 342 accuracy: 0.768539380877743
+Round 342 poison accuracy: 0.0
+
+Server Round 343
+Round 343 accuracy: 0.7666046238244514
+Round 343 poison accuracy: 0.000271370420624152
+
+Server Round 344
+Round 344 accuracy: 0.8050058777429467
+Round 344 poison accuracy: 0.000271370420624152
+
+Server Round 345
+Round 345 accuracy: 0.8139204545454546
+Round 345 poison accuracy: 0.001085481682496608
+
+Server Round 346
+Round 346 accuracy: 0.8158552115987461
+Round 346 poison accuracy: 0.000542740841248304
+
+Server Round 347
+Round 347 accuracy: 0.799960815047022
+Round 347 poison accuracy: 0.0008141112618724559
+
+Server Round 348
+Round 348 accuracy: 0.8217329545454546
+Round 348 poison accuracy: 0.004613297150610584
+
+Server Round 349
+Round 349 accuracy: 0.8199206504702194
+Round 349 poison accuracy: 0.002170963364993216
+
+Server Round 350
+Round 350 accuracy: 0.6723403213166145
+Round 350 poison accuracy: 0.005698778833107192
+
+Server Round 351
+Round 351 accuracy: 0.7194602272727273
+Round 351 poison accuracy: 0.0029850746268656717
+
+Server Round 352
+Round 352 accuracy: 0.734032131661442
+Round 352 poison accuracy: 0.004884667571234735
+
+Server Round 353
+Round 353 accuracy: 0.7733150470219435
+Round 353 poison accuracy: 0.005156037991858887
+
+Server Round 354
+Round 354 accuracy: 0.7749559169278997
+Round 354 poison accuracy: 0.0032564450474898234
+
+Server Round 355
+Round 355 accuracy: 0.8365252742946708
+Round 355 poison accuracy: 0.0016282225237449117
+
+Server Round 356
+Round 356 accuracy: 0.7130192006269592
+Round 356 poison accuracy: 0.0024423337856173677
+
+Server Round 357
+Round 357 accuracy: 0.7852664576802508
+Round 357 poison accuracy: 0.006512890094979647
+
+Server Round 358
+Round 358 accuracy: 0.825896355799373
+Round 358 poison accuracy: 0.004884667571234735
+
+Server Round 359
+Round 359 accuracy: 0.8307210031347962
+Round 359 poison accuracy: 0.002170963364993216
+
+Server Round 360
+Round 360 accuracy: 0.8135041144200627
+Round 360 poison accuracy: 0.005156037991858887
+
+Server Round 361
+Round 361 accuracy: 0.8119122257053292
+Round 361 poison accuracy: 0.0029850746268656717
+
+Server Round 362
+Round 362 accuracy: 0.735060736677116
+Round 362 poison accuracy: 0.0035278154681139757
+
+Server Round 363
+Round 363 accuracy: 0.7471346003134797
+Round 363 poison accuracy: 0.017096336499321574
+
+Server Round 364
+Round 364 accuracy: 0.7369710031347962
+Round 364 poison accuracy: 0.0016282225237449117
+
+Server Round 365
+Round 365 accuracy: 0.7072884012539185
+Round 365 poison accuracy: 0.004341926729986432
+
+Server Round 366
+Round 366 accuracy: 0.7966790752351097
+Round 366 poison accuracy: 0.0013568521031207597
+
+Server Round 367
+Round 367 accuracy: 0.7984423981191222
+Round 367 poison accuracy: 0.001085481682496608
+
+Server Round 368
+Round 368 accuracy: 0.7629310344827587
+Round 368 poison accuracy: 0.004070556309362279
+
+Server Round 369
+Round 369 accuracy: 0.8275862068965517
+Round 369 poison accuracy: 0.0008141112618724559
+
+Server Round 370
+Round 370 accuracy: 0.8348844043887147
+Round 370 poison accuracy: 0.000542740841248304
+
+Server Round 371
+Round 371 accuracy: 0.6889694357366771
+Round 371 poison accuracy: 0.04016282225237449
+
+Server Round 372
+Round 372 accuracy: 0.6461353840125392
+Round 372 poison accuracy: 0.007598371777476255
+
+Server Round 373
+Round 373 accuracy: 0.7624167319749217
+Round 373 poison accuracy: 0.004070556309362279
+
+Server Round 374
+Round 374 accuracy: 0.7824255485893417
+Round 374 poison accuracy: 0.0008141112618724559
+
+Server Round 375
+Round 375 accuracy: 0.8155613244514106
+Round 375 poison accuracy: 0.0013568521031207597
+
+Server Round 376
+Round 376 accuracy: 0.6432699843260188
+Round 376 poison accuracy: 0.020081411126187245
+
+Server Round 377
+Round 377 accuracy: 0.6582827194357367
+Round 377 poison accuracy: 0.0013568521031207597
+
+Server Round 378
+Round 378 accuracy: 0.8055936520376176
+Round 378 poison accuracy: 0.001085481682496608
+
+Server Round 379
+Round 379 accuracy: 0.8068671630094044
+Round 379 poison accuracy: 0.0013568521031207597
+
+Server Round 380
+Round 380 accuracy: 0.75514302507837
+Round 380 poison accuracy: 0.0027137042062415195
+
+Server Round 381
+Round 381 accuracy: 0.6171630094043887
+Round 381 poison accuracy: 0.0024423337856173677
+
+Server Round 382
+Round 382 accuracy: 0.6486334247648903
+Round 382 poison accuracy: 0.016282225237449117
+
+Server Round 383
+Round 383 accuracy: 0.7223990987460815
+Round 383 poison accuracy: 0.008955223880597015
+
+Server Round 384
+Round 384 accuracy: 0.7780417319749217
+Round 384 poison accuracy: 0.0037991858887381274
+
+Server Round 385
+Round 385 accuracy: 0.7811030564263323
+Round 385 poison accuracy: 0.0008141112618724559
+
+Server Round 386
+Round 386 accuracy: 0.7580329153605015
+Round 386 poison accuracy: 0.0008141112618724559
+
+Server Round 387
+Round 387 accuracy: 0.5281152037617555
+Round 387 poison accuracy: 0.005427408412483039
+
+Server Round 388
+Round 388 accuracy: 0.3865105799373041
+Round 388 poison accuracy: 0.05780189959294437
+
+Server Round 389
+Round 389 accuracy: 0.6389841300940439
+Round 389 poison accuracy: 0.009497964721845319
+
+Server Round 390
+Round 390 accuracy: 0.7572492163009404
+Round 390 poison accuracy: 0.004613297150610584
+
+Server Round 391
+Round 391 accuracy: 0.6325186128526645
+Round 391 poison accuracy: 0.010854816824966078
+
+Server Round 392
+Round 392 accuracy: 0.7215174373040752
+Round 392 poison accuracy: 0.0013568521031207597
+
+Server Round 393
+Round 393 accuracy: 0.7450528996865203
+Round 393 poison accuracy: 0.004070556309362279
+
+Server Round 394
+Round 394 accuracy: 0.7572002351097179
+Round 394 poison accuracy: 0.000271370420624152
+
+Server Round 395
+Round 395 accuracy: 0.7752498040752351
+Round 395 poison accuracy: 0.000542740841248304
+
+Server Round 396
+Round 396 accuracy: 0.7113293495297806
+Round 396 poison accuracy: 0.0018995929443690637
+
+Server Round 397
+Round 397 accuracy: 0.7612411833855799
+Round 397 poison accuracy: 0.007869742198100407
+
+Server Round 398
+Round 398 accuracy: 0.5824598354231975
+Round 398 poison accuracy: 0.013568521031207599
+
+Server Round 399
+Round 399 accuracy: 0.57545552507837
+Round 399 poison accuracy: 0.014925373134328358
+
+Server Round 400
+Round 400 accuracy: 0.744073275862069
+Round 400 poison accuracy: 0.015739484396200813
+
+Server Round 401
+Round 401 accuracy: 0.7068720611285266
+Round 401 poison accuracy: 0.004884667571234735
+
+Server Round 402
+Round 402 accuracy: 0.544303487460815
+Round 402 poison accuracy: 0.013025780189959294
+
+Server Round 403
+Round 403 accuracy: 0.6357513714733543
+Round 403 poison accuracy: 0.0067842605156037995
+
+Server Round 404
+Round 404 accuracy: 0.7978791144200627
+Round 404 poison accuracy: 0.0037991858887381274
+
+Server Round 405
+Round 405 accuracy: 0.6418740203761756
+Round 405 poison accuracy: 0.0013568521031207597
+
+Server Round 406
+Round 406 accuracy: 0.5302948667711599
+Round 406 poison accuracy: 0.010854816824966078
+
+Server Round 407
+Round 407 accuracy: 0.7387343260188087
+Round 407 poison accuracy: 0.004341926729986432
+
+Server Round 408
+Round 408 accuracy: 0.588166144200627
+Round 408 poison accuracy: 0.013025780189959294
+
+Server Round 409
+Round 409 accuracy: 0.7490203761755486
+Round 409 poison accuracy: 0.001085481682496608
+
+Server Round 410
+Round 410 accuracy: 0.7475509404388715
+Round 410 poison accuracy: 0.0013568521031207597
+
+Server Round 411
+Round 411 accuracy: 0.7220807210031348
+Round 411 poison accuracy: 0.000542740841248304
+
+Server Round 412
+Round 412 accuracy: 0.7207582288401254
+Round 412 poison accuracy: 0.0008141112618724559
+
+Server Round 413
+Round 413 accuracy: 0.5847129702194357
+Round 413 poison accuracy: 0.017367706919945727
+
+Server Round 414
+Round 414 accuracy: 0.47198275862068967
+Round 414 poison accuracy: 0.03039348710990502
+
+Server Round 415
+Round 415 accuracy: 0.3706651645768025
+Round 415 poison accuracy: 0.04477611940298507
+
+Server Round 416
+Round 416 accuracy: 0.6703565830721003
+Round 416 poison accuracy: 0.014654002713704206
+
+Server Round 417
+Round 417 accuracy: 0.7449549373040752
+Round 417 poison accuracy: 0.005698778833107192
+
+Server Round 418
+Round 418 accuracy: 0.7277135579937304
+Round 418 poison accuracy: 0.005970149253731343
+
+Server Round 419
+Round 419 accuracy: 0.600705329153605
+Round 419 poison accuracy: 0.014382632293080054
+
+Server Round 420
+Round 420 accuracy: 0.6634992163009404
+Round 420 poison accuracy: 0.007869742198100407
+
+Server Round 421
+Round 421 accuracy: 0.6314900078369906
+Round 421 poison accuracy: 0.004613297150610584
+
+Server Round 422
+Round 422 accuracy: 0.6687157131661442
+Round 422 poison accuracy: 0.001085481682496608
+
+Server Round 423
+Round 423 accuracy: 0.7282523510971787
+Round 423 poison accuracy: 0.004341926729986432
+
+Server Round 424
+Round 424 accuracy: 0.7722864420062696
+Round 424 poison accuracy: 0.0016282225237449117
+
+Server Round 425
+Round 425 accuracy: 0.6833610893416928
+Round 425 poison accuracy: 0.0032564450474898234
+
+Server Round 426
+Round 426 accuracy: 0.6161344043887147
+Round 426 poison accuracy: 0.00841248303934871
+
+Server Round 427
+Round 427 accuracy: 0.7501469435736677
+Round 427 poison accuracy: 0.000271370420624152
+
+Server Round 428
+Round 428 accuracy: 0.6891408699059561
+Round 428 poison accuracy: 0.0013568521031207597
+
+Server Round 429
+Round 429 accuracy: 0.7571022727272727
+Round 429 poison accuracy: 0.001085481682496608
+
+Server Round 430
+Round 430 accuracy: 0.7270278213166145
+Round 430 poison accuracy: 0.0018995929443690637
+
+Server Round 431
+Round 431 accuracy: 0.6788548197492164
+Round 431 poison accuracy: 0.0029850746268656717
+
+Server Round 432
+Round 432 accuracy: 0.570998236677116
+Round 432 poison accuracy: 0.01953867028493894
+
+Server Round 433
+Round 433 accuracy: 0.5246130485893417
+Round 433 poison accuracy: 0.020081411126187245
+
+Server Round 434
+Round 434 accuracy: 0.7669474921630094
+Round 434 poison accuracy: 0.000271370420624152
+
+Server Round 435
+Round 435 accuracy: 0.43659384796238243
+Round 435 poison accuracy: 0.010040705563093623
+
+Server Round 436
+Round 436 accuracy: 0.610403605015674
+Round 436 poison accuracy: 0.009497964721845319
+
+Server Round 437
+Round 437 accuracy: 0.7734619905956113
+Round 437 poison accuracy: 0.0
+
+Server Round 438
+Round 438 accuracy: 0.34901547805642635
+Round 438 poison accuracy: 0.0032564450474898234
+
+Server Round 439
+Round 439 accuracy: 0.6251224529780565
+Round 439 poison accuracy: 0.005970149253731343
+
+Server Round 440
+Round 440 accuracy: 0.6926920062695925
+Round 440 poison accuracy: 0.052917232021709636
+
+Server Round 441
+Round 441 accuracy: 0.6813773510971787
+Round 441 poison accuracy: 0.005156037991858887
+
+Server Round 442
+Round 442 accuracy: 0.7399343652037618
+Round 442 poison accuracy: 0.000542740841248304
+
+Server Round 443
+Round 443 accuracy: 0.7247746865203761
+Round 443 poison accuracy: 0.004884667571234735
+
+Server Round 444
+Round 444 accuracy: 0.7519102664576802
+Round 444 poison accuracy: 0.0203527815468114
+
+Server Round 445
+Round 445 accuracy: 0.8008914576802508
+Round 445 poison accuracy: 0.002170963364993216
+
+Server Round 446
+Round 446 accuracy: 0.6956063871473355
+Round 446 poison accuracy: 0.019267299864314788
+
+Server Round 447
+Round 447 accuracy: 0.7410364420062696
+Round 447 poison accuracy: 0.02333785617367707
+
+Server Round 448
+Round 448 accuracy: 0.8081406739811913
+Round 448 poison accuracy: 0.0016282225237449117
+
+Server Round 449
+Round 449 accuracy: 0.7886216692789969
+Round 449 poison accuracy: 0.022795115332428766
+
+Server Round 450
+Round 450 accuracy: 0.6609032131661442
+Round 450 poison accuracy: 0.03934871099050204
+
+Server Round 451
+Round 451 accuracy: 0.7607758620689655
+Round 451 poison accuracy: 0.02876526458616011
+
+Server Round 452
+Round 452 accuracy: 0.8173491379310345
+Round 452 poison accuracy: 0.020081411126187245
+
+Server Round 453
+Round 453 accuracy: 0.8060589733542319
+Round 453 poison accuracy: 0.016010854816824967
+
+Server Round 454
+Round 454 accuracy: 0.7084639498432602
+Round 454 poison accuracy: 0.04531886024423338
+
+Server Round 455
+Round 455 accuracy: 0.7786539968652038
+Round 455 poison accuracy: 0.019810040705563095
+
+Server Round 456
+Round 456 accuracy: 0.8256759404388715
+Round 456 poison accuracy: 0.011397557666214383
+
+Server Round 457
+Round 457 accuracy: 0.7629800156739812
+Round 457 poison accuracy: 0.023066485753052916
+
+Server Round 458
+Round 458 accuracy: 0.8207043495297806
+Round 458 poison accuracy: 0.010312075983717774
+
+Server Round 459
+Round 459 accuracy: 0.8129163401253918
+Round 459 poison accuracy: 0.015739484396200813
+
+Server Round 460
+Round 460 accuracy: 0.8247452978056427
+Round 460 poison accuracy: 0.012754409769335142
+
+Server Round 461
+Round 461 accuracy: 0.8197002351097179
+Round 461 poison accuracy: 0.013297150610583446
+
+Server Round 462
+Round 462 accuracy: 0.8437989811912225
+Round 462 poison accuracy: 0.004613297150610584
+
+Server Round 463
+Round 463 accuracy: 0.7870542711598746
+Round 463 poison accuracy: 0.02062415196743555
+
+Server Round 464
+Round 464 accuracy: 0.8179369122257053
+Round 464 poison accuracy: 0.014111261872455903
+
+Server Round 465
+Round 465 accuracy: 0.780735697492163
+Round 465 poison accuracy: 0.020081411126187245
+
+Server Round 466
+Round 466 accuracy: 0.8348354231974922
+Round 466 poison accuracy: 0.014654002713704206
+
+Server Round 467
+Round 467 accuracy: 0.8185736677115988
+Round 467 poison accuracy: 0.015468113975576661
+
+Server Round 468
+Round 468 accuracy: 0.8363048589341693
+Round 468 poison accuracy: 0.01791044776119403
+
+Server Round 469
+Round 469 accuracy: 0.8092182601880877
+Round 469 poison accuracy: 0.013297150610583446
+
+Server Round 470
+Round 470 accuracy: 0.8235207680250783
+Round 470 poison accuracy: 0.015739484396200813
+
+Server Round 471
+Round 471 accuracy: 0.7875930642633229
+Round 471 poison accuracy: 0.03934871099050204
+
+Server Round 472
+Round 472 accuracy: 0.8240350705329154
+Round 472 poison accuracy: 0.025508819538670284
+
+Server Round 473
+Round 473 accuracy: 0.6475558385579937
+Round 473 poison accuracy: 0.10203527815468114
+
+Server Round 474
+Round 474 accuracy: 0.794303487460815
+Round 474 poison accuracy: 0.023880597014925373
+
+Server Round 475
+Round 475 accuracy: 0.8402478448275862
+Round 475 poison accuracy: 0.0203527815468114
+
+Server Round 476
+Round 476 accuracy: 0.7259747257053292
+Round 476 poison accuracy: 0.02659430122116689
+
+Server Round 477
+Round 477 accuracy: 0.8005240987460815
+Round 477 poison accuracy: 0.013297150610583446
+
+Server Round 478
+Round 478 accuracy: 0.7621228448275862
+Round 478 poison accuracy: 0.009497964721845319
+
+Server Round 479
+Round 479 accuracy: 0.8229329937304075
+Round 479 poison accuracy: 0.004613297150610584
+
+Server Round 480
+Round 480 accuracy: 0.6393025078369906
+Round 480 poison accuracy: 0.033921302578018994
+
+Server Round 481
+Round 481 accuracy: 0.8158552115987461
+Round 481 poison accuracy: 0.011397557666214383
+
+Server Round 482
+Round 482 accuracy: 0.8163940047021944
+Round 482 poison accuracy: 0.01655359565807327
+
+Server Round 483
+Round 483 accuracy: 0.8021649686520376
+Round 483 poison accuracy: 0.020895522388059702
+
+Server Round 484
+Round 484 accuracy: 0.7778702978056427
+Round 484 poison accuracy: 0.017639077340569877
+
+Server Round 485
+Round 485 accuracy: 0.8103693181818182
+Round 485 poison accuracy: 0.01655359565807327
+
+Server Round 486
+Round 486 accuracy: 0.54077684169279
+Round 486 poison accuracy: 0.03962008141112619
+
+Server Round 487
+Round 487 accuracy: 0.6691075626959248
+Round 487 poison accuracy: 0.027137042062415198
+
+Server Round 488
+Round 488 accuracy: 0.7533797021943573
+Round 488 poison accuracy: 0.022252374491180463
+
+Server Round 489
+Round 489 accuracy: 0.7866379310344828
+Round 489 poison accuracy: 0.02062415196743555
+
+Server Round 490
+Round 490 accuracy: 0.8031445924764891
+Round 490 poison accuracy: 0.009497964721845319
+
+Server Round 491
+Round 491 accuracy: 0.614101684952978
+Round 491 poison accuracy: 0.032021709633649934
+
+Server Round 492
+Round 492 accuracy: 0.788205329153605
+Round 492 poison accuracy: 0.016010854816824967
+
+Server Round 493
+Round 493 accuracy: 0.750514302507837
+Round 493 poison accuracy: 0.012211668928086838
+
+Server Round 494
+Round 494 accuracy: 0.25122452978056425
+Round 494 poison accuracy: 0.000542740841248304
+
+Server Round 495
+Round 495 accuracy: 0.6979329937304075
+Round 495 poison accuracy: 0.019810040705563095
+
+Server Round 496
+Round 496 accuracy: 0.12779192789968652
+Round 496 poison accuracy: 0.04559023066485753
+
+Server Round 497
+Round 497 accuracy: 0.46221101097178685
+Round 497 poison accuracy: 0.017367706919945727
+
+Server Round 498
+Round 498 accuracy: 0.7588900862068966
+Round 498 poison accuracy: 0.027137042062415198
+
+Server Round 499
+Round 499 accuracy: 0.7379751175548589
+Round 499 poison accuracy: 0.04613297150610583
+
+Server Round 500
+Round 500 accuracy: 0.7629310344827587
+Round 500 poison accuracy: 0.022252374491180463
+
