@@ -124,9 +124,9 @@ def local_outlier_factor(X, clients, offset):
   model = LocalOutlierFactor(n_neighbors=int(K/2))
   outlier_prediction = model.fit_predict(X)
   lof = np.array(-1 * model.negative_outlier_factor_)
-  topindices = np.argsort(lof)[:int(0.5*K)] # top 50% of clients with low LOF values (likely to be benign)
+  topindices = np.argsort(lof)[:int(0.7*K)] # top 50% of clients with low LOF values (likely to be benign)
   topclients = clients[topindices].values
-  bottomindices = np.argsort(lof)[int(0.5*K):] # bottom 50% clients with high LOF value (discard as malicious)
+  bottomindices = np.argsort(lof)[int(0.3*K):] # bottom 50% clients with high LOF value (discard as malicious)
   bottomclients = clients[bottomindices].values
   top_loflist = lof[topindices]
   benign_indices = np.argwhere(top_loflist-offset <= 1).flatten() # considered benign among top 50% clients
