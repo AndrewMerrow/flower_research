@@ -883,7 +883,7 @@ def main():
     else:
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "hybrid/offset0.1/adjustLOFDiscard/hybrid_poison_50_discard_30_test_fedemnist_66_clients_100rounds_" + str(ct) + ".txt"
+        filename = "hybrid/offset0.1/adjustLOFDiscard/hybrid_poison_50_discard_30_test_fedemnist_33_clients_500rounds_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running fedemnist test", file=f)
 
@@ -892,7 +892,7 @@ def main():
     model_parameters = [val.cpu().numpy() for _, val in model.state_dict().items()]
 
     # Create strategy
-    num_agents = 66 if selectedDataset == "fedemnist" else 40
+    num_agents = 33 if selectedDataset == "fedemnist" else 40
     #strategy = fl.server.strategy.FedAvg(
     strategy = AggregateCustomMetricStrategy(
         min_fit_clients=num_agents,
@@ -910,7 +910,7 @@ def main():
     # Start Flower server for four rounds of federated learning
     fl.server.start_server(
         server_address="10.100.116.10:8080",
-        config=fl.server.ServerConfig(num_rounds=100 if selectedDataset == "fedemnist" else 200),
+        config=fl.server.ServerConfig(num_rounds=500 if selectedDataset == "fedemnist" else 200),
         strategy=strategy,
     )
 

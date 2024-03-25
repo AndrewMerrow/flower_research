@@ -167,7 +167,7 @@ def main():
     roundGroupTable = Texttable()
 
     #the path of the directory containing the files we want to analyize 
-    p = Path('./directoryAnalysis/UTD/500Rounds')
+    p = Path('./directoryAnalysis/hybrid/500Rounds')
     for child in p.iterdir():
         if child.is_file():
             #save the path of the current file
