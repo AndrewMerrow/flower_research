@@ -533,7 +533,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             for proxy, client in new_results:
                 newClientIDs.append(client.metrics["clientID"])
 
-            lr_vector = compute_robustLR(new_update_dict, len(new_update_dict.keys())*.25)
+            #lr_vector = compute_robustLR(new_update_dict, len(new_update_dict.keys())*.25)
+            lr_vector = compute_robustLR(new_update_dict, 3)
             print("LR vector based on hybrid method:")
             print(lr_vector)
 
@@ -883,7 +884,7 @@ def main():
     else:
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "hybrid/offset0.1/adjustLOFDiscard/hybrid_poison_50_discard_30_test_fedemnist_33_clients_500rounds_" + str(ct) + ".txt"
+        filename = "hybrid/offset0.1/adjustLOFDiscard/hybrid_poison_50_discard_30_test2_fedemnist_33_clients_500rounds_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running fedemnist test", file=f)
 
