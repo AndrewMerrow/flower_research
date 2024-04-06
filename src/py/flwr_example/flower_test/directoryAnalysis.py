@@ -166,7 +166,17 @@ def concatTestResults(results, multi_df, title):
     return(multi_df)
 
 def plotMultiGraph(multi_df):
-    pass
+    fig, ax = plt.subplots()
+    
+    rounds = multi_df.Round.values
+    for col in multi_df.columns:
+        if(col != "Round"):
+            accuracy = multi_df[col].tolist()
+            ax.plot(rounds, accuracy, label=col)
+            ax.set_xlabel("Round")
+            ax.set_ylabel("Accuracy") 
+            L = ax.legend()
+            #L.get_texts()[0].set_text('Val Accuracy')
 
 
 def main():
@@ -177,6 +187,7 @@ def main():
 
     #using this to implement graphing multiple tests in the same graph
     multi_test_accuracies = pd.DataFrame()
+    multi_test_accuracies["Round"] = list(range(1, 501))
 
     #used to toggle averaging functionality 
     AVG = True
@@ -236,9 +247,13 @@ def main():
 
             #call a function to add the accuracy from the current test to the overall dataframe
             multi_test_accuracies = concatTestResults(val_accuracy, multi_test_accuracies, title)
+            
 
     #compute the averages of all the tests
-    multi_test_accuracies['Average'] = multi_test_accuracies.mean(axis=1)
+    average = multi_test_accuracies.columns[-1]
+    #exclude the column containing the round numbers in the average calculation
+    multi_test_accuracies['Average'] = multi_test_accuracies.loc[:, multi_test_accuracies.columns != "Round"].mean(axis=1)
+    plotMultiGraph(multi_test_accuracies)
     print(multi_test_accuracies)
 
 
