@@ -166,11 +166,15 @@ def concatTestResults(results, multi_df, title):
     return(multi_df)
 
 def plotMultiGraph(multi_df):
+    '''This function takes a dataframe containing the results from multiple tests and places them all in the same graph.
+        We assume there is a column containing the round numbers called 'Round'. 
+    '''
     fig, ax = plt.subplots()
-    
     rounds = multi_df.Round.values
     for col in multi_df.columns:
         if(col != "Round"):
+            if(col != "Average"):
+                ax.set_title(col.split(" ")[0])
             accuracy = multi_df[col].tolist()
             ax.plot(rounds, accuracy, label=col)
             ax.set_xlabel("Round")
@@ -187,14 +191,14 @@ def main():
 
     #using this to implement graphing multiple tests in the same graph
     multi_test_accuracies = pd.DataFrame()
-    multi_test_accuracies["Round"] = list(range(1, 501))
+    multi_test_accuracies["Round"] = list(range(0, 101))
 
     #used to toggle averaging functionality 
     AVG = True
     AVG_counter = 1
 
     #the path of the directory containing the files we want to analyize 
-    p = Path('./directoryAnalysis/multi_test')
+    p = Path('./directoryAnalysis/bestMethod/lofHybrid')
     for child in p.iterdir():
         if child.is_file():
             #save the path of the current file
@@ -225,7 +229,7 @@ def main():
             
             #create the title for the graph based on the filename
             if AVG:
-                title = "Test {}".format(str(AVG_counter))
+                title = "{} Test {}".format(title_pieces[0], str(AVG_counter))
                 AVG_counter += 1
             else:
                 title = title_pieces[0]
