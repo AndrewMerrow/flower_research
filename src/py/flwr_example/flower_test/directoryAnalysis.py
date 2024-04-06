@@ -159,6 +159,15 @@ def retrieveAccuracy(table, accuracies, poison_accuracies, aggregated_training_a
 
     return(table, all_df, acc_df)
 
+def concatTestResults(results, multi_df, title):
+    if(title in multi_df.columns):
+        title = "new title"
+    multi_df[title] = results
+    return(multi_df)
+
+def plotMultiGraph(multi_df):
+    pass
+
 
 def main():
     accuracyTable = Texttable()
@@ -166,8 +175,15 @@ def main():
     perRoundTable = Texttable()
     roundGroupTable = Texttable()
 
+    #using this to implement graphing multiple tests in the same graph
+    multi_test_accuracies = pd.DataFrame()
+
+    #used to toggle averaging functionality 
+    AVG = True
+    AVG_counter = 1
+
     #the path of the directory containing the files we want to analyize 
-    p = Path('./directoryAnalysis/UTD/newData')
+    p = Path('./directoryAnalysis/multi_test')
     for child in p.iterdir():
         if child.is_file():
             #save the path of the current file
@@ -197,14 +213,18 @@ def main():
             title_pieces = child.name.split('_')
             
             #create the title for the graph based on the filename
-            title = title_pieces[0]
-            for i in range(len(title_pieces)):
-                if(title_pieces[i] == 'poison'):
-                    if('UTD' in title):
-                        title_pieces[i+1] = str(float(title_pieces[i+1]) * 100)
-                    title += ' ' + title_pieces[i] + ' ' + title_pieces[i+1] + '%'
-                elif('clients' in title_pieces[i]):
-                    title += ' ' + title_pieces[i-1] + ' clients'
+            if AVG:
+                title = "Test {}".format(str(AVG_counter))
+                AVG_counter += 1
+            else:
+                title = title_pieces[0]
+                for i in range(len(title_pieces)):
+                    if(title_pieces[i] == 'poison'):
+                        if('UTD' in title):
+                            title_pieces[i+1] = str(float(title_pieces[i+1]) * 100)
+                        title += ' ' + title_pieces[i] + ' ' + title_pieces[i+1] + '%'
+                    elif('clients' in title_pieces[i]):
+                        title += ' ' + title_pieces[i-1] + ' clients'
 
             ax.set_title(title)
             #the legend is set manually because the labels aren't working for some reason
@@ -213,6 +233,14 @@ def main():
             L.get_texts()[1].set_text('Poison Accuracy')
             if(len(aggregated_training_accuracies) > 0):
                 L.get_texts()[2].set_text('Train Accuracy')
+
+            #call a function to add the accuracy from the current test to the overall dataframe
+            multi_test_accuracies = concatTestResults(val_accuracy, multi_test_accuracies, title)
+
+    #compute the averages of all the tests
+    multi_test_accuracies['Average'] = multi_test_accuracies.mean(axis=1)
+    print(multi_test_accuracies)
+
 
 
 if __name__ == "__main__":
