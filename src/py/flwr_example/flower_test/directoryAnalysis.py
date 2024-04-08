@@ -105,8 +105,8 @@ def retrieveAccuracy(table, accuracies, poison_accuracies, aggregated_training_a
     '''This function pulls the accuracy and poison accuracy metric for each 
     round and then creates the table containing the accuracy information'''
     #Add the column names to the table
-    if("UTD" in filename):
-        table.add_row(["Round", "Accuracy", "Poison Accuracy"])
+    if("UTD" in filename and "flower" not in filename):
+        table.add_row(["Round", "Accuracy", "Poison Accuracy", "Train Accuracy"])
     else:
         if(len(aggregated_training_accuracies) > 0):
             table.add_row(["Round", "Val Accuracy", "Poison Accuracy", "Train Accuracy"])
@@ -114,14 +114,20 @@ def retrieveAccuracy(table, accuracies, poison_accuracies, aggregated_training_a
             table.add_row(["Round", "Accuracy", "Poison Accuracy"])
     all_df = pd.DataFrame()
     acc_df = pd.DataFrame()
+
+    #if it is a UTD test, add a row for round 0
+    if("UTD" in filename and "flower" not in filename):
+            acc_df2 = pd.DataFrame([[0, 0, 0]], columns=['Round', 'Accuracy', 'Poison_Accuracy'])
+            acc_df = pd.concat([acc_df, acc_df2])
+    
     #This loop retrieves the base and poison accuracies to the nearest 2 decimal places and adds them to the accuracy table
     for i in range(len(accuracies)):
         accuracy = accuracies[i].split(": ")[1]
         poison_accuracy = poison_accuracies[i].split(": ")[1]
         training_accuracy = ''
 
-        if("UTD" in filename):
-            table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))])
+        if("UTD" in filename and "flower" not in filename):
+            table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy)), 'N/A'])
         else:
             #added training accuracy recording, but not all my input files will have this new info in them
             if(len(aggregated_training_accuracies) > 0):
@@ -140,7 +146,7 @@ def retrieveAccuracy(table, accuracies, poison_accuracies, aggregated_training_a
                 table.add_row([i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy))])
 
         #includes FNs in each round
-        if("UTD" not in filename):
+        if("UTD" not in filename and "flower" not in filename):
             all_df2 = pd.DataFrame([[i, '{:.2%}'.format(float(accuracy)), '{:.2%}'.format(float(poison_accuracy)), FNs_Per_Round[i]]], columns=['Round', 'Accuracy', 'Poison Accuracy', 'FNs'])
             all_df = pd.concat([all_df, all_df2])
 
@@ -156,7 +162,6 @@ def retrieveAccuracy(table, accuracies, poison_accuracies, aggregated_training_a
             acc_df2 = pd.DataFrame([[i, '{:.2}'.format(float(accuracy)), '{:.2}'.format(float(poison_accuracy))]], columns=['Round', 'Accuracy', 'Poison_Accuracy'])
             acc_df = pd.concat([acc_df, acc_df2])
 
-
     return(table, all_df, acc_df)
 
 def concatTestResults(results, multi_df, title):
@@ -165,11 +170,11 @@ def concatTestResults(results, multi_df, title):
     multi_df[title] = results
     return(multi_df)
 
-def plotMultiGraph(multi_df):
+def plotMultiGraph(multi_df, ax):
     '''This function takes a dataframe containing the results from multiple tests and places them all in the same graph.
         We assume there is a column containing the round numbers called 'Round'. 
     '''
-    fig, ax = plt.subplots()
+    #fig, ax = plt.subplots()
     rounds = multi_df.Round.values
     for col in multi_df.columns:
         if(col != "Round"):
@@ -178,9 +183,27 @@ def plotMultiGraph(multi_df):
             accuracy = multi_df[col].tolist()
             ax.plot(rounds, accuracy, label=col)
             ax.set_xlabel("Round")
-            ax.set_ylabel("Accuracy") 
+            ax.set_ylabel("Accuracy")
+            #Set the accuracy axis to go to 100%
+            ax.set_ylim([0, 1]) 
             L = ax.legend()
             #L.get_texts()[0].set_text('Val Accuracy')
+
+def plotAverages(multi_df, ax=None):
+    '''This function works like the plotMultiGraph() funciton, but only plots the average values'''
+    if(ax == None):
+        fig, ax = plt.subplots()
+    ax.set_title("Average Accuracies")
+    rounds = multi_df.Round.values
+    for col in multi_df.columns:
+        if("Average" in col):
+            accuracy = multi_df[col].tolist()
+            ax.plot(rounds, accuracy, label=col)
+            ax.set_xlabel("Round")
+            ax.set_ylabel("Accuracy")
+            #Set the accuracy axis to go to 100%
+            ax.set_ylim([0, 1]) 
+            L = ax.legend()
 
 
 def main():
@@ -192,73 +215,111 @@ def main():
     #using this to implement graphing multiple tests in the same graph
     multi_test_accuracies = pd.DataFrame()
     multi_test_accuracies["Round"] = list(range(0, 101))
+    multi_test_poisons = pd.DataFrame()
+    multi_test_poisons["Round"] = list(range(0, 101))
+
+    avg_values = pd.DataFrame()
+    avg_values['Round'] = list(range(0, 101))
 
     #used to toggle averaging functionality 
     AVG = True
     AVG_counter = 1
+    available_paths = {'UTD': './directoryAnalysis/bestMethod/UTD', 'lofHybrid': './directoryAnalysis/bestMethod/lofHybrid', 'hybrid': './directoryAnalysis/bestMethod/hybrid', 'UTD_flower': './directoryAnalysis/bestMethod/UTD_flower'}
+    #the path of the directory containing the files we want to analyize
+    paths = [available_paths['UTD'], available_paths['lofHybrid'], available_paths["hybrid"], available_paths["UTD_flower"]] 
+    #p = Path('./directoryAnalysis/bestMethod/lofHybrid')
+    for path in paths:
+        p = Path(path)
+        AVG_counter = 1
+        for child in p.iterdir():
+            if child.is_file():
+                #save the path of the current file
+                q = p / child.name
 
-    #the path of the directory containing the files we want to analyize 
-    p = Path('./directoryAnalysis/bestMethod/lofHybrid')
-    for child in p.iterdir():
-        if child.is_file():
-            #save the path of the current file
-            q = p / child.name
+                #retrive the info from the current file
+                FPs_per_round, FNs_per_round, accuracies, poison_accuracies, false_positives_count, false_negatives_count, server_round_count, aggregated_training_accuracies, aggregated_poison_accuracies = gatherInfo(q)
+                accuracyTable, all_accuracy_df, just_accuracy_df = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies, aggregated_training_accuracies, aggregated_poison_accuracies, FNs_per_round, child.name)
 
-            #retrive the info from the current file
-            FPs_per_round, FNs_per_round, accuracies, poison_accuracies, false_positives_count, false_negatives_count, server_round_count, aggregated_training_accuracies, aggregated_poison_accuracies = gatherInfo(q)
-            accuracyTable, all_accuracy_df, just_accuracy_df = retrieveAccuracy(accuracyTable, accuracies, poison_accuracies, aggregated_training_accuracies, aggregated_poison_accuracies, FNs_per_round, child.name)
+                #create the graph for the current file
+                if(not AVG):
+                    fig, ax = plt.subplots()
+                #numbers are retrieved from the dataframe and converted to floats for graphing
+                val_accuracy = np.asarray(just_accuracy_df.Accuracy.values, float)
+                poison_accuracy = np.asarray(just_accuracy_df.Poison_Accuracy.values, float)
+                if(len(aggregated_training_accuracies) > 0):
+                    train_accuracy = np.asanyarray(just_accuracy_df.Train_Accuracy.values, float)
+                
+                round_number = just_accuracy_df.Round.values
+                
+                #plot the retrieved values
+                if(not AVG):
+                    ax.plot(round_number, val_accuracy, label="Val Accuracy")
+                    ax.plot(round_number, poison_accuracy, label="Poison Accuracy")
+                    if(len(aggregated_training_accuracies) > 0):
+                        ax.plot(round_number, train_accuracy, label="Train Accuracy")
+                    ax.set_xlabel("Round")
+                    ax.set_ylabel("Accuracy")
+                title_pieces = child.name.split('_')
+                
+                #create the title for the graph based on the filename
+                if AVG:
+                    if(title_pieces[0] == "UTD"):
+                        if(title_pieces[1] == "flower"):
+                            title = "{}_{} Test {}".format(title_pieces[0], title_pieces[1], str(AVG_counter))
+                        else:
+                            title = "{} Test {}".format(title_pieces[0], str(AVG_counter))
+                    else:
+                        title = "{} Test {}".format(title_pieces[0], str(AVG_counter))
+                    AVG_counter += 1
+                else:
+                    title = title_pieces[0]
+                    for i in range(len(title_pieces)):
+                        if(title_pieces[i] == 'poison'):
+                            if('UTD' in title):
+                                title_pieces[i+1] = str(float(title_pieces[i+1]) * 100)
+                            title += ' ' + title_pieces[i] + ' ' + title_pieces[i+1] + '%'
+                        elif('clients' in title_pieces[i]):
+                            title += ' ' + title_pieces[i-1] + ' clients'
 
-            #create the graph for the current file
-            fig, ax = plt.subplots()
-            #numbers are retrieved from the dataframe and converted to floats for graphing
-            val_accuracy = np.asarray(just_accuracy_df.Accuracy.values, float)
-            poison_accuracy = np.asarray(just_accuracy_df.Poison_Accuracy.values, float)
-            if(len(aggregated_training_accuracies) > 0):
-                train_accuracy = np.asanyarray(just_accuracy_df.Train_Accuracy.values, float)
+                if(not AVG):
+                    ax.set_title(title)
+                    #the legend is set manually because the labels aren't working for some reason
+                    L = ax.legend()
+                    L.get_texts()[0].set_text('Val Accuracy')
+                    L.get_texts()[1].set_text('Poison Accuracy')
+                    if(len(aggregated_training_accuracies) > 0):
+                        L.get_texts()[2].set_text('Train Accuracy')
+
+                #call a function to add the accuracy from the current test to the overall dataframe
+                multi_test_accuracies = concatTestResults(val_accuracy, multi_test_accuracies, title + " accuracy")
+                multi_test_poisons = concatTestResults(poison_accuracy, multi_test_poisons, title + " poison")
             
-            round_number = just_accuracy_df.Round.values
-            
-            #plot the retrieved values
-            ax.plot(round_number, val_accuracy, label="Val Accuracy")
-            ax.plot(round_number, poison_accuracy, label="Poison Accuracy")
-            if(len(aggregated_training_accuracies) > 0):
-                ax.plot(round_number, train_accuracy, label="Train Accuracy")
-            ax.set_xlabel("Round")
-            ax.set_ylabel("Accuracy")
-            title_pieces = child.name.split('_')
-            
-            #create the title for the graph based on the filename
-            if AVG:
-                title = "{} Test {}".format(title_pieces[0], str(AVG_counter))
-                AVG_counter += 1
-            else:
-                title = title_pieces[0]
-                for i in range(len(title_pieces)):
-                    if(title_pieces[i] == 'poison'):
-                        if('UTD' in title):
-                            title_pieces[i+1] = str(float(title_pieces[i+1]) * 100)
-                        title += ' ' + title_pieces[i] + ' ' + title_pieces[i+1] + '%'
-                    elif('clients' in title_pieces[i]):
-                        title += ' ' + title_pieces[i-1] + ' clients'
-
-            ax.set_title(title)
-            #the legend is set manually because the labels aren't working for some reason
-            L = ax.legend()
-            L.get_texts()[0].set_text('Val Accuracy')
-            L.get_texts()[1].set_text('Poison Accuracy')
-            if(len(aggregated_training_accuracies) > 0):
-                L.get_texts()[2].set_text('Train Accuracy')
-
-            #call a function to add the accuracy from the current test to the overall dataframe
-            multi_test_accuracies = concatTestResults(val_accuracy, multi_test_accuracies, title)
-            
+        #print(multi_test_accuracies)
+        #print("BEFORE")
+        #print(multi_test_accuracies.columns)
+        avg_values[title.split(" ")[0] + ' Average Accuracy'] = multi_test_accuracies.loc[:, multi_test_accuracies.columns != "Round"].mean(axis=1)
+        avg_values[title.split(" ")[0] + ' Average Poison'] = multi_test_poisons.loc[:, multi_test_poisons.columns != "Round"].mean(axis=1)
+        multi_test_accuracies = pd.DataFrame(None)
+        multi_test_poisons.iloc[0:0]
+        #print("AFTER")
+        #print(multi_test_accuracies.columns)
 
     #compute the averages of all the tests
-    average = multi_test_accuracies.columns[-1]
     #exclude the column containing the round numbers in the average calculation
-    multi_test_accuracies['Average'] = multi_test_accuracies.loc[:, multi_test_accuracies.columns != "Round"].mean(axis=1)
-    plotMultiGraph(multi_test_accuracies)
-    print(multi_test_accuracies)
+    multi_test_accuracies['Average Accuracy'] = multi_test_accuracies.loc[:, multi_test_accuracies.columns != "Round"].mean(axis=1)
+    multi_test_poisons['Average Poison'] = multi_test_poisons.loc[:, multi_test_poisons.columns != "Round"].mean(axis=1)
+    #print(avg_values)
+
+    fig, ax = plt.subplots()
+    ax.set_title("Average Results")
+    #plotMultiGraph(multi_test_accuracies, ax)
+    #plotMultiGraph(multi_test_poisons, ax)
+    #plotAverages(multi_test_accuracies, ax)
+    #plotAverages(multi_test_poisons, ax)
+    #print(multi_test_poisons)
+    #print(multi_test_accuracies)
+
+    plotMultiGraph(avg_values, ax)
 
 
 
