@@ -1,0 +1,704 @@
+Running fedemnist test
+Round 0 accuracy: 0.09179075235109718
+Round 0 poison accuracy: 0.0
+
+Server Round 1
+Number of clients after removing some: 33
+Round 1 aggregated training accuracy: 0.332063305978898
+Round 1 aggregated poison accuracy: 0.1797994467606548
+Round 1 accuracy: 0.17765478056426331
+Round 1 poison accuracy: 0.0
+
+Server Round 2
+Number of clients after removing some: 33
+Round 2 aggregated training accuracy: 0.8522050059594756
+Round 2 aggregated poison accuracy: 0.15270707358213806
+Round 2 accuracy: 0.6425352664576802
+Round 2 poison accuracy: 0.046404341926729986
+
+Server Round 3
+Number of clients after removing some: 33
+Round 3 aggregated training accuracy: 0.9603295697284101
+Round 3 aggregated poison accuracy: 0.11546591949399397
+Round 3 accuracy: 0.7007494122257053
+Round 3 poison accuracy: 0.03690637720488467
+
+Server Round 4
+Number of clients after removing some: 33
+Round 4 aggregated training accuracy: 0.9701357466063348
+Round 4 aggregated poison accuracy: 0.019694534321399993
+Round 4 accuracy: 0.8041487068965517
+Round 4 poison accuracy: 0.02659430122116689
+
+Server Round 5
+Number of clients after removing some: 33
+Round 5 aggregated training accuracy: 0.9782874617737003
+Round 5 aggregated poison accuracy: 0.10442723828729579
+Round 5 accuracy: 0.8344680642633229
+Round 5 poison accuracy: 0.012211668928086838
+
+Server Round 6
+Number of clients after removing some: 33
+Round 6 aggregated training accuracy: 0.9752238805970149
+Round 6 aggregated poison accuracy: 0.04883857510277648
+Round 6 accuracy: 0.8513665752351097
+Round 6 poison accuracy: 0.011126187245590231
+
+Server Round 7
+Number of clients after removing some: 33
+Round 7 aggregated training accuracy: 0.97947932618683
+Round 7 aggregated poison accuracy: 0.11535304128113434
+Round 7 accuracy: 0.8665997257053292
+Round 7 poison accuracy: 0.011940298507462687
+
+Server Round 8
+Number of clients after removing some: 33
+Round 8 aggregated training accuracy: 0.9961019490254872
+Round 8 aggregated poison accuracy: 0.11143869042412305
+Round 8 accuracy: 0.870101880877743
+Round 8 poison accuracy: 0.007327001356852103
+
+Server Round 9
+Number of clients after removing some: 33
+Round 9 aggregated training accuracy: 0.9814024390243903
+Round 9 aggregated poison accuracy: 0.07347660257470959
+Round 9 accuracy: 0.8672364811912225
+Round 9 poison accuracy: 0.0067842605156037995
+
+Server Round 10
+Number of clients after removing some: 33
+Round 10 aggregated training accuracy: 0.9955342902711324
+Round 10 aggregated poison accuracy: 0.06518559875697631
+Round 10 accuracy: 0.8818818573667712
+Round 10 poison accuracy: 0.0035278154681139757
+
+Server Round 11
+Number of clients after removing some: 33
+Round 11 aggregated training accuracy: 0.9957652752571083
+Round 11 aggregated poison accuracy: 0.08258936303468631
+Round 11 accuracy: 0.8795062695924765
+Round 11 poison accuracy: 0.0024423337856173677
+
+Server Round 12
+Number of clients after removing some: 33
+Round 12 aggregated training accuracy: 0.9956140350877193
+Round 12 aggregated poison accuracy: 0.17665111444373036
+Round 12 accuracy: 0.8850166536050157
+Round 12 poison accuracy: 0.0027137042062415195
+
+Server Round 13
+Number of clients after removing some: 33
+Round 13 aggregated training accuracy: 0.9910021718895439
+Round 13 aggregated poison accuracy: 0.03205437848974741
+Round 13 accuracy: 0.8756367554858934
+Round 13 poison accuracy: 0.0018995929443690637
+
+Server Round 14
+Number of clients after removing some: 33
+Round 14 aggregated training accuracy: 0.9979179060083284
+Round 14 aggregated poison accuracy: 0.03535564296305504
+Round 14 accuracy: 0.8833512931034483
+Round 14 poison accuracy: 0.0016282225237449117
+
+Server Round 15
+Number of clients after removing some: 33
+Round 15 aggregated training accuracy: 0.998840579710145
+Round 15 aggregated poison accuracy: 0.15748954830590128
+Round 15 accuracy: 0.8833023119122257
+Round 15 poison accuracy: 0.002170963364993216
+
+Server Round 16
+Number of clients after removing some: 33
+Round 16 aggregated training accuracy: 0.9974811083123426
+Round 16 aggregated poison accuracy: 0.11164081698218319
+Round 16 accuracy: 0.8857023902821317
+Round 16 poison accuracy: 0.002170963364993216
+
+Server Round 17
+Number of clients after removing some: 33
+Round 17 aggregated training accuracy: 0.9955223880597015
+Round 17 aggregated poison accuracy: 0.11244958383118328
+Round 17 accuracy: 0.8810246865203761
+Round 17 poison accuracy: 0.0016282225237449117
+
+Server Round 18
+Number of clients after removing some: 33
+Round 18 aggregated training accuracy: 0.9960796139927623
+Round 18 aggregated poison accuracy: 0.1108943439399122
+Round 18 accuracy: 0.8839390673981191
+Round 18 poison accuracy: 0.001085481682496608
+
+Server Round 19
+Number of clients after removing some: 33
+Round 19 aggregated training accuracy: 0.9949689257176679
+Round 19 aggregated poison accuracy: 0.09944228118199927
+Round 19 accuracy: 0.8915311520376176
+Round 19 poison accuracy: 0.0008141112618724559
+
+Server Round 20
+Number of clients after removing some: 33
+Round 20 aggregated training accuracy: 0.9923054158034922
+Round 20 aggregated poison accuracy: 0.15940904051402166
+Round 20 accuracy: 0.8925842476489029
+Round 20 poison accuracy: 0.0008141112618724559
+
+Server Round 21
+Number of clients after removing some: 33
+Round 21 aggregated training accuracy: 0.9985332942211792
+Round 21 aggregated poison accuracy: 0.08014971941540332
+Round 21 accuracy: 0.8918250391849529
+Round 21 poison accuracy: 0.0008141112618724559
+
+Server Round 22
+Number of clients after removing some: 33
+Round 22 aggregated training accuracy: 0.990891959798995
+Round 22 aggregated poison accuracy: 0.06034344040419193
+Round 22 accuracy: 0.8881514498432602
+Round 22 poison accuracy: 0.000542740841248304
+
+Server Round 23
+Number of clients after removing some: 33
+Round 23 aggregated training accuracy: 0.9972041006523765
+Round 23 aggregated poison accuracy: 0.02581728315130271
+Round 23 accuracy: 0.8930495689655172
+Round 23 poison accuracy: 0.000542740841248304
+
+Server Round 24
+Number of clients after removing some: 33
+Round 24 aggregated training accuracy: 0.9950437317784256
+Round 24 aggregated poison accuracy: 0.03222575170793264
+Round 24 accuracy: 0.8978252351097179
+Round 24 poison accuracy: 0.000542740841248304
+
+Server Round 25
+Number of clients after removing some: 33
+Round 25 aggregated training accuracy: 0.9759358288770054
+Round 25 aggregated poison accuracy: 0.06134600051113741
+Round 25 accuracy: 0.9000783699059561
+Round 25 poison accuracy: 0.000542740841248304
+
+Server Round 26
+Number of clients after removing some: 33
+Round 26 aggregated training accuracy: 0.998533724340176
+Round 26 aggregated poison accuracy: 0.11394987207391459
+Round 26 accuracy: 0.8977762539184952
+Round 26 poison accuracy: 0.000271370420624152
+
+Server Round 27
+Number of clients after removing some: 33
+Round 27 aggregated training accuracy: 0.9952774498229043
+Round 27 aggregated poison accuracy: 0.07599477123345387
+Round 27 accuracy: 0.8883228840125392
+Round 27 poison accuracy: 0.000542740841248304
+
+Server Round 28
+Number of clients after removing some: 33
+Round 28 aggregated training accuracy: 0.9902019002375297
+Round 28 aggregated poison accuracy: 0.12297455177148162
+Round 28 accuracy: 0.8943475705329154
+Round 28 poison accuracy: 0.000542740841248304
+
+Server Round 29
+Number of clients after removing some: 33
+Round 29 aggregated training accuracy: 0.9927515221803421
+Round 29 aggregated poison accuracy: 0.0910990265992581
+Round 29 accuracy: 0.8982415752351097
+Round 29 poison accuracy: 0.000542740841248304
+
+Server Round 30
+Number of clients after removing some: 33
+Round 30 aggregated training accuracy: 0.9933354490637892
+Round 30 aggregated poison accuracy: 0.07528716304229409
+Round 30 accuracy: 0.893710815047022
+Round 30 poison accuracy: 0.000271370420624152
+
+Server Round 31
+Number of clients after removing some: 33
+Round 31 aggregated training accuracy: 0.9923171481253842
+Round 31 aggregated poison accuracy: 0.08138869267675145
+Round 31 accuracy: 0.8999314263322884
+Round 31 poison accuracy: 0.000542740841248304
+
+Server Round 32
+Number of clients after removing some: 33
+Round 32 aggregated training accuracy: 0.9881386861313869
+Round 32 aggregated poison accuracy: 0.07162899833942431
+Round 32 accuracy: 0.8969925548589341
+Round 32 poison accuracy: 0.000542740841248304
+
+Server Round 33
+Number of clients after removing some: 33
+Round 33 aggregated training accuracy: 0.9878338278931751
+Round 33 aggregated poison accuracy: 0.09961919563230517
+Round 33 accuracy: 0.8950088166144201
+Round 33 poison accuracy: 0.0
+
+Server Round 34
+Number of clients after removing some: 33
+Round 34 aggregated training accuracy: 0.9895960832313342
+Round 34 aggregated poison accuracy: 0.062393938840348155
+Round 34 accuracy: 0.8974333855799373
+Round 34 poison accuracy: 0.0
+
+Server Round 35
+Number of clients after removing some: 33
+Round 35 aggregated training accuracy: 0.9822274881516587
+Round 35 aggregated poison accuracy: 0.21334409383500422
+Round 35 accuracy: 0.9014008620689655
+Round 35 poison accuracy: 0.0
+
+Server Round 36
+Number of clients after removing some: 33
+Round 36 aggregated training accuracy: 0.9669956816779766
+Round 36 aggregated poison accuracy: 0.0354630582157353
+Round 36 accuracy: 0.8960129310344828
+Round 36 poison accuracy: 0.0
+
+Server Round 37
+Number of clients after removing some: 33
+Round 37 aggregated training accuracy: 0.9734157650695517
+Round 37 aggregated poison accuracy: 0.05636317499197842
+Round 37 accuracy: 0.8973844043887147
+Round 37 poison accuracy: 0.0
+
+Server Round 38
+Number of clients after removing some: 33
+Round 38 aggregated training accuracy: 0.9380019274012207
+Round 38 aggregated poison accuracy: 0.04329199431107174
+Round 38 accuracy: 0.8861922021943573
+Round 38 poison accuracy: 0.0
+
+Server Round 39
+Number of clients after removing some: 33
+Round 39 aggregated training accuracy: 0.9814929056138186
+Round 39 aggregated poison accuracy: 0.09505539991144052
+Round 39 accuracy: 0.884698275862069
+Round 39 poison accuracy: 0.0
+
+Server Round 40
+Number of clients after removing some: 33
+Round 40 aggregated training accuracy: 0.9724992444847386
+Round 40 aggregated poison accuracy: 0.0037131576109397787
+Round 40 accuracy: 0.90015184169279
+Round 40 poison accuracy: 0.0
+
+Server Round 41
+Number of clients after removing some: 33
+Round 41 aggregated training accuracy: 0.9845874886672711
+Round 41 aggregated poison accuracy: 0.11856263067748703
+Round 41 accuracy: 0.8955721003134797
+Round 41 poison accuracy: 0.0
+
+Server Round 42
+Number of clients after removing some: 33
+Round 42 aggregated training accuracy: 0.9384525205158265
+Round 42 aggregated poison accuracy: 0.11748621276013622
+Round 42 accuracy: 0.8980211598746082
+Round 42 poison accuracy: 0.0
+
+Server Round 43
+Number of clients after removing some: 33
+Round 43 aggregated training accuracy: 0.9115562403697997
+Round 43 aggregated poison accuracy: 0.0512550568351686
+Round 43 accuracy: 0.8986579153605015
+Round 43 poison accuracy: 0.0
+
+Server Round 44
+Number of clients after removing some: 33
+Round 44 aggregated training accuracy: 0.9740685543964233
+Round 44 aggregated poison accuracy: 0.03128088051815169
+Round 44 accuracy: 0.898094631661442
+Round 44 poison accuracy: 0.0
+
+Server Round 45
+Number of clients after removing some: 33
+Round 45 aggregated training accuracy: 0.9784848484848485
+Round 45 aggregated poison accuracy: 0.026735989474117018
+Round 45 accuracy: 0.8962578369905956
+Round 45 poison accuracy: 0.0
+
+Server Round 46
+Number of clients after removing some: 33
+Round 46 aggregated training accuracy: 0.9827739827739828
+Round 46 aggregated poison accuracy: 0.0012672281328997748
+Round 46 accuracy: 0.8908454153605015
+Round 46 poison accuracy: 0.0
+
+Server Round 47
+Number of clients after removing some: 33
+Round 47 aggregated training accuracy: 0.9794871794871794
+Round 47 aggregated poison accuracy: 0.09446308666457921
+Round 47 accuracy: 0.8900862068965517
+Round 47 poison accuracy: 0.0
+
+Server Round 48
+Number of clients after removing some: 33
+Round 48 aggregated training accuracy: 0.9216546537135694
+Round 48 aggregated poison accuracy: 0.09291081982186157
+Round 48 accuracy: 0.8911148119122257
+Round 48 poison accuracy: 0.000271370420624152
+
+Server Round 49
+Number of clients after removing some: 33
+Round 49 aggregated training accuracy: 0.9597855227882037
+Round 49 aggregated poison accuracy: 0.06949661474090268
+Round 49 accuracy: 0.8893759796238244
+Round 49 poison accuracy: 0.0
+
+Server Round 50
+Number of clients after removing some: 33
+Round 50 aggregated training accuracy: 0.9327536231884058
+Round 50 aggregated poison accuracy: 0.09928248087625116
+Round 50 accuracy: 0.8957190438871473
+Round 50 poison accuracy: 0.0
+
+Server Round 51
+Number of clients after removing some: 33
+Round 51 aggregated training accuracy: 0.9353635798632691
+Round 51 aggregated poison accuracy: 0.10883488653124006
+Round 51 accuracy: 0.8906984717868338
+Round 51 poison accuracy: 0.0
+
+Server Round 52
+Number of clients after removing some: 33
+Round 52 aggregated training accuracy: 0.9063856168629882
+Round 52 aggregated poison accuracy: 0.12591671636743856
+Round 52 accuracy: 0.8908699059561128
+Round 52 poison accuracy: 0.0
+
+Server Round 53
+Number of clients after removing some: 33
+Round 53 aggregated training accuracy: 0.9360309431716751
+Round 53 aggregated poison accuracy: 0.08070908340018013
+Round 53 accuracy: 0.7301626175548589
+Round 53 poison accuracy: 0.0
+
+Server Round 54
+Number of clients after removing some: 33
+Round 54 aggregated training accuracy: 0.9499116087212728
+Round 54 aggregated poison accuracy: 0.03447939495749942
+Round 54 accuracy: 0.8782082680250783
+Round 54 poison accuracy: 0.000271370420624152
+
+Server Round 55
+Number of clients after removing some: 33
+Round 55 aggregated training accuracy: 0.9350688210652304
+Round 55 aggregated poison accuracy: 0.07124139381434594
+Round 55 accuracy: 0.8804369122257053
+Round 55 poison accuracy: 0.000271370420624152
+
+Server Round 56
+Number of clients after removing some: 33
+Round 56 aggregated training accuracy: 0.9398447606727037
+Round 56 aggregated poison accuracy: 0.07805866586156597
+Round 56 accuracy: 0.8642976097178683
+Round 56 poison accuracy: 0.0
+
+Server Round 57
+Number of clients after removing some: 33
+Round 57 aggregated training accuracy: 0.7425394967817437
+Round 57 aggregated poison accuracy: 0.04685339725120342
+Round 57 accuracy: 0.446855407523511
+Round 57 poison accuracy: 0.0
+
+Server Round 58
+Number of clients after removing some: 33
+Round 58 aggregated training accuracy: 0.9619103428069148
+Round 58 aggregated poison accuracy: 0.042794868848894066
+Round 58 accuracy: 0.8435050940438872
+Round 58 poison accuracy: 0.000542740841248304
+
+Server Round 59
+Number of clients after removing some: 33
+Round 59 aggregated training accuracy: 0.8843172331544424
+Round 59 aggregated poison accuracy: 0.027196429626141532
+Round 59 accuracy: 0.8635873824451411
+Round 59 poison accuracy: 0.000271370420624152
+
+Server Round 60
+Number of clients after removing some: 33
+Round 60 aggregated training accuracy: 0.7898275358082432
+Round 60 aggregated poison accuracy: 0.009316469392296047
+Round 60 accuracy: 0.09979917711598746
+Round 60 poison accuracy: 0.0008141112618724559
+
+Server Round 61
+Number of clients after removing some: 33
+Round 61 aggregated training accuracy: 0.9757267006293078
+Round 61 aggregated poison accuracy: 0.03970376141197193
+Round 61 accuracy: 0.8439949059561128
+Round 61 poison accuracy: 0.0013568521031207597
+
+Server Round 62
+Number of clients after removing some: 33
+Round 62 aggregated training accuracy: 0.9924264491698224
+Round 62 aggregated poison accuracy: 0.014603412247872729
+Round 62 accuracy: 0.8632445141065831
+Round 62 poison accuracy: 0.000271370420624152
+
+Server Round 63
+Number of clients after removing some: 33
+Round 63 aggregated training accuracy: 0.983030303030303
+Round 63 aggregated poison accuracy: 0.07895497718021464
+Round 63 accuracy: 0.8635139106583072
+Round 63 poison accuracy: 0.000542740841248304
+
+Server Round 64
+Number of clients after removing some: 33
+Round 64 aggregated training accuracy: 0.9950335962605902
+Round 64 aggregated poison accuracy: 0.027522494292936562
+Round 64 accuracy: 0.8816369514106583
+Round 64 poison accuracy: 0.0008141112618724559
+
+Server Round 65
+Number of clients after removing some: 33
+Round 65 aggregated training accuracy: 0.990279823269514
+Round 65 aggregated poison accuracy: 0.10130749386019428
+Round 65 accuracy: 0.8842084639498433
+Round 65 poison accuracy: 0.000271370420624152
+
+Server Round 66
+Number of clients after removing some: 33
+Round 66 aggregated training accuracy: 0.995579133510168
+Round 66 aggregated poison accuracy: 0.019148530316826763
+Round 66 accuracy: 0.8835227272727273
+Round 66 poison accuracy: 0.000271370420624152
+
+Server Round 67
+Number of clients after removing some: 33
+Round 67 aggregated training accuracy: 0.9960244648318043
+Round 67 aggregated poison accuracy: 0.03306295876746376
+Round 67 accuracy: 0.8832778213166145
+Round 67 poison accuracy: 0.0
+
+Server Round 68
+Number of clients after removing some: 33
+Round 68 aggregated training accuracy: 0.9947198591962453
+Round 68 aggregated poison accuracy: 0.13914711357476994
+Round 68 accuracy: 0.8820288009404389
+Round 68 poison accuracy: 0.000271370420624152
+
+Server Round 69
+Number of clients after removing some: 33
+Round 69 aggregated training accuracy: 0.9947136563876652
+Round 69 aggregated poison accuracy: 0.10535149642257276
+Round 69 accuracy: 0.877742946708464
+Round 69 poison accuracy: 0.000271370420624152
+
+Server Round 70
+Number of clients after removing some: 33
+Round 70 aggregated training accuracy: 0.9981285090455396
+Round 70 aggregated poison accuracy: 0.04511960697843512
+Round 70 accuracy: 0.8723795062695925
+Round 70 poison accuracy: 0.001085481682496608
+
+Server Round 71
+Number of clients after removing some: 33
+Round 71 aggregated training accuracy: 0.9957094698130555
+Round 71 aggregated poison accuracy: 0.09581346880508444
+Round 71 accuracy: 0.8653262147335423
+Round 71 poison accuracy: 0.000542740841248304
+
+Server Round 72
+Number of clients after removing some: 33
+Round 72 aggregated training accuracy: 0.9819734345351043
+Round 72 aggregated poison accuracy: 0.0827419741039498
+Round 72 accuracy: 0.8693426724137931
+Round 72 poison accuracy: 0.0008141112618724559
+
+Server Round 73
+Number of clients after removing some: 33
+Round 73 aggregated training accuracy: 0.995189416716777
+Round 73 aggregated poison accuracy: 0.07447363847683357
+Round 73 accuracy: 0.8780123432601881
+Round 73 poison accuracy: 0.0008141112618724559
+
+Server Round 74
+Number of clients after removing some: 33
+Round 74 aggregated training accuracy: 0.9920634920634921
+Round 74 aggregated poison accuracy: 0.06192629923973207
+Round 74 accuracy: 0.8703222962382445
+Round 74 poison accuracy: 0.0
+
+Server Round 75
+Number of clients after removing some: 33
+Round 75 aggregated training accuracy: 0.9896151496640195
+Round 75 aggregated poison accuracy: 0.14789149161727322
+Round 75 accuracy: 0.8697100313479624
+Round 75 poison accuracy: 0.000542740841248304
+
+Server Round 76
+Number of clients after removing some: 33
+Round 76 aggregated training accuracy: 0.9665849172286941
+Round 76 aggregated poison accuracy: 0.11889485186519329
+Round 76 accuracy: 0.8775470219435737
+Round 76 poison accuracy: 0.000271370420624152
+
+Server Round 77
+Number of clients after removing some: 33
+Round 77 aggregated training accuracy: 0.9921020656136087
+Round 77 aggregated poison accuracy: 0.14216842441938107
+Round 77 accuracy: 0.7980505485893417
+Round 77 poison accuracy: 0.004884667571234735
+
+Server Round 78
+Number of clients after removing some: 33
+Round 78 aggregated training accuracy: 0.9959273182957393
+Round 78 aggregated poison accuracy: 0.04747222533946807
+Round 78 accuracy: 0.8260432993730408
+Round 78 poison accuracy: 0.005427408412483039
+
+Server Round 79
+Number of clients after removing some: 33
+Round 79 aggregated training accuracy: 0.9971925884334644
+Round 79 aggregated poison accuracy: 0.07959061311278327
+Round 79 accuracy: 0.8581504702194357
+Round 79 poison accuracy: 0.0016282225237449117
+
+Server Round 80
+Number of clients after removing some: 33
+Round 80 aggregated training accuracy: 0.9920236336779912
+Round 80 aggregated poison accuracy: 0.04031891034955477
+Round 80 accuracy: 0.8587137539184952
+Round 80 poison accuracy: 0.0013568521031207597
+
+Server Round 81
+Number of clients after removing some: 33
+Round 81 aggregated training accuracy: 0.9930454940596929
+Round 81 aggregated poison accuracy: 0.03779755106084917
+Round 81 accuracy: 0.8736285266457681
+Round 81 poison accuracy: 0.0008141112618724559
+
+Server Round 82
+Number of clients after removing some: 33
+Round 82 aggregated training accuracy: 0.9710559796437659
+Round 82 aggregated poison accuracy: 0.10487517305906277
+Round 82 accuracy: 0.8733591300940439
+Round 82 poison accuracy: 0.000542740841248304
+
+Server Round 83
+Number of clients after removing some: 33
+Round 83 aggregated training accuracy: 0.9939704552306301
+Round 83 aggregated poison accuracy: 0.05944517552561144
+Round 83 accuracy: 0.8234717868338558
+Round 83 poison accuracy: 0.0
+
+Server Round 84
+Number of clients after removing some: 33
+Round 84 aggregated training accuracy: 0.9635651912074676
+Round 84 aggregated poison accuracy: 0.10266063131006704
+Round 84 accuracy: 0.8507543103448276
+Round 84 poison accuracy: 0.000271370420624152
+
+Server Round 85
+Number of clients after removing some: 33
+Round 85 aggregated training accuracy: 0.9771634615384616
+Round 85 aggregated poison accuracy: 0.07979790731656403
+Round 85 accuracy: 0.846321512539185
+Round 85 poison accuracy: 0.0
+
+Server Round 86
+Number of clients after removing some: 33
+Round 86 aggregated training accuracy: 0.996299722479186
+Round 86 aggregated poison accuracy: 0.09493964874140777
+Round 86 accuracy: 0.8245738636363636
+Round 86 poison accuracy: 0.0016282225237449117
+
+Server Round 87
+Number of clients after removing some: 33
+Round 87 aggregated training accuracy: 0.9917481662591687
+Round 87 aggregated poison accuracy: 0.04710317052213923
+Round 87 accuracy: 0.8468603056426333
+Round 87 poison accuracy: 0.0
+
+Server Round 88
+Number of clients after removing some: 33
+Round 88 aggregated training accuracy: 0.9701667154138637
+Round 88 aggregated poison accuracy: 0.05083603757912821
+Round 88 accuracy: 0.8549911833855799
+Round 88 poison accuracy: 0.0
+
+Server Round 89
+Number of clients after removing some: 33
+Round 89 aggregated training accuracy: 0.9942079351288734
+Round 89 aggregated poison accuracy: 0.06084057243205032
+Round 89 accuracy: 0.8769837382445141
+Round 89 poison accuracy: 0.000542740841248304
+
+Server Round 90
+Number of clients after removing some: 33
+Round 90 aggregated training accuracy: 0.9979579929988331
+Round 90 aggregated poison accuracy: 0.06999409444767256
+Round 90 accuracy: 0.8737509796238244
+Round 90 poison accuracy: 0.0
+
+Server Round 91
+Number of clients after removing some: 33
+Round 91 aggregated training accuracy: 0.9965606190885641
+Round 91 aggregated poison accuracy: 0.00031967108878339486
+Round 91 accuracy: 0.8732366771159875
+Round 91 poison accuracy: 0.0
+
+Server Round 92
+Number of clients after removing some: 33
+Round 92 aggregated training accuracy: 0.9940405244338498
+Round 92 aggregated poison accuracy: 0.07205046390110342
+Round 92 accuracy: 0.8778653996865203
+Round 92 poison accuracy: 0.0
+
+Server Round 93
+Number of clients after removing some: 33
+Round 93 aggregated training accuracy: 0.9882788402220851
+Round 93 aggregated poison accuracy: 0.2220579286284075
+Round 93 accuracy: 0.8475460423197492
+Round 93 poison accuracy: 0.014654002713704206
+
+Server Round 94
+Number of clients after removing some: 33
+Round 94 aggregated training accuracy: 0.9807453416149068
+Round 94 aggregated poison accuracy: 0.05270713063704627
+Round 94 accuracy: 0.8147041536050157
+Round 94 poison accuracy: 0.0029850746268656717
+
+Server Round 95
+Number of clients after removing some: 33
+Round 95 aggregated training accuracy: 0.9877061469265367
+Round 95 aggregated poison accuracy: 0.09724345425658948
+Round 95 accuracy: 0.856632053291536
+Round 95 poison accuracy: 0.0013568521031207597
+
+Server Round 96
+Number of clients after removing some: 33
+Round 96 aggregated training accuracy: 0.9968253968253968
+Round 96 aggregated poison accuracy: 0.10637039125505882
+Round 96 accuracy: 0.8557748824451411
+Round 96 poison accuracy: 0.000271370420624152
+
+Server Round 97
+Number of clients after removing some: 33
+Round 97 aggregated training accuracy: 0.9895272292040694
+Round 97 aggregated poison accuracy: 0.18563393250817886
+Round 97 accuracy: 0.867016065830721
+Round 97 poison accuracy: 0.0
+
+Server Round 98
+Number of clients after removing some: 33
+Round 98 aggregated training accuracy: 0.9853764779091475
+Round 98 aggregated poison accuracy: 0.07914601907023124
+Round 98 accuracy: 0.8595709247648903
+Round 98 poison accuracy: 0.0
+
+Server Round 99
+Number of clients after removing some: 33
+Round 99 aggregated training accuracy: 0.9970184853905785
+Round 99 aggregated poison accuracy: 0.02492182120783301
+Round 99 accuracy: 0.8683140673981191
+Round 99 poison accuracy: 0.0
+
+Server Round 100
+Number of clients after removing some: 33
+Round 100 aggregated training accuracy: 0.9876543209876543
+Round 100 aggregated poison accuracy: 0.09088621113860769
+Round 100 accuracy: 0.8535462382445141
+Round 100 poison accuracy: 0.0
+
