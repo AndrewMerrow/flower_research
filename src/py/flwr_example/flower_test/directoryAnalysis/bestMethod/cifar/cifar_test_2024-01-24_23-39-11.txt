@@ -1,0 +1,2204 @@
+Running cifar test
+Round 0 accuracy: 0.0957
+Round 0 poison accuracy: 0.926
+
+Server Round 1
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 5, 8, 13, 14, 23, 26, 27, 30, 31, 32]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [5, 8, 13, 14, 23, 26, 27, 30, 31, 32]
+Number of clients after removing some: 26
+Round 1 accuracy: 0.1735
+Round 1 poison accuracy: 0.398
+
+Server Round 2
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 7, 10, 12, 24, 28, 32, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [7, 10, 12, 24, 28, 32, 39]
+Number of clients after removing some: 29
+Round 2 accuracy: 0.1814
+Round 2 poison accuracy: 0.0
+
+Server Round 3
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 11, 13]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [11, 13]
+Number of clients after removing some: 34
+Round 3 accuracy: 0.1949
+Round 3 poison accuracy: 0.325
+
+Server Round 4
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 11, 13, 17, 19, 21, 33, 34, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 11, 13, 17, 19, 21, 33, 34, 36]
+Number of clients after removing some: 26
+Round 4 accuracy: 0.2116
+Round 4 poison accuracy: 0.061
+
+Server Round 5
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 6, 9, 13, 14, 16, 25, 30, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [6, 9, 13, 14, 16, 25, 30, 36]
+Number of clients after removing some: 28
+Round 5 accuracy: 0.2326
+Round 5 poison accuracy: 0.065
+
+Server Round 6
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 6, 11, 16, 19, 22, 25, 32, 33, 35, 38, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [6, 11, 16, 19, 22, 25, 32, 33, 35, 38, 39]
+Number of clients after removing some: 25
+Round 6 accuracy: 0.2725
+Round 6 poison accuracy: 0.081
+
+Server Round 7
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 6, 24, 31, 32]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [6, 24, 31, 32]
+Number of clients after removing some: 32
+Round 7 accuracy: 0.2877
+Round 7 poison accuracy: 0.108
+
+Server Round 8
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 6, 14, 17, 18, 22, 25, 35, 36, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [6, 14, 17, 18, 22, 25, 35, 36, 39]
+Number of clients after removing some: 27
+Round 8 accuracy: 0.3075
+Round 8 poison accuracy: 0.128
+
+Server Round 9
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 8, 15, 22, 25, 32, 34, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [8, 15, 22, 25, 32, 34, 39]
+Number of clients after removing some: 29
+Round 9 accuracy: 0.299
+Round 9 poison accuracy: 0.224
+
+Server Round 10
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 9, 10, 12, 18, 33, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [9, 10, 12, 18, 33, 36]
+Number of clients after removing some: 30
+Round 10 accuracy: 0.3419
+Round 10 poison accuracy: 0.111
+
+Server Round 11
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 6, 9, 18, 21, 24, 25, 28, 29, 30, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [6, 9, 18, 21, 24, 25, 28, 29, 30, 39]
+Number of clients after removing some: 26
+Round 11 accuracy: 0.3685
+Round 11 poison accuracy: 0.107
+
+Server Round 12
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 7, 16, 17, 20, 21, 22, 23, 30, 33]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 7, 16, 17, 20, 21, 22, 23, 30, 33]
+Number of clients after removing some: 26
+Round 12 accuracy: 0.3937
+Round 12 poison accuracy: 0.111
+
+Server Round 13
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 8, 9, 10, 11, 16, 21, 26, 28, 29, 32, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 8, 9, 10, 11, 16, 21, 26, 28, 29, 32, 36]
+Number of clients after removing some: 24
+Round 13 accuracy: 0.3869
+Round 13 poison accuracy: 0.116
+
+Server Round 14
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 6, 8, 9, 18, 22, 23, 24, 26]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 6, 8, 9, 18, 22, 23, 24, 26]
+Number of clients after removing some: 27
+Round 14 accuracy: 0.3782
+Round 14 poison accuracy: 0.284
+
+Server Round 15
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 16, 18, 22, 24, 27, 30, 33]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [16, 18, 22, 24, 27, 30, 33]
+Number of clients after removing some: 29
+Round 15 accuracy: 0.3868
+Round 15 poison accuracy: 0.166
+
+Server Round 16
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 2, 7, 11, 15, 20, 27, 30, 31]
+The true positives: [0, 2]
+The false negatives: [1, 3]
+The false positives: [7, 11, 15, 20, 27, 30, 31]
+Number of clients after removing some: 31
+Round 16 accuracy: 0.4418
+Round 16 poison accuracy: 0.131
+
+Server Round 17
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 9, 12, 16, 17, 19, 22, 29, 32]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [9, 12, 16, 17, 19, 22, 29, 32]
+Number of clients after removing some: 28
+Round 17 accuracy: 0.4441
+Round 17 poison accuracy: 0.055
+
+Server Round 18
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 8, 10, 13, 16, 20, 22, 27, 28, 35]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [8, 10, 13, 16, 20, 22, 27, 28, 35]
+Number of clients after removing some: 27
+Round 18 accuracy: 0.4513
+Round 18 poison accuracy: 0.06
+
+Server Round 19
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 6, 9, 16, 17, 21, 23, 24, 25, 26, 27, 28, 29]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [6, 9, 16, 17, 21, 23, 24, 25, 26, 27, 28, 29]
+Number of clients after removing some: 24
+Round 19 accuracy: 0.4371
+Round 19 poison accuracy: 0.185
+
+Server Round 20
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 5, 7, 8, 9, 10, 11, 12, 16, 20, 24, 25, 27, 31, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [5, 7, 8, 9, 10, 11, 12, 16, 20, 24, 25, 27, 31, 36]
+Number of clients after removing some: 22
+Round 20 accuracy: 0.4649
+Round 20 poison accuracy: 0.035
+
+Server Round 21
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 6, 7, 9, 11, 15, 22, 26, 32]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [6, 7, 9, 11, 15, 22, 26, 32]
+Number of clients after removing some: 28
+Round 21 accuracy: 0.4687
+Round 21 poison accuracy: 0.181
+
+Server Round 22
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 10, 16, 17, 24, 26, 31, 34, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [10, 16, 17, 24, 26, 31, 34, 39]
+Number of clients after removing some: 28
+Round 22 accuracy: 0.4857
+Round 22 poison accuracy: 0.028
+
+Server Round 23
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 9, 16, 18, 19, 23, 27, 32, 34, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [9, 16, 18, 19, 23, 27, 32, 34, 38]
+Number of clients after removing some: 27
+Round 23 accuracy: 0.4966
+Round 23 poison accuracy: 0.185
+
+Server Round 24
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 12, 23, 27, 31, 33, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [12, 23, 27, 31, 33, 37]
+Number of clients after removing some: 30
+Round 24 accuracy: 0.5129
+Round 24 poison accuracy: 0.054
+
+Server Round 25
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 8, 14, 23, 25, 26, 28, 32, 33, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 8, 14, 23, 25, 26, 28, 32, 33, 37]
+Number of clients after removing some: 26
+Round 25 accuracy: 0.4943
+Round 25 poison accuracy: 0.054
+
+Server Round 26
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 9, 12, 14, 15, 20, 21, 29, 31, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [9, 12, 14, 15, 20, 21, 29, 31, 37]
+Number of clients after removing some: 27
+Round 26 accuracy: 0.5291
+Round 26 poison accuracy: 0.107
+
+Server Round 27
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 5, 9, 20, 21, 22, 24, 27, 30, 33, 34]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [5, 9, 20, 21, 22, 24, 27, 30, 33, 34]
+Number of clients after removing some: 26
+Round 27 accuracy: 0.5159
+Round 27 poison accuracy: 0.027
+
+Server Round 28
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 5, 6, 18, 19, 26, 32, 33, 35, 36, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [5, 6, 18, 19, 26, 32, 33, 35, 36, 37]
+Number of clients after removing some: 26
+Round 28 accuracy: 0.5381
+Round 28 poison accuracy: 0.137
+
+Server Round 29
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 7, 9, 14, 15, 18, 20, 22, 25, 28, 34, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [7, 9, 14, 15, 18, 20, 22, 25, 28, 34, 36]
+Number of clients after removing some: 25
+Round 29 accuracy: 0.5324
+Round 29 poison accuracy: 0.046
+
+Server Round 30
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 5, 11, 12, 14, 21, 22, 23, 29, 36, 37, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [5, 11, 12, 14, 21, 22, 23, 29, 36, 37, 39]
+Number of clients after removing some: 25
+Round 30 accuracy: 0.5234
+Round 30 poison accuracy: 0.107
+
+Server Round 31
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 8, 9, 14, 30, 31, 32, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [8, 9, 14, 30, 31, 32, 36]
+Number of clients after removing some: 29
+Round 31 accuracy: 0.5477
+Round 31 poison accuracy: 0.037
+
+Server Round 32
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 11, 12, 16, 23, 24, 31, 35]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 11, 12, 16, 23, 24, 31, 35]
+Number of clients after removing some: 28
+Round 32 accuracy: 0.5587
+Round 32 poison accuracy: 0.102
+
+Server Round 33
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 7, 12, 15, 16, 21, 26, 30, 32, 34, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [7, 12, 15, 16, 21, 26, 30, 32, 34, 38]
+Number of clients after removing some: 26
+Round 33 accuracy: 0.5626
+Round 33 poison accuracy: 0.041
+
+Server Round 34
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 8, 9, 10, 12, 21, 22, 26, 30, 32, 33]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [8, 9, 10, 12, 21, 22, 26, 30, 32, 33]
+Number of clients after removing some: 26
+Round 34 accuracy: 0.5584
+Round 34 poison accuracy: 0.049
+
+Server Round 35
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 6, 8, 9, 11, 12, 13, 14, 16, 29, 35, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [6, 8, 9, 11, 12, 13, 14, 16, 29, 35, 39]
+Number of clients after removing some: 25
+Round 35 accuracy: 0.5723
+Round 35 poison accuracy: 0.067
+
+Server Round 36
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 9, 10, 11, 17, 21, 34, 35, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [9, 10, 11, 17, 21, 34, 35, 36]
+Number of clients after removing some: 28
+Round 36 accuracy: 0.5631
+Round 36 poison accuracy: 0.084
+
+Server Round 37
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 7, 9, 10, 13, 14, 17, 18, 21, 22, 27, 30, 32, 35, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 7, 9, 10, 13, 14, 17, 18, 21, 22, 27, 30, 32, 35, 38]
+Number of clients after removing some: 21
+Round 37 accuracy: 0.5778
+Round 37 poison accuracy: 0.029
+
+Server Round 38
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 8, 9, 11, 15, 25, 26, 31, 35]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 8, 9, 11, 15, 25, 26, 31, 35]
+Number of clients after removing some: 27
+Round 38 accuracy: 0.5899
+Round 38 poison accuracy: 0.051
+
+Server Round 39
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 15, 20, 22, 31, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [15, 20, 22, 31, 37]
+Number of clients after removing some: 31
+Round 39 accuracy: 0.5829
+Round 39 poison accuracy: 0.029
+
+Server Round 40
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 5, 8, 10, 11, 14, 15, 17, 32, 34, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [5, 8, 10, 11, 14, 15, 17, 32, 34, 38]
+Number of clients after removing some: 26
+Round 40 accuracy: 0.5944
+Round 40 poison accuracy: 0.057
+
+Server Round 41
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 6, 9, 17, 18, 19, 21, 23, 26, 30, 31]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [6, 9, 17, 18, 19, 21, 23, 26, 30, 31]
+Number of clients after removing some: 26
+Round 41 accuracy: 0.5987
+Round 41 poison accuracy: 0.056
+
+Server Round 42
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 14, 15, 23, 25, 26, 27, 33, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 14, 15, 23, 25, 26, 27, 33, 39]
+Number of clients after removing some: 27
+Round 42 accuracy: 0.5946
+Round 42 poison accuracy: 0.022
+
+Server Round 43
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 10, 12, 15, 17, 18, 19, 20, 33, 34]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [10, 12, 15, 17, 18, 19, 20, 33, 34]
+Number of clients after removing some: 27
+Round 43 accuracy: 0.6204
+Round 43 poison accuracy: 0.056
+
+Server Round 44
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 9, 11, 12, 15, 16, 19, 26, 30, 31, 32, 36, 38, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [9, 11, 12, 15, 16, 19, 26, 30, 31, 32, 36, 38, 39]
+Number of clients after removing some: 23
+Round 44 accuracy: 0.6272
+Round 44 poison accuracy: 0.076
+
+Server Round 45
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 6, 9, 11, 15, 19, 20, 24, 32, 33, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [6, 9, 11, 15, 19, 20, 24, 32, 33, 36]
+Number of clients after removing some: 26
+Round 45 accuracy: 0.6171
+Round 45 poison accuracy: 0.068
+
+Server Round 46
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 15, 27, 30]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 15, 27, 30]
+Number of clients after removing some: 32
+Round 46 accuracy: 0.6139
+Round 46 poison accuracy: 0.027
+
+Server Round 47
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 8, 9, 10, 16, 26, 33, 34, 36, 38, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [8, 9, 10, 16, 26, 33, 34, 36, 38, 39]
+Number of clients after removing some: 26
+Round 47 accuracy: 0.6323
+Round 47 poison accuracy: 0.07
+
+Server Round 48
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 5, 9, 11, 12, 15, 19, 21, 22, 32, 36, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [5, 9, 11, 12, 15, 19, 21, 22, 32, 36, 37]
+Number of clients after removing some: 25
+Round 48 accuracy: 0.6139
+Round 48 poison accuracy: 0.058
+
+Server Round 49
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 6, 9, 11, 12, 15, 24, 26, 27, 30]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [6, 9, 11, 12, 15, 24, 26, 27, 30]
+Number of clients after removing some: 27
+Round 49 accuracy: 0.6301
+Round 49 poison accuracy: 0.048
+
+Server Round 50
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 5, 7, 15, 16, 18, 27, 28, 29, 30, 33, 35, 36, 37, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [5, 7, 15, 16, 18, 27, 28, 29, 30, 33, 35, 36, 37, 38]
+Number of clients after removing some: 22
+Round 50 accuracy: 0.6284
+Round 50 poison accuracy: 0.064
+
+Server Round 51
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 10, 12, 15, 16, 21, 23, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 10, 12, 15, 16, 21, 23, 36]
+Number of clients after removing some: 28
+Round 51 accuracy: 0.6533
+Round 51 poison accuracy: 0.038
+
+Server Round 52
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 7, 11, 13, 14, 17, 24, 25, 32, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 7, 11, 13, 14, 17, 24, 25, 32, 36]
+Number of clients after removing some: 25
+Round 52 accuracy: 0.6454
+Round 52 poison accuracy: 0.029
+
+Server Round 53
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 5, 6, 13, 15, 16, 17, 21, 30, 32, 34]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [5, 6, 13, 15, 16, 17, 21, 30, 32, 34]
+Number of clients after removing some: 26
+Round 53 accuracy: 0.6476
+Round 53 poison accuracy: 0.05
+
+Server Round 54
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 7, 15, 17, 20, 26, 32]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [7, 15, 17, 20, 26, 32]
+Number of clients after removing some: 30
+Round 54 accuracy: 0.6576
+Round 54 poison accuracy: 0.023
+
+Server Round 55
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 7, 9, 12, 17, 18, 28]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [7, 9, 12, 17, 18, 28]
+Number of clients after removing some: 30
+Round 55 accuracy: 0.6567
+Round 55 poison accuracy: 0.051
+
+Server Round 56
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 11, 12, 13, 14, 15, 21, 22, 24, 30, 31, 37, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [11, 12, 13, 14, 15, 21, 22, 24, 30, 31, 37, 39]
+Number of clients after removing some: 24
+Round 56 accuracy: 0.6249
+Round 56 poison accuracy: 0.019
+
+Server Round 57
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 11, 15, 16, 20, 22, 23, 24, 31, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 11, 15, 16, 20, 22, 23, 24, 31, 36]
+Number of clients after removing some: 26
+Round 57 accuracy: 0.6663
+Round 57 poison accuracy: 0.04
+
+Server Round 58
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 7, 12, 13, 15, 18, 19, 21, 33, 35, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 7, 12, 13, 15, 18, 19, 21, 33, 35, 37]
+Number of clients after removing some: 25
+Round 58 accuracy: 0.6706
+Round 58 poison accuracy: 0.051
+
+Server Round 59
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 13, 15, 20, 26, 28, 32, 34, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [13, 15, 20, 26, 28, 32, 34, 37]
+Number of clients after removing some: 28
+Round 59 accuracy: 0.6643
+Round 59 poison accuracy: 0.02
+
+Server Round 60
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 12, 13, 15, 19, 24, 30, 37, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [12, 13, 15, 19, 24, 30, 37, 38]
+Number of clients after removing some: 28
+Round 60 accuracy: 0.6762
+Round 60 poison accuracy: 0.053
+
+Server Round 61
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 12, 13, 14, 15, 18, 21, 26, 33, 35, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 12, 13, 14, 15, 18, 21, 26, 33, 35, 36]
+Number of clients after removing some: 25
+Round 61 accuracy: 0.6695
+Round 61 poison accuracy: 0.013
+
+Server Round 62
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 6, 9, 10, 12, 15, 26, 30, 33, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [6, 9, 10, 12, 15, 26, 30, 33, 38]
+Number of clients after removing some: 27
+Round 62 accuracy: 0.6685
+Round 62 poison accuracy: 0.014
+
+Server Round 63
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 5, 6, 15, 20, 22, 25, 29, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [5, 6, 15, 20, 22, 25, 29, 36]
+Number of clients after removing some: 28
+Round 63 accuracy: 0.6811
+Round 63 poison accuracy: 0.03
+
+Server Round 64
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 12, 15, 21, 30, 34, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [12, 15, 21, 30, 34, 39]
+Number of clients after removing some: 30
+Round 64 accuracy: 0.6904
+Round 64 poison accuracy: 0.039
+
+Server Round 65
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 7, 9, 12, 13, 15, 20, 23, 25, 26, 30, 31, 33]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 7, 9, 12, 13, 15, 20, 23, 25, 26, 30, 31, 33]
+Number of clients after removing some: 23
+Round 65 accuracy: 0.6964
+Round 65 poison accuracy: 0.047
+
+Server Round 66
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 7, 10, 11, 14, 15, 20, 21, 24, 26, 37, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 7, 10, 11, 14, 15, 20, 21, 24, 26, 37, 39]
+Number of clients after removing some: 23
+Round 66 accuracy: 0.6956
+Round 66 poison accuracy: 0.046
+
+Server Round 67
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 6, 7, 9, 12, 15, 16, 18, 20, 21, 30, 34, 36, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 6, 7, 9, 12, 15, 16, 18, 20, 21, 30, 34, 36, 39]
+Number of clients after removing some: 22
+Round 67 accuracy: 0.6976
+Round 67 poison accuracy: 0.019
+
+Server Round 68
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 6, 11, 12, 15, 16, 20, 21, 26, 28, 29, 31, 32]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [6, 11, 12, 15, 16, 20, 21, 26, 28, 29, 31, 32]
+Number of clients after removing some: 24
+Round 68 accuracy: 0.6962
+Round 68 poison accuracy: 0.034
+
+Server Round 69
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 6, 15, 17, 20, 21, 24, 25, 29, 32, 33, 34, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 6, 15, 17, 20, 21, 24, 25, 29, 32, 33, 34, 36]
+Number of clients after removing some: 22
+Round 69 accuracy: 0.6983
+Round 69 poison accuracy: 0.032
+
+Server Round 70
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 12, 15, 17, 18, 20, 21, 22, 30, 31, 36, 37, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [12, 15, 17, 18, 20, 21, 22, 30, 31, 36, 37, 39]
+Number of clients after removing some: 24
+Round 70 accuracy: 0.6991
+Round 70 poison accuracy: 0.022
+
+Server Round 71
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 7, 9, 12, 15, 17, 20, 27, 28, 30, 33, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [7, 9, 12, 15, 17, 20, 27, 28, 30, 33, 37]
+Number of clients after removing some: 25
+Round 71 accuracy: 0.7051
+Round 71 poison accuracy: 0.037
+
+Server Round 72
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 9, 13, 15, 16, 17, 19, 23, 26, 29, 35, 37, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [9, 13, 15, 16, 17, 19, 23, 26, 29, 35, 37, 39]
+Number of clients after removing some: 24
+Round 72 accuracy: 0.7068
+Round 72 poison accuracy: 0.025
+
+Server Round 73
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 5, 11, 12, 15, 28, 29, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [5, 11, 12, 15, 28, 29, 37]
+Number of clients after removing some: 29
+Round 73 accuracy: 0.7118
+Round 73 poison accuracy: 0.03
+
+Server Round 74
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 5, 7, 12, 14, 15, 21, 24, 28, 29, 30, 33, 37, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [5, 7, 12, 14, 15, 21, 24, 28, 29, 30, 33, 37, 38]
+Number of clients after removing some: 23
+Round 74 accuracy: 0.7115
+Round 74 poison accuracy: 0.029
+
+Server Round 75
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 5, 8, 11, 15, 18, 20, 28, 29, 33, 36, 37, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [5, 8, 11, 15, 18, 20, 28, 29, 33, 36, 37, 39]
+Number of clients after removing some: 24
+Round 75 accuracy: 0.7133
+Round 75 poison accuracy: 0.029
+
+Server Round 76
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 12, 13, 15, 17, 20, 30, 34, 36, 37, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 12, 13, 15, 17, 20, 30, 34, 36, 37, 39]
+Number of clients after removing some: 24
+Round 76 accuracy: 0.7071
+Round 76 poison accuracy: 0.02
+
+Server Round 77
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 11, 13, 15, 27]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 11, 13, 15, 27]
+Number of clients after removing some: 30
+Round 77 accuracy: 0.7169
+Round 77 poison accuracy: 0.03
+
+Server Round 78
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 6, 9, 15, 20, 28, 29, 36, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 6, 9, 15, 20, 28, 29, 36, 37]
+Number of clients after removing some: 27
+Round 78 accuracy: 0.7215
+Round 78 poison accuracy: 0.03
+
+Server Round 79
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 11, 12, 15, 18, 21, 22, 23, 28, 29, 30, 33]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [11, 12, 15, 18, 21, 22, 23, 28, 29, 30, 33]
+Number of clients after removing some: 25
+Round 79 accuracy: 0.7206
+Round 79 poison accuracy: 0.049
+
+Server Round 80
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 7, 12, 15, 28, 30, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [7, 12, 15, 28, 30, 38]
+Number of clients after removing some: 30
+Round 80 accuracy: 0.718
+Round 80 poison accuracy: 0.035
+
+Server Round 81
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 10, 16, 18, 19, 25, 27, 28, 29, 30, 34, 35]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 10, 16, 18, 19, 25, 27, 28, 29, 30, 34, 35]
+Number of clients after removing some: 23
+Round 81 accuracy: 0.7264
+Round 81 poison accuracy: 0.022
+
+Server Round 82
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 9, 10, 11, 15, 20, 29, 30, 31, 32, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 9, 10, 11, 15, 20, 29, 30, 31, 32, 36]
+Number of clients after removing some: 24
+Round 82 accuracy: 0.7282
+Round 82 poison accuracy: 0.043
+
+Server Round 83
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 6, 7, 9, 14, 28, 30, 35, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [6, 7, 9, 14, 28, 30, 35, 39]
+Number of clients after removing some: 28
+Round 83 accuracy: 0.7311
+Round 83 poison accuracy: 0.047
+
+Server Round 84
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 7, 15, 16, 18, 23, 25, 28, 32, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [7, 15, 16, 18, 23, 25, 28, 32, 38]
+Number of clients after removing some: 27
+Round 84 accuracy: 0.7296
+Round 84 poison accuracy: 0.029
+
+Server Round 85
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 11, 15, 27, 29, 33, 35, 36, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 11, 15, 27, 29, 33, 35, 36, 37]
+Number of clients after removing some: 26
+Round 85 accuracy: 0.7352
+Round 85 poison accuracy: 0.059
+
+Server Round 86
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 13, 15, 21, 26, 28, 31, 37, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 13, 15, 21, 26, 28, 31, 37, 38]
+Number of clients after removing some: 27
+Round 86 accuracy: 0.7318
+Round 86 poison accuracy: 0.059
+
+Server Round 87
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 6, 10, 11, 13, 15, 27, 29, 34, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [6, 10, 11, 13, 15, 27, 29, 34, 39]
+Number of clients after removing some: 27
+Round 87 accuracy: 0.7262
+Round 87 poison accuracy: 0.031
+
+Server Round 88
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 10, 11, 12, 15, 17, 19, 20, 23, 26, 30, 32, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 10, 11, 12, 15, 17, 19, 20, 23, 26, 30, 32, 39]
+Number of clients after removing some: 23
+Round 88 accuracy: 0.731
+Round 88 poison accuracy: 0.038
+
+Server Round 89
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 8, 9, 10, 13, 15, 16, 30, 31, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [8, 9, 10, 13, 15, 16, 30, 31, 37]
+Number of clients after removing some: 27
+Round 89 accuracy: 0.7294
+Round 89 poison accuracy: 0.016
+
+Server Round 90
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 6, 12, 13, 15, 18, 24, 29, 30, 31, 32]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [6, 12, 13, 15, 18, 24, 29, 30, 31, 32]
+Number of clients after removing some: 26
+Round 90 accuracy: 0.7314
+Round 90 poison accuracy: 0.033
+
+Server Round 91
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 9, 20, 24, 25, 28, 29, 30, 31, 35, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [9, 20, 24, 25, 28, 29, 30, 31, 35, 36]
+Number of clients after removing some: 26
+Round 91 accuracy: 0.7372
+Round 91 poison accuracy: 0.019
+
+Server Round 92
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 5, 10, 12, 13, 15, 16, 20, 30, 31]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [5, 10, 12, 13, 15, 16, 20, 30, 31]
+Number of clients after removing some: 27
+Round 92 accuracy: 0.7341
+Round 92 poison accuracy: 0.021
+
+Server Round 93
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 7, 12, 14, 15, 18, 19, 29, 30, 31, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [7, 12, 14, 15, 18, 19, 29, 30, 31, 38]
+Number of clients after removing some: 26
+Round 93 accuracy: 0.7404
+Round 93 poison accuracy: 0.026
+
+Server Round 94
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 6, 12, 15, 16, 25, 26, 29, 30, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 6, 12, 15, 16, 25, 26, 29, 30, 37]
+Number of clients after removing some: 26
+Round 94 accuracy: 0.7374
+Round 94 poison accuracy: 0.018
+
+Server Round 95
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 5, 15, 17, 24, 25, 26, 28, 30, 32, 36, 38, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [5, 15, 17, 24, 25, 26, 28, 30, 32, 36, 38, 39]
+Number of clients after removing some: 24
+Round 95 accuracy: 0.7437
+Round 95 poison accuracy: 0.024
+
+Server Round 96
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 8, 9, 15, 17, 19, 23, 24, 28, 29, 31, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 8, 9, 15, 17, 19, 23, 24, 28, 29, 31, 36]
+Number of clients after removing some: 24
+Round 96 accuracy: 0.7441
+Round 96 poison accuracy: 0.034
+
+Server Round 97
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 15, 29, 34]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [15, 29, 34]
+Number of clients after removing some: 33
+Round 97 accuracy: 0.7476
+Round 97 poison accuracy: 0.033
+
+Server Round 98
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 7, 12, 15, 24, 25, 26, 31, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 7, 12, 15, 24, 25, 26, 31, 39]
+Number of clients after removing some: 27
+Round 98 accuracy: 0.7477
+Round 98 poison accuracy: 0.047
+
+Server Round 99
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 6, 10, 12, 17, 27, 28, 30, 34, 35]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 6, 10, 12, 17, 27, 28, 30, 34, 35]
+Number of clients after removing some: 26
+Round 99 accuracy: 0.7389
+Round 99 poison accuracy: 0.026
+
+Server Round 100
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 5, 12, 15, 19, 20, 29, 30, 33, 35, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [5, 12, 15, 19, 20, 29, 30, 33, 35, 36]
+Number of clients after removing some: 26
+Round 100 accuracy: 0.7373
+Round 100 poison accuracy: 0.02
+
+Server Round 101
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 12, 15, 26, 28, 30, 31, 34, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 12, 15, 26, 28, 30, 31, 34, 37]
+Number of clients after removing some: 27
+Round 101 accuracy: 0.7465
+Round 101 poison accuracy: 0.029
+
+Server Round 102
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 15, 17, 21, 23, 37, 38, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 15, 17, 21, 23, 37, 38, 39]
+Number of clients after removing some: 28
+Round 102 accuracy: 0.7485
+Round 102 poison accuracy: 0.023
+
+Server Round 103
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 8, 11, 13, 15, 18, 23, 25, 27, 30, 34]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [8, 11, 13, 15, 18, 23, 25, 27, 30, 34]
+Number of clients after removing some: 26
+Round 103 accuracy: 0.7503
+Round 103 poison accuracy: 0.026
+
+Server Round 104
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 15, 29, 31, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 15, 29, 31, 37]
+Number of clients after removing some: 31
+Round 104 accuracy: 0.7534
+Round 104 poison accuracy: 0.025
+
+Server Round 105
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 7, 8, 15, 20, 27, 30, 31, 32, 34, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 7, 8, 15, 20, 27, 30, 31, 32, 34, 36]
+Number of clients after removing some: 24
+Round 105 accuracy: 0.7503
+Round 105 poison accuracy: 0.038
+
+Server Round 106
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 8, 15, 22, 24, 30, 31, 38, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 8, 15, 22, 24, 30, 31, 38, 39]
+Number of clients after removing some: 27
+Round 106 accuracy: 0.7563
+Round 106 poison accuracy: 0.034
+
+Server Round 107
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 7, 8, 15, 20, 23, 28, 32, 35, 36, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [7, 8, 15, 20, 23, 28, 32, 35, 36, 37]
+Number of clients after removing some: 26
+Round 107 accuracy: 0.7539
+Round 107 poison accuracy: 0.038
+
+Server Round 108
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 8, 11, 12, 15, 20, 26, 28, 30, 31, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 8, 11, 12, 15, 20, 26, 28, 30, 31, 36]
+Number of clients after removing some: 25
+Round 108 accuracy: 0.7522
+Round 108 poison accuracy: 0.042
+
+Server Round 109
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 6, 10, 11, 15, 17, 20, 28, 30, 34, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 6, 10, 11, 15, 17, 20, 28, 30, 34, 38]
+Number of clients after removing some: 25
+Round 109 accuracy: 0.7536
+Round 109 poison accuracy: 0.031
+
+Server Round 110
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 6, 11, 13, 15, 28, 30, 31, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 6, 11, 13, 15, 28, 30, 31, 39]
+Number of clients after removing some: 27
+Round 110 accuracy: 0.7544
+Round 110 poison accuracy: 0.023
+
+Server Round 111
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 13, 15, 22, 27, 28, 30, 31, 33, 35, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 13, 15, 22, 27, 28, 30, 31, 33, 35, 37]
+Number of clients after removing some: 24
+Round 111 accuracy: 0.7564
+Round 111 poison accuracy: 0.029
+
+Server Round 112
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 12, 15, 18, 19, 29, 30, 31]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 12, 15, 18, 19, 29, 30, 31]
+Number of clients after removing some: 28
+Round 112 accuracy: 0.7542
+Round 112 poison accuracy: 0.021
+
+Server Round 113
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 12, 14, 15, 16, 18, 19, 21, 25, 30, 31]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [12, 14, 15, 16, 18, 19, 21, 25, 30, 31]
+Number of clients after removing some: 26
+Round 113 accuracy: 0.7536
+Round 113 poison accuracy: 0.051
+
+Server Round 114
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 6, 8, 10, 15, 27, 30, 35]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 6, 8, 10, 15, 27, 30, 35]
+Number of clients after removing some: 28
+Round 114 accuracy: 0.76
+Round 114 poison accuracy: 0.035
+
+Server Round 115
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 8, 10, 12, 13, 15, 20, 30, 33]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [8, 10, 12, 13, 15, 20, 30, 33]
+Number of clients after removing some: 28
+Round 115 accuracy: 0.7593
+Round 115 poison accuracy: 0.039
+
+Server Round 116
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 6, 15, 20, 22, 29, 32, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [6, 15, 20, 22, 29, 32, 38]
+Number of clients after removing some: 29
+Round 116 accuracy: 0.7593
+Round 116 poison accuracy: 0.032
+
+Server Round 117
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 7, 12, 15, 17, 18, 26, 27, 30, 33, 34, 35]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 7, 12, 15, 17, 18, 26, 27, 30, 33, 34, 35]
+Number of clients after removing some: 24
+Round 117 accuracy: 0.7588
+Round 117 poison accuracy: 0.025
+
+Server Round 118
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 14, 15, 21, 29, 30, 33, 34]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 14, 15, 21, 29, 30, 33, 34]
+Number of clients after removing some: 28
+Round 118 accuracy: 0.7606
+Round 118 poison accuracy: 0.04
+
+Server Round 119
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 15, 30, 32, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 15, 30, 32, 36]
+Number of clients after removing some: 30
+Round 119 accuracy: 0.7606
+Round 119 poison accuracy: 0.023
+
+Server Round 120
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 11, 13, 15, 20, 25, 30, 33]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 11, 13, 15, 20, 25, 30, 33]
+Number of clients after removing some: 28
+Round 120 accuracy: 0.7578
+Round 120 poison accuracy: 0.027
+
+Server Round 121
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 8, 14, 15, 23, 28, 30, 31, 34, 35, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 8, 14, 15, 23, 28, 30, 31, 34, 35, 39]
+Number of clients after removing some: 25
+Round 121 accuracy: 0.7605
+Round 121 poison accuracy: 0.024
+
+Server Round 122
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 6, 15, 17, 30, 34, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 6, 15, 17, 30, 34, 37]
+Number of clients after removing some: 28
+Round 122 accuracy: 0.7539
+Round 122 poison accuracy: 0.015
+
+Server Round 123
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 13, 15, 16, 22, 28, 30, 31, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 13, 15, 16, 22, 28, 30, 31, 36]
+Number of clients after removing some: 26
+Round 123 accuracy: 0.7619
+Round 123 poison accuracy: 0.033
+
+Server Round 124
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 10, 15, 20, 24, 26, 30, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 10, 15, 20, 24, 26, 30, 38]
+Number of clients after removing some: 28
+Round 124 accuracy: 0.7618
+Round 124 poison accuracy: 0.021
+
+Server Round 125
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 6, 14, 15, 16, 18, 25, 30, 37, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 6, 14, 15, 16, 18, 25, 30, 37, 39]
+Number of clients after removing some: 26
+Round 125 accuracy: 0.7606
+Round 125 poison accuracy: 0.041
+
+Server Round 126
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 13, 15, 22, 24, 27, 28, 29, 30, 32, 37, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 13, 15, 22, 24, 27, 28, 29, 30, 32, 37, 38]
+Number of clients after removing some: 24
+Round 126 accuracy: 0.7653
+Round 126 poison accuracy: 0.03
+
+Server Round 127
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 8, 10, 12, 14, 15, 17, 30, 33, 34, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [8, 10, 12, 14, 15, 17, 30, 33, 34, 37]
+Number of clients after removing some: 26
+Round 127 accuracy: 0.7597
+Round 127 poison accuracy: 0.043
+
+Server Round 128
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 15, 20, 21, 23, 30]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 15, 20, 21, 23, 30]
+Number of clients after removing some: 30
+Round 128 accuracy: 0.765
+Round 128 poison accuracy: 0.03
+
+Server Round 129
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 10, 13, 15, 18, 19, 20, 22, 30, 31, 34, 35]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 10, 13, 15, 18, 19, 20, 22, 30, 31, 34, 35]
+Number of clients after removing some: 24
+Round 129 accuracy: 0.7642
+Round 129 poison accuracy: 0.034
+
+Server Round 130
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 9, 13, 14, 15, 23, 28, 29, 30, 34, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [9, 13, 14, 15, 23, 28, 29, 30, 34, 38]
+Number of clients after removing some: 26
+Round 130 accuracy: 0.761
+Round 130 poison accuracy: 0.03
+
+Server Round 131
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 12, 15, 17, 19, 21, 26, 28, 30, 31, 34]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 12, 15, 17, 19, 21, 26, 28, 30, 31, 34]
+Number of clients after removing some: 24
+Round 131 accuracy: 0.7668
+Round 131 poison accuracy: 0.026
+
+Server Round 132
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 15, 17, 24, 30, 33, 34]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 15, 17, 24, 30, 33, 34]
+Number of clients after removing some: 29
+Round 132 accuracy: 0.7641
+Round 132 poison accuracy: 0.026
+
+Server Round 133
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 7, 9, 11, 15, 19, 24, 25, 26, 27, 28, 30, 31, 35]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 7, 9, 11, 15, 19, 24, 25, 26, 27, 28, 30, 31, 35]
+Number of clients after removing some: 22
+Round 133 accuracy: 0.7676
+Round 133 poison accuracy: 0.043
+
+Server Round 134
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 10, 15, 29, 30, 33, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 10, 15, 29, 30, 33, 39]
+Number of clients after removing some: 28
+Round 134 accuracy: 0.7693
+Round 134 poison accuracy: 0.033
+
+Server Round 135
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 10, 15, 17, 28, 30, 32, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 10, 15, 17, 28, 30, 32, 39]
+Number of clients after removing some: 28
+Round 135 accuracy: 0.769
+Round 135 poison accuracy: 0.039
+
+Server Round 136
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 10, 14, 15, 17, 18, 21, 30, 34, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 10, 14, 15, 17, 18, 21, 30, 34, 37]
+Number of clients after removing some: 25
+Round 136 accuracy: 0.7666
+Round 136 poison accuracy: 0.027
+
+Server Round 137
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 10, 15, 16, 27, 30, 32, 34, 36, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 10, 15, 16, 27, 30, 32, 34, 36, 39]
+Number of clients after removing some: 25
+Round 137 accuracy: 0.7681
+Round 137 poison accuracy: 0.025
+
+Server Round 138
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 15, 21, 30, 32, 34, 37, 38, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 15, 21, 30, 32, 34, 37, 38, 39]
+Number of clients after removing some: 26
+Round 138 accuracy: 0.771
+Round 138 poison accuracy: 0.039
+
+Server Round 139
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 13, 15, 28, 30, 31, 33, 34]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 13, 15, 28, 30, 31, 33, 34]
+Number of clients after removing some: 28
+Round 139 accuracy: 0.7665
+Round 139 poison accuracy: 0.03
+
+Server Round 140
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 12, 15, 21, 25, 28, 30, 32, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 12, 15, 21, 25, 28, 30, 32, 37]
+Number of clients after removing some: 26
+Round 140 accuracy: 0.7671
+Round 140 poison accuracy: 0.026
+
+Server Round 141
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 15, 17, 21, 26, 30, 31]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 15, 17, 21, 26, 30, 31]
+Number of clients after removing some: 29
+Round 141 accuracy: 0.7687
+Round 141 poison accuracy: 0.028
+
+Server Round 142
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 6, 9, 12, 15, 22, 28, 30]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 6, 9, 12, 15, 22, 28, 30]
+Number of clients after removing some: 28
+Round 142 accuracy: 0.7726
+Round 142 poison accuracy: 0.028
+
+Server Round 143
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 15, 23, 30, 31, 35, 36, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 15, 23, 30, 31, 35, 36, 37]
+Number of clients after removing some: 28
+Round 143 accuracy: 0.7704
+Round 143 poison accuracy: 0.05
+
+Server Round 144
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 6, 8, 9, 12, 14, 15, 27, 30, 37, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 6, 8, 9, 12, 14, 15, 27, 30, 37, 38]
+Number of clients after removing some: 25
+Round 144 accuracy: 0.7735
+Round 144 poison accuracy: 0.034
+
+Server Round 145
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 14, 15, 18, 21, 23, 30, 32, 34, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 14, 15, 18, 21, 23, 30, 32, 34, 39]
+Number of clients after removing some: 25
+Round 145 accuracy: 0.7739
+Round 145 poison accuracy: 0.04
+
+Server Round 146
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 10, 13, 15, 30, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 10, 13, 15, 30, 38]
+Number of clients after removing some: 30
+Round 146 accuracy: 0.7723
+Round 146 poison accuracy: 0.044
+
+Server Round 147
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 6, 8, 10, 12, 13, 15, 21, 30, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 6, 8, 10, 12, 13, 15, 21, 30, 37]
+Number of clients after removing some: 26
+Round 147 accuracy: 0.7755
+Round 147 poison accuracy: 0.041
+
+Server Round 148
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 7, 10, 11, 12, 15, 17, 18, 27, 30, 32, 35, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 7, 10, 11, 12, 15, 17, 18, 27, 30, 32, 35, 38]
+Number of clients after removing some: 23
+Round 148 accuracy: 0.7716
+Round 148 poison accuracy: 0.053
+
+Server Round 149
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 6, 12, 13, 15, 24, 27, 30, 31, 32, 33]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 6, 12, 13, 15, 24, 27, 30, 31, 32, 33]
+Number of clients after removing some: 25
+Round 149 accuracy: 0.7702
+Round 149 poison accuracy: 0.034
+
+Server Round 150
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 11, 15, 17, 18, 26, 30, 38, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 11, 15, 17, 18, 26, 30, 38, 39]
+Number of clients after removing some: 26
+Round 150 accuracy: 0.7695
+Round 150 poison accuracy: 0.032
+
+Server Round 151
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 8, 15, 23, 25, 30, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 8, 15, 23, 25, 30, 36]
+Number of clients after removing some: 28
+Round 151 accuracy: 0.7711
+Round 151 poison accuracy: 0.045
+
+Server Round 152
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 12, 13, 15, 17, 24, 27, 28, 30, 34]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 12, 13, 15, 17, 24, 27, 28, 30, 34]
+Number of clients after removing some: 26
+Round 152 accuracy: 0.769
+Round 152 poison accuracy: 0.052
+
+Server Round 153
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 12, 15, 16, 19, 30, 34, 35, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 12, 15, 16, 19, 30, 34, 35, 39]
+Number of clients after removing some: 26
+Round 153 accuracy: 0.7728
+Round 153 poison accuracy: 0.042
+
+Server Round 154
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 8, 11, 12, 15, 23, 26, 28, 30, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 8, 11, 12, 15, 23, 26, 28, 30, 38]
+Number of clients after removing some: 25
+Round 154 accuracy: 0.7719
+Round 154 poison accuracy: 0.034
+
+Server Round 155
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 11, 15, 17, 19, 28, 30, 31, 32, 35, 36, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 11, 15, 17, 19, 28, 30, 31, 32, 35, 36, 39]
+Number of clients after removing some: 23
+Round 155 accuracy: 0.7701
+Round 155 poison accuracy: 0.028
+
+Server Round 156
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 13, 15, 19, 27, 30, 31, 32, 36, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 13, 15, 19, 27, 30, 31, 32, 36, 38]
+Number of clients after removing some: 26
+Round 156 accuracy: 0.7717
+Round 156 poison accuracy: 0.05
+
+Server Round 157
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 6, 10, 15, 30, 32, 35, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 6, 10, 15, 30, 32, 35, 38]
+Number of clients after removing some: 27
+Round 157 accuracy: 0.7699
+Round 157 poison accuracy: 0.028
+
+Server Round 158
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 5, 7, 8, 15, 22, 25, 30, 34, 35, 36, 37, 38, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [5, 7, 8, 15, 22, 25, 30, 34, 35, 36, 37, 38, 39]
+Number of clients after removing some: 23
+Round 158 accuracy: 0.7696
+Round 158 poison accuracy: 0.04
+
+Server Round 159
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 12, 14, 15, 19, 22, 30, 31, 34, 36, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 12, 14, 15, 19, 22, 30, 31, 34, 36, 39]
+Number of clients after removing some: 24
+Round 159 accuracy: 0.7706
+Round 159 poison accuracy: 0.043
+
+Server Round 160
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 8, 11, 12, 13, 15, 17, 18, 26, 30, 31, 34, 37, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 8, 11, 12, 13, 15, 17, 18, 26, 30, 31, 34, 37, 38]
+Number of clients after removing some: 22
+Round 160 accuracy: 0.774
+Round 160 poison accuracy: 0.047
+
+Server Round 161
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 11, 12, 15, 17, 24, 26, 30, 33, 34, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 11, 12, 15, 17, 24, 26, 30, 33, 34, 37]
+Number of clients after removing some: 24
+Round 161 accuracy: 0.7721
+Round 161 poison accuracy: 0.047
+
+Server Round 162
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 12, 15, 19, 29, 30, 34, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 12, 15, 19, 29, 30, 34, 38]
+Number of clients after removing some: 27
+Round 162 accuracy: 0.7749
+Round 162 poison accuracy: 0.051
+
+Server Round 163
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 7, 12, 15, 25, 30, 32, 34, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [7, 12, 15, 25, 30, 32, 34, 38]
+Number of clients after removing some: 28
+Round 163 accuracy: 0.7738
+Round 163 poison accuracy: 0.056
+
+Server Round 164
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 8, 11, 15, 21, 25, 30, 31]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 8, 11, 15, 21, 25, 30, 31]
+Number of clients after removing some: 28
+Round 164 accuracy: 0.7726
+Round 164 poison accuracy: 0.027
+
+Server Round 165
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 10, 14, 15, 18, 19, 30, 35]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 10, 14, 15, 18, 19, 30, 35]
+Number of clients after removing some: 28
+Round 165 accuracy: 0.7704
+Round 165 poison accuracy: 0.032
+
+Server Round 166
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 11, 12, 13, 15, 23, 24, 25, 29, 30, 31, 35, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 11, 12, 13, 15, 23, 24, 25, 29, 30, 31, 35, 37]
+Number of clients after removing some: 23
+Round 166 accuracy: 0.7734
+Round 166 poison accuracy: 0.031
+
+Server Round 167
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 11, 13, 14, 15, 21, 25, 30, 31, 32, 34, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 11, 13, 14, 15, 21, 25, 30, 31, 32, 34, 36]
+Number of clients after removing some: 23
+Round 167 accuracy: 0.7729
+Round 167 poison accuracy: 0.035
+
+Server Round 168
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 15, 16, 21, 23, 26, 29, 30, 31, 32, 33, 35, 37, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 15, 16, 21, 23, 26, 29, 30, 31, 32, 33, 35, 37, 38]
+Number of clients after removing some: 22
+Round 168 accuracy: 0.7705
+Round 168 poison accuracy: 0.021
+
+Server Round 169
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 7, 9, 15, 28, 30, 31, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 7, 9, 15, 28, 30, 31, 38]
+Number of clients after removing some: 28
+Round 169 accuracy: 0.7761
+Round 169 poison accuracy: 0.048
+
+Server Round 170
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 11, 15, 16, 20, 26, 28, 30, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 11, 15, 16, 20, 26, 28, 30, 39]
+Number of clients after removing some: 26
+Round 170 accuracy: 0.7763
+Round 170 poison accuracy: 0.044
+
+Server Round 171
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 13, 14, 15, 24, 30, 31, 32, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 13, 14, 15, 24, 30, 31, 32, 37]
+Number of clients after removing some: 27
+Round 171 accuracy: 0.7763
+Round 171 poison accuracy: 0.029
+
+Server Round 172
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 12, 15, 16, 20, 23, 30, 32, 33, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 12, 15, 16, 20, 23, 30, 32, 33, 39]
+Number of clients after removing some: 26
+Round 172 accuracy: 0.7742
+Round 172 poison accuracy: 0.037
+
+Server Round 173
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 9, 12, 15, 18, 23, 28, 30, 32, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 9, 12, 15, 18, 23, 28, 30, 32, 37]
+Number of clients after removing some: 25
+Round 173 accuracy: 0.7767
+Round 173 poison accuracy: 0.036
+
+Server Round 174
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 6, 9, 14, 15, 30, 31, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 6, 9, 14, 15, 30, 31, 39]
+Number of clients after removing some: 28
+Round 174 accuracy: 0.7686
+Round 174 poison accuracy: 0.053
+
+Server Round 175
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 8, 11, 15, 16, 21, 25, 29, 30, 32, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 8, 11, 15, 16, 21, 25, 29, 30, 32, 36]
+Number of clients after removing some: 25
+Round 175 accuracy: 0.7738
+Round 175 poison accuracy: 0.033
+
+Server Round 176
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 8, 9, 11, 15, 18, 19, 28, 29, 30, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 8, 9, 11, 15, 18, 19, 28, 29, 30, 36]
+Number of clients after removing some: 25
+Round 176 accuracy: 0.7724
+Round 176 poison accuracy: 0.028
+
+Server Round 177
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 5, 6, 9, 15, 16, 23, 26, 27, 29, 30, 32, 35, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [5, 6, 9, 15, 16, 23, 26, 27, 29, 30, 32, 35, 37]
+Number of clients after removing some: 23
+Round 177 accuracy: 0.7722
+Round 177 poison accuracy: 0.025
+
+Server Round 178
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 9, 15, 30]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [9, 15, 30]
+Number of clients after removing some: 33
+Round 178 accuracy: 0.773
+Round 178 poison accuracy: 0.029
+
+Server Round 179
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 15, 17, 23, 25, 27, 28, 30, 31, 33, 36, 37, 38]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 15, 17, 23, 25, 27, 28, 30, 31, 33, 36, 37, 38]
+Number of clients after removing some: 22
+Round 179 accuracy: 0.7755
+Round 179 poison accuracy: 0.047
+
+Server Round 180
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 12, 14, 15, 17, 18, 19, 24, 30, 36]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 12, 14, 15, 17, 18, 19, 24, 30, 36]
+Number of clients after removing some: 25
+Round 180 accuracy: 0.7722
+Round 180 poison accuracy: 0.034
+
+Server Round 181
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 9, 11, 12, 15, 30, 37, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 9, 11, 12, 15, 30, 37, 39]
+Number of clients after removing some: 27
+Round 181 accuracy: 0.7719
+Round 181 poison accuracy: 0.023
+
+Server Round 182
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 7, 8, 11, 13, 14, 15, 24, 25, 28, 30, 35, 36, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 7, 8, 11, 13, 14, 15, 24, 25, 28, 30, 35, 36, 39]
+Number of clients after removing some: 22
+Round 182 accuracy: 0.7721
+Round 182 poison accuracy: 0.035
+
+Server Round 183
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 6, 8, 9, 12, 13, 15, 18, 26, 30, 34]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 6, 8, 9, 12, 13, 15, 18, 26, 30, 34]
+Number of clients after removing some: 24
+Round 183 accuracy: 0.7752
+Round 183 poison accuracy: 0.053
+
+Server Round 184
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 9, 15, 18, 25, 28, 30, 32]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 9, 15, 18, 25, 28, 30, 32]
+Number of clients after removing some: 27
+Round 184 accuracy: 0.7741
+Round 184 poison accuracy: 0.037
+
+Server Round 185
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 15, 21, 23, 30, 37, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 15, 21, 23, 30, 37, 39]
+Number of clients after removing some: 29
+Round 185 accuracy: 0.7741
+Round 185 poison accuracy: 0.06
+
+Server Round 186
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 11, 15, 16, 21, 30, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 11, 15, 16, 21, 30, 37]
+Number of clients after removing some: 29
+Round 186 accuracy: 0.776
+Round 186 poison accuracy: 0.026
+
+Server Round 187
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 8, 9, 11, 13, 15, 21, 22, 30, 31]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 8, 9, 11, 13, 15, 21, 22, 30, 31]
+Number of clients after removing some: 26
+Round 187 accuracy: 0.7761
+Round 187 poison accuracy: 0.048
+
+Server Round 188
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 8, 9, 12, 15, 21, 30, 31, 32, 34]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 8, 9, 12, 15, 21, 30, 31, 32, 34]
+Number of clients after removing some: 26
+Round 188 accuracy: 0.7749
+Round 188 poison accuracy: 0.035
+
+Server Round 189
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 12, 15, 17, 18, 21, 24, 25, 28, 30, 31, 32, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 12, 15, 17, 18, 21, 24, 25, 28, 30, 31, 32, 37]
+Number of clients after removing some: 22
+Round 189 accuracy: 0.7777
+Round 189 poison accuracy: 0.041
+
+Server Round 190
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 15, 16, 18, 30, 31, 32, 34, 36, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 15, 16, 18, 30, 31, 32, 34, 36, 37]
+Number of clients after removing some: 25
+Round 190 accuracy: 0.7775
+Round 190 poison accuracy: 0.039
+
+Server Round 191
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 8, 9, 15, 21, 28, 30, 35]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 8, 9, 15, 21, 28, 30, 35]
+Number of clients after removing some: 28
+Round 191 accuracy: 0.7759
+Round 191 poison accuracy: 0.06
+
+Server Round 192
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 15, 19, 23, 28, 30]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 15, 19, 23, 28, 30]
+Number of clients after removing some: 29
+Round 192 accuracy: 0.7768
+Round 192 poison accuracy: 0.034
+
+Server Round 193
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 15, 17, 21, 22, 23, 30, 35, 38, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 15, 17, 21, 22, 23, 30, 35, 38, 39]
+Number of clients after removing some: 25
+Round 193 accuracy: 0.7778
+Round 193 poison accuracy: 0.046
+
+Server Round 194
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 14, 15, 28, 30, 31, 33, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [14, 15, 28, 30, 31, 33, 39]
+Number of clients after removing some: 29
+Round 194 accuracy: 0.7737
+Round 194 poison accuracy: 0.027
+
+Server Round 195
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 15, 22, 25, 30, 32, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 15, 22, 25, 30, 32, 37]
+Number of clients after removing some: 29
+Round 195 accuracy: 0.7751
+Round 195 poison accuracy: 0.027
+
+Server Round 196
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 7, 11, 15, 18, 19, 23, 28, 30, 35, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 7, 11, 15, 18, 19, 23, 28, 30, 35, 39]
+Number of clients after removing some: 25
+Round 196 accuracy: 0.7735
+Round 196 poison accuracy: 0.046
+
+Server Round 197
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 5, 7, 9, 15, 17, 28, 30, 39]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 5, 7, 9, 15, 17, 28, 30, 39]
+Number of clients after removing some: 27
+Round 197 accuracy: 0.779
+Round 197 poison accuracy: 0.044
+
+Server Round 198
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 8, 15, 18, 26, 30, 31, 33, 35, 37]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 8, 15, 18, 26, 30, 31, 33, 35, 37]
+Number of clients after removing some: 26
+Round 198 accuracy: 0.7767
+Round 198 poison accuracy: 0.025
+
+Server Round 199
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 12, 13, 15, 20, 21, 28, 30]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 12, 13, 15, 20, 21, 28, 30]
+Number of clients after removing some: 27
+Round 199 accuracy: 0.7778
+Round 199 poison accuracy: 0.029
+
+Server Round 200
+RUNNING OUR DETECTION
+Using lof clustering
+The predicted malicious clients: [0, 1, 2, 3, 4, 9, 13, 15, 20, 30]
+The true positives: [0, 1, 2, 3]
+The false negatives: []
+The false positives: [4, 9, 13, 15, 20, 30]
+Number of clients after removing some: 30
+Round 200 accuracy: 0.7778
+Round 200 poison accuracy: 0.035
+

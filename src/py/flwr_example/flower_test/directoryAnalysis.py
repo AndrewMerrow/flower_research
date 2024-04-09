@@ -188,8 +188,15 @@ def plotMultiGraph(multi_df, ax):
             #Set the accuracy axis to go to 100%
             ax.set_ylim([0, 1]) 
             L = ax.legend()
-            ax.set_title("UTD vs V3 Hybrid")
-            #L.get_texts()[0].set_text('Val Accuracy')
+            ax.set_title("UTD RLR vs Lof+RLR")
+    #L.get_texts()[0].set_text('Lof+RLR Benign')
+    #L.get_texts()[1].set_text('Lof+RLR Poison')
+    #L.get_texts()[2].set_text('UTD RLR Benign')
+    #L.get_texts()[3].set_text('UTD RLR Poison')
+    #L.get_texts()[4].set_text('Lof+Kmeans+RLR Benign')
+    #L.get_texts()[5].set_text('Lof+Kmeans+RLR Poison')
+    #.get_texts()[6].set_text('RLR Flower Benign')
+    #L.get_texts()[7].set_text('RLR FLower Poison')
 
 def plotAverages(multi_df, ax=None):
     '''This function works like the plotMultiGraph() funciton, but only plots the average values'''
@@ -232,21 +239,23 @@ def main():
     roundGroupTable = Texttable()
 
     #using this to implement graphing multiple tests in the same graph
+    rounds = 201
     multi_test_accuracies = pd.DataFrame()
-    multi_test_accuracies["Round"] = list(range(0, 101))
+    multi_test_accuracies["Round"] = list(range(0, rounds))
     multi_test_poisons = pd.DataFrame()
-    multi_test_poisons["Round"] = list(range(0, 101))
+    multi_test_poisons["Round"] = list(range(0, rounds))
 
     avg_values = pd.DataFrame()
-    avg_values['Round'] = list(range(0, 101))
+    avg_values['Round'] = list(range(0, rounds))
 
     #used to toggle averaging functionality 
     AVG = True
     AVG_counter = 1
-    available_paths = {'UTD': './directoryAnalysis/bestMethod/UTD', 'lofHybrid': './directoryAnalysis/bestMethod/lofHybrid', 'hybrid': './directoryAnalysis/bestMethod/hybrid', 'UTD_flower': './directoryAnalysis/bestMethod/UTD_flower'}
+    available_paths = {'UTD': './directoryAnalysis/bestMethod/UTD', 'lofHybrid': './directoryAnalysis/bestMethod/lofHybrid', 'hybrid': './directoryAnalysis/bestMethod/hybrid', 'UTD_flower': './directoryAnalysis/bestMethod/UTD_flower', 'cifar': './directoryAnalysis/bestMethod/cifar'}
     #the path of the directory containing the files we want to analyize
     #paths = [available_paths['UTD'], available_paths['lofHybrid'], available_paths["hybrid"], available_paths["UTD_flower"]] 
-    paths = [available_paths["UTD"], available_paths["hybrid"]]
+    paths = ['./directoryAnalysis/bestMethod/cifar/new']
+    #paths = [available_paths['lofHybrid'], available_paths['UTD']]
     #p = Path('./directoryAnalysis/bestMethod/lofHybrid')
     for path in paths:
         p = Path(path)
