@@ -209,11 +209,15 @@ def plotAverages(multi_df, ax=None):
 def evaluateMetrics(df):
     '''This function takes the results dataframe and tests to see when the first round 90% accuracy was reached'''
     for col in df.columns:
-        #print(avg_values[col])
         if(col != "Round"):
+            #Print the final poison and val accuracies
+            if('Poison' not in col):
+                print(col.split(" ")[0] + " final accuracy: {:.2%}".format(float(df[col].iloc[-1])))
+            else:
+                print(col.split(" ")[0] + " final poison accuracy: {:.2%}\n".format(float(df[col].iloc[-1])))
+            #find the first round where training reaches 90%
             for value in df[col]:
                 if(value >= .9):
-                    print(value)
                     idx = df.index[df[col] == value]
                     acc_round = df.loc[idx]['Round'].values[0]
                     print(col.split(" ")[0] + " first round of 90% accuracy: {}".format(str(acc_round)))
@@ -240,8 +244,8 @@ def main():
     AVG_counter = 1
     available_paths = {'UTD': './directoryAnalysis/bestMethod/UTD', 'lofHybrid': './directoryAnalysis/bestMethod/lofHybrid', 'hybrid': './directoryAnalysis/bestMethod/hybrid', 'UTD_flower': './directoryAnalysis/bestMethod/UTD_flower'}
     #the path of the directory containing the files we want to analyize
-    #paths = [available_paths['UTD'], available_paths['lofHybrid'], available_paths["hybrid"], available_paths["UTD_flower"]] 
-    paths = [available_paths["UTD_flower"], available_paths["hybrid"]]
+    paths = [available_paths['UTD'], available_paths['lofHybrid'], available_paths["hybrid"], available_paths["UTD_flower"]] 
+    #paths = [available_paths["UTD_flower"], available_paths["hybrid"]]
     #p = Path('./directoryAnalysis/bestMethod/lofHybrid')
     for path in paths:
         p = Path(path)
