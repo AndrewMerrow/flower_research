@@ -188,6 +188,7 @@ def plotMultiGraph(multi_df, ax):
             #Set the accuracy axis to go to 100%
             ax.set_ylim([0, 1]) 
             L = ax.legend()
+            ax.set_title("UTD vs V3 Hybrid")
             #L.get_texts()[0].set_text('Val Accuracy')
 
 def plotAverages(multi_df, ax=None):
@@ -244,8 +245,8 @@ def main():
     AVG_counter = 1
     available_paths = {'UTD': './directoryAnalysis/bestMethod/UTD', 'lofHybrid': './directoryAnalysis/bestMethod/lofHybrid', 'hybrid': './directoryAnalysis/bestMethod/hybrid', 'UTD_flower': './directoryAnalysis/bestMethod/UTD_flower'}
     #the path of the directory containing the files we want to analyize
-    paths = [available_paths['UTD'], available_paths['lofHybrid'], available_paths["hybrid"], available_paths["UTD_flower"]] 
-    #paths = [available_paths["UTD_flower"], available_paths["hybrid"]]
+    #paths = [available_paths['UTD'], available_paths['lofHybrid'], available_paths["hybrid"], available_paths["UTD_flower"]] 
+    paths = [available_paths["UTD"], available_paths["hybrid"]]
     #p = Path('./directoryAnalysis/bestMethod/lofHybrid')
     for path in paths:
         p = Path(path)
