@@ -878,7 +878,7 @@ def main():
     if(args.data == "cifar10"):
         model = utils.Net()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "cifar_test_" + str(ct) + ".txt"
+        filename = "bestMethod/cifarTests/lof_poison_50_test1_fedemnist_40_clients_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running cifar test", file=f)
     else:
