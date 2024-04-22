@@ -117,8 +117,8 @@ class Server:
 
         for current_round in range(1, num_rounds + 1):
             # Train model and replace previous global model
-            #model = utils.CNN_MNIST()
-            model = utils.Net()
+            model = utils.CNN_MNIST()
+            #model = utils.Net()
             params_dict = zip(model.state_dict().keys(), parameters_to_ndarrays(self.parameters))
             state_dict = OrderedDict({k: torch.tensor(v) for k, v in params_dict})
             model.load_state_dict(state_dict, strict=False)
