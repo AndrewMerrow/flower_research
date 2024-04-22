@@ -215,7 +215,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                 detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
             #print(detection_slice)
             #save the df to a csv for testing
-            saved_csv = detection_slice.to_csv('10_rounds_tests/Cifar/Test1_Round{}_client_models.csv'.format(str(server_round)), index=False)
+            saved_csv = detection_slice.to_csv('10_rounds_tests/testsForPaperGraphs/cifar/Test1_Round{}_client_models.csv'.format(str(server_round)), index=False)
             #call our detection code
             detection_metrics, all_clients, predicted_malicious = our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, cluster_algorithm, "minmax")
             print("The predicted malicious clients")
