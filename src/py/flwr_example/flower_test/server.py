@@ -886,7 +886,7 @@ def main():
         with open(filename, "w") as f:
             print("Running cifar test", file=f)
     elif(args.data == "fmnist"):
-        model = utils.Net()
+        model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         filename = "testsForPaperGraphs/fmnist_lof_poison_50_test1_10_clients_" + str(ct) + ".txt"
         with open(filename, "w") as f:
