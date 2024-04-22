@@ -188,11 +188,11 @@ def plotMultiGraph(multi_df, ax):
             #Set the accuracy axis to go to 100%
             ax.set_ylim([0, 1]) 
             L = ax.legend()
-            ax.set_title("UTD RLR vs Lof+RLR")
-    #L.get_texts()[0].set_text('Lof+RLR Benign')
-    #L.get_texts()[1].set_text('Lof+RLR Poison')
-    #L.get_texts()[2].set_text('UTD RLR Benign')
-    #L.get_texts()[3].set_text('UTD RLR Poison')
+            ax.set_title("UTD RLR vs LOF+RLR")
+    L.get_texts()[0].set_text('LOF+RLR Benign')
+    L.get_texts()[1].set_text('LOF+RLR Poison')
+    L.get_texts()[2].set_text('UTD RLR Benign')
+    L.get_texts()[3].set_text('UTD RLR Poison')
     #L.get_texts()[4].set_text('Lof+Kmeans+RLR Benign')
     #L.get_texts()[5].set_text('Lof+Kmeans+RLR Poison')
     #.get_texts()[6].set_text('RLR Flower Benign')
@@ -225,7 +225,7 @@ def evaluateMetrics(df):
                 print(col.split(" ")[0] + " final poison accuracy: {:.2%}\n".format(float(df[col].iloc[-1])))
             #find the first round where training reaches 90%
             for value in df[col]:
-                if(value >= .9):
+                if(value >= .7):
                     idx = df.index[df[col] == value]
                     acc_round = df.loc[idx]['Round'].values[0]
                     print(col.split(" ")[0] + " first round of 90% accuracy: {}".format(str(acc_round)))
@@ -239,7 +239,7 @@ def main():
     roundGroupTable = Texttable()
 
     #using this to implement graphing multiple tests in the same graph
-    rounds = 201
+    rounds = 101
     multi_test_accuracies = pd.DataFrame()
     multi_test_accuracies["Round"] = list(range(0, rounds))
     multi_test_poisons = pd.DataFrame()
@@ -254,7 +254,7 @@ def main():
     available_paths = {'UTD': './directoryAnalysis/bestMethod/UTD', 'lofHybrid': './directoryAnalysis/bestMethod/lofHybrid', 'hybrid': './directoryAnalysis/bestMethod/hybrid', 'UTD_flower': './directoryAnalysis/bestMethod/UTD_flower', 'cifar': './directoryAnalysis/bestMethod/cifar'}
     #the path of the directory containing the files we want to analyize
     #paths = [available_paths['UTD'], available_paths['lofHybrid'], available_paths["hybrid"], available_paths["UTD_flower"]] 
-    paths = ['./directoryAnalysis/bestMethod/cifar/new']
+    paths = ['./directoryAnalysis/bestMethod/UTD/default', './directoryAnalysis/bestMethod/lofHybrid/default']
     #paths = [available_paths['lofHybrid'], available_paths['UTD']]
     #p = Path('./directoryAnalysis/bestMethod/lofHybrid')
     for path in paths:

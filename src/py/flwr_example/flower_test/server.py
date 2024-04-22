@@ -215,7 +215,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                 detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
             #print(detection_slice)
             #save the df to a csv for testing
-            #saved_csv = detection_slice.to_csv('10_rounds_tests/Test2/Test2_Round{}_client_models.csv'.format(str(server_round)), index=False)
+            saved_csv = detection_slice.to_csv('10_rounds_tests/Cifar/Test1_Round{}_client_models.csv'.format(str(server_round)), index=False)
             #call our detection code
             detection_metrics, all_clients, predicted_malicious = our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, cluster_algorithm, "minmax")
             print("The predicted malicious clients")
@@ -878,7 +878,7 @@ def main():
     if(args.data == "cifar10"):
         model = utils.Net()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "bestMethod/cifarTests/lof_poison_50_test1_fedemnist_40_clients_" + str(ct) + ".txt"
+        filename = "testsForPaperGraphs/lof_poison_50_test1_cifar_40_clients_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running cifar test", file=f)
     else:
@@ -911,7 +911,7 @@ def main():
     # Start Flower server for four rounds of federated learning
     fl.server.start_server(
         server_address="10.100.116.10:8080",
-        config=fl.server.ServerConfig(num_rounds=500 if selectedDataset == "fedemnist" else 200),
+        config=fl.server.ServerConfig(num_rounds=10 if selectedDataset == "fedemnist" else 10),
         strategy=strategy,
     )
 
