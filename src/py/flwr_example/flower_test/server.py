@@ -328,7 +328,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             K = len(df.columns)
             detection_slice = df.tail(10).reset_index(drop=True)
             #used for graphing clusters
-            saved_csv = detection_slice.to_csv('10_rounds_tests/testsForPaperGraphs/fmnist/fmnist_Test2_Round{}_client_models.csv'.format(str(server_round)), index=False)
+            #saved_csv = detection_slice.to_csv('10_rounds_tests/testsForPaperGraphs/fmnist/fmnist_Test2_Round{}_client_models.csv'.format(str(server_round)), index=False)
             #for column in detection_slice.columns:
                 #print(column)
             #    detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
@@ -923,7 +923,7 @@ def main():
     # Start Flower server for four rounds of federated learning
     fl.server.start_server(
         server_address="10.100.116.10:8080",
-        config=fl.server.ServerConfig(num_rounds=10 if selectedDataset == "fedemnist" else 10),
+        config=fl.server.ServerConfig(num_rounds=10 if selectedDataset == "fedemnist" else 100),
         strategy=strategy,
     )
 
