@@ -215,13 +215,13 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                 detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
             #print(detection_slice)
             #save the df to a csv for testing
-            saved_csv = detection_slice.to_csv('10_rounds_tests/testsForPaperGraphs/cifar/Test1_Round{}_client_models.csv'.format(str(server_round)), index=False)
+            #saved_csv = detection_slice.to_csv('10_rounds_tests/testsForPaperGraphs/cifar/Test1_Round{}_client_models.csv'.format(str(server_round)), index=False)
             #call our detection code
             detection_metrics, all_clients, predicted_malicious = our_detect_model_poisoning.detect_malicious(selectedDataset, detection_slice, K, cluster_algorithm, "minmax")
             print("The predicted malicious clients")
             print(sorted(predicted_malicious))
 
-            if(selectedDataset == "cifar10"):
+            if(selectedDataset == "cifar10" or selectedDataset == "fmnist"):
                 with open(filename, "a") as f:
                     print("The predicted malicious clients: {}".format(predicted_malicious), file=f)
                     print("The true positives: " + str(detection_metrics["true_positives"]), file=f)
@@ -881,6 +881,12 @@ def main():
         filename = "testsForPaperGraphs/lof_poison_50_test1_cifar_40_clients_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running cifar test", file=f)
+    elif(args.data == "fmnist"):
+        model = utils.Net()
+        ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        filename = "testsForPaperGraphs/fmnist_lof_poison_50_test1_10_clients_" + str(ct) + ".txt"
+        with open(filename, "w") as f:
+            print("Running fmnist test", file=f)
     else:
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
@@ -893,7 +899,7 @@ def main():
     model_parameters = [val.cpu().numpy() for _, val in model.state_dict().items()]
 
     # Create strategy
-    num_agents = 33 if selectedDataset == "fedemnist" else 40
+    num_agents = 33 if selectedDataset == "fedemnist" else 10
     #strategy = fl.server.strategy.FedAvg(
     strategy = AggregateCustomMetricStrategy(
         min_fit_clients=num_agents,
@@ -911,7 +917,7 @@ def main():
     # Start Flower server for four rounds of federated learning
     fl.server.start_server(
         server_address="10.100.116.10:8080",
-        config=fl.server.ServerConfig(num_rounds=10 if selectedDataset == "fedemnist" else 10),
+        config=fl.server.ServerConfig(num_rounds=10 if selectedDataset == "fedemnist" else 100),
         strategy=strategy,
     )
 
