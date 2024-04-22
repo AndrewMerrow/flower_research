@@ -327,6 +327,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             df = pd.DataFrame(update_dict)
             K = len(df.columns)
             detection_slice = df.tail(10).reset_index(drop=True)
+            #used for graphing clusters
+            saved_csv = detection_slice.to_csv('10_rounds_tests/testsForPaperGraphs/fmnist/fmnist_Test2_Round{}_client_models.csv'.format(str(server_round)), index=False)
             #for column in detection_slice.columns:
                 #print(column)
             #    detection_slice.rename({column: "Client_" + str(column)}, axis=1, inplace=True)
@@ -888,7 +890,7 @@ def main():
     elif(args.data == "fmnist"):
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "testsForPaperGraphs/fmnist_lof_poison_50_test2_10_clients_" + str(ct) + ".txt"
+        filename = "testsForPaperGraphs/fmnist_lof_poison_50_test3_10_clients_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running fmnist test", file=f)
     else:
