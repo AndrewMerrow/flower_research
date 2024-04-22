@@ -260,7 +260,7 @@ def main():
 
     if("UTD" not in args.file):
         print("Type of clustering used: " + str(cluster_method))
-        if("cifar" in args.file):
+        if("cifar" in args.file or "fmnist" in args.file):
             perRoundTable.add_row(["Total Rounds", "Total FNs", "FN/Round", "Total FPs", "FP/Round"])
             perRoundTable.add_row([server_round_count, false_negatives_count, false_negatives_count/server_round_count, false_positives_count, false_positives_count/server_round_count])
         elif("fedemnist" in args.file):
