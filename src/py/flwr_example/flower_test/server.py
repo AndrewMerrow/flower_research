@@ -100,7 +100,7 @@ def get_evaluate_fn(model: torch.nn.Module, toy: bool, data):
             poisoned_valset = utils.DatasetSplit(copy.deepcopy(testset), idxs)
             utils.poison_dataset(poisoned_valset.dataset, selectedDataset, idxs, poison_all=True)
 
-    if(selectedDataset == "cifar10"):
+    if(selectedDataset == "cifar10" or selectedDataset == "fmnist"):
         valLoader = DataLoader(testset, batch_size=256, shuffle=False)
         poisoned_val_loader = DataLoader(poisoned_valset, 256, shuffle=False)
     else:
