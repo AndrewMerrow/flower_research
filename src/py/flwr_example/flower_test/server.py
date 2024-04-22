@@ -568,7 +568,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
                 true_positives = []
                 false_negatives = []
                 for value in predicted_malicious:
-                    if(value < 338):
+                    if(value < 1):
                         true_positives.append(value)
                     else:
                         false_positives.append(value)
