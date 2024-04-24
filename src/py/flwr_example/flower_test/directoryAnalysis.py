@@ -36,7 +36,7 @@ def gatherInfo(filename):
             elif("poison" not in line and "aggregated" not in line and "accuracy:" in line):
                 accuracies.append(line.rstrip('\n'))
             #retrieve the poison accuracy
-            elif("poison" in line and "aggregated:" not in line):
+            elif("aggregated" not in line and "poison" in line): 
                 poison_accuracies.append(line.rstrip("\n"))
             #retrieve the aggregated client training accuracy
             elif("aggregated" in line and "training" in line):
@@ -98,7 +98,6 @@ def gatherInfo(filename):
                     selected_clients.append(int_list)
             FPs_per_round[int(current_round)] = current_FPs
             FNs_per_round[int(current_round)] = current_FNs
-
     return FPs_per_round, FNs_per_round, accuracies, poison_accuracies, false_positives_count, false_negatives_count, server_round_count, aggregated_training_accuracies, aggregated_poison_accuracies
 
 def retrieveAccuracy(table, accuracies, poison_accuracies, aggregated_training_accuracies, aggregated_poison_accuracies, FNs_Per_Round, filename):
@@ -255,7 +254,7 @@ def main():
     #the path of the directory containing the files we want to analyize
     #paths = [available_paths['UTD'], available_paths['lofHybrid'], available_paths["hybrid"], available_paths["UTD_flower"]] 
     paths = ['./directoryAnalysis/fmnist/UTD', './directoryAnalysis/fmnist/lofHybrid']
-    #paths = [available_paths['lofHybrid'], available_paths['UTD']]
+    #paths = ['./directoryAnalysis/fmnist/UTD_flower']
     #p = Path('./directoryAnalysis/bestMethod/lofHybrid')
     for path in paths:
         p = Path(path)
