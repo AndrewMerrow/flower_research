@@ -890,7 +890,7 @@ def main():
     elif(args.data == "fmnist"):
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "testsForPaperGraphs/fmnist_kmeans_poison_50_test1_10_clients_" + str(ct) + ".txt"
+        filename = "testsForPaperGraphs/fmnist_lofHybrid_poison_50_test2_10_clients_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running fmnist test", file=f)
     else:
