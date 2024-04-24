@@ -188,8 +188,8 @@ def plotMultiGraph(multi_df, ax):
             ax.set_ylim([0, 1]) 
             L = ax.legend()
             ax.set_title("UTD RLR vs LOF+RLR (fmnist)")
-    L.get_texts()[0].set_text('UTD Benign')
-    L.get_texts()[1].set_text('UTD Poison')
+    L.get_texts()[0].set_text('UTD flower Benign')
+    L.get_texts()[1].set_text('UTD flower Poison')
     L.get_texts()[2].set_text('lofHybrid Benign')
     L.get_texts()[3].set_text('lofHybrid Poison')
     #L.get_texts()[4].set_text('Lof+Kmeans+RLR Benign')
@@ -253,12 +253,13 @@ def main():
     available_paths = {'UTD': './directoryAnalysis/bestMethod/UTD', 'lofHybrid': './directoryAnalysis/bestMethod/lofHybrid', 'hybrid': './directoryAnalysis/bestMethod/hybrid', 'UTD_flower': './directoryAnalysis/bestMethod/UTD_flower', 'cifar': './directoryAnalysis/bestMethod/cifar'}
     #the path of the directory containing the files we want to analyize
     #paths = [available_paths['UTD'], available_paths['lofHybrid'], available_paths["hybrid"], available_paths["UTD_flower"]] 
-    paths = ['./directoryAnalysis/fmnist/UTD', './directoryAnalysis/fmnist/lofHybrid']
-    #paths = ['./directoryAnalysis/fmnist/UTD_flower']
+    paths = ['./directoryAnalysis/fmnist/UTD_flower', './directoryAnalysis/fmnist/lofHybrid']
+    #paths = ['./directoryAnalysis/fmnist/lofHybrid']
     #p = Path('./directoryAnalysis/bestMethod/lofHybrid')
     for path in paths:
         p = Path(path)
         AVG_counter = 1
+        print(path)
         for child in p.iterdir():
             if child.is_file():
                 #save the path of the current file
@@ -325,12 +326,15 @@ def main():
         #print(multi_test_accuracies)
         #print("BEFORE")
         #print(multi_test_accuracies.columns)
+        #print(multi_test_poisons)
         avg_values[title.split(" ")[0] + ' Average Accuracy'] = multi_test_accuracies.loc[:, multi_test_accuracies.columns != "Round"].mean(axis=1)
         avg_values[title.split(" ")[0] + ' Average Poison'] = multi_test_poisons.loc[:, multi_test_poisons.columns != "Round"].mean(axis=1)
         multi_test_accuracies = pd.DataFrame(None)
-        multi_test_poisons.iloc[0:0]
+        multi_test_poisons = pd.DataFrame(None)
+        #multi_test_poisons.iloc[0:0]
+        #print(avg_values)
         #print("AFTER")
-        #print(multi_test_accuracies.columns)
+        #print(multi_test_poisons.columns)
 
     #compute the averages of all the tests
     #exclude the column containing the round numbers in the average calculation
