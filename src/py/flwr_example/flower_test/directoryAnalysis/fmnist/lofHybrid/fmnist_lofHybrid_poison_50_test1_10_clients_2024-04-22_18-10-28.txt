@@ -1,0 +1,1204 @@
+Running fmnist test
+Round 0 accuracy: 0.1055
+Round 0 poison accuracy: 0.0
+
+Server Round 1
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [2, 4, 5, 6, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [2, 4, 5, 6, 9]
+Number of clients after removing some: 5
+Round 1 aggregated training accuracy: 0.6021333333333333
+Round 1 aggregated poison accuracy: 0.3372
+Round 1 accuracy: 0.6031
+Round 1 poison accuracy: 0.443
+
+Server Round 2
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [1, 2, 3, 5, 7]
+The true positives: []
+The false negatives: [0]
+The false positives: [1, 2, 3, 5, 7]
+Number of clients after removing some: 5
+Round 2 aggregated training accuracy: 0.7121333333333333
+Round 2 aggregated poison accuracy: 0.4192
+Round 2 accuracy: 0.6804
+Round 2 poison accuracy: 0.55
+
+Server Round 3
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [1, 2, 4, 7, 8]
+The true positives: []
+The false negatives: [0]
+The false positives: [1, 2, 4, 7, 8]
+Number of clients after removing some: 5
+Round 3 aggregated training accuracy: 0.7662666666666667
+Round 3 aggregated poison accuracy: 0.3826
+Round 3 accuracy: 0.7533
+Round 3 poison accuracy: 0.376
+
+Server Round 4
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 5, 8, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 5, 8, 9]
+Number of clients after removing some: 5
+Round 4 aggregated training accuracy: 0.7985333333333333
+Round 4 aggregated poison accuracy: 0.128
+Round 4 accuracy: 0.7791
+Round 4 poison accuracy: 0.142
+
+Server Round 5
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [1, 2, 4, 5, 7]
+The true positives: []
+The false negatives: [0]
+The false positives: [1, 2, 4, 5, 7]
+Number of clients after removing some: 5
+Round 5 aggregated training accuracy: 0.8190666666666667
+Round 5 aggregated poison accuracy: 0.249
+Round 5 accuracy: 0.8015
+Round 5 poison accuracy: 0.104
+
+Server Round 6
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 2, 3, 5, 8]
+The true positives: [0]
+The false negatives: []
+The false positives: [2, 3, 5, 8]
+Number of clients after removing some: 5
+Round 6 aggregated training accuracy: 0.8046666666666666
+Round 6 aggregated poison accuracy: 0.0496
+Round 6 accuracy: 0.7962
+Round 6 poison accuracy: 0.056
+
+Server Round 7
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 2, 4, 6, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [2, 4, 6, 9]
+Number of clients after removing some: 5
+Round 7 aggregated training accuracy: 0.8242666666666667
+Round 7 aggregated poison accuracy: 0.1646
+Round 7 accuracy: 0.8043
+Round 7 poison accuracy: 0.131
+
+Server Round 8
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [1, 2, 7, 8, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [1, 2, 7, 8, 9]
+Number of clients after removing some: 5
+Round 8 aggregated training accuracy: 0.8413333333333334
+Round 8 aggregated poison accuracy: 0.2656
+Round 8 accuracy: 0.8183
+Round 8 poison accuracy: 0.107
+
+Server Round 9
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [1, 2, 6, 7, 8]
+The true positives: []
+The false negatives: [0]
+The false positives: [1, 2, 6, 7, 8]
+Number of clients after removing some: 5
+Round 9 aggregated training accuracy: 0.8485333333333334
+Round 9 aggregated poison accuracy: 0.331
+Round 9 accuracy: 0.8259
+Round 9 poison accuracy: 0.156
+
+Server Round 10
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 2, 5, 6, 8]
+The true positives: [0]
+The false negatives: []
+The false positives: [2, 5, 6, 8]
+Number of clients after removing some: 5
+Round 10 aggregated training accuracy: 0.8556
+Round 10 aggregated poison accuracy: 0.0922
+Round 10 accuracy: 0.8315
+Round 10 poison accuracy: 0.124
+
+Server Round 11
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 2, 5, 6, 7]
+The true positives: [0]
+The false negatives: []
+The false positives: [2, 5, 6, 7]
+Number of clients after removing some: 5
+Round 11 aggregated training accuracy: 0.8750666666666667
+Round 11 aggregated poison accuracy: 0.1238
+Round 11 accuracy: 0.8375
+Round 11 poison accuracy: 0.135
+
+Server Round 12
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 5, 6, 7, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [5, 6, 7, 9]
+Number of clients after removing some: 5
+Round 12 aggregated training accuracy: 0.8646666666666667
+Round 12 aggregated poison accuracy: 0.14
+Round 12 accuracy: 0.8422
+Round 12 poison accuracy: 0.117
+
+Server Round 13
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [2, 4, 5, 7, 8]
+The true positives: []
+The false negatives: [0]
+The false positives: [2, 4, 5, 7, 8]
+Number of clients after removing some: 5
+Round 13 aggregated training accuracy: 0.8642666666666666
+Round 13 aggregated poison accuracy: 0.2822
+Round 13 accuracy: 0.84
+Round 13 poison accuracy: 0.126
+
+Server Round 14
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 7, 8, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 7, 8, 9]
+Number of clients after removing some: 5
+Round 14 aggregated training accuracy: 0.8852
+Round 14 aggregated poison accuracy: 0.1318
+Round 14 accuracy: 0.8544
+Round 14 poison accuracy: 0.131
+
+Server Round 15
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 5, 6, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 5, 6, 9]
+Number of clients after removing some: 5
+Round 15 aggregated training accuracy: 0.8750666666666667
+Round 15 aggregated poison accuracy: 0.129
+Round 15 accuracy: 0.8577
+Round 15 poison accuracy: 0.133
+
+Server Round 16
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 6, 7, 8]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 6, 7, 8]
+Number of clients after removing some: 5
+Round 16 aggregated training accuracy: 0.8893333333333333
+Round 16 aggregated poison accuracy: 0.1134
+Round 16 accuracy: 0.8557
+Round 16 poison accuracy: 0.131
+
+Server Round 17
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 2, 4, 6]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 2, 4, 6]
+Number of clients after removing some: 5
+Round 17 aggregated training accuracy: 0.892
+Round 17 aggregated poison accuracy: 0.175
+Round 17 accuracy: 0.8592
+Round 17 poison accuracy: 0.157
+
+Server Round 18
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [2, 3, 4, 5, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [2, 3, 4, 5, 9]
+Number of clients after removing some: 5
+Round 18 aggregated training accuracy: 0.8777333333333334
+Round 18 aggregated poison accuracy: 0.2974
+Round 18 accuracy: 0.8558
+Round 18 poison accuracy: 0.167
+
+Server Round 19
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [1, 2, 4, 5, 6]
+The true positives: []
+The false negatives: [0]
+The false positives: [1, 2, 4, 5, 6]
+Number of clients after removing some: 5
+Round 19 aggregated training accuracy: 0.8858666666666667
+Round 19 aggregated poison accuracy: 0.2578
+Round 19 accuracy: 0.8648
+Round 19 poison accuracy: 0.123
+
+Server Round 20
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [3, 4, 6, 7, 8]
+The true positives: []
+The false negatives: [0]
+The false positives: [3, 4, 6, 7, 8]
+Number of clients after removing some: 5
+Round 20 aggregated training accuracy: 0.9004
+Round 20 aggregated poison accuracy: 0.3248
+Round 20 accuracy: 0.8616
+Round 20 poison accuracy: 0.168
+
+Server Round 21
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 2, 5, 7]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 2, 5, 7]
+Number of clients after removing some: 5
+Round 21 aggregated training accuracy: 0.8981333333333333
+Round 21 aggregated poison accuracy: 0.1954
+Round 21 accuracy: 0.8663
+Round 21 poison accuracy: 0.188
+
+Server Round 22
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 2, 3, 6, 8]
+The true positives: [0]
+The false negatives: []
+The false positives: [2, 3, 6, 8]
+Number of clients after removing some: 5
+Round 22 aggregated training accuracy: 0.8913333333333333
+Round 22 aggregated poison accuracy: 0.1118
+Round 22 accuracy: 0.8628
+Round 22 poison accuracy: 0.146
+
+Server Round 23
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [1, 3, 4, 7, 8]
+The true positives: []
+The false negatives: [0]
+The false positives: [1, 3, 4, 7, 8]
+Number of clients after removing some: 5
+Round 23 aggregated training accuracy: 0.906
+Round 23 aggregated poison accuracy: 0.3316
+Round 23 accuracy: 0.8685
+Round 23 poison accuracy: 0.177
+
+Server Round 24
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [1, 2, 3, 4, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [1, 2, 3, 4, 9]
+Number of clients after removing some: 5
+Round 24 aggregated training accuracy: 0.9004
+Round 24 aggregated poison accuracy: 0.374
+Round 24 accuracy: 0.8709
+Round 24 poison accuracy: 0.236
+
+Server Round 25
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [1, 2, 5, 7, 8]
+The true positives: []
+The false negatives: [0]
+The false positives: [1, 2, 5, 7, 8]
+Number of clients after removing some: 5
+Round 25 aggregated training accuracy: 0.9021333333333333
+Round 25 aggregated poison accuracy: 0.274
+Round 25 accuracy: 0.8722
+Round 25 poison accuracy: 0.171
+
+Server Round 26
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [1, 4, 5, 6, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [1, 4, 5, 6, 9]
+Number of clients after removing some: 5
+Round 26 aggregated training accuracy: 0.8956
+Round 26 aggregated poison accuracy: 0.313
+Round 26 accuracy: 0.8727
+Round 26 poison accuracy: 0.135
+
+Server Round 27
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 2, 3, 5, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [2, 3, 5, 9]
+Number of clients after removing some: 5
+Round 27 aggregated training accuracy: 0.912
+Round 27 aggregated poison accuracy: 0.1858
+Round 27 accuracy: 0.8738
+Round 27 poison accuracy: 0.163
+
+Server Round 28
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [2, 3, 5, 6, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [2, 3, 5, 6, 9]
+Number of clients after removing some: 5
+Round 28 aggregated training accuracy: 0.9136
+Round 28 aggregated poison accuracy: 0.3124
+Round 28 accuracy: 0.8756
+Round 28 poison accuracy: 0.148
+
+Server Round 29
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [1, 4, 5, 7, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [1, 4, 5, 7, 9]
+Number of clients after removing some: 5
+Round 29 aggregated training accuracy: 0.9014666666666666
+Round 29 aggregated poison accuracy: 0.3164
+Round 29 accuracy: 0.8732
+Round 29 poison accuracy: 0.173
+
+Server Round 30
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [1, 2, 3, 6, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [1, 2, 3, 6, 9]
+Number of clients after removing some: 5
+Round 30 aggregated training accuracy: 0.9125333333333333
+Round 30 aggregated poison accuracy: 0.3194
+Round 30 accuracy: 0.8761
+Round 30 poison accuracy: 0.13
+
+Server Round 31
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 3, 6, 8]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 3, 6, 8]
+Number of clients after removing some: 5
+Round 31 aggregated training accuracy: 0.9112
+Round 31 aggregated poison accuracy: 0.126
+Round 31 accuracy: 0.8797
+Round 31 poison accuracy: 0.127
+
+Server Round 32
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 2, 5, 7, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [2, 5, 7, 9]
+Number of clients after removing some: 5
+Round 32 aggregated training accuracy: 0.9170666666666667
+Round 32 aggregated poison accuracy: 0.1188
+Round 32 accuracy: 0.8806
+Round 32 poison accuracy: 0.109
+
+Server Round 33
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 4, 6, 7]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 4, 6, 7]
+Number of clients after removing some: 5
+Round 33 aggregated training accuracy: 0.9182666666666667
+Round 33 aggregated poison accuracy: 0.152
+Round 33 accuracy: 0.8809
+Round 33 poison accuracy: 0.108
+
+Server Round 34
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [3, 5, 6, 7, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [3, 5, 6, 7, 9]
+Number of clients after removing some: 5
+Round 34 aggregated training accuracy: 0.9193333333333333
+Round 34 aggregated poison accuracy: 0.3432
+Round 34 accuracy: 0.8803
+Round 34 poison accuracy: 0.165
+
+Server Round 35
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 4, 6, 7, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [4, 6, 7, 9]
+Number of clients after removing some: 5
+Round 35 aggregated training accuracy: 0.9277333333333333
+Round 35 aggregated poison accuracy: 0.1386
+Round 35 accuracy: 0.8806
+Round 35 poison accuracy: 0.146
+
+Server Round 36
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [3, 5, 6, 7, 8]
+The true positives: []
+The false negatives: [0]
+The false positives: [3, 5, 6, 7, 8]
+Number of clients after removing some: 5
+Round 36 aggregated training accuracy: 0.9178666666666667
+Round 36 aggregated poison accuracy: 0.3034
+Round 36 accuracy: 0.884
+Round 36 poison accuracy: 0.144
+
+Server Round 37
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 3, 4, 6, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [3, 4, 6, 9]
+Number of clients after removing some: 5
+Round 37 aggregated training accuracy: 0.9250666666666667
+Round 37 aggregated poison accuracy: 0.1224
+Round 37 accuracy: 0.8833
+Round 37 poison accuracy: 0.126
+
+Server Round 38
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [1, 2, 4, 7, 8]
+The true positives: []
+The false negatives: [0]
+The false positives: [1, 2, 4, 7, 8]
+Number of clients after removing some: 5
+Round 38 aggregated training accuracy: 0.9245333333333333
+Round 38 aggregated poison accuracy: 0.2838
+Round 38 accuracy: 0.8853
+Round 38 poison accuracy: 0.118
+
+Server Round 39
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [2, 3, 7, 8, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [2, 3, 7, 8, 9]
+Number of clients after removing some: 5
+Round 39 aggregated training accuracy: 0.9209333333333334
+Round 39 aggregated poison accuracy: 0.2938
+Round 39 accuracy: 0.8806
+Round 39 poison accuracy: 0.114
+
+Server Round 40
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 4, 6, 8]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 4, 6, 8]
+Number of clients after removing some: 5
+Round 40 aggregated training accuracy: 0.9253333333333333
+Round 40 aggregated poison accuracy: 0.0802
+Round 40 accuracy: 0.8823
+Round 40 poison accuracy: 0.089
+
+Server Round 41
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 5, 7, 8, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [5, 7, 8, 9]
+Number of clients after removing some: 5
+Round 41 aggregated training accuracy: 0.9262666666666667
+Round 41 aggregated poison accuracy: 0.0724
+Round 41 accuracy: 0.8857
+Round 41 poison accuracy: 0.074
+
+Server Round 42
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [2, 3, 5, 7, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [2, 3, 5, 7, 9]
+Number of clients after removing some: 5
+Round 42 aggregated training accuracy: 0.9244
+Round 42 aggregated poison accuracy: 0.283
+Round 42 accuracy: 0.8863
+Round 42 poison accuracy: 0.056
+
+Server Round 43
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 2, 3, 4, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [2, 3, 4, 9]
+Number of clients after removing some: 5
+Round 43 aggregated training accuracy: 0.9266666666666666
+Round 43 aggregated poison accuracy: 0.0644
+Round 43 accuracy: 0.8839
+Round 43 poison accuracy: 0.059
+
+Server Round 44
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 3, 5, 8]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 3, 5, 8]
+Number of clients after removing some: 5
+Round 44 aggregated training accuracy: 0.9248
+Round 44 aggregated poison accuracy: 0.0398
+Round 44 accuracy: 0.8856
+Round 44 poison accuracy: 0.047
+
+Server Round 45
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 2, 3, 5, 6]
+The true positives: [0]
+The false negatives: []
+The false positives: [2, 3, 5, 6]
+Number of clients after removing some: 5
+Round 45 aggregated training accuracy: 0.9373333333333334
+Round 45 aggregated poison accuracy: 0.06
+Round 45 accuracy: 0.8858
+Round 45 poison accuracy: 0.049
+
+Server Round 46
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 5, 6, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 5, 6, 9]
+Number of clients after removing some: 5
+Round 46 aggregated training accuracy: 0.9269333333333334
+Round 46 aggregated poison accuracy: 0.0786
+Round 46 accuracy: 0.8878
+Round 46 poison accuracy: 0.061
+
+Server Round 47
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 3, 5, 8, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [3, 5, 8, 9]
+Number of clients after removing some: 5
+Round 47 aggregated training accuracy: 0.9298666666666666
+Round 47 aggregated poison accuracy: 0.0482
+Round 47 accuracy: 0.8881
+Round 47 poison accuracy: 0.051
+
+Server Round 48
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 3, 5, 6]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 3, 5, 6]
+Number of clients after removing some: 5
+Round 48 aggregated training accuracy: 0.9418666666666666
+Round 48 aggregated poison accuracy: 0.0982
+Round 48 accuracy: 0.8888
+Round 48 poison accuracy: 0.068
+
+Server Round 49
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 4, 6, 7]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 4, 6, 7]
+Number of clients after removing some: 5
+Round 49 aggregated training accuracy: 0.9405333333333333
+Round 49 aggregated poison accuracy: 0.045
+Round 49 accuracy: 0.8893
+Round 49 poison accuracy: 0.061
+
+Server Round 50
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 3, 4, 6, 8]
+The true positives: [0]
+The false negatives: []
+The false positives: [3, 4, 6, 8]
+Number of clients after removing some: 5
+Round 50 aggregated training accuracy: 0.9393333333333334
+Round 50 aggregated poison accuracy: 0.051
+Round 50 accuracy: 0.8869
+Round 50 poison accuracy: 0.052
+
+Server Round 51
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 3, 5, 6, 8]
+The true positives: [0]
+The false negatives: []
+The false positives: [3, 5, 6, 8]
+Number of clients after removing some: 5
+Round 51 aggregated training accuracy: 0.9330666666666667
+Round 51 aggregated poison accuracy: 0.0552
+Round 51 accuracy: 0.8881
+Round 51 poison accuracy: 0.054
+
+Server Round 52
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [2, 4, 5, 8, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [2, 4, 5, 8, 9]
+Number of clients after removing some: 5
+Round 52 aggregated training accuracy: 0.9290666666666667
+Round 52 aggregated poison accuracy: 0.2332
+Round 52 accuracy: 0.8887
+Round 52 poison accuracy: 0.05
+
+Server Round 53
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 4, 5, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 4, 5, 9]
+Number of clients after removing some: 5
+Round 53 aggregated training accuracy: 0.9376
+Round 53 aggregated poison accuracy: 0.0584
+Round 53 accuracy: 0.8891
+Round 53 poison accuracy: 0.049
+
+Server Round 54
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 3, 4, 5]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 3, 4, 5]
+Number of clients after removing some: 5
+Round 54 aggregated training accuracy: 0.9441333333333334
+Round 54 aggregated poison accuracy: 0.0438
+Round 54 accuracy: 0.8904
+Round 54 poison accuracy: 0.036
+
+Server Round 55
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 2, 3, 4]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 2, 3, 4]
+Number of clients after removing some: 5
+Round 55 aggregated training accuracy: 0.9273333333333333
+Round 55 aggregated poison accuracy: 0.064
+Round 55 accuracy: 0.8869
+Round 55 poison accuracy: 0.046
+
+Server Round 56
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 4, 6, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 4, 6, 9]
+Number of clients after removing some: 5
+Round 56 aggregated training accuracy: 0.9304
+Round 56 aggregated poison accuracy: 0.127
+Round 56 accuracy: 0.8878
+Round 56 poison accuracy: 0.065
+
+Server Round 57
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 3, 4, 5, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [3, 4, 5, 9]
+Number of clients after removing some: 5
+Round 57 aggregated training accuracy: 0.9396
+Round 57 aggregated poison accuracy: 0.0594
+Round 57 accuracy: 0.8891
+Round 57 poison accuracy: 0.056
+
+Server Round 58
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 3, 4, 5]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 3, 4, 5]
+Number of clients after removing some: 5
+Round 58 aggregated training accuracy: 0.9489333333333333
+Round 58 aggregated poison accuracy: 0.054
+Round 58 accuracy: 0.8903
+Round 58 poison accuracy: 0.052
+
+Server Round 59
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 4, 7, 8, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [4, 7, 8, 9]
+Number of clients after removing some: 5
+Round 59 aggregated training accuracy: 0.9409333333333333
+Round 59 aggregated poison accuracy: 0.0524
+Round 59 accuracy: 0.8913
+Round 59 poison accuracy: 0.052
+
+Server Round 60
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 2, 3, 6, 7]
+The true positives: [0]
+The false negatives: []
+The false positives: [2, 3, 6, 7]
+Number of clients after removing some: 5
+Round 60 aggregated training accuracy: 0.9478666666666666
+Round 60 aggregated poison accuracy: 0.0768
+Round 60 accuracy: 0.8914
+Round 60 poison accuracy: 0.054
+
+Server Round 61
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [1, 2, 4, 5, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [1, 2, 4, 5, 9]
+Number of clients after removing some: 5
+Round 61 aggregated training accuracy: 0.9341333333333334
+Round 61 aggregated poison accuracy: 0.2296
+Round 61 accuracy: 0.8898
+Round 61 poison accuracy: 0.04
+
+Server Round 62
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 5, 6, 7]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 5, 6, 7]
+Number of clients after removing some: 5
+Round 62 aggregated training accuracy: 0.9417333333333333
+Round 62 aggregated poison accuracy: 0.038
+Round 62 accuracy: 0.8891
+Round 62 poison accuracy: 0.038
+
+Server Round 63
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [2, 4, 5, 6, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [2, 4, 5, 6, 9]
+Number of clients after removing some: 5
+Round 63 aggregated training accuracy: 0.9429333333333333
+Round 63 aggregated poison accuracy: 0.228
+Round 63 accuracy: 0.8909
+Round 63 poison accuracy: 0.023
+
+Server Round 64
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [2, 3, 5, 8, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [2, 3, 5, 8, 9]
+Number of clients after removing some: 5
+Round 64 aggregated training accuracy: 0.9369333333333333
+Round 64 aggregated poison accuracy: 0.2232
+Round 64 accuracy: 0.8932
+Round 64 poison accuracy: 0.018
+
+Server Round 65
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [2, 6, 7, 8, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [2, 6, 7, 8, 9]
+Number of clients after removing some: 5
+Round 65 aggregated training accuracy: 0.9350666666666667
+Round 65 aggregated poison accuracy: 0.2134
+Round 65 accuracy: 0.8921
+Round 65 poison accuracy: 0.015
+
+Server Round 66
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 5, 6, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 5, 6, 9]
+Number of clients after removing some: 5
+Round 66 aggregated training accuracy: 0.9497333333333333
+Round 66 aggregated poison accuracy: 0.0212
+Round 66 accuracy: 0.8943
+Round 66 poison accuracy: 0.016
+
+Server Round 67
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 2, 4, 5, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [2, 4, 5, 9]
+Number of clients after removing some: 5
+Round 67 aggregated training accuracy: 0.9514666666666667
+Round 67 aggregated poison accuracy: 0.025
+Round 67 accuracy: 0.8933
+Round 67 poison accuracy: 0.019
+
+Server Round 68
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 2, 4, 5, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [2, 4, 5, 9]
+Number of clients after removing some: 5
+Round 68 aggregated training accuracy: 0.9481333333333334
+Round 68 aggregated poison accuracy: 0.017
+Round 68 accuracy: 0.8911
+Round 68 poison accuracy: 0.018
+
+Server Round 69
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 5, 7, 8, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [5, 7, 8, 9]
+Number of clients after removing some: 5
+Round 69 aggregated training accuracy: 0.9482666666666667
+Round 69 aggregated poison accuracy: 0.021
+Round 69 accuracy: 0.893
+Round 69 poison accuracy: 0.013
+
+Server Round 70
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 4, 5, 7, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [4, 5, 7, 9]
+Number of clients after removing some: 5
+Round 70 aggregated training accuracy: 0.9526666666666667
+Round 70 aggregated poison accuracy: 0.019
+Round 70 accuracy: 0.8956
+Round 70 poison accuracy: 0.015
+
+Server Round 71
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 5, 7, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 5, 7, 9]
+Number of clients after removing some: 5
+Round 71 aggregated training accuracy: 0.9518666666666666
+Round 71 aggregated poison accuracy: 0.0176
+Round 71 accuracy: 0.8929
+Round 71 poison accuracy: 0.011
+
+Server Round 72
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 4, 5, 6, 8]
+The true positives: [0]
+The false negatives: []
+The false positives: [4, 5, 6, 8]
+Number of clients after removing some: 5
+Round 72 aggregated training accuracy: 0.9489333333333333
+Round 72 aggregated poison accuracy: 0.0192
+Round 72 accuracy: 0.896
+Round 72 poison accuracy: 0.016
+
+Server Round 73
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [3, 4, 5, 7, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [3, 4, 5, 7, 9]
+Number of clients after removing some: 5
+Round 73 aggregated training accuracy: 0.9438666666666666
+Round 73 aggregated poison accuracy: 0.2194
+Round 73 accuracy: 0.8922
+Round 73 poison accuracy: 0.012
+
+Server Round 74
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 3, 4, 7, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [3, 4, 7, 9]
+Number of clients after removing some: 5
+Round 74 aggregated training accuracy: 0.9510666666666666
+Round 74 aggregated poison accuracy: 0.0148
+Round 74 accuracy: 0.8951
+Round 74 poison accuracy: 0.012
+
+Server Round 75
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 5, 6, 8]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 5, 6, 8]
+Number of clients after removing some: 5
+Round 75 aggregated training accuracy: 0.9549333333333333
+Round 75 aggregated poison accuracy: 0.0076
+Round 75 accuracy: 0.8957
+Round 75 poison accuracy: 0.008
+
+Server Round 76
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [2, 3, 5, 7, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [2, 3, 5, 7, 9]
+Number of clients after removing some: 5
+Round 76 aggregated training accuracy: 0.9464
+Round 76 aggregated poison accuracy: 0.2128
+Round 76 accuracy: 0.8955
+Round 76 poison accuracy: 0.006
+
+Server Round 77
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [1, 2, 3, 6, 8]
+The true positives: []
+The false negatives: [0]
+The false positives: [1, 2, 3, 6, 8]
+Number of clients after removing some: 5
+Round 77 aggregated training accuracy: 0.9401333333333334
+Round 77 aggregated poison accuracy: 0.204
+Round 77 accuracy: 0.8938
+Round 77 poison accuracy: 0.004
+
+Server Round 78
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 3, 7, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 3, 7, 9]
+Number of clients after removing some: 5
+Round 78 aggregated training accuracy: 0.9550666666666666
+Round 78 aggregated poison accuracy: 0.0026
+Round 78 accuracy: 0.8945
+Round 78 poison accuracy: 0.004
+
+Server Round 79
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 3, 4, 5, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [3, 4, 5, 9]
+Number of clients after removing some: 5
+Round 79 aggregated training accuracy: 0.9561333333333333
+Round 79 aggregated poison accuracy: 0.0028
+Round 79 accuracy: 0.8947
+Round 79 poison accuracy: 0.004
+
+Server Round 80
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 2, 5, 8, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [2, 5, 8, 9]
+Number of clients after removing some: 5
+Round 80 aggregated training accuracy: 0.9516
+Round 80 aggregated poison accuracy: 0.0038
+Round 80 accuracy: 0.8975
+Round 80 poison accuracy: 0.004
+
+Server Round 81
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 4, 5, 8, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [4, 5, 8, 9]
+Number of clients after removing some: 5
+Round 81 aggregated training accuracy: 0.9572
+Round 81 aggregated poison accuracy: 0.0038
+Round 81 accuracy: 0.8966
+Round 81 poison accuracy: 0.004
+
+Server Round 82
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 2, 4, 6]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 2, 4, 6]
+Number of clients after removing some: 5
+Round 82 aggregated training accuracy: 0.9524
+Round 82 aggregated poison accuracy: 0.0072
+Round 82 accuracy: 0.8957
+Round 82 poison accuracy: 0.004
+
+Server Round 83
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 5, 8, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 5, 8, 9]
+Number of clients after removing some: 5
+Round 83 aggregated training accuracy: 0.9562666666666667
+Round 83 aggregated poison accuracy: 0.0084
+Round 83 accuracy: 0.8963
+Round 83 poison accuracy: 0.006
+
+Server Round 84
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 2, 3, 5, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [2, 3, 5, 9]
+Number of clients after removing some: 5
+Round 84 aggregated training accuracy: 0.9518666666666666
+Round 84 aggregated poison accuracy: 0.007
+Round 84 accuracy: 0.8954
+Round 84 poison accuracy: 0.005
+
+Server Round 85
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 2, 4, 5, 7]
+The true positives: [0]
+The false negatives: []
+The false positives: [2, 4, 5, 7]
+Number of clients after removing some: 5
+Round 85 aggregated training accuracy: 0.9632
+Round 85 aggregated poison accuracy: 0.006
+Round 85 accuracy: 0.897
+Round 85 poison accuracy: 0.005
+
+Server Round 86
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 4, 5, 7, 8]
+The true positives: [0]
+The false negatives: []
+The false positives: [4, 5, 7, 8]
+Number of clients after removing some: 5
+Round 86 aggregated training accuracy: 0.9581333333333333
+Round 86 aggregated poison accuracy: 0.0076
+Round 86 accuracy: 0.8958
+Round 86 poison accuracy: 0.006
+
+Server Round 87
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 3, 4, 5, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [3, 4, 5, 9]
+Number of clients after removing some: 5
+Round 87 aggregated training accuracy: 0.9648
+Round 87 aggregated poison accuracy: 0.003
+Round 87 accuracy: 0.8937
+Round 87 poison accuracy: 0.004
+
+Server Round 88
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [2, 4, 5, 8, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [2, 4, 5, 8, 9]
+Number of clients after removing some: 5
+Round 88 aggregated training accuracy: 0.9521333333333334
+Round 88 aggregated poison accuracy: 0.2038
+Round 88 accuracy: 0.8961
+Round 88 poison accuracy: 0.004
+
+Server Round 89
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [1, 3, 5, 7, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [1, 3, 5, 7, 9]
+Number of clients after removing some: 5
+Round 89 aggregated training accuracy: 0.9588
+Round 89 aggregated poison accuracy: 0.2016
+Round 89 accuracy: 0.8947
+Round 89 poison accuracy: 0.0
+
+Server Round 90
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 3, 4, 7]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 3, 4, 7]
+Number of clients after removing some: 5
+Round 90 aggregated training accuracy: 0.9581333333333333
+Round 90 aggregated poison accuracy: 0.001
+Round 90 accuracy: 0.8966
+Round 90 poison accuracy: 0.001
+
+Server Round 91
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 2, 4, 5, 7]
+The true positives: [0]
+The false negatives: []
+The false positives: [2, 4, 5, 7]
+Number of clients after removing some: 5
+Round 91 aggregated training accuracy: 0.9617333333333333
+Round 91 aggregated poison accuracy: 0.0012
+Round 91 accuracy: 0.8967
+Round 91 poison accuracy: 0.001
+
+Server Round 92
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 2, 4, 5, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [2, 4, 5, 9]
+Number of clients after removing some: 5
+Round 92 aggregated training accuracy: 0.9678666666666667
+Round 92 aggregated poison accuracy: 0.0006
+Round 92 accuracy: 0.897
+Round 92 poison accuracy: 0.0
+
+Server Round 93
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 2, 5, 6, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [2, 5, 6, 9]
+Number of clients after removing some: 5
+Round 93 aggregated training accuracy: 0.9652
+Round 93 aggregated poison accuracy: 0.0006
+Round 93 accuracy: 0.8974
+Round 93 poison accuracy: 0.0
+
+Server Round 94
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 5, 6, 7]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 5, 6, 7]
+Number of clients after removing some: 5
+Round 94 aggregated training accuracy: 0.9656
+Round 94 aggregated poison accuracy: 0.0004
+Round 94 accuracy: 0.898
+Round 94 poison accuracy: 0.001
+
+Server Round 95
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 2, 3, 4, 7]
+The true positives: [0]
+The false negatives: []
+The false positives: [2, 3, 4, 7]
+Number of clients after removing some: 5
+Round 95 aggregated training accuracy: 0.9593333333333334
+Round 95 aggregated poison accuracy: 0.0
+Round 95 accuracy: 0.8976
+Round 95 poison accuracy: 0.001
+
+Server Round 96
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 5, 7, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 5, 7, 9]
+Number of clients after removing some: 5
+Round 96 aggregated training accuracy: 0.9704
+Round 96 aggregated poison accuracy: 0.0002
+Round 96 accuracy: 0.8995
+Round 96 poison accuracy: 0.001
+
+Server Round 97
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 2, 7, 9]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 2, 7, 9]
+Number of clients after removing some: 5
+Round 97 aggregated training accuracy: 0.9629333333333333
+Round 97 aggregated poison accuracy: 0.0012
+Round 97 accuracy: 0.8944
+Round 97 poison accuracy: 0.001
+
+Server Round 98
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 1, 2, 4, 5]
+The true positives: [0]
+The false negatives: []
+The false positives: [1, 2, 4, 5]
+Number of clients after removing some: 5
+Round 98 aggregated training accuracy: 0.9658666666666667
+Round 98 aggregated poison accuracy: 0.0016
+Round 98 accuracy: 0.8962
+Round 98 poison accuracy: 0.001
+
+Server Round 99
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [0, 2, 4, 7, 8]
+The true positives: [0]
+The false negatives: []
+The false positives: [2, 4, 7, 8]
+Number of clients after removing some: 5
+Round 99 aggregated training accuracy: 0.9574666666666667
+Round 99 aggregated poison accuracy: 0.0012
+Round 99 accuracy: 0.898
+Round 99 poison accuracy: 0.001
+
+Server Round 100
+All selected clients: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+The predicted malicious clients: [2, 3, 4, 5, 9]
+The true positives: []
+The false negatives: [0]
+The false positives: [2, 3, 4, 5, 9]
+Number of clients after removing some: 5
+Round 100 aggregated training accuracy: 0.9506666666666667
+Round 100 aggregated poison accuracy: 0.2006
+Round 100 accuracy: 0.8941
+Round 100 poison accuracy: 0.001
+
