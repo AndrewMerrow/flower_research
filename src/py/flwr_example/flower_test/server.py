@@ -212,7 +212,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             df = pd.DataFrame(update_dict)
             #print(df)
             K = len(df.columns)
-            #full_model = df.to_csv('Round1_full_client_models.csv', index=False)
+            full_model = df.to_csv('Round1_cifar_full_client_models.csv', index=False)
             detection_slice = df.tail(10).reset_index(drop=True)
             for column in detection_slice.columns:
                 #print(column)
@@ -884,7 +884,7 @@ def main():
     if(args.data == "cifar10"):
         model = utils.Net()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "testsForPaperGraphs/lof_poison_50_test1_cifar_40_clients_" + str(ct) + ".txt"
+        filename = "testsForPaperGraphs/full_model_graph_test_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running cifar test", file=f)
     elif(args.data == "fmnist"):
