@@ -559,7 +559,8 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
 
                 #used to run only lof
                 X1, clients1, malicious = our_detection_v3.extract_features_minmax(detection_slice, selectedDataset)
-                lof_predicted_benign, lof_predicted_malicious = our_detection_v3.local_outlier_factor(X1, clients1, 0.1)
+                #lof_predicted_benign, lof_predicted_malicious = our_detection_v3.local_outlier_factor(X1, clients1, 0.1)
+                lof_predicted_benign, lof_predicted_malicious = our_detection_v3.kmeans_clustering(X1, clients1)
                 print ('lof prediction malicious:', sorted(lof_predicted_malicious))
 
                 clients = clients1
@@ -891,7 +892,7 @@ def main():
     elif(args.data == "fmnist"):
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "testsForPaperGraphs/fmnist_testing/fmnist_lofHybrid_top_3_poison_50_test1_10_clients_" + str(ct) + ".txt"
+        filename = "testsForPaperGraphs/fmnist_testing/fmnist_kmeans_4_clusters_poison_50_test1_10_clients_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running fmnist test", file=f)
     else:
