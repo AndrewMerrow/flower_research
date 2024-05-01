@@ -212,7 +212,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             df = pd.DataFrame(update_dict)
             #print(df)
             K = len(df.columns)
-            full_model = df.to_csv('Round1_cifar_full_client_models.csv', index=False)
+            #full_model = df.to_csv('Round1_cifar_full_client_models.csv', index=False)
             detection_slice = df.tail(10).reset_index(drop=True)
             for column in detection_slice.columns:
                 #print(column)
@@ -550,6 +550,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         if lofHybrid:
             df = pd.DataFrame(update_dict)
             K = len(df.columns)
+            full_model = df.to_csv('Round1_fmnist_full_client_models.csv', index=False)
             detection_slice = df.tail(10).reset_index(drop=True)
 
             if(justUTD):
@@ -923,7 +924,7 @@ def main():
     # Start Flower server for four rounds of federated learning
     fl.server.start_server(
         server_address="10.100.116.10:8080",
-        config=fl.server.ServerConfig(num_rounds=100 if selectedDataset == "fedemnist" else 100),
+        config=fl.server.ServerConfig(num_rounds=1 if selectedDataset == "fedemnist" else 1),
         strategy=strategy,
     )
 
