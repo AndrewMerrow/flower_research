@@ -620,7 +620,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             K = len(df.columns)
             #full_model = df.to_csv('Round1_fmnist_full_client_models.csv', index=False)
             detection_slice = df.tail(10).reset_index(drop=True)
-            #round_values = df.to_csv('Round{}_kmeans_detection_slice.csv'.format(server_round), index=False)
+            round_values = df.to_csv('testsForPaperGraphs/fmnist_testing/cluster_visualization/Round{}_kmeans_detection_slice.csv'.format(server_round), index=False)
 
             #used to run only lof
             X1, clients1, malicious = our_detection_v3.extract_features_minmax(detection_slice, selectedDataset)
