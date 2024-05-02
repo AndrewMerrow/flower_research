@@ -624,7 +624,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
 
             #used to run only lof
             X1, clients1, malicious = our_detection_v3.extract_features_minmax(detection_slice, selectedDataset)
-            kmeans_predicted_benign, kmeans_predicted_malicious = our_detection_v3.kmeans_clustering(X1, clients1)
+            kmeans_predicted_malicious = our_detection_v3.kmeans_clustering(X1, clients1)
             print ('kmeans prediction malicious:', sorted(kmeans_predicted_malicious))
 
             clients = clients1
