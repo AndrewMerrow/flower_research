@@ -188,10 +188,10 @@ def plotMultiGraph(multi_df, ax):
             ax.set_ylim([0, 1]) 
             L = ax.legend()
             ax.set_title("UTD RLR vs LOF+RLR (fmnist)")
-    L.get_texts()[0].set_text('UTD flower Benign')
-    L.get_texts()[1].set_text('UTD flower Poison')
-    L.get_texts()[2].set_text('lofHybrid Benign')
-    L.get_texts()[3].set_text('lofHybrid Poison')
+    L.get_texts()[0].set_text('Kmeans Benign')
+    L.get_texts()[1].set_text('Kmeans Poison')
+    #L.get_texts()[2].set_text('lofHybrid Benign')
+    #L.get_texts()[3].set_text('lofHybrid Poison')
     #L.get_texts()[4].set_text('Lof+Kmeans+RLR Benign')
     #L.get_texts()[5].set_text('Lof+Kmeans+RLR Poison')
     #.get_texts()[6].set_text('RLR Flower Benign')
@@ -253,8 +253,8 @@ def main():
     available_paths = {'UTD': './directoryAnalysis/bestMethod/UTD', 'lofHybrid': './directoryAnalysis/bestMethod/lofHybrid', 'hybrid': './directoryAnalysis/bestMethod/hybrid', 'UTD_flower': './directoryAnalysis/bestMethod/UTD_flower', 'cifar': './directoryAnalysis/bestMethod/cifar'}
     #the path of the directory containing the files we want to analyize
     #paths = [available_paths['UTD'], available_paths['lofHybrid'], available_paths["hybrid"], available_paths["UTD_flower"]] 
-    paths = ['./directoryAnalysis/fmnist/UTD_flower', './directoryAnalysis/fmnist/lofHybrid']
-    #paths = ['./directoryAnalysis/fmnist/lofHybrid']
+    #paths = ['./directoryAnalysis/fmnist/UTD_flower', './directoryAnalysis/fmnist/lofHybrid']
+    paths = ['./directoryAnalysis/fmnist/kmeans']
     #p = Path('./directoryAnalysis/bestMethod/lofHybrid')
     for path in paths:
         p = Path(path)

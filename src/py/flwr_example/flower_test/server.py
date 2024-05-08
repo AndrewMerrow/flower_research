@@ -974,7 +974,7 @@ def main():
     elif(args.data == "fmnist"):
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "testsForPaperGraphs/fmnist_testing/fmnist_kmeans_4_clusters_visualization_poison_50_test1_10_clients_" + str(ct) + ".txt"
+        filename = "testsForPaperGraphs/fmnist_testing/fmnist_lofCosine_poison_50_test1_10_clients_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running fmnist test", file=f)
     else:
@@ -1007,7 +1007,7 @@ def main():
     # Start Flower server for four rounds of federated learning
     fl.server.start_server(
         server_address="10.100.116.10:8080",
-        config=fl.server.ServerConfig(num_rounds=10 if selectedDataset == "fedemnist" else 10),
+        config=fl.server.ServerConfig(num_rounds=100 if selectedDataset == "fedemnist" else 100),
         strategy=strategy,
     )
 

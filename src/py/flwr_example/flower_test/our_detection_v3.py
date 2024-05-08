@@ -121,7 +121,8 @@ def kmeans_clustering(X, clients):
 from sklearn.neighbors import LocalOutlierFactor
 def local_outlier_factor(X, clients, offset):
   K = len(clients)
-  model = LocalOutlierFactor(n_neighbors=int(K/2))
+  #model = LocalOutlierFactor(n_neighbors=int(K/2))
+  model = LocalOutlierFactor(n_neighbors=int(K/2), metric='cosine')
   outlier_prediction = model.fit_predict(X)
   lof = np.array(-1 * model.negative_outlier_factor_)
   topindices = np.argsort(lof)[:int(0.5*K)] # top 50% of clients with low LOF values (likely to be benign)
