@@ -219,7 +219,9 @@ def poison_dataset(dataset, selectedDataset, data_idxs=None, agent_idx=-1, poiso
         #plt.title("test")
         #print(clean_img)
         #Plus pattern is hard coded for now
-        bd_img = add_pattern_bd(clean_img, selectedDataset, pattern_type='plus', agent_idx=agent_idx)
+        #bd_img = add_pattern_bd(clean_img, selectedDataset, pattern_type='plus', agent_idx=agent_idx)
+        #Set agent ID to -1 so we can test non-distributed cifar attack
+        bd_img = add_pattern_bd(clean_img, selectedDataset, pattern_type='plus', agent_idx=-1)
         if selectedDataset == 'fedemnist':
             dataset.inputs[idx] = torch.tensor(bd_img)
         else:
