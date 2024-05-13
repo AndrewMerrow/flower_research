@@ -680,7 +680,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
 
             results = new_results
 
-        if(percentileDetection):
+        if(percentile):
             df = pd.DataFrame(update_dict)
             K = len(df.columns)
             #full_model = df.to_csv('Round1_fmnist_full_client_models.csv', index=False)
@@ -983,7 +983,7 @@ def main():
         help="The clustering algorithm to use for our detection method"
     )
     parser.add_argument(
-        "--percentileDetection",
+        "--percentile",
         type=bool,
         default=False,
         required=False,
@@ -1007,7 +1007,7 @@ def main():
     global justUTD
     global kmeansHybrid
     global kmeansOnly
-    global percentileDetection
+    global percentile
 
     UTDDetect = args.UTDDetect
     ourDetect = args.ourDetect
@@ -1022,7 +1022,7 @@ def main():
     justUTD = args.justUTD
     kmeansOnly = args.kmeansOnly
     kmeansHybrid = args.kmeansHybrid
-    percentileDetection = args.percentileDetection 
+    percentile = args.percentile
 
     cluster_algorithm = args.cluster
     selectedDataset = args.data
