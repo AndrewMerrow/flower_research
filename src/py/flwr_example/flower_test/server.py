@@ -685,7 +685,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             K = len(df.columns)
             #full_model = df.to_csv('Round1_fmnist_full_client_models.csv', index=False)
             detection_slice = df.tail(10).reset_index(drop=True)
-            predicted_benign, predicted_malicious, malicious = percentileDetection.percentileDetection(detection_slice, selectedDataset)
+            predicted_benign, predicted_malicious, clients, malicious = percentileDetection.percentileDetection(detection_slice, selectedDataset)
             
             false_positives = []
             true_positives = []

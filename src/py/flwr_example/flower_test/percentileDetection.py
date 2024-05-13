@@ -50,4 +50,4 @@ def percentileDetection(df, selectedDataset):
     #print (benign_df)
     print (f'predicted benign : {sorted(benign_df.index.values)}')
     print (f'predicted malicious : {sorted(malicious_df.index.values)}')
-    return(benign_df.index.values, malicious_df.index.values, malicious_list)
+    return(benign_df.index.values, malicious_df.index.values, client_list, malicious_list)
