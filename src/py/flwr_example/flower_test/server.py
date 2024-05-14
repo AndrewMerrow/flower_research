@@ -1092,8 +1092,8 @@ def main():
     selectedDataset = args.data
     
     if(args.data == "cifar10"):
-        #model = utils.Net()
-        model = utils.CNN_MNIST()
+        model = utils.Net()
+        #model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         filename = "testsForPaperGraphs/cifar_big_model_poison_50_test_1_" + str(ct) + ".txt"
         with open(filename, "w") as f:

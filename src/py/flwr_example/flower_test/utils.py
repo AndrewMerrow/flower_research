@@ -98,17 +98,17 @@ class H5Dataset(Dataset):
 def load_data(data):
     if(data == "cifar10"):
         """Load CIFAR-10 (training and test set)."""
-        #transform_train = transforms.Compose([
-        #        transforms.ToTensor(),
-        #        transforms.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.2023, 0.1994, 0.2010)),
-        #    ])
-        #transform_test = transforms.Compose([
-        #        transforms.ToTensor(),
-        #        transforms.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.2023, 0.1994, 0.2010)),
-        #    ])
+        transform_train = transforms.Compose([
+                transforms.ToTensor(),
+                transforms.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.2023, 0.1994, 0.2010)),
+            ])
+        transform_test = transforms.Compose([
+                transforms.ToTensor(),
+                transforms.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.2023, 0.1994, 0.2010)),
+            ])
         
-        transform_train = transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean=[0.2860], std=[0.3530])])
-        transform_test = transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean=[0.2860], std=[0.3530])])
+        #transform_train = transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean=[0.2860], std=[0.3530])])
+        #transform_test = transforms.Compose([transforms.ToTensor(), transforms.Normalize(mean=[0.2860], std=[0.3530])])
 
         trainset = CIFAR10("./dataset", train=True, download=True, transform=transform_train)
         testset = CIFAR10("./dataset", train=False, download=True, transform=transform_test)
