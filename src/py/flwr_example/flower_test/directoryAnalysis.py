@@ -211,6 +211,7 @@ def plotBarGraph(multi_df, ax):
         #print(col)
         if(col != "Round"):
             if("Poison" not in col):
+                print(col)
                 accuracy = float(multi_df[col].iloc[-1])
                 poisonPercentage = str(col.split('poison')[1].split(' ')[0]) + '%'
                 accuracies.append(accuracy)
@@ -394,6 +395,7 @@ def main():
     #print(multi_test_accuracies)
 
     #plotMultiGraph(avg_values, ax)
+    #print(avg_values)
     plotBarGraph(avg_values, ax)
 
 

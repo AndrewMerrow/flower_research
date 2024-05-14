@@ -1094,7 +1094,7 @@ def main():
     if(args.data == "cifar10"):
         model = utils.Net()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "testsForPaperGraphs/cifar_non_distributed_attack_poison_50_test_2_" + str(ct) + ".txt"
+        filename = "testsForPaperGraphs/cifar_big_model_poison_50_test_1_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running cifar test", file=f)
     elif(args.data == "fmnist"):
