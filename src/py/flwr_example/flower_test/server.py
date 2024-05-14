@@ -1092,7 +1092,8 @@ def main():
     selectedDataset = args.data
     
     if(args.data == "cifar10"):
-        model = utils.Net()
+        #model = utils.Net()
+        model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         filename = "testsForPaperGraphs/cifar_big_model_poison_50_test_1_" + str(ct) + ".txt"
         with open(filename, "w") as f:
@@ -1115,7 +1116,7 @@ def main():
     model_parameters = [val.cpu().numpy() for _, val in model.state_dict().items()]
 
     # Create strategy
-    num_agents = 33 if selectedDataset == "fedemnist" else 10
+    num_agents = 33 if selectedDataset == "fedemnist" else 40
     #strategy = fl.server.strategy.FedAvg(
     strategy = AggregateCustomMetricStrategy(
         min_fit_clients=num_agents,
