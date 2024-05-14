@@ -175,6 +175,7 @@ def plotMultiGraph(multi_df, ax):
         We assume there is a column containing the round numbers called 'Round'. 
     '''
     #fig, ax = plt.subplots()
+    print(multi_df)
     rounds = multi_df.Round.values
     for col in multi_df.columns:
         if(col != "Round"):
@@ -188,14 +189,44 @@ def plotMultiGraph(multi_df, ax):
             ax.set_ylim([0, 1]) 
             L = ax.legend()
             ax.set_title("UTD RLR vs LOF+RLR (fmnist)")
-    L.get_texts()[0].set_text('Kmeans Benign')
-    L.get_texts()[1].set_text('Kmeans Poison')
+    #L.get_texts()[0].set_text('Kmeans Benign')
+    #L.get_texts()[1].set_text('Kmeans Poison')
     #L.get_texts()[2].set_text('lofHybrid Benign')
     #L.get_texts()[3].set_text('lofHybrid Poison')
     #L.get_texts()[4].set_text('Lof+Kmeans+RLR Benign')
     #L.get_texts()[5].set_text('Lof+Kmeans+RLR Poison')
     #.get_texts()[6].set_text('RLR Flower Benign')
     #L.get_texts()[7].set_text('RLR FLower Poison')
+
+def plotBarGraph(multi_df, ax):
+    '''This function creates the bar graph showing the accuracy numbers for each poisoning percentage'''
+    rounds = multi_df.Round.values
+    barwidth = 0.25
+    br1 = np.arange(3)
+    br2 = [x + barwidth for x in br1]
+    #print(multi_df)
+    accuracies = []
+    poisonAccuracies = []
+    for col in multi_df.columns:
+        #print(col)
+        if(col != "Round"):
+            if("Poison" not in col):
+                accuracy = float(multi_df[col].iloc[-1])
+                poisonPercentage = str(col.split('poison')[1].split(' ')[0]) + '%'
+                accuracies.append(accuracy)
+                poisonAccuracies.append(poisonPercentage)
+
+    lofAccuracy = accuracies[0:3]
+    UTDAccuracy = accuracies[3:6]
+    print("Accuracies: " + str(accuracies))
+    print("lof Accuracy: " + str(lofAccuracy))
+    print("UTD Accuracy: " + str(UTDAccuracy))
+    print("Poison: " + str(poisonAccuracies))
+    plt.bar(br1, lofAccuracy, color='r', width=barwidth, label='lofHybrid')
+    plt.bar(br2, UTDAccuracy, color='b', width=barwidth, label='UTD')
+    plt.xticks([r + barwidth for r in range(3)], ['30%', '50%', '80%'])
+    plt.legend()
+    plt.show()
 
 def plotAverages(multi_df, ax=None):
     '''This function works like the plotMultiGraph() funciton, but only plots the average values'''
@@ -253,8 +284,8 @@ def main():
     available_paths = {'UTD': './directoryAnalysis/bestMethod/UTD', 'lofHybrid': './directoryAnalysis/bestMethod/lofHybrid', 'hybrid': './directoryAnalysis/bestMethod/hybrid', 'UTD_flower': './directoryAnalysis/bestMethod/UTD_flower', 'cifar': './directoryAnalysis/bestMethod/cifar'}
     #the path of the directory containing the files we want to analyize
     #paths = [available_paths['UTD'], available_paths['lofHybrid'], available_paths["hybrid"], available_paths["UTD_flower"]] 
-    #paths = ['./directoryAnalysis/fmnist/UTD_flower', './directoryAnalysis/fmnist/lofHybrid']
-    paths = ['./directoryAnalysis/fmnist/kmeans']
+    paths = ['./directoryAnalysis/poisonBarGraph/lofHybrid/poison30', './directoryAnalysis/poisonBarGraph/lofHybrid/poison50', './directoryAnalysis/poisonBarGraph/lofHybrid/poison80', './directoryAnalysis/poisonBarGraph/UTD/poison30', './directoryAnalysis/poisonBarGraph/UTD/poison50', './directoryAnalysis/poisonBarGraph/UTD/poison80']
+    #paths = ['./directoryAnalysis/fmnist/kmeans']
     #p = Path('./directoryAnalysis/bestMethod/lofHybrid')
     for path in paths:
         p = Path(path)
@@ -296,9 +327,11 @@ def main():
                         if(title_pieces[1] == "flower"):
                             title = "{}_{} Test {}".format(title_pieces[0], title_pieces[1], str(AVG_counter))
                         else:
-                            title = "{} Test {}".format(title_pieces[0], str(AVG_counter))
+                            #title = "{} Test {}".format(title_pieces[0], str(AVG_counter))
+                            title = "{} {} {} Test {}".format(title_pieces[0], title_pieces[4], str(float(title_pieces[5])*100).split('.')[0], str(AVG_counter))
                     else:
-                        title = "{} Test {}".format(title_pieces[0], str(AVG_counter))
+                        #title = "{} Test {}".format(title_pieces[0], str(AVG_counter))
+                        title = "{} {} {} Test {}".format(title_pieces[0], title_pieces[1], title_pieces[2], str(AVG_counter))
                     AVG_counter += 1
                 else:
                     title = title_pieces[0]
@@ -327,8 +360,14 @@ def main():
         #print("BEFORE")
         #print(multi_test_accuracies.columns)
         #print(multi_test_poisons)
-        avg_values[title.split(" ")[0] + ' Average Accuracy'] = multi_test_accuracies.loc[:, multi_test_accuracies.columns != "Round"].mean(axis=1)
-        avg_values[title.split(" ")[0] + ' Average Poison'] = multi_test_poisons.loc[:, multi_test_poisons.columns != "Round"].mean(axis=1)
+        
+        #For regular averaging
+        #avg_values[title.split(" ")[0] + ' Average Accuracy'] = multi_test_accuracies.loc[:, multi_test_accuracies.columns != "Round"].mean(axis=1)
+        #avg_values[title.split(" ")[0] + ' Average Poison'] = multi_test_poisons.loc[:, multi_test_poisons.columns != "Round"].mean(axis=1)
+        #For averageing by poison percentage
+        avg_values[title.split(" ")[0] + title.split(" ")[1] + title.split(" ")[2] + ' Average Accuracy'] = multi_test_accuracies.loc[:, multi_test_accuracies.columns != "Round"].mean(axis=1)
+        avg_values[title.split(" ")[0] + title.split(" ")[1] + title.split(" ")[2] + ' Average Poison'] = multi_test_poisons.loc[:, multi_test_poisons.columns != "Round"].mean(axis=1)
+
         multi_test_accuracies = pd.DataFrame(None)
         multi_test_poisons = pd.DataFrame(None)
         #multi_test_poisons.iloc[0:0]
@@ -343,10 +382,10 @@ def main():
     #print(avg_values)
     #print(avg_values[avg_values['hybrid Average Accuracy'] >= .9])
 
-    evaluateMetrics(avg_values)    
+    #evaluateMetrics(avg_values)    
 
     fig, ax = plt.subplots()
-    ax.set_title("Average Results")
+    ax.set_title("Average Results by Poison Percentage")
     #plotMultiGraph(multi_test_accuracies, ax)
     #plotMultiGraph(multi_test_poisons, ax)
     #plotAverages(multi_test_accuracies, ax)
@@ -354,7 +393,8 @@ def main():
     #print(multi_test_poisons)
     #print(multi_test_accuracies)
 
-    plotMultiGraph(avg_values, ax)
+    #plotMultiGraph(avg_values, ax)
+    plotBarGraph(avg_values, ax)
 
 
 

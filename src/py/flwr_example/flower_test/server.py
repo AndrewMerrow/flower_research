@@ -731,6 +731,61 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
 
             results = new_results
 
+        if(percentileHybrid):
+            df = pd.DataFrame(update_dict)
+            K = len(df.columns)
+            #full_model = df.to_csv('Round1_fmnist_full_client_models.csv', index=False)
+            detection_slice = df.tail(10).reset_index(drop=True)
+            predicted_benign, predicted_malicious, clients, malicious = percentileDetection.percentileDetection(detection_slice, selectedDataset)
+            
+            false_positives = []
+            true_positives = []
+            false_negatives = []
+            for value in predicted_malicious:
+                if(value < 1):
+                    true_positives.append(value)
+                else:
+                    false_positives.append(value)
+            for value in malicious:
+                if(value not in predicted_malicious):
+                    false_negatives.append(value)
+            predicted_list = []
+            for value in predicted_malicious:
+                predicted_list.append(value)
+            client_list = []
+            for value in clients:
+                client_list.append(value)
+            # final results are written to output file
+            with open(filename, "a") as f:
+                print("All selected clients: {}".format(sorted(client_list)), file=f)
+                print("The predicted malicious clients: {}".format(sorted(predicted_list)), file=f)
+                print("The true positives: {}".format(sorted(true_positives)), file=f)
+                print("The false negatives: {}".format(sorted(false_negatives)), file=f)
+                print("The false positives: {}".format(sorted(false_positives)), file=f)
+
+            new_results = []
+            for proxy, client in results:
+                if(client.metrics["clientID"] not in predicted_malicious):
+                    #print("Client {} is not marked as malicious".format(client.metrics["clientID"]))
+                    new_results.append((proxy, client))
+
+            #Remove the clients that were filtered out from the update dictionary
+            new_update_dict = {}
+            for proxy, client in new_results:
+                for key, value in update_dict.items():
+                    if(client.metrics["clientID"] == key):
+                        new_update_dict[key] = value
+
+            newClientIDs = []
+            for proxy, client in new_results:
+                newClientIDs.append(client.metrics["clientID"])
+
+            #compute RLR based on the updated update dictionary
+            lr_vector = compute_robustLR(new_update_dict, len(new_update_dict.keys())*.25)
+            print("LR vector based on kmeans hybrid method:")
+            print(lr_vector)
+
+            results = new_results
 
         #UTD RLR method
         if UTDDetect:
@@ -772,7 +827,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
         primeParams = parameters_to_vector(model.parameters()).detach()
         
         #apply RLR if it is being used
-        if(UTDDetect or hybrid or lofHybrid):
+        if(UTDDetect or hybrid or lofHybrid or kmeansHybrid or percentileHybrid):
             finalParams = primeParams * lr_vector
         else:
             finalParams = primeParams
@@ -989,6 +1044,13 @@ def main():
         required=False,
         help="Toggle to enable detection by percentile"
     )
+    parser.add_argument(
+        "--percentileHybrid",
+        type=bool,
+        default=False,
+        required=False,
+        help="Toggle to enable detection by percentile with RLR"
+    )
     args = parser.parse_args()
 
     global selectedDataset 
@@ -1008,6 +1070,7 @@ def main():
     global kmeansHybrid
     global kmeansOnly
     global percentile
+    global percentileHybrid
 
     UTDDetect = args.UTDDetect
     ourDetect = args.ourDetect
@@ -1023,6 +1086,7 @@ def main():
     kmeansOnly = args.kmeansOnly
     kmeansHybrid = args.kmeansHybrid
     percentile = args.percentile
+    percentileHybrid = args.percentileHybrid
 
     cluster_algorithm = args.cluster
     selectedDataset = args.data
