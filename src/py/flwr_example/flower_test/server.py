@@ -736,6 +736,7 @@ class AggregateCustomMetricStrategy(fl.server.strategy.FedAvgM):
             K = len(df.columns)
             #full_model = df.to_csv('Round1_fmnist_full_client_models.csv', index=False)
             detection_slice = df.tail(10).reset_index(drop=True)
+            round_values = detection_slice.to_csv('testsForPaperGraphs/fmnist_testing/percentile/cluster_visualization/test1/Round{}_kmeans_detection_slice.csv'.format(server_round), index=False)
             predicted_benign, predicted_malicious, clients, malicious = percentileDetection.percentileDetection(detection_slice, selectedDataset)
             
             false_positives = []
@@ -1101,7 +1102,7 @@ def main():
     elif(args.data == "fmnist"):
         model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "testsForPaperGraphs/fmnist_testing/fmnist_percentileHybrid_poison_50_test2_10_clients_" + str(ct) + ".txt"
+        filename = "testsForPaperGraphs/fmnist_testing/percentile/fmnist_50_percentileHybrid_poison_50_test1_10_clients_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running fmnist test", file=f)
     else:
@@ -1134,7 +1135,7 @@ def main():
     # Start Flower server for four rounds of federated learning
     fl.server.start_server(
         server_address="10.100.116.10:8080",
-        config=fl.server.ServerConfig(num_rounds=100 if selectedDataset == "fedemnist" else 100),
+        config=fl.server.ServerConfig(num_rounds=10 if selectedDataset == "fedemnist" else 10),
         strategy=strategy,
     )
 
