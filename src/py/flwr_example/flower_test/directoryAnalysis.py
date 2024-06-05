@@ -207,26 +207,51 @@ def plotBarGraph(multi_df, ax):
     #print(multi_df)
     accuracies = []
     poisonAccuracies = []
+    poisonPercentages = []
     for col in multi_df.columns:
         #print(col)
         if(col != "Round"):
             if("Poison" not in col):
-                print(col)
+                #print(col)
                 accuracy = float(multi_df[col].iloc[-1])
                 poisonPercentage = str(col.split('poison')[1].split(' ')[0]) + '%'
                 accuracies.append(accuracy)
-                poisonAccuracies.append(poisonPercentage)
+                poisonPercentages.append(poisonPercentage)
+            else:
+                #print("Poison column: " + col)
+                poisonAccuracy = float(multi_df[col].iloc[-1])
+                poisonAccuracies.append(poisonAccuracy)
 
+    #print out the information for debugging
     lofAccuracy = accuracies[0:3]
     UTDAccuracy = accuracies[3:6]
+    lofPoison = poisonAccuracies[0:3]
+    UTDPoison = poisonAccuracies[3:6]
     print("Accuracies: " + str(accuracies))
+    print("Poisons: " + str(poisonAccuracies))
     print("lof Accuracy: " + str(lofAccuracy))
     print("UTD Accuracy: " + str(UTDAccuracy))
-    print("Poison: " + str(poisonAccuracies))
+    print("lof Poison: " + str(lofPoison))
+    print("UTD Poison: " + str(UTDPoison))
+    print("Poison: " + str(poisonPercentages))
+
+    #plot the accuracy graph
     plt.bar(br1, lofAccuracy, color='r', width=barwidth, label='lofHybrid')
     plt.bar(br2, UTDAccuracy, color='b', width=barwidth, label='UTD')
     plt.xticks([r + barwidth for r in range(3)], ['30%', '50%', '80%'])
-    plt.legend()
+    ax.set_ylim([0.0, 1.0])
+    ax.set_xlabel("Poison %")
+    ax.set_ylabel("Bengin Accuracy")
+    plt.legend(loc="upper center", bbox_to_anchor=(0.5, 1.1), ncol=2)
+    plt.show()
+
+    #plot the poison graph
+    plt.bar(br1, lofPoison, color='r', width=barwidth, label='lofHybrid')
+    plt.bar(br2, UTDPoison, color='b', width=barwidth, label='UTD')
+    plt.xticks([r + barwidth for r in range(3)], ['30%', '50%', '80%'])
+    ax.set_xlabel("Poison %")
+    ax.set_ylabel("Poison Accuracy")
+    plt.legend(loc="upper center", bbox_to_anchor=(0.5, 1.1), ncol=2)
     plt.show()
 
 def plotAverages(multi_df, ax=None):
@@ -285,8 +310,9 @@ def main():
     available_paths = {'UTD': './directoryAnalysis/bestMethod/UTD', 'lofHybrid': './directoryAnalysis/bestMethod/lofHybrid', 'hybrid': './directoryAnalysis/bestMethod/hybrid', 'UTD_flower': './directoryAnalysis/bestMethod/UTD_flower', 'cifar': './directoryAnalysis/bestMethod/cifar'}
     #the path of the directory containing the files we want to analyize
     #paths = [available_paths['UTD'], available_paths['lofHybrid'], available_paths["hybrid"], available_paths["UTD_flower"]] 
+    #used to create the bar graph for the different poison accuracies 
     paths = ['./directoryAnalysis/poisonBarGraph/lofHybrid/poison30', './directoryAnalysis/poisonBarGraph/lofHybrid/poison50', './directoryAnalysis/poisonBarGraph/lofHybrid/poison80', './directoryAnalysis/poisonBarGraph/UTD/poison30', './directoryAnalysis/poisonBarGraph/UTD/poison50', './directoryAnalysis/poisonBarGraph/UTD/poison80']
-    #paths = ['./directoryAnalysis/fmnist/kmeans']
+    #paths = ['./directoryAnalysis/bestMethod/cifar/new/lof', './directoryAnalysis/bestMethod/cifar/new/UTD']
     #p = Path('./directoryAnalysis/bestMethod/lofHybrid')
     for path in paths:
         p = Path(path)
@@ -386,7 +412,7 @@ def main():
     #evaluateMetrics(avg_values)    
 
     fig, ax = plt.subplots()
-    ax.set_title("Average Results by Poison Percentage")
+    #ax.set_title("Average Results by Poison Percentage")
     #plotMultiGraph(multi_test_accuracies, ax)
     #plotMultiGraph(multi_test_poisons, ax)
     #plotAverages(multi_test_accuracies, ax)
@@ -396,6 +422,8 @@ def main():
 
     #plotMultiGraph(avg_values, ax)
     #print(avg_values)
+    
+    #used to create the bar graph for different poison accuracies
     plotBarGraph(avg_values, ax)
 
 
