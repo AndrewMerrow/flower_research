@@ -1096,7 +1096,7 @@ def main():
         model = utils.Net()
         #model = utils.CNN_MNIST()
         ct = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = "cifarDifferentPoison/cifar_lofOnly_poison_30_test_1_" + str(ct) + ".txt"
+        filename = "cifarDifferentPoison/cifar_lofOnly_poison_30_test_3_" + str(ct) + ".txt"
         with open(filename, "w") as f:
             print("Running cifar test", file=f)
     elif(args.data == "fmnist"):
