@@ -236,14 +236,14 @@ def plotBarGraph(multi_df, ax):
     print("Poison: " + str(poisonPercentages))
 
     #plot the accuracy graph
-    plt.bar(br1, lofAccuracy, color='r', width=barwidth, label='lofHybrid')
-    plt.bar(br2, UTDAccuracy, color='b', width=barwidth, label='UTD')
-    plt.xticks([r + barwidth for r in range(3)], ['30%', '50%', '80%'])
-    ax.set_ylim([0.0, 1.0])
-    ax.set_xlabel("Poison %")
-    ax.set_ylabel("Bengin Accuracy")
-    plt.legend(loc="upper center", bbox_to_anchor=(0.5, 1.1), ncol=2)
-    plt.show()
+    #plt.bar(br1, lofAccuracy, color='r', width=barwidth, label='lofHybrid')
+    #plt.bar(br2, UTDAccuracy, color='b', width=barwidth, label='UTD')
+    #plt.xticks([r + barwidth for r in range(3)], ['30%', '50%', '80%'])
+    #ax.set_ylim([0.0, 1.0])
+    #ax.set_xlabel("Poison %")
+    #ax.set_ylabel("Bengin Accuracy")
+    #plt.legend(loc="upper center", bbox_to_anchor=(0.5, 1.1), ncol=2)
+    #plt.show()
 
     #plot the poison graph
     plt.bar(br1, lofPoison, color='r', width=barwidth, label='lofHybrid')
